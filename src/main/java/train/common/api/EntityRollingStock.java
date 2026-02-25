@@ -960,15 +960,9 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
                 }
             }
 
-
             //actually move
-            for(AbstractTrains stock:consist) {
-                if(!stock.hasMoved && stock instanceof EntityRollingStock){
-                    finalMove((EntityRollingStock) stock);
-                    stock.hasMoved=true;
+            finalMove();
 
-                }
-            }
             //only update velocity if we've moved to any significance.
             if(Math.abs(posX-prevPosX)>0.0625 || Math.abs(posZ-prevPosZ)>0.0625) {
                 motionX = (posX - prevPosX)/ticksSinceLastVelocityChange;
@@ -984,7 +978,6 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
                     ticksSinceLastVelocityChange++;
                 }
             }
-            hasMoved=false;
         }
     }
 
@@ -1019,47 +1012,47 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
     /**
      * if X or Z is null, the bogie's existing motion velocity will be used
      */
-    public void finalMove(EntityRollingStock stock) {
+    public void finalMove() {
         double activeSpring = 0.5d; double passiveSpring = 0.25d;
         double springDist = 0d;
-        int pullingDir = stock.pullingLocomotiveDirection();
-        if (stock.frontLink instanceof EntityRollingStock && stock.frontLink.hasMoved) {
-            springDist += stock.manageLink((EntityRollingStock) stock.frontLink) * (pullingDir == 1 ? activeSpring : (pullingDir == -1 ? 0 : passiveSpring));
+        int pullingDir = pullingLocomotiveDirection();
+        if (frontLink instanceof EntityRollingStock) {
+            springDist += manageLink((EntityRollingStock) frontLink) * (pullingDir == 1 ? activeSpring : (pullingDir == -1 ? 0 : passiveSpring));
         }
-        if (stock.backLink instanceof EntityRollingStock && stock.backLink.hasMoved) {
-            springDist -= stock.manageLink((EntityRollingStock) stock.backLink) * (pullingDir == -1 ? activeSpring : (pullingDir == 1 ? 0 : passiveSpring));
+        if (backLink instanceof EntityRollingStock) {
+            springDist -= manageLink((EntityRollingStock) backLink) * (pullingDir == -1 ? activeSpring : (pullingDir == 1 ? 0 : passiveSpring));
         }
+        // Non-null springDist means this stock is allowed to be pulled and an active link is pulling or pushing it
         if (springDist != 0d) {
-            stock.setVelocity(springDist);
+            setVelocity(springDist);
         }
+        applyDrag();
+        cachedVectors[1] = new Vec3f(rotationPoints()[1], 0, 0).rotatePoint(0, rotationYaw, 0)
+                .addVector(bogieBack.posX,0,bogieBack.posZ);
+        setPosition(cachedVectors[1].xCoord, (bogieBack.posY+bogieFront.posY)*0.5,cachedVectors[1].zCoord);
 
-        stock.applyDrag();
-        stock.cachedVectors[1] = new Vec3f(stock.rotationPoints()[1], 0, 0).rotatePoint(0, stock.rotationYaw, 0)
-                .addVector(stock.bogieBack.posX,0,stock.bogieBack.posZ);
-        stock.setPosition(stock.cachedVectors[1].xCoord, (stock.bogieBack.posY+stock.bogieFront.posY)*0.5,stock.cachedVectors[1].zCoord);
-
-        stock.bogieFront.minecartMove(stock);
-        stock.bogieBack.minecartMove(stock);
+        bogieFront.minecartMove(this);
+        bogieBack.minecartMove(this);
 
         //update rotation
-        stock.setRotation((CommonUtil.atan2degreesf(
-                stock.bogieBack.posZ - stock.bogieFront.posZ,
-                stock.bogieBack.posX - stock.bogieFront.posX)),
-                CommonUtil.calculatePitch(stock.bogieFront.posY, stock.bogieBack.posY , Math.abs(stock.rotationPoints()[0]) + Math.abs(stock.rotationPoints()[1])));
+        setRotation((CommonUtil.atan2degreesf(
+                bogieBack.posZ - bogieFront.posZ,
+                bogieBack.posX - bogieFront.posX)),
+                CommonUtil.calculatePitch(bogieFront.posY, bogieBack.posY , Math.abs(rotationPoints()[0]) + Math.abs(rotationPoints()[1])));
 
         //reset the vector when we're done so it wont break trains.
-        stock.cachedVectors[1]= new Vec3f(0,0,0);
+        cachedVectors[1]= new Vec3f(0,0,0);
         //update the collision handler's positions
-        if(stock.collisionHandler==null) {
-            stock.collisionHandler = new EntityHitbox(stock);
-            stock.collisionHandler.position(stock.posX, stock.posY, stock.posZ, stock.rotationPitch, stock.rotationYaw);
+        if(collisionHandler==null) {
+            collisionHandler = new EntityHitbox(this);
+            collisionHandler.position(posX, posY, posZ, rotationPitch, rotationYaw);
         } else {
-            stock.collisionHandler.position(stock.posX, stock.posY, stock.posZ, stock.rotationPitch, stock.rotationYaw);
+            collisionHandler.position(posX, posY, posZ, rotationPitch, rotationYaw);
         }
     }
 
     public void applyDrag() {
-        float drag = 0.98f; float derailSlipFactor = 0.175f;
+        float drag = 0.95f; float derailSlipFactor = 0.175f;
         //If an active loco is linked, don't apply a constant drag
         for(AbstractTrains stock : consist) {
             if(stock.isLocoTurnedOn){

@@ -57,7 +57,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 			{{0, -0.5}, {0.5, 0}, {-0.5, -0.5}}
 	};
 
-	double[] velocity = new double[]{0,0,0,0,0,0};
+	double[] velocity = new double[]{0,0};
 
 
 
@@ -230,8 +230,8 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		// --- Switch track logic fix ---
 		if (TCRailTypes.isSwitchTrack(lastTrack)) {
 			// Determine direction of travel
-			double vx = velocity[0] + velocity[2];
-			double vz = velocity[1] + velocity[3];
+			double vx = velocity[0];
+			double vz = velocity[1];
 			boolean goStraight = false;
 
 			// For each meta, determine if the bogie is going "against" the curve (should ignore switch)
@@ -269,9 +269,6 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		} else if (TCRailTypes.isDiagonalTrack(lastTrack) || TCRailTypes.isDiagonalCrossingTrack(lastTrack)){
 			moveOnTCDiagonal(j);
 		}
-		velocity[2]=0;
-		velocity[3]=0;
-
 	}
 
 	/**
@@ -288,21 +285,15 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 
 	private void moveOnTCDiagonal(int j) {
 
-		railPathX=Math.copySign(0.5,velocity[0]+velocity[2]);
-		railPathZ=Math.copySign(0.5,velocity[1]+velocity[3]);
+		railPathX=Math.copySign(0.5,velocity[0]);
+		railPathZ=Math.copySign(0.5,velocity[1]);
 		motionSqrt = Math.abs(velocity[0])+Math.abs(velocity[1]);
 		velocity[0] = motionSqrt * railPathX;
 		velocity[1] = motionSqrt * railPathZ;
 
-		if(velocity[2]!=0 || velocity[3]!=0) {
-			motionSqrt = Math.abs(velocity[2]) + Math.abs(velocity[3]);
-			velocity[2] = motionSqrt * railPathX;
-			velocity[3] = motionSqrt * railPathZ;
-		}
-
 		centerDiagonal(posX-xFloor,posZ-zFloor);
 
-		motionSqrt = Math.abs(velocity[0])+Math.abs(velocity[1])+Math.abs(velocity[2])+Math.abs(velocity[3]);
+		motionSqrt = Math.abs(velocity[0])+Math.abs(velocity[1]);
 		posY = j + 0.2+ yOffset;
 		setPositionRelative(railPathX*motionSqrt,0,railPathZ*motionSqrt);
 	}
@@ -316,18 +307,15 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 				CommonUtil.radianF;
 		// Calculate the distance from the center to the given point
 		double distance = Math.sqrt(railPathX2 * railPathX2 + railPathZ2 * railPathZ2);
-		//offset the secondary movement vector (because it gets nuked at the start of every tick)
-		velocity[2]+= x-(0.5 + distance * Math.cos(nearestAngleRadians));
-		velocity[3]+= z-(0.5 + distance * Math.sin(nearestAngleRadians));
 	}
 
 	private void moveOnTCStraight(int j, int meta) {
 		if(meta==2 || meta==0){
 			railPathX=0;
-			railPathZ=Math.copySign(1,velocity[1]+velocity[3]);
+			railPathZ=Math.copySign(1,velocity[1]);
 			posX=xFloor+0.5;
 		} else {
-			railPathX=Math.copySign(1,velocity[0]+velocity[2]);
+			railPathX=Math.copySign(1,velocity[0]);
 			railPathZ=0;
 			posZ=zFloor+0.5;
 		}
@@ -335,13 +323,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		velocity[0] = motionSqrt * railPathX;
 		velocity[1] = motionSqrt * railPathZ;
 
-		if(velocity[2]!=0 || velocity[3]!=0) {
-			motionSqrt = Math.abs(velocity[2]) + Math.abs(velocity[3]);
-			velocity[2] = motionSqrt * railPathX;
-			velocity[3] = motionSqrt * railPathZ;
-		}
-
-		motionSqrt = Math.abs(velocity[0])+Math.abs(velocity[1])+Math.abs(velocity[2])+Math.abs(velocity[3]);
+		motionSqrt = Math.abs(velocity[0])+Math.abs(velocity[1]);
 		posY = j + 0.2+ yOffset-ySize;
 		setPositionRelative(railPathX*motionSqrt,0,railPathZ*motionSqrt);
 
@@ -376,13 +358,13 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 	}
 
 	private void moveOnTCTwoWaysCrossing() {
-		double norm = Math.abs(velocity[0])+Math.abs(velocity[1])+Math.abs(velocity[2])+Math.abs(velocity[3]);
+		double norm = Math.abs(velocity[0])+Math.abs(velocity[1]);
 
 		if (lastTrack.blockMetadata==0||lastTrack.blockMetadata==2) {
-			setPositionRelative(0.0D, 0.0D, Math.copySign(norm, Math.abs(velocity[1])+ Math.abs(velocity[3])));
+			setPositionRelative(0.0D, 0.0D, Math.copySign(norm, Math.abs(velocity[1])));
 		}
 		else {
-			setPositionRelative(Math.copySign(norm, Math.abs(velocity[0])+Math.abs(velocity[2])), 0.0D, 0.0D);
+			setPositionRelative(Math.copySign(norm, Math.abs(velocity[0])), 0.0D, 0.0D);
 		}
 
 	}
@@ -412,17 +394,15 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
         double controlZ = posZ - startZ;
 
         double controlNorm = Math.sqrt(controlX * controlX + controlZ * controlZ);
-		double xMotion=velocity[0]+velocity[2];
-		double zMotion=velocity[1]+velocity[3];
-        double vnorm = Math.sqrt(xMotion * xMotion + zMotion * zMotion);
+        double vnorm = Math.sqrt(velocity[0] * velocity[0] + velocity[1] * velocity[1]);
 
 		motionSqrt = Math.sqrt(velocity[0] * velocity[0] + velocity[1] * velocity[1]);
 
         double norm_cpx = controlX / controlNorm; //u
         double norm_cpz = controlZ / controlNorm; //v
 
-        railPathX = (posX + xMotion) - startX;
-        railPathZ = (posZ + zMotion) - startZ;
+        railPathX = (posX + velocity[0]) - startX;
+        railPathZ = (posZ + velocity[1]) - startZ;
 
         double p2_c_norm = Math.sqrt((railPathX * railPathX) + (railPathZ * railPathZ));
 
@@ -494,12 +474,10 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 			yFloor = CommonUtil.floorDouble(this.posY);
 			zFloor = CommonUtil.floorDouble(this.posZ);
 			//prevent moving without velocity
-			if (Math.abs(velocity[0]) + Math.abs(velocity[1] + Math.abs(velocity[2]) + Math.abs(velocity[3])) ==0) {
+			if (Math.abs(velocity[0]) + Math.abs(velocity[1]) ==0) {
 				return;
 			}
 
-			//reset rotation
-			velocity[4]=0;velocity[5]=0;
 			//update old position, add the gravity, and get the block below this,
 			this.prevPosX = this.posX;
 			this.prevPosY = this.posY;
@@ -535,7 +513,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 
 			//move on rails
 			isOnRail = true;
-			double speedMagnitude = Math.sqrt(Math.pow(velocity[0],2)+Math.pow(velocity[1],2))+Math.sqrt(Math.pow(velocity[2],2)+Math.pow(velocity[3],2));
+			double speedMagnitude = Math.sqrt(Math.pow(velocity[0],2)+Math.pow(velocity[1],2));
 			limitSpeed(host, speedMagnitude);
 			if (l instanceof BlockRailBase) {
 				this.yOffset=0.3425f;
@@ -546,11 +524,10 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 			} else {
 				posY++;
 				yFloor++;
-				posX+=(velocity[2]+velocity[0])*0.5;
-				posZ+=(velocity[3]+velocity[1])*0.5;
+				posX += velocity[0] * 0.5;
+				posZ += velocity[1] * 0.5;
 				isOnRail = false;
 			}
-			velocity[2]=0;velocity[3]=0;
 		}
 	}
 
@@ -626,7 +603,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		railPathZ = Math.copySign(Math.sqrt(Math.abs(railPathZ)),railPathZ);
 
 		//cover moving reverse of track direction using the rotation from the closed loop rather than the full motion
-		if((velocity[0]+velocity[2]) * railPathX + (velocity[1]+velocity[3]) * railPathZ <= 0.0D) {
+		if(velocity[0] * railPathX + velocity[1] * railPathZ <= 0.0D) {
 			railPathX = -railPathX;
 			railPathZ = -railPathZ;
 		}
@@ -637,11 +614,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		velocity[0] = (float)(motionSqrt * railPathX);
 		velocity[1] = (float)(motionSqrt * railPathZ);
 
-		motionSqrt = Math.sqrt(Math.pow(velocity[2],2)+Math.pow(velocity[3],2));
-		velocity[2] = (float)(motionSqrt * railPathX);
-		velocity[3] = (float)(motionSqrt * railPathZ);
-
-		motionSqrt = Math.sqrt(Math.pow(velocity[0],2)+Math.pow(velocity[1],2))+Math.sqrt(Math.pow(velocity[2],2)+Math.pow(velocity[3],2));
+		motionSqrt = Math.sqrt(Math.pow(velocity[0],2)+Math.pow(velocity[1],2));
 
 		//define the rail path again, to center the transport.
 		railPathX2 = xFloor + 0.5D + martix[railMetadata][0][0];

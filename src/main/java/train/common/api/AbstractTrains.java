@@ -182,9 +182,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     private OverlayTextureManager overlayTextureContainer;
     private boolean acceptsOverlayTextures = false;
 
-    //needs to be package private (no discriminator)
-    boolean hasMoved=false;
-
 
     public AbstractTrains(World world) {
         super(world);
