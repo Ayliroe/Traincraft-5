@@ -694,7 +694,10 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 	 * @return orientation
 	 */
 	private int getFacing() {
+		float rotation;
 		if (!worldObj.isRemote) {
+			double d6 = bogieBack.posX - bogieFront.posX;
+			double d7 = bogieBack.posZ - bogieFront.posZ;
 			if(d7 == 0. && d6 == 0.) {
 				if(lastFace == -1) {
 					//lastFace = ((int) Math.round(rotationYaw/90) + 5)%4;

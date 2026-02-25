@@ -339,21 +339,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * @param color
      * @see ItemRollingStock
      */
-	/*public void setColor(int color) {
-		if (color==-1 && EnumTrains.getCurrentTrain(getCartItem().getItem()).getColors()!=null){
-			color = getColorFromString(EnumTrains.getCurrentTrain(getCartItem().getItem()).getColors()[0]);
-		}
-		dataWatcher.updateObject(12, color);
-	}*/
-	/*public void setColor(int color) {
-		if (EnumTrains.getCurrentTrain(getCartItem().getItem()).getColors()!=null){
-			if (color==-1 || !ArrayUtils.contains(EnumTrains.getCurrentTrain(getCartItem().getItem()).getColors(),(byte)color)) {
-				color = (EnumTrains.getCurrentTrain(getCartItem().getItem()).getColors()[0]);
-			}
-		}
-		dataWatcher.updateObject(12, color);
-		this.getEntityData().setInteger("color", color);
-	}*/
     public void setColor(int color) {
         TrainRecord trainRecord = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(getCartItem().getItem());
         if (trainRecord != null && !trainRecord.getLiveries().isEmpty()) {
@@ -682,9 +667,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
             return this.getUniqueID().toString();
         }
     }
-
-    public boolean isAccelerating(){return false;}
-
 
     /**
      * called on linking changes and when a train changes running states
