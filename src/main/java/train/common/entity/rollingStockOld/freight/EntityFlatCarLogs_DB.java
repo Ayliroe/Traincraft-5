@@ -43,37 +43,6 @@ public class EntityFlatCarLogs_DB extends Freight implements IInventory {
 	}
 
 	@Override
-	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
-		super.writeEntityToNBT(nbttagcompound);
-
-		NBTTagList nbttaglist = new NBTTagList();
-		for (int i = 0; i < cargoItems.length; i++) {
-			if (cargoItems[i] != null) {
-				NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-				nbttagcompound1.setByte("Slot", (byte) i);
-				cargoItems[i].writeToNBT(nbttagcompound1);
-				nbttaglist.appendTag(nbttagcompound1);
-			}
-		}
-		nbttagcompound.setTag("Items", nbttaglist);
-	}
-
-	@Override
-	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
-		super.readEntityFromNBT(nbttagcompound);
-
-		NBTTagList nbttaglist = nbttagcompound.getTagList("Items", Constants.NBT.TAG_COMPOUND);
-		cargoItems = new ItemStack[getSizeInventory()];
-		for (int i = 0; i < nbttaglist.tagCount(); i++) {
-			NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
-			int j = nbttagcompound1.getByte("Slot") & 0xff;
-			if (j >= 0 && j < cargoItems.length) {
-				cargoItems[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
-			}
-		}
-	}
-
-	@Override
 	public String getInventoryName() {
 		return "Wood transport";
 	}

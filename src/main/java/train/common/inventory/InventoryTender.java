@@ -19,7 +19,7 @@ public class InventoryTender extends Container {
 	public InventoryTender(InventoryPlayer iinventory, EntityRollingStock entityminecart) {
 		player = iinventory;
 		loco = (Tender) entityminecart;
-		inventorySize = loco.tenderItems.length;
+		inventorySize = loco.cargoItems.length;
 		int i = 1;
 		int numCargoSlots = 5;
 		addSlotToContainer(new Slot((IInventory) entityminecart, 0, 8, 53));
@@ -72,7 +72,7 @@ public class InventoryTender extends Container {
 
 				slot.putStack(null);
 				if (i < inventorySize) {
-					loco.tenderItems[i] = null;
+					loco.cargoItems[i] = null;
 				}
 			}
 			else {

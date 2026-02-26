@@ -201,10 +201,10 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 						drain = frontLink.drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
 					}
 				}
-				for (int h = 0; h < ((Tender) frontLink).tenderItems.length; h++) {
-					if (((Tender) frontLink).tenderItems[h] != null && FuelHandler.steamFuelLast(((Tender) frontLink).tenderItems[h]) != 0) {
-						if (getFuel() < maxFuel && ((getFuel() + FuelHandler.steamFuelLast(((Tender) frontLink).tenderItems[h])) <= maxFuel)) {
-							fuelTrain += FuelHandler.steamFuelLast(((Tender) frontLink).tenderItems[h]);
+				for (int h = 0; h < ((Tender) frontLink).cargoItems.length; h++) {
+					if (((Tender) frontLink).cargoItems[h] != null && FuelHandler.steamFuelLast(((Tender) frontLink).cargoItems[h]) != 0) {
+						if (getFuel() < maxFuel && ((getFuel() + FuelHandler.steamFuelLast(((Tender) frontLink).cargoItems[h])) <= maxFuel)) {
+							fuelTrain += FuelHandler.steamFuelLast(((Tender) frontLink).cargoItems[h]);
 							hasCoalInTender = true;
 							frontLink.decrStackSize(h, 1);
 							break;
@@ -222,10 +222,10 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 				}
 
 
-				for (int h = 0; h < ((Tender) backLink).tenderItems.length; h++) {
-					if (((Tender) backLink).tenderItems[h] != null && FuelHandler.steamFuelLast(((Tender) backLink).tenderItems[h]) != 0) {
-						if (getFuel() < maxFuel && ((getFuel() + FuelHandler.steamFuelLast(((Tender) backLink).tenderItems[h])) <= maxFuel)) {
-							fuelTrain += FuelHandler.steamFuelLast(((Tender) backLink).tenderItems[h]);
+				for (int h = 0; h < ((Tender) backLink).cargoItems.length; h++) {
+					if (((Tender) backLink).cargoItems[h] != null && FuelHandler.steamFuelLast(((Tender) backLink).cargoItems[h]) != 0) {
+						if (getFuel() < maxFuel && ((getFuel() + FuelHandler.steamFuelLast(((Tender) backLink).cargoItems[h])) <= maxFuel)) {
+							fuelTrain += FuelHandler.steamFuelLast(((Tender) backLink).cargoItems[h]);
 							hasCoalInTender = true;
 							backLink.decrStackSize(h, 1);
 							break;

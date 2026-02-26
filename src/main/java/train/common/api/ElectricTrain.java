@@ -14,8 +14,6 @@ public abstract class ElectricTrain extends Locomotive {
 
 	private int timeSinceIgnited;
 	private boolean Ignite;
-	//private boolean hasUranium;
-	//private int reduceExplosionChance;
 	public int maxEnergy = 20000;
 
 	public ElectricTrain(World world) {

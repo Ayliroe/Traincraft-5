@@ -14,7 +14,6 @@ import train.common.entity.rollingStockOld.special.EntityBUnitEMDF7;
 
 public abstract class Tender extends Freight implements IFluidHandler {
 
-    public ItemStack[] tenderItems;
     private int maxTank;
     private int update = 8;
     private StandardTank theTank;
@@ -130,21 +129,21 @@ public abstract class Tender extends Freight implements IFluidHandler {
     }
 
     private void placeInInvent(ItemStack itemstack1, Tender tender) {
-        for (int i = 1; i < tender.tenderItems.length; i++) {
-            if (tender.tenderItems[i] == null) {
-                tender.tenderItems[i] = itemstack1;
+        for (int i = 1; i < tender.cargoItems.length; i++) {
+            if (tender.cargoItems[i] == null) {
+                tender.cargoItems[i] = itemstack1;
                 return;
-            } else if (tender.tenderItems[i] != null && tender.tenderItems[i].getItem() == itemstack1.getItem() && itemstack1.isStackable() &&
-                    (!itemstack1.getHasSubtypes() || tender.tenderItems[i].getItemDamage() == itemstack1.getItemDamage()) && ItemStack.areItemStackTagsEqual(tender.tenderItems[i], itemstack1)) {
-                int var9 = tender.tenderItems[i].stackSize + itemstack1.stackSize;
-                if (var9 <= tender.tenderItems[i].getMaxStackSize()) {
-                    tender.tenderItems[i].stackSize = var9;
+            } else if (tender.cargoItems[i] != null && tender.cargoItems[i].getItem() == itemstack1.getItem() && itemstack1.isStackable() &&
+                    (!itemstack1.getHasSubtypes() || tender.cargoItems[i].getItemDamage() == itemstack1.getItemDamage()) && ItemStack.areItemStackTagsEqual(tender.cargoItems[i], itemstack1)) {
+                int var9 = tender.cargoItems[i].stackSize + itemstack1.stackSize;
+                if (var9 <= tender.cargoItems[i].getMaxStackSize()) {
+                    tender.cargoItems[i].stackSize = var9;
                     return;
-                } else if (tender.tenderItems[i].stackSize < tender.tenderItems[i].getMaxStackSize()) {
-                    tender.tenderItems[i].stackSize += 1;
+                } else if (tender.cargoItems[i].stackSize < tender.cargoItems[i].getMaxStackSize()) {
+                    tender.cargoItems[i].stackSize += 1;
                     return;
                 }
-            } else if (i == tender.tenderItems.length - 1) {
+            } else if (i == tender.cargoItems.length - 1) {
                 entityDropItem(itemstack1, 1);
                 return;
             }
@@ -214,14 +213,14 @@ public abstract class Tender extends Freight implements IFluidHandler {
     /*IInventory implements*/
     @Override
     public ItemStack getStackInSlot(int i) {
-        return tenderItems[i];
+        return cargoItems[i];
     }
 
     @Override
     public ItemStack getStackInSlotOnClosing(int par1) {
-        if (this.tenderItems[par1] != null) {
-            ItemStack var2 = this.tenderItems[par1];
-            this.tenderItems[par1] = null;
+        if (this.cargoItems[par1] != null) {
+            ItemStack var2 = this.cargoItems[par1];
+            this.cargoItems[par1] = null;
             return var2;
         } else {
             return null;
@@ -230,15 +229,15 @@ public abstract class Tender extends Freight implements IFluidHandler {
 
     @Override
     public ItemStack decrStackSize(int i, int j) {
-        if (tenderItems[i] != null) {
-            if (tenderItems[i].stackSize <= j) {
-                ItemStack itemstack = tenderItems[i];
-                tenderItems[i] = null;
+        if (cargoItems[i] != null) {
+            if (cargoItems[i].stackSize <= j) {
+                ItemStack itemstack = cargoItems[i];
+                cargoItems[i] = null;
                 return itemstack;
             }
-            ItemStack itemstack1 = tenderItems[i].splitStack(j);
-            if (tenderItems[i].stackSize == 0) {
-                tenderItems[i] = null;
+            ItemStack itemstack1 = cargoItems[i].splitStack(j);
+            if (cargoItems[i].stackSize == 0) {
+                cargoItems[i] = null;
             }
             return itemstack1;
         } else {
@@ -248,7 +247,7 @@ public abstract class Tender extends Freight implements IFluidHandler {
 
     @Override
     public void setInventorySlotContents(int i, ItemStack itemstack) {
-        tenderItems[i] = itemstack;
+        cargoItems[i] = itemstack;
         if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
             itemstack.stackSize = getInventoryStackLimit();
         }
@@ -310,7 +309,7 @@ public abstract class Tender extends Freight implements IFluidHandler {
     public void dropCartAsItem(boolean isCreative) {
         if (!itemdropped) {
             super.dropCartAsItem(isCreative);
-            for (ItemStack stack : tenderItems) {
+            for (ItemStack stack : cargoItems) {
                 if (stack != null) {
                     entityDropItem(stack, 0);
                 }

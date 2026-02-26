@@ -84,18 +84,6 @@ public class EntityBUnitEMDF3 extends LiquidTank implements IFluidHandler {
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         super.writeEntityToNBT(nbttagcompound);
-        NBTTagList nbttaglist = new NBTTagList();
-        for (int i = 0; i < cargoItems.length; i++) {
-            if (cargoItems[i] != null) {
-                NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-                nbttagcompound1.setByte("Slot", (byte) i);
-                cargoItems[i].writeToNBT(nbttagcompound1);
-                nbttaglist.appendTag(nbttagcompound1);
-            }
-        }
-
-
-        nbttagcompound.setTag("Items", nbttaglist);
         if (theTank != null && theTank.getFluid() != null) {
             new FluidStack(theTank.getFluid(), this.dataWatcher.getWatchableObjectInt(18)).writeToNBT(nbttagcompound);
         }
@@ -104,19 +92,9 @@ public class EntityBUnitEMDF3 extends LiquidTank implements IFluidHandler {
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
-        NBTTagList nbttaglist = nbttagcompound.getTagList("Items", Constants.NBT.TAG_COMPOUND);
-        cargoItems = new ItemStack[getSizeInventory()];
-        for (int i = 0; i < nbttaglist.tagCount(); i++) {
-            NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
-            int j = nbttagcompound1.getByte("Slot") & 0xff;
-            if (j < cargoItems.length) {
-                cargoItems[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
-            }
-        }
         if (nbttagcompound.hasKey("FluidName")) {
             fill(ForgeDirection.UNKNOWN, FluidStack.loadFluidStackFromNBT(nbttagcompound), true);
         }
-
     }
 
     private void placeInInvent(ItemStack itemstack1) {

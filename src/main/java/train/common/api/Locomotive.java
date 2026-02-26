@@ -147,8 +147,7 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
             char c = chars[random.nextInt(chars.length)];
             sb.append(c);
         }
-        String output = sb.toString();
-        trainID = output;
+        trainID = sb.toString();
 
         // --- SERVER ---
         if (serverUUID != "") {
