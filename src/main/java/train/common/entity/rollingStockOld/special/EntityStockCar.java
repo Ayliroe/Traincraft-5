@@ -24,30 +24,9 @@ public class EntityStockCar extends EntityRollingStock implements IPassenger {
 		prevPosZ = d2;
 	}
 
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
 	}
 
 	@Override

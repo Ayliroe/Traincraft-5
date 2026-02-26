@@ -192,7 +192,7 @@ public class trainConverter {
         builder.append("    }\n\n");
 
         builder.append("    @Override\n");
-        builder.append("    public float transportTopSpeed(){return ");
+        builder.append("    public float getSpecMaxSpeed(){return ");
         builder.append(getTrain(trn).getEntity(null).getSpec().getMaxSpeed());
         builder.append(";}\n\n");
 
@@ -207,7 +207,7 @@ public class trainConverter {
         builder.append("}\n\n");
 
         builder.append("	@Override\n");
-        builder.append("	public float transportMetricHorsePower(){return ");
+        builder.append("	public float getSpecMHP(){return ");
         builder.append(getTrain(trn).getMHP());
         builder.append(";}\n\n");
 

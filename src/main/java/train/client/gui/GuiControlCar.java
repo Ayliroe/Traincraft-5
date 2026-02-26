@@ -284,15 +284,15 @@ public class GuiControlCar extends GuiContainer
             fontRendererObj.drawStringWithShadow("Brake reduction: " + (Math.round(guiDetails.get("brakeSlowDown").getAsDouble() * 1000) / 1000), 1, 50, 0xFFFFFF);
 
 
-            fontRendererObj.drawStringWithShadow("Fuel consumption: " + ((locomotiveUnderControl.getFuelConsumption() *0.2)+"").substring(0,Math.min(((locomotiveUnderControl.getFuelConsumption() *0.2)+"").length(),4))+ " mB/s", 1,
+            fontRendererObj.drawStringWithShadow("Fuel consumption: " + ((locomotiveUnderControl.fuelRate *0.2)+"").substring(0,Math.min(((locomotiveUnderControl.fuelRate *0.2)+"").length(),4))+ " mB/s", 1,
                     60, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("Fuel: " + locomotiveUnderControl.getFuel(), 1, 70, 0xFFFFFF);
-            fontRendererObj.drawStringWithShadow("Power: " + locomotiveUnderControl.transportMetricHorsePower() + " Mhp", 1, 80, 0xFFFFFF);
+            fontRendererObj.drawStringWithShadow("Power: " + locomotiveUnderControl.getSpecMHP() + " Mhp", 1, 80, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("State: " + locomotiveUnderControl.getState(), 1, 90, 0xFFFFFF);
-            fontRendererObj.drawStringWithShadow("Heat level: " + locomotiveUnderControl.getOverheatLevel(), 1, 100, 0xFFFFFF);
-            fontRendererObj.drawStringWithShadow("Maximum Speed: " + (locomotiveUnderControl.getCustomSpeedGUI()) + " km/h", 1, 110, 0xFFFFFF);
-            fontRendererObj.drawStringWithShadow("Destination: " + (locomotiveUnderControl.getDestinationGUI()), 1, 120, 0xFFFFFF);
-            fontRendererObj.drawStringWithShadow("Primary Loco: " + (locomotiveUnderControl.getInventoryName()), 1, 130, 0xFFFFFF);
+            fontRendererObj.drawStringWithShadow("Heat level: " + locomotiveUnderControl.getHeat(), 1, 100, 0xFFFFFF);
+            fontRendererObj.drawStringWithShadow("Maximum Speed: " + locomotiveUnderControl.getCurrentMaxSpeed() + " km/h", 1, 110, 0xFFFFFF);
+            fontRendererObj.drawStringWithShadow("Destination: " + locomotiveUnderControl.getDestinationGUI(), 1, 120, 0xFFFFFF);
+            fontRendererObj.drawStringWithShadow("Primary Loco: " + locomotiveUnderControl.getInventoryName(), 1, 130, 0xFFFFFF);
         }
         else
         {

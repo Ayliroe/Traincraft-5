@@ -23,28 +23,6 @@ public class EntityPassenger_1class_DB extends EntityRollingStock implements IPa
 		prevPosY = d1;
 		prevPosZ = d2;
 	}
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

@@ -66,13 +66,6 @@ public class EntityJukeBoxCart extends EntityRollingStock {
 		}
 		return true;
 	}
-	
-	@Override
-	public void setDead() {
-		this.stopStream();
-		super.setDead();
-		isDead = true;
-	}
 
 	@Override
 	public void onUpdate() {
@@ -187,16 +180,6 @@ public class EntityJukeBoxCart extends EntityRollingStock {
 		
 		entityplayer.openGui(Traincraft.instance, GuiIDs.JUKEBOX, worldObj, this.getEntityId(), -1, (int) this.posZ);
 		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
 	}
 
 	@Override

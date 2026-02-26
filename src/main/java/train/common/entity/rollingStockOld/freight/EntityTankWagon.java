@@ -36,12 +36,6 @@ public class EntityTankWagon extends LiquidTank {
     }
 
     @Override
-    public void setDead() {
-        super.setDead();
-        isDead = true;
-    }
-
-    @Override
     public void onUpdate() {
         super.onUpdate();
         checkInvent(cargoItems[0]);
@@ -103,11 +97,6 @@ public class EntityTankWagon extends LiquidTank {
     @Override
     public boolean isUseableByPlayer(EntityPlayer entityplayer) {
         return (!isDead && entityplayer.getDistanceSqToEntity(this) <= 64D);
-    }
-
-    @Override
-    public boolean isStorageCart() {
-        return true;
     }
 
     @Override

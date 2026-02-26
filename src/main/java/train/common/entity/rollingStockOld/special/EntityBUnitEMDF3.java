@@ -40,13 +40,6 @@ public class EntityBUnitEMDF3 extends LiquidTank implements IFluidHandler {
         prevPosZ = d2;
     }
 
-
-     @Override
-    public void setDead() {
-        super.setDead();
-        isDead = true;
-    }
-
     @Override
     public void onUpdate() {
         super.onUpdate();
@@ -203,12 +196,6 @@ public class EntityBUnitEMDF3 extends LiquidTank implements IFluidHandler {
         }
         return true;
     }
-
-    @Override
-    public boolean isStorageCart() {
-        return true;
-    }
-
     @Override
     public float getOptimalDistance(EntityMinecart cart) {
         return 2.2F;

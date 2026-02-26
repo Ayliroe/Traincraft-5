@@ -34,12 +34,6 @@ public class EntityCabooseLoggingPRR extends AbstractWorkCart implements IInvent
 		prevPosZ = d2;
 	}
 
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	@Override
 	public void pressKey(int i) {
 		if(locked && riddenByEntity != null && riddenByEntity instanceof EntityPlayer&& !((EntityPlayer)riddenByEntity).getDisplayName().toLowerCase().equals(this.trainOwner.toLowerCase())){
@@ -64,16 +58,6 @@ public class EntityCabooseLoggingPRR extends AbstractWorkCart implements IInvent
 		return "Logging Caboose";
 	}
 
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

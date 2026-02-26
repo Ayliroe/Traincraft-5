@@ -34,28 +34,6 @@ public class EntityPassengerRheingoldPanorama extends EntityRollingStock impleme
 		return new float[][]{
 				{1.0f,0.4f,0f},{-1.0f,0.4f,0f},{-3.05f,-0.25f,0f},{3.05f,-0.25f,0f}};
 	}
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

@@ -39,12 +39,6 @@ public class EntityFreightShortCoveredHopper extends Freight implements IInvento
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
 

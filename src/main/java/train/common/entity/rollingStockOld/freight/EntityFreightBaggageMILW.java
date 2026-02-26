@@ -43,12 +43,6 @@ public class EntityFreightBaggageMILW extends Freight implements IInventory {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
 		NBTTagList nbttaglist = new NBTTagList();
@@ -92,12 +86,6 @@ public class EntityFreightBaggageMILW extends Freight implements IInventory {
 		entityplayer.openGui(Traincraft.instance, GuiIDs.FREIGHT, worldObj, this.getEntityId(), -1, (int) this.posZ);
 		return true;
 	}
-
-	@Override
-	public boolean isStorageCart() {
-		return true;
-	}
-
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 2.675F;

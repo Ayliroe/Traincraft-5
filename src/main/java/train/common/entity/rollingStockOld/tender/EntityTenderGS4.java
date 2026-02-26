@@ -39,12 +39,6 @@ public class EntityTenderGS4 extends Tender implements IInventory {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		checkInvent(tenderItems[0], this);

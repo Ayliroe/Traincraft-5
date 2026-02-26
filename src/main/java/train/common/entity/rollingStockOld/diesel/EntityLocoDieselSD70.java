@@ -31,12 +31,6 @@ public class EntityLocoDieselSD70 extends DieselTrain {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	public String getInventoryName() {
 		return "SD70M";
 	}

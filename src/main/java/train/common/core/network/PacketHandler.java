@@ -25,7 +25,7 @@ public class PacketHandler {
 
         Traincraft.slotschannel = NetworkRegistry.INSTANCE.newSimpleChannel("slots");
         Traincraft.ignitionChannel = NetworkRegistry.INSTANCE.newSimpleChannel("ignition");
-        Traincraft.brakeChannel = NetworkRegistry.INSTANCE.newSimpleChannel("brake");
+        Traincraft.brakeChannel = NetworkRegistry.INSTANCE.newSimpleChannel("brakingRate");
         Traincraft.lockChannel = NetworkRegistry.INSTANCE.newSimpleChannel("lock");
         Traincraft.builderChannel = NetworkRegistry.INSTANCE.newSimpleChannel("builder");
 

@@ -230,7 +230,7 @@ public class GuiForney extends GuiContainer {
         int k = (height - ySize) / 2;
         drawTexturedModalRect(j, k, 0, 0, xSize, ySize);
 
-        if (loco.getIsFuelled()) {
+        if (loco.getFuel() > 0) {
             int l = loco.getFuelDiv(12);
             drawTexturedModalRect(j + 8, (k + 30) - l, 176, 12 - l, 14, l + 2);
         }
@@ -251,11 +251,11 @@ public class GuiForney extends GuiContainer {
         fontRendererObj.drawStringWithShadow("Speed reduction: " + guiDetails.get("slowDown") + " km/h", 1, 30, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Accel reduction: " + guiDetails.get("accelSlowDown"), 1, 40, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Brake reduction: " + guiDetails.get("brakeSlowDown"), 1, 50, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Fuel consumption: 1 every " + loco.getFuelConsumption() + " ticks", 1, 60, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Fuel consumption: 1 every " + loco.fuelRate + " ticks", 1, 60, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Fuel: " + loco.getFuel(), 1, 70, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Power: " + loco.transportMetricHorsePower() + " Mhp", 1, 80, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Power: " + loco.getSpecMHP() + " Mhp", 1, 80, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("State: " + loco.getState(), 1, 90, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Heat level: " + loco.getOverheatLevel(), 1, 100, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Maximum Speed: " + (loco.getCustomSpeedGUI()), 1, 110, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Heat level: " + loco.getHeat(), 1, 100, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Maximum Speed: " + loco.getCurrentMaxSpeed(), 1, 110, 0xFFFFFF);
     }
 }

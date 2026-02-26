@@ -58,7 +58,7 @@ public class LinkHandler {
 
 
 				//System.out.println(d2);
-				if (MathHelper.sqrt_double((d * d) + (d1 * d1)) <= cart1.getLinkageDistance(cart1)) {
+				if (MathHelper.sqrt_double((d * d) + (d1 * d1)) <= cart1.getOptimalDistance(cart1)) {
 					/**
 					 * attach only if the link is free, each cart has two link obviously
 					 */

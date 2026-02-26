@@ -71,7 +71,7 @@ public class EntityHitbox {
     public void manageCollision(){
         for(Entity e:collidingEntities) {
             //on client we need to push away players.
-            if (host.worldObj.isRemote) {
+            if (host.getWorld().isRemote) {
                 if (e instanceof EntityPlayer || e instanceof EntityLiving) {
                     double[] motion = CommonUtil.rotatePoint(-0.075, 0,
                             CommonUtil.atan2degreesf(host.posZ - e.posZ, host.posX - e.posX));
@@ -121,7 +121,7 @@ public class EntityHitbox {
                             host.updateLinks();
 
 
-                            EntityPlayer entityplayer = host.worldObj.getClosestPlayerToEntity(host, 20);//
+                            EntityPlayer entityplayer = host.getWorld().getClosestPlayerToEntity(host, 20);//
                             if (entityplayer != null) {
                                 entityplayer.addChatMessage(new ChatComponentText("attached!"));
                             }
@@ -190,8 +190,8 @@ public class EntityHitbox {
         zMax = CommonUtil.floorDouble((longest+host.posZ + 16) / 16.0D);
         for (int i = x; i <= xMax; ++i) {
             for (int j = z; j <= zMax; ++j) {
-                if (host.worldObj.getChunkProvider().chunkExists(i,j)) {
-                    entities = host.worldObj.getChunkFromChunkCoords(i, j).entityLists;
+                if (host.getWorld().getChunkProvider().chunkExists(i,j)) {
+                    entities = host.getWorld().getChunkFromChunkCoords(i, j).entityLists;
                     for (List olist: entities) {
                         for(Object obj : olist) {
                             //this shouldn't be possible, but it's forge, sooooo....

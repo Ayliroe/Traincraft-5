@@ -30,21 +30,21 @@ public class PacketATODoAccelHandler implements IMessageHandler<PacketDoAccel, I
                     .floor_double(((theTrain).rotationYaw * 4F) / 360F + 0.5D) & 3;
             if (dir == 2){
 
-               entity.motionZ -= 0.0075 * theTrain.accelerate;
+               entity.motionZ -= 0.0075 * theTrain.accelRate;
 
 
 
             } else if (dir == 0){
 
-               entity.motionZ += 0.0075 * theTrain.accelerate;
+               entity.motionZ += 0.0075 * theTrain.accelRate;
 
             } else if (dir == 1){
 
-               entity.motionX -= 0.0075 * theTrain.accelerate;
+               entity.motionX -= 0.0075 * theTrain.accelRate;
 
             } else if (dir == 3){
 
-               entity.motionX += 0.0075 * theTrain.accelerate;
+               entity.motionX += 0.0075 * theTrain.accelRate;
 
             }
 

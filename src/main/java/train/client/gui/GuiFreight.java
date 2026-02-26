@@ -102,7 +102,7 @@ public class GuiFreight extends GuiContainer {
                     this.initGui();
                 }
                 AxisAlignedBB box = freight.boundingBox.expand(5, 5, 5);
-                List lis3 = freight.worldObj.getEntitiesWithinAABBExcludingEntity(freight, box);
+                List lis3 = freight.getWorld().getEntitiesWithinAABBExcludingEntity(freight, box);
                 if (lis3 != null && !lis3.isEmpty()) {
                     for (Object entity : lis3) {
                         if (entity instanceof EntityPlayer) {

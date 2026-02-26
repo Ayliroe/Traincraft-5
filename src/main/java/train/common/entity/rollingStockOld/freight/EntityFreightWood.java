@@ -44,12 +44,6 @@ public class EntityFreightWood extends Freight implements IInventory {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
 
@@ -95,11 +89,6 @@ public class EntityFreightWood extends Freight implements IInventory {
 			entityplayer.openGui(Traincraft.instance, GuiIDs.FREIGHT, worldObj, this.getEntityId(), -1, (int) this.posZ);
 		}
 		return true;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return false;
 	}
 
 	@Override

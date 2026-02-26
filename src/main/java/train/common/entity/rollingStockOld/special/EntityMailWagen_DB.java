@@ -34,12 +34,6 @@ public class EntityMailWagen_DB extends AbstractWorkCart implements IInventory {
 		prevPosZ = d2;
 	}
 
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	@Override
 	public void pressKey(int i) {
 		if (riddenByEntity instanceof EntityPlayer) {
@@ -67,11 +61,6 @@ public class EntityMailWagen_DB extends AbstractWorkCart implements IInventory {
 	}
 
 
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

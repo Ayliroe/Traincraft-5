@@ -1,7 +1,6 @@
 package train.common.entity;
 
 import mods.railcraft.api.carts.IFluidCart;
-import mods.railcraft.api.carts.ILinkableCart;
 import mods.railcraft.api.carts.IMinecart;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IEntityMultiPart;
@@ -24,7 +23,7 @@ import train.common.core.network.PacketInteract;
 import train.common.core.network.PacketRemove;
 
 
-public class CollisionBox extends EntityDragonPart implements IInventory, IFluidHandler, IMinecart, ILinkableCart, IFluidCart {
+public class CollisionBox extends EntityDragonPart implements IInventory, IFluidHandler, IMinecart, IFluidCart {
 
     static String dragonBoxName ="trainbox";
     public EntityRollingStock host;
@@ -87,39 +86,8 @@ public class CollisionBox extends EntityDragonPart implements IInventory, IFluid
         return host != null && host.attackEntityFromPart(this, damageSource, p_70097_2_);
     }
 
-    @Override
-    public boolean isLinkable() {
-        return host.isLinkable();
-    }
-
-    @Override
-    public boolean canLinkWithCart(EntityMinecart cart) {
-        return host.canLinkWithCart(cart);
-    }
-
-    @Override
-    public boolean hasTwoLinks() {
-        return host.hasTwoLinks();
-    }
-
-    @Override
-    public float getLinkageDistance(EntityMinecart cart) {
-        return host.getLinkageDistance(cart);
-    }
-
-    @Override
     public float getOptimalDistance(EntityMinecart cart) {
         return host.getOptimalDistance(cart);
-    }
-
-    @Override
-    public void onLinkCreated(EntityMinecart cart) {
-        host.onLinkCreated(cart);
-    }
-
-    @Override
-    public void onLinkBroken(EntityMinecart cart) {
-        host.onLinkBroken(cart);
     }
 
     @Override

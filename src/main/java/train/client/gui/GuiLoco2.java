@@ -97,7 +97,7 @@ public class GuiLoco2 extends GuiContainer {
         }
 
         if (!(loco instanceof SteamTrain)) {
-            if (loco.isLocoTurnedOn()) {
+            if (loco.isLocoTurnedOn) {
                 this.buttonList.add(this.buttonLock = new GuiButton(4, buttonPosX + 108, buttonPosY - 22, 67, 12, "Stop Engine"));
             } else {
                 this.buttonList.add(this.buttonLock = new GuiButton(4, buttonPosX + 108, buttonPosY - 22, 67, 12, "Start Engine"));
@@ -203,13 +203,13 @@ public class GuiLoco2 extends GuiContainer {
         }
 
         if (guibutton.id == 4) {
-            if (loco.isLocoTurnedOn()) {
+            if (loco.isLocoTurnedOn) {
                 if (loco.getSpeed() <= 1) {
                     Traincraft.ignitionChannel.sendToServer(new PacketSetLocoTurnedOn(false));
                     loco.isLocoTurnedOn = false;
                     guibutton.displayString = "Start Engine";
 
-                    // An auto parking brake is implemented here because Brutal tried to implement it in the Locomotive API when you turn off the Train.
+                    // An auto parking brakingRate is implemented here because Brutal tried to implement it in the Locomotive API when you turn off the Train.
                     Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(true, loco.getEntityId()));
                     loco.parkingBrake = true;
                     loco.isBraking = true;
@@ -403,7 +403,7 @@ public class GuiLoco2 extends GuiContainer {
                 drawTexturedModalRect(j + 143, (k + 68) - lo, 190, 69 - lo, 18, lo + 1);
             }
 
-            if (loco.getIsFuelled()) {
+            if (loco.getFuel() > 0) {
                 int l = loco.getFuelDiv(12);
                 drawTexturedModalRect(j + 8, (k + 36 + 12) - l, 176, 12 - l, 14, l + 2);
             }
@@ -412,7 +412,7 @@ public class GuiLoco2 extends GuiContainer {
             int lo2 = Math.abs(((load * 50) / (((DieselTrain) loco).getCartTankCapacity())));
             drawTexturedModalRect(j + 143, (k + 68) - lo2, 192, 120 - lo2, 18, lo2);
 
-            if (loco.getIsFuelled()) {
+            if (loco.getFuel() > 0) {
                 int l = loco.getFuelDiv(12);
                 drawTexturedModalRect(j + 10, (k + 36 + 13) - l, 178, 12 - l, 14, l + 2);
             }
@@ -429,7 +429,7 @@ public class GuiLoco2 extends GuiContainer {
                 drawTexturedModalRect(j + 79 + 18 * k1, k + 53, 190, 0, 18, 18);
             }
 
-            if (loco.getIsFuelled()) {
+            if (loco.getFuel() > 0) {
                 int l = loco.getFuelDiv(12);
                 drawTexturedModalRect(j + 8, (k + 36 + 12) - l, 176, 12 - l, 14, l + 2);
             }
@@ -443,13 +443,13 @@ public class GuiLoco2 extends GuiContainer {
         fontRendererObj.drawStringWithShadow("Accel reduction: " + guiDetails.get("accelSlowDown"), 1, 40, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Brake reduction: " + guiDetails.get("brakeSlowDown"), 1, 50, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Fuel increase: " + guiDetails.get("fuelUseChange"), 1, 60, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Fuel base consumption: " + ((loco.getFuelConsumption() * 0.2) + "").substring(0, Math.min(((loco.getFuelConsumption() * 0.2) + "").length(), 4)) + " mB/s", 1,
+        fontRendererObj.drawStringWithShadow("Fuel base consumption: " + ((loco.fuelRate * 0.2) + "").substring(0, Math.min(((loco.fuelRate * 0.2) + "").length(), 4)) + " mB/s", 1,
                 70, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Fuel: " + loco.getFuel(), 1, 80, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Power: " + loco.transportMetricHorsePower() + " Mhp", 1, 90, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Power: " + loco.getSpecMHP() + " Mhp", 1, 90, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("State: " + loco.getState(), 1, 100, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Heat level: " + loco.getOverheatLevel(), 1, 110, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Maximum Speed: " + (loco.getCustomSpeedGUI()) + " km/h" + " (" + (loco.getCustomSpeedGUI() + guiDetails.get("slowDown").getAsFloat()) + "km/h)", 1, 120, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Destination: " + (loco.getDestinationGUI()), 1, 130, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Heat level: " + loco.getHeat(), 1, 110, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Maximum Speed: " + loco.getCurrentMaxSpeed() + " km/h" + " (" + (guiDetails.get("slowDown").getAsFloat()) + "km/h)", 1, 120, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Destination: " + loco.getDestinationGUI(), 1, 130, 0xFFFFFF);
     }
 }

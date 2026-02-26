@@ -41,12 +41,6 @@ public class EntityBUnitEMDF7 extends LiquidTank implements IFluidHandler {
     }
 
     @Override
-    public void setDead() {
-        super.setDead();
-        isDead = true;
-    }
-
-    @Override
     public void onUpdate() {
         super.onUpdate();
         checkInvent(cargoItems[0]);
@@ -200,11 +194,6 @@ public class EntityBUnitEMDF7 extends LiquidTank implements IFluidHandler {
         if (!this.worldObj.isRemote) {
             entityplayer.openGui(Traincraft.instance, GuiIDs.LIQUID, worldObj, this.getEntityId(), -1, (int) this.posZ);
         }
-        return true;
-    }
-
-    @Override
-    public boolean isStorageCart() {
         return true;
     }
 

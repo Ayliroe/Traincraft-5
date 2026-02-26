@@ -49,22 +49,6 @@ public class EntityPropagandaJapan extends EntityRollingStock {
 		}
 		return true;
 	}
-	
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

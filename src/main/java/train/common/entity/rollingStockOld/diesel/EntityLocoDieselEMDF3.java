@@ -26,12 +26,6 @@ public class EntityLocoDieselEMDF3 extends DieselTrain {
 		prevPosZ = d2;
 	}
 
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	@Override
 	public void pressKey(int i) {
 		if (i == 7 && riddenByEntity != null && riddenByEntity instanceof EntityPlayer) {

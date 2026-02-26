@@ -34,12 +34,6 @@ public class EntityCabooseLogging extends AbstractWorkCart implements IInventory
 		prevPosZ = d2;
 	}
 
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	@Override
 	public void pressKey(int i) {
 		if(locked && riddenByEntity != null && riddenByEntity instanceof EntityPlayer&& !((EntityPlayer)riddenByEntity).getDisplayName().toLowerCase().equals(this.trainOwner.toLowerCase())){
@@ -62,16 +56,6 @@ public class EntityCabooseLogging extends AbstractWorkCart implements IInventory
 	@Override
 	public String getInventoryName() {
 		return "Logging Caboose";
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
 	}
 
 	@Override

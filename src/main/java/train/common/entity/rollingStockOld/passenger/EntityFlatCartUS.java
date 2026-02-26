@@ -30,28 +30,6 @@ public class EntityFlatCartUS extends EntityRollingStock implements IPassenger {
 		boundingBox.maxY-=1;
 	}*/
 
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

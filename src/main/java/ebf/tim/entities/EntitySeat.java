@@ -93,7 +93,7 @@ public class EntitySeat extends Entity implements IEntityAdditionalSpawnData {
                     this.setDead();
                 }
             }
-            if (worldObj.isRemote) {
+            if (getWorld().isRemote) {
                 if (this.parent.seats.size() >= seatNumber + 1 && (this.pos != this.parent.seats.get(seatNumber).pos || this.getPassenger() != this.parent.seats.get(seatNumber).getPassenger())) {
                     this.setDead();
                 }
@@ -105,8 +105,8 @@ public class EntitySeat extends Entity implements IEntityAdditionalSpawnData {
     public boolean shouldRiderSit(){
         if (parent != null) {
             return parent.shouldRiderSit(seatNumber);
-        } else if (worldObj.getEntityByID(this.parentId) != null && worldObj.getEntityByID(this.parentId) instanceof EntityRollingStock) {
-            parent = (EntityRollingStock) worldObj.getEntityByID(this.parentId);
+        } else if (getWorld().getEntityByID(this.parentId) != null && getWorld().getEntityByID(this.parentId) instanceof EntityRollingStock) {
+            parent = (EntityRollingStock) getWorld().getEntityByID(this.parentId);
             return parent.shouldRiderSit(seatNumber);
         } else {
             this.setDead();

@@ -34,12 +34,6 @@ public class EntityPassengerRheingoldDining1 extends AbstractWorkCart implements
 
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0f,-0.5f, 0f}, {3f,-0.5f, 0f}};}
-
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
 	@Override
 	public float[] getHitboxSize() {
 		return new float[]{0.55f,2.1f,1f};
@@ -79,16 +73,6 @@ public class EntityPassengerRheingoldDining1 extends AbstractWorkCart implements
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
 	}
 
 	@Override

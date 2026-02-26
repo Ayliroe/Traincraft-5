@@ -155,12 +155,6 @@ public abstract class AbstractZeppelin extends Entity implements IInventory {
 		return height * 0.0D - 0.30000001192092896D;
 	}
 
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	public void pressKeyClient(int i) {
 		if (updateTicks % 5 == 0)
 			Traincraft.keyChannel.sendToServer(new PacketKeyPress(i));

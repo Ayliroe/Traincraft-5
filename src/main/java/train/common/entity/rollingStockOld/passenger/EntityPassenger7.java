@@ -24,22 +24,6 @@ public class EntityPassenger7 extends EntityRollingStock implements IPassenger {
 		prevPosZ = d2;
 	}
 
-	
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
-	}
-
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.4F;

@@ -79,16 +79,16 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        if (worldObj.isRemote) {
+        if (getWorld().isRemote) {
             return;
         }
 
         if (ticksExisted % 5 == 0 && fill(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), false) == 100) {
             FluidStack drain = null;
-            blocksToCheck = new TileEntity[]{worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY - 1), MathHelper.floor_double(posZ)),
-                    worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 2), MathHelper.floor_double(posZ)),
-                    worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 3), MathHelper.floor_double(posZ)),
-                    worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 4), MathHelper.floor_double(posZ))
+            blocksToCheck = new TileEntity[]{getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY - 1), MathHelper.floor_double(posZ)),
+                    getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 2), MathHelper.floor_double(posZ)),
+                    getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 3), MathHelper.floor_double(posZ)),
+                    getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 4), MathHelper.floor_double(posZ))
             };
 
             for (TileEntity block : blocksToCheck) {

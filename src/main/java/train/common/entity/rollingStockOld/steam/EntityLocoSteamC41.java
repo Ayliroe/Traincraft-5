@@ -35,12 +35,6 @@ public class EntityLocoSteamC41 extends SteamTrain {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	public String getInventoryName() {
 		return "C41";
 	}

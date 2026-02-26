@@ -7,7 +7,6 @@ import ebf.XmlBuilder;
 import ebf.tim.api.SkinRegistry;
 import ebf.tim.api.TransportSkin;
 import ebf.tim.entities.EntitySeat;
-import ebf.tim.utility.DebugUtil;
 import fexcraft.tmt.slim.ModelBase;
 import io.netty.buffer.ByteBuf;
 import mods.railcraft.api.carts.IMinecart;
@@ -35,7 +34,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import train.client.render.Bogie;
-import train.client.render.RenderEnum;
 import train.client.render.TransportRenderCache;
 import train.common.Traincraft;
 import train.common.adminbook.ItemAdminBook;
@@ -48,7 +46,6 @@ import train.common.items.ItemWrench;
 import train.common.library.Info;
 import train.common.library.TraincraftRegistry;
 import train.common.overlaytexture.OverlayTextureManager;
-import train.common.trainConverter;
 
 import java.util.*;
 
@@ -110,8 +107,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * The name of the train based on the item name
      */
     public String trainName = "";
-    public double accelerate = 0.7D;
-    public double brake = 0.96D;
     /**
      * determines the mass of the carts from 0 to 10 it's then multiplied by 10
      * to pretend this is [tons]
@@ -166,9 +161,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * supposed to store the last ID given;
      */
     public static int uniqueIDs = 1;
-
-
-    public boolean isLocoTurnedOn = false;
 
     /**
      * The distance this train has traveled
@@ -250,34 +242,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         buffer.writeBoolean(locked);
     }
 
-
-    public abstract boolean isLocomotive();
-
-    public abstract boolean isPassenger();
-
-    public abstract boolean isFreightCart();
-
-    public abstract boolean isFreightOrPassenger();
-
-    public abstract boolean isBuilder();
-
-    public abstract boolean isTender();
-
-    public abstract boolean isWorkCart();
-
-    public abstract boolean isElectricTrain();
-
     public abstract boolean isLinked();
-
-    protected abstract boolean canOverheat();
-
-    protected abstract int getOverheatTime();
-
-    public float getLinkageDistanceFront(EntityMinecart cart){return 0.0f;}
-
-    public float getLinkageDistanceBack(EntityMinecart cart){return 0.0f;}
-
-    public abstract float getLinkageDistance(EntityMinecart cart);
 
     public abstract List<ItemStack> getItemsDropped();
 
@@ -288,6 +253,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @Override
     public void setDead() {
         ForgeChunkManager.releaseTicket(chunkTicket);
+        super.setDead();
     }
 
     public int setNewUniqueID(int numberOfTrains) {
@@ -306,7 +272,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @Override
     public boolean interactFirst(EntityPlayer entityplayer) {
         ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-        if (!worldObj.isRemote && ConfigHandler.CHUNK_LOADING && (this instanceof Locomotive)) {
+        if (!getWorld().isRemote && ConfigHandler.CHUNK_LOADING && (this instanceof Locomotive)) {
             if (itemstack != null && itemstack.getItem() instanceof ItemChunkLoaderActivator) {
                 this.playerEntity = entityplayer;
                 if (getFlag(7)) {
@@ -360,7 +326,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public String getColor() {
-        if (worldObj != null) {
+        if (getWorld() != null) {
             entity_data.updateData(dataWatcher.getWatchableObjectString(30));
             if (entity_data.hasString("color")) {
                 return entity_data.getString("color");
@@ -461,7 +427,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public void setInformation(String trainOwner, String trainCreator, String trainName, int uniqueID) {
-        if (!worldObj.isRemote) {
+        if (!getWorld().isRemote) {
             dataWatcher.updateObject(7, trainOwner);
             dataWatcher.updateObject(9, trainName);
             dataWatcher.updateObject(11, uniqueID);
@@ -511,10 +477,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         return defaultMass;
     }
 
-    //this is only for locomotive GUI stuff
-    public double getSpeed() {
-        return 0;
-    }
     /**
      * Lock packet
      */
@@ -526,7 +488,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * Lock packet
      */
     public void setTrainLockedFromPacket(boolean set) {
-        // System.out.println(worldObj.isRemote + " " + set);
+        // System.out.println(getWorld().isRemote + " " + set);
         locked = set;
     }
 
@@ -545,16 +507,16 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
                     || this.trainOwner.isEmpty() || entityplayer.canCommandSenderUseCommand(2, "")) {
                 if (locked) {
                     locked = false;
-                    if (worldObj.isRemote) {
+                    if (getWorld().isRemote) {
                         entityplayer.addChatMessage(new ChatComponentText("Unlocked."));
                     }
                 } else {
                     locked = true;
-                    if (worldObj.isRemote) {
+                    if (getWorld().isRemote) {
                         entityplayer.addChatMessage(new ChatComponentText("Locked."));
                     }
                 }
-            } else if (worldObj.isRemote) {
+            } else if (getWorld().isRemote) {
                 entityplayer.addChatMessage(new ChatComponentText("You are not the owner!"));
             }
             return true;
@@ -645,7 +607,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public void requestTicket() {
-        ForgeChunkManager.Ticket chunkTicket = ForgeChunkManager.requestTicket(Traincraft.instance, worldObj, ForgeChunkManager.Type.ENTITY);
+        ForgeChunkManager.Ticket chunkTicket = ForgeChunkManager.requestTicket(Traincraft.instance, getWorld(), ForgeChunkManager.Type.ENTITY);
         if (chunkTicket != null) {
             chunkTicket.setChunkListDepth(25);
             chunkTicket.bindEntity(this);
@@ -711,13 +673,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     
     private AbstractTrains findFront(ArrayList<AbstractTrains> transports) {
         for (AbstractTrains train : transports) {
-            if (train.accelerate != 0) {
-                return train;
-            }
-        }
-
-        for (AbstractTrains train : transports) {
-            if (train instanceof Locomotive && train.canBePushed()) {
+            if (train instanceof Locomotive && !train.canBePushed()) {
                 return train;
             }
         }
@@ -914,21 +870,9 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         return "";
     }
 
-    public String transportFreightType(){return "";}
-
     public boolean isFictional(){return false;}
 
     public String[] additionalItemText(){return getSpec()==null?null:getSpec().getAdditionnalTooltip().split("\n");}
-    /**the top speed in km/h for the transport.
-     * not used tor rollingstock.*/
-    public float transportTopSpeed(){return getSpec().getMaxSpeed();}
-    /**the top speed in km/h for the transportwhen moving in reverse, default is half for diesel and 75% for others.
-     * not used tor rollingstock.*/
-    public float transportTopSpeedReverse(){return this instanceof DieselTrain?transportTopSpeed()*0.5f:transportTopSpeed();}
-    /**this is the default value to define the acceleration speed and pulling power of a transport.*/
-    public float transportMetricHorsePower(){return getSpec().getMHP();}
-    /**the tractive effort for the transport, this is a fallback if metric horsepower (mhp) is not available*/
-    public float transportTractiveEffort(){return 0;}
 
     /**defines the size of the inventory row by row, not counting any special slots like for fuel.
      * end result number of slots is this times 9. plus any crafting/fuel slots
@@ -982,10 +926,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public float getOptimalDistance(EntityMinecart cart) {
         return getHitboxSize()[0]*0.5f;
     }
-
-    /**defines if the transport is immune to explosions*/
-    public boolean isReinforced(){return false;}
-
 
     /**defines the weight of the transport.*/
     public float weightKg(){return (float)getSpec().getMass()*10f;}

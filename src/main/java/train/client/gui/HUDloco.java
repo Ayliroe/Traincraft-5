@@ -185,7 +185,7 @@ public class HUDloco extends GuiScreen {
         GL11.glDisable(3042 /* GL_BLEND */);
 
         // This is for the red overlay if you don't put water into steam trains.
-        if (l <= 1 && loco.getIsFuelled()) {
+        if (l <= 1 && loco.getFuel() > 0) {
             this.drawGradientRect(0, 0, windowWidth, windowHeight + 100, 1615855616, -1602211792);
         }
     }
@@ -220,11 +220,6 @@ public class HUDloco extends GuiScreen {
     }
 
     private void renderOverheating(Locomotive loco) {
-        int overheatLevel = loco.getOverheatLevel();
-        if (overheatLevel > loco.getOverheatTime() + 30) {
-            overheatLevel = loco.getOverheatTime() + 30;
-        }
-
         // fontRendererObj.drawStringWithShadow("Heat:", 33, (windowHeight/2)+1, 0xFFFFFF);
         GL11.glEnable(3042 /* GL_BLEND */);
         GL11.glEnable(32826);
@@ -236,16 +231,13 @@ public class HUDloco extends GuiScreen {
             game.renderEngine.bindTexture(new ResourceLocation(Info.resourceLocation, Info.guiPrefix + "locohud.png"));
         }
 
-        int overheatScaled = Math.abs((overheatLevel * 49) / (loco.getOverheatTime() + 30));
-        if (overheatScaled > 49) {
-            overheatScaled = 49;
-        }
+        int heatScaled = (int)(loco.getHeat() * 49);
 
         // Things are slightly different in Steam HUD, render overheat arrow black bar for steam train.
         if (!(loco instanceof SteamTrain)) {
-            drawTexturedModalRect(58, windowHeight + 37 - (overheatScaled) + (20), 169, 158, 23, 5);
+            drawTexturedModalRect(58, windowHeight + 37 - (heatScaled) + (20), 169, 158, 23, 5);
         } else {
-            drawTexturedModalRect(56, windowHeight + 17, 176, (169 + overheatScaled), 5, 49 - overheatScaled);
+            drawTexturedModalRect(56, windowHeight + 17, 176, (169 + heatScaled), 5, 49 - heatScaled);
         }
 
         GL11.glDisable(32826);

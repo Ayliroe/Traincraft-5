@@ -38,12 +38,6 @@ public class EntityFreightOpenWagon extends Freight implements IInventory {
 		prevPosY = d1;
 		prevPosZ = d2;
 	}
-	
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
 
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {

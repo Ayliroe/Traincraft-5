@@ -154,7 +154,7 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     {
         cycleBeaconIndex();
 
-        if (!worldObj.isRemote)  {
+        if (!getWorld().isRemote)  {
             //Server side stuff.
             if (frontLink != null)  {
                 for (AbstractTrains train : frontLink.consist)  {
@@ -182,7 +182,7 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
         }
 
         super.onUpdate();
-        if (!worldObj.isRemote)
+        if (!getWorld().isRemote)
         {
             dataWatcher.updateObject(28, lightingDetailsJSONString());
         }
@@ -194,11 +194,11 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
         {
             if (sounds.getEntityClass() != null && sounds.getEntityClass().equals(this.getClass()) && whistleDelay == 0)
             {
-                worldObj.playSoundAtEntity(this, Info.resourceLocation + ":" + sounds.getHornString(), sounds.getHornVolume(), 1.0F);
+                getWorld().playSoundAtEntity(this, Info.resourceLocation + ":" + sounds.getHornString(), sounds.getHornVolume(), 1.0F);
                 whistleDelay = 65;
             }
         }
-        List entities = worldObj.getEntitiesWithinAABB(EntityAnimal.class, AxisAlignedBB.getBoundingBox(
+        List entities = getWorld().getEntitiesWithinAABB(EntityAnimal.class, AxisAlignedBB.getBoundingBox(
                 this.posX-20,this.posY-5,this.posZ-20,
                 this.posX+20,this.posY+5,this.posZ+20));
 
@@ -225,15 +225,8 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     {
         if (i == 7 && riddenByEntity != null && riddenByEntity instanceof EntityPlayer)
         {
-            ((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.CONTROL_CAR, worldObj, (int) this.posX, (int) this.posY, (int) this.posZ);
+            ((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.CONTROL_CAR, getWorld(), (int) this.posX, (int) this.posY, (int) this.posZ);
         }
-    }
-
-    @Override
-    public void setDead()
-    {
-        super.setDead();
-        isDead = true;
     }
 
     public boolean isNotOwner() {
@@ -250,7 +243,7 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     //I'm moving this to a separate function because it's really, really thick, and I want to try to make things look neater.
     public void handleTrainMovement()
     {
-        if (worldObj.isRemote)
+        if (getWorld().isRemote)
         {
             if (ticksExisted % 2 == 0 && !Minecraft.getMinecraft().ingameGUI.getChatGUI().getChatOpen())
             {
@@ -305,7 +298,7 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
             {
                 if (forwardPressed || backwardPressed)
                 {
-                    if (connectedLocomotive.getFuel() > 0 && connectedLocomotive.isLocoTurnedOn() && rand.nextInt(4) == 0 && !worldObj.isRemote)
+                    if (connectedLocomotive.getFuel() > 0 && connectedLocomotive.isLocoTurnedOn && rand.nextInt(4) == 0 && !getWorld().isRemote)
                     {
                         if (this.getTrainLockedFromPacket() && !((EntityPlayer) this.riddenByEntity).getDisplayName()
                                 .toLowerCase().equals(this.getTrainOwner().toLowerCase()))
@@ -316,67 +309,60 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
                         {
                             int dir = MathHelper
                                     .floor_double((((EntityPlayer) riddenByEntity).rotationYaw * 4F) / 360F + 0.5D) & 3;
-                            //System.out.println(dir);
-                            if (dir == 2)
+
+                            //TODO: WTF is this class about?
+                            /*if (dir == 2)
                             {
                                 if (forwardPressed)
                                 {
-                                    connectedLocomotive.motionZ -= 0.0075 * this.accelerate;
-                                    //System.out.println("A");
+                                    connectedLocomotive.motionZ -= 0.0075 * this.accelRate;
                                 }
                                 else
                                 {
-                                    connectedLocomotive.motionZ += 0.0075 * this.accelerate;
-                                    //System.out.println("B");
+                                    connectedLocomotive.motionZ += 0.0075 * this.accelRate;
                                 }
                             }
                             else if (dir == 0)
                             {
                                 if (forwardPressed)
                                 {
-                                    connectedLocomotive.motionZ += 0.0075 * this.accelerate;
-                                    //System.out.println("C");
+                                    connectedLocomotive.motionZ += 0.0075 * this.accelRate;
                                 }
                                 else
                                 {
-                                    connectedLocomotive.motionZ -= 0.0075 * this.accelerate;
-                                    //System.out.println("D");
+                                    connectedLocomotive.motionZ -= 0.0075 * this.accelRate;
                                 }
                             }
                             else if (dir == 1)
                             {
                                 if (forwardPressed)
                                 {
-                                    connectedLocomotive.motionX -= 0.0075 * this.accelerate;
-                                    //System.out.println("E");
+                                    connectedLocomotive.motionX -= 0.0075 * this.accelRate;
                                 }
                                 else
                                 {
-                                    connectedLocomotive.motionX += 0.0075 * this.accelerate;
-                                    //System.out.println("F");
+                                    connectedLocomotive.motionX += 0.0075 * this.accelRate;
                                 }
                             }
                             else
                                 {
                                 if (forwardPressed)
                                 {
-                                    connectedLocomotive.motionX += 0.0075 * this.accelerate;
-                                    //System.out.println("G");
+                                    connectedLocomotive.motionX += 0.0075 * this.accelRate;
                                 }
                                 else
                                 {
-                                    connectedLocomotive.motionX -= 0.0075 * this.accelerate;
-                                    //System.out.println("H");
+                                    connectedLocomotive.motionX -= 0.0075 * this.accelRate;
                                 }
-                            }
+                            }*/
                         }
                     }
                 }
-                else if (brakePressed)
+                /*else if (brakePressed)
                 {
-                    connectedLocomotive.motionX *= brake;
-                    connectedLocomotive.motionZ *= brake;
-                }
+                    connectedLocomotive.motionX *= brakingRate;
+                    connectedLocomotive.motionZ *= brakingRate;
+                }*/
             }
         }
     }
@@ -493,12 +479,6 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     {
         return new JsonParser().parse(string).getAsJsonObject();
     }
-
-    @Override
-    public boolean isPoweredCart() {
-        return false;
-    }
-
 
     //region Implement IInventory
     @Override

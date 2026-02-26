@@ -27,12 +27,6 @@ public class EntityLocoElectricHighSpeedZeroED extends ElectricTrain {
 
 		return new float[][]{{2.3f,0,-0.15f}};
 	}
-
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
 	@Override
 	public String getInventoryName() {
 		return "High Speed";

@@ -110,7 +110,7 @@ public class GuiPaintbrushMenu extends GuiScreen {
         drawList = false;
         topVisSkin = 0;
         try {
-            renderEntity = rollingStock.getClass().getConstructor(new Class[]{ World.class }).newInstance(rollingStock.worldObj);
+            renderEntity = rollingStock.getClass().getConstructor(new Class[]{ World.class }).newInstance(rollingStock.getWorld());
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }

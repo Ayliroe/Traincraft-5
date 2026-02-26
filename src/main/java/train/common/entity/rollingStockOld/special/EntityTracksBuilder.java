@@ -132,12 +132,6 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 	public int getInventoryStackLimit() {
 		return 64;
 	}
-
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
 	@Override
 	public void onUpdate() {
 		

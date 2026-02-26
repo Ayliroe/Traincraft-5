@@ -59,14 +59,14 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if (!worldObj.isRemote) {
+		if (!getWorld().isRemote) {
 			if (theTank.getFluidAmount() != this.dataWatcher.getWatchableObjectInt(27)){
 				this.dataWatcher.updateObject(27, theTank.getFluidAmount());
 				fuelTrain = theTank.getFluidAmount();
 				this.dataWatcher.updateObject(4, theTank.getFluid()!=null?theTank.getFluid().getFluidID():0);
 				this.dataWatcher.updateObject(5, theTank.getFluid()!=null?theTank.getFluid().getUnlocalizedName():"");
 			}
-			if (isLocoTurnedOn() && theTank.getFluidAmount() >0) {
+			if (isLocoTurnedOn && theTank.getFluidAmount() >0) {
 				if (theTank.getFluid().amount <= 1) {
 					motionX *= 0.94;
 					motionZ *= 0.94;
@@ -130,7 +130,7 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	}
 
 	public void liquidInSlot(ItemStack itemstack) {
-		if (worldObj.isRemote)
+		if (getWorld().isRemote)
 			return;
 		this.update += 1;
 		if (this.update % 8 == 0 && itemstack != null) {
@@ -159,16 +159,13 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	}
 
 	@Override
-	protected void updateFuelTrain(int amount) {
-		if (!this.isLocoTurnedOn()) {
-			motionX *= 0.8;
-			motionZ *= 0.8;
-		} else if (ticksExisted%5==0 &&getTank().getFluidAmount()+100 < maxTank) {
+	protected void updateFuel() {
+		if (ticksExisted%5==0 &&getTank().getFluidAmount()+100 < maxTank) {
 			FluidStack drain = null;
-			blocksToCheck = new TileEntity[]{worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY - 1), MathHelper.floor_double(posZ)),
-					worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 2), MathHelper.floor_double(posZ)),
-					worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 3), MathHelper.floor_double(posZ)),
-					worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 4), MathHelper.floor_double(posZ))
+			TileEntity[] blocksToCheck = new TileEntity[]{getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY - 1), MathHelper.floor_double(posZ)),
+					getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 2), MathHelper.floor_double(posZ)),
+					getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 3), MathHelper.floor_double(posZ)),
+					getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 4), MathHelper.floor_double(posZ))
 			};
 
 			for (TileEntity block : blocksToCheck) {
@@ -212,14 +209,14 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 			}
 		}
 
-		if (fuelTrain >1 && this.isLocoTurnedOn()) {
-			fuelTrain -= amount;
+		if (fuelTrain > 1 && isLocoTurnedOn) {
+			fuelTrain -= (int)fuelRate;
 			if (fuelTrain < 0) {
 				fuelTrain = 0;
-				drain(ForgeDirection.UNKNOWN, amount, true);
+				drain(ForgeDirection.UNKNOWN, (int)fuelRate, true);
 				setLocoTurnedOnFromPacket(false);
 			} else {
-				drain(ForgeDirection.UNKNOWN, amount, true);
+				drain(ForgeDirection.UNKNOWN, (int)fuelRate, true);
 			}
 		}
 	}

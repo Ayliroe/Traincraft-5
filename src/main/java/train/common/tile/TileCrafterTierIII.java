@@ -189,10 +189,10 @@ public class TileCrafterTierIII extends TileRenderFacing implements IInventory, 
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		if (worldObj == null) {
+		if (getWorld() == null) {
 			return true;
 		}
-		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) != this) {
+		if (getWorld().getTileEntity(xCoord, yCoord, zCoord) != this) {
 			return false;
 		}
 		return player.getDistanceSq(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D) <= 64D;

@@ -166,7 +166,7 @@ public class GuiRecipeBook extends GuiScreen {
                 add(new StackToDraw(new ItemStack(Blocks.tnt), 170, 16));
             }
         });
-        addPage("Minecraft Horse Power - Mhp:\n\nLocomotives have different pulling abilities represented by their 'power' in Mhp.\nEach cart has a mass in tons which will affect the locomotive depending on its power.\nMass pulled affects the maximum speed, the brake rate and accelerate rate, as well as fuel consumption.\n", "", "right", new ArrayList<StackToDraw>() {
+        addPage("Minecraft Horse Power - Mhp:\n\nLocomotives have different pulling abilities represented by their 'power' in Mhp.\nEach cart has a mass in tons which will affect the locomotive depending on its power.\nMass pulled affects the maximum speed, the brakingRate rate and accelRate rate, as well as fuel consumption.\n", "", "right", new ArrayList<StackToDraw>() {
             {
                 add(new StackToDraw(new ItemStack(ItemIDs.stake.item), 20, 16));
                 add(new StackToDraw(new ItemStack(ItemIDs.minecartLocoBR01_DB.item), 40, 165));

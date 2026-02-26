@@ -39,12 +39,6 @@ public class EntityFreightCenterbeam_Wood_1 extends Freight implements IInventor
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
 

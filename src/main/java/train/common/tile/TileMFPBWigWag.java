@@ -25,10 +25,10 @@ public class TileMFPBWigWag extends TileSwitch {
     @Override
     public void updateEntity() {
         super.updateEntity();
-        if(worldObj.isRemote) {
+        if(getWorld().isRemote) {
             if (rotation > 20 || rotation < -20) {
                 flip = !flip;
-                worldObj.playSound(xCoord,yCoord,zCoord,Info.resourceLocation + ":" + "bell",1f,1f,true);
+                getWorld().playSound(xCoord,yCoord,zCoord,Info.resourceLocation + ":" + "bell",1f,1f,true);
 
             }
             powered = getWorldObj().isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord);

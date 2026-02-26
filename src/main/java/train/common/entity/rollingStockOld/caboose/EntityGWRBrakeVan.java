@@ -33,11 +33,6 @@ public class EntityGWRBrakeVan extends AbstractWorkCart implements IInventory {
 		currentItemBurnTime = 0;
 		furnaceCookTime = 0;
 	}
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
 
 	@Override
 	public String getInventoryName() {
@@ -76,21 +71,6 @@ public class EntityGWRBrakeVan extends AbstractWorkCart implements IInventory {
 	}
 
 	public void markDirty(){}
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

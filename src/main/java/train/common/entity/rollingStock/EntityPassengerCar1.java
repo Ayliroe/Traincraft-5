@@ -91,10 +91,6 @@ public class EntityPassengerCar1 extends EntityRollingStock implements IPassenge
     public String getDefaultSkin(){
         return "Red";
     }
-    @Override
-    public boolean isReinforced() {
-        return false;
-    }
 
     @Override
     public int[] getTankCapacity() {
@@ -146,23 +142,8 @@ public class EntityPassengerCar1 extends EntityRollingStock implements IPassenge
     }
 
     @Override
-    public float transportTopSpeed() {
-        return 0;
-    }
-
-    @Override
     public boolean isFictional() {
         return true;
-    }
-
-    @Override
-    public float transportTractiveEffort() {
-        return 0;
-    }
-
-    @Override
-    public float transportMetricHorsePower() {
-        return 0;
     }
 
     @Override

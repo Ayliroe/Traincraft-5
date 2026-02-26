@@ -33,12 +33,6 @@ public class EntityPassengerRheingoldDining2  extends AbstractWorkCart implement
 		prevPosZ = d2;
 	}
 
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	@Override
 	public void pressKey(int i) {
 		if (riddenByEntity != null && riddenByEntity instanceof EntityPlayer) {
@@ -70,16 +64,6 @@ public class EntityPassengerRheingoldDining2  extends AbstractWorkCart implement
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
 	}
 
 	@Override

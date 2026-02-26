@@ -38,12 +38,6 @@ public class EntityWorkCart extends AbstractWorkCart implements IInventory {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		updateBurning();
@@ -59,16 +53,6 @@ public class EntityWorkCart extends AbstractWorkCart implements IInventory {
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
 	}
 
 	@Override

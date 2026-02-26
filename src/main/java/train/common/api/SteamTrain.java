@@ -63,7 +63,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 		/**
 		 * so the client side knows the water amount
 		 */
-		if (worldObj.isRemote) {
+		if (getWorld().isRemote) {
 			return;
 		}
 		if (theTank != null && theTank.getFluid() != null) {
@@ -71,7 +71,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 			this.dataWatcher.updateObject(4, theTank.getFluid().getFluidID());
 		}
 
-		if (theTank != null && theTank.getFluid() != null && getIsFuelled()) {
+		if (theTank != null && theTank.getFluid() != null && getFuel() > 0) {
 			if (theTank.getFluid().amount <= 1) {
 				motionX *= 0.94;
 				motionZ *= 0.94;
@@ -81,7 +81,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 			this.dataWatcher.updateObject(27, 0);
 			this.dataWatcher.updateObject(4, 0);
 		}
-		if (rand.nextInt(100) == 0 && getWater() > 0 && getIsFuelled()) {
+		if (rand.nextInt(100) == 0 && getWater() > 0 && getFuel() > 0) {
 			drain(ForgeDirection.UNKNOWN, getWaterConsumption() / 5, true);
 		}
 
@@ -153,7 +153,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 
 	public void liquidInSlot(ItemStack itemstack, SteamTrain loco) {
 
-		if (worldObj.isRemote)
+		if (getWorld().isRemote)
 			return;
 		this.update += 1;
 		if (this.update % 8 == 0 && itemstack != null) {
@@ -170,14 +170,14 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 			return;
 
 		boolean hasCoalInTender = false;
-		if (isLocoTurnedOn() && ticksExisted%10==0) {
+		if (isLocoTurnedOn && ticksExisted%10==0) {
 			FluidStack drain = null;
 
 			if(fill(ForgeDirection.UNKNOWN,new FluidStack(FluidRegistry.WATER, 100), false)==100) {
-				blocksToCheck = new TileEntity[]{worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY - 1), MathHelper.floor_double(posZ)),
-						worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 2), MathHelper.floor_double(posZ)),
-						worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 3), MathHelper.floor_double(posZ)),
-						worldObj.getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 4), MathHelper.floor_double(posZ))
+				TileEntity[] blocksToCheck = new TileEntity[]{getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY - 1), MathHelper.floor_double(posZ)),
+						getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 2), MathHelper.floor_double(posZ)),
+						getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 3), MathHelper.floor_double(posZ)),
+						getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 4), MathHelper.floor_double(posZ))
 				};
 
 				for (TileEntity block : blocksToCheck) {
@@ -258,7 +258,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	/** Used for the gui */
 	@Override
 	public int getFuelDiv(int i) {
-		if (worldObj.isRemote) {
+		if (getWorld().isRemote) {
 			return ((this.dataWatcher.getWatchableObjectInt(24) * i) / maxFuel);
 		}
 		return (this.fuelTrain * i) / maxFuel;

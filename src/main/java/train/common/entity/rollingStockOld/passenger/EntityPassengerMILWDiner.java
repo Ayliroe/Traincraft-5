@@ -42,28 +42,7 @@ public class EntityPassengerMILWDiner extends EntityRollingStock implements IPas
 		riddenByEntity.setPosition(posX, posY + getMountedYOffset() + riddenByEntity.getYOffset() + 0.2, posZ);
 	}
 
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
 
-
-
-	@Override
-	public boolean canBeRidden() {
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
-
-	@Override
-	public boolean isPoweredCart() {
-		return false;
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

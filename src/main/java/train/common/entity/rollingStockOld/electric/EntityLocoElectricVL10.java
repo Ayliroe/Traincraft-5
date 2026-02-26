@@ -23,11 +23,7 @@ public class EntityLocoElectricVL10 extends ElectricTrain {
 		prevPosY = d1;
 		prevPosZ = d2;
 	}
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
+
 	@Override
 	public void pressKey(int i) {
 		if (i == 7 && riddenByEntity != null && riddenByEntity instanceof EntityPlayer) {

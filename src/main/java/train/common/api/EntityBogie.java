@@ -101,11 +101,6 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		return false;
 	}
 
-	@Override
-	public boolean canBeRidden() {
-		return false;
-	}
-
 	/**
 	 * Returns a boundingBox used to collide the entity with other entities and blocks. This enables the entity to be pushable on contact, like boats or minecarts.
 	 */
@@ -185,13 +180,11 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 	 */
 	@Override
 	public boolean shouldDoRailFunctions() {
-
 		return true;
 	}
 
 	@Override
 	public double getSlopeAdjustment() {
-
 		return 0;
 	}
 
@@ -216,13 +209,13 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 	private void moveOnTCRail(int i, int j, int k, Block l) {
 
 		if(l instanceof BlockTCRail) {
-			if(!TCRailTypes.isCrossingTrack((TileTCRail) worldObj.getTileEntity(i, j, k)) && !TCRailTypes.isDiagonalCrossingTrack((TileTCRail) worldObj.getTileEntity(i,j,k))) {
-				lastTrack = (TileTCRail) worldObj.getTileEntity(i, j, k);
+			if(!TCRailTypes.isCrossingTrack((TileTCRail) getWorld().getTileEntity(i, j, k)) && !TCRailTypes.isDiagonalCrossingTrack((TileTCRail) getWorld().getTileEntity(i,j,k))) {
+				lastTrack = (TileTCRail) getWorld().getTileEntity(i, j, k);
 			}
-		} else if(l instanceof BlockTCRailGag && (lastTrack==null || !CommonUtil.getTiles(worldObj,i,j,k).contains(lastTrack))){
-			TileTCRailGag tileGag = (TileTCRailGag) worldObj.getTileEntity(i, j, k);
-			if(tileGag.originX.size()>0 && worldObj.getTileEntity(tileGag.originX.get(0), tileGag.originY.get(0), tileGag.originZ.get(0)) != null) {
-				lastTrack = (TileTCRail) worldObj.getTileEntity(tileGag.originX.get(0), tileGag.originY.get(0), tileGag.originZ.get(0));
+		} else if(l instanceof BlockTCRailGag && (lastTrack==null || !CommonUtil.getTiles(getWorld(),i,j,k).contains(lastTrack))){
+			TileTCRailGag tileGag = (TileTCRailGag) getWorld().getTileEntity(i, j, k);
+			if(tileGag.originX.size()>0 && getWorld().getTileEntity(tileGag.originX.get(0), tileGag.originY.get(0), tileGag.originZ.get(0)) != null) {
+				lastTrack = (TileTCRail) getWorld().getTileEntity(tileGag.originX.get(0), tileGag.originY.get(0), tileGag.originZ.get(0));
 			}
 		}
 

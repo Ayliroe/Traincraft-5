@@ -34,12 +34,6 @@ public class EntityLocoSteamForneyRed extends SteamTrain {
 		prevPosZ = d2;
 	}
 
-		@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
 	@Override
 	public void pressKey(int i) {
 		if (i == 7 && riddenByEntity instanceof EntityPlayer) {
@@ -94,13 +88,13 @@ public class EntityLocoSteamForneyRed extends SteamTrain {
 	}
 
 	@Override
-	public float transportTopSpeed() {
-		return super.transportTopSpeed()*(riddenByEntity instanceof EntityPlayerMP &&(((EntityPlayerMP) riddenByEntity).getDisplayName().equals("EternalBlueFlame") || ((EntityPlayerMP) riddenByEntity).getDisplayName().equals("minecarftmano9"))?3:1);
+	public float getSpecMaxSpeed() {
+		return super.getSpecMaxSpeed()*(riddenByEntity instanceof EntityPlayerMP &&(((EntityPlayerMP) riddenByEntity).getDisplayName().equals("EternalBlueFlame") || ((EntityPlayerMP) riddenByEntity).getDisplayName().equals("minecarftmano9"))?3:1);
 	}
 
 	@Override
-	public float transportMetricHorsePower() {
-		return super.transportMetricHorsePower()*(riddenByEntity instanceof EntityPlayerMP &&(((EntityPlayerMP) riddenByEntity).getDisplayName().equals("EternalBlueFlame") || ((EntityPlayerMP) riddenByEntity).getDisplayName().equals("minecarftmano9"))?3:1);
+	public float getSpecMHP() {
+		return super.getSpecMHP()*(riddenByEntity instanceof EntityPlayerMP &&(((EntityPlayerMP) riddenByEntity).getDisplayName().equals("EternalBlueFlame") || ((EntityPlayerMP) riddenByEntity).getDisplayName().equals("minecarftmano9"))?3:1);
 	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0.4f,1.6f, 0f}};}

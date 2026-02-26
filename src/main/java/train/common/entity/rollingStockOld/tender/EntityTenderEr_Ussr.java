@@ -40,12 +40,6 @@ public class EntityTenderEr_Ussr extends Tender implements IInventory {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		checkInvent(tenderItems[0], this);
@@ -101,11 +95,6 @@ public class EntityTenderEr_Ussr extends Tender implements IInventory {
 			entityplayer.openGui(Traincraft.instance, GuiIDs.TENDER, worldObj, this.getEntityId(), -1, (int) this.posZ);
 		}
 		return true;
-	}
-
-	@Override
-	public boolean canBeRidden() {
-		return false;
 	}
 
 	@Override

@@ -47,11 +47,6 @@ public class EntityFlatCartWoodUS extends Freight implements IInventory{
 		entityplayer.openGui(Traincraft.instance, GuiIDs.FREIGHT, worldObj, this.getEntityId(), -1, (int) this.posZ);
 		return true;
 	}
-
-	@Override
-	public boolean isStorageCart() {
-		return false;
-	}
 	@Override
 	public String getInventoryName() {
 		return "Wood transport";
@@ -62,22 +57,12 @@ public class EntityFlatCartWoodUS extends Freight implements IInventory{
 		return freightInventorySize;
 	}
 	@Override
-	public boolean isPoweredCart() {
-		return true;
-	}
-	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;
 	}
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.74F;
-	}
-
-	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
 	}
 
 	@Override

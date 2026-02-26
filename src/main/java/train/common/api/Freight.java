@@ -27,7 +27,7 @@ public abstract class Freight extends EntityRollingStock {
 
     @Override
     public boolean attackEntityFrom(DamageSource damagesource, float i) {
-        if (worldObj.isRemote) {
+        if (getWorld().isRemote) {
             return true;
         }
 
@@ -111,7 +111,7 @@ public abstract class Freight extends EntityRollingStock {
 
     @Override
     public void markDirty() {
-        if (!worldObj.isRemote) {
+        if (!getWorld().isRemote) {
             this.slotsFilled = 0;
             for (int i = 0; i < getSizeInventory(); i++) {
                 ItemStack itemstack = getStackInSlot(i);
@@ -130,16 +130,6 @@ public abstract class Freight extends EntityRollingStock {
 
     @Override
     public int getSizeInventory(){return getSpec()==null?getInventoryRows()*9:getSpec().getCargoCapacity();}
-
-    /**
-     * Returns true if this cart is a storage cart Some carts may have inventories but not be storage carts and some carts without inventories may be storage carts.
-     *
-     * @return True if this cart should be classified as a storage cart.
-     */
-    @Override
-    public boolean isStorageCart() {
-        return true;
-    }
 
     @Override
     public int getInventoryStackLimit() {
@@ -162,7 +152,7 @@ public abstract class Freight extends EntityRollingStock {
     protected void handleMass() {
         if (this.ticksExisted % 10 != 0)
             return;
-        if (worldObj.isRemote)
+        if (getWorld().isRemote)
             return;
         this.mass = this.getDefaultMass();
         this.itemInsideCount = 0;

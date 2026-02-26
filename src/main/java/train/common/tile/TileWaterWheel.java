@@ -28,14 +28,14 @@ public class TileWaterWheel extends Energy implements IEnergyProvider {
 	public void updateEntity() {
 		super.updateEntity();
 
-		if(!worldObj.isRemote) {
+		if(!getWorld().isRemote) {
 
-			Block blockXP = worldObj.getBlock(xCoord+1, yCoord, zCoord);
-			Block blockXN = worldObj.getBlock(xCoord-1, yCoord, zCoord);
-			Block blockZP = worldObj.getBlock(xCoord, yCoord, zCoord+1);
-			Block blockZN = worldObj.getBlock(xCoord, yCoord, zCoord-1);
-			Block blockTop = worldObj.getBlock(xCoord, yCoord+1, zCoord);
-			Block blockBottom = worldObj.getBlock(xCoord, yCoord-1, zCoord);
+			Block blockXP = getWorld().getBlock(xCoord+1, yCoord, zCoord);
+			Block blockXN = getWorld().getBlock(xCoord-1, yCoord, zCoord);
+			Block blockZP = getWorld().getBlock(xCoord, yCoord, zCoord+1);
+			Block blockZN = getWorld().getBlock(xCoord, yCoord, zCoord-1);
+			Block blockTop = getWorld().getBlock(xCoord, yCoord+1, zCoord);
+			Block blockBottom = getWorld().getBlock(xCoord, yCoord-1, zCoord);
 
 
 			if (blockXP instanceof BlockLiquid && blockXP.getMaterial().isLiquid()

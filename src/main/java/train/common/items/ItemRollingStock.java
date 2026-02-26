@@ -176,14 +176,12 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 			}
 
 			par3List.add(EnumChatFormatting.GREEN + t("menu.item.weight") +": " + getEntity().weightKg() + "kg");
-			if (getEntity().transportTopSpeed()!=0){
-				par3List.add(EnumChatFormatting.GREEN + t("menu.item.speed") +": " + getEntity().transportTopSpeed() +" km/h");
-
-				if (getEntity().transportMetricHorsePower() !=0){
-					par3List.add(EnumChatFormatting.GREEN +t("menu.item.mhp") +": " + getEntity().transportMetricHorsePower());
+			if (getEntity() instanceof Locomotive) {
+				if (((Locomotive)getEntity()).getSpecMaxSpeed() != 0) {
+					par3List.add(EnumChatFormatting.GREEN + t("menu.item.speed") + ": " + ((Locomotive)getEntity()).getSpecMaxSpeed() + " km/h");
 				}
-				if (getEntity().transportTractiveEffort() != 0){
-					par3List.add(EnumChatFormatting.GREEN + t("menu.item.tractiveeffort") +": " + getEntity().transportTractiveEffort() + " lbf");
+				if (((Locomotive)getEntity()).getSpecMHP() != 0) {
+					par3List.add(EnumChatFormatting.GREEN + t("menu.item.mhp") + ": " + ((Locomotive)getEntity()).getSpecMHP());
 				}
 			}
 			if(getEntity().getInventoryRows()>0){

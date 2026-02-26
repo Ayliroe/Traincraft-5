@@ -43,12 +43,6 @@ public class EntityFreightASTFAutorack extends Freight implements IInventory {
 	}
 
 	@Override
-	public void setDead() {
-		super.setDead();
-		isDead = true;
-	}
-
-	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
 		NBTTagList nbttaglist = new NBTTagList();
@@ -90,11 +84,6 @@ public class EntityFreightASTFAutorack extends Freight implements IInventory {
 			return false;
 		}
 		entityplayer.openGui(Traincraft.instance, GuiIDs.FREIGHT, worldObj, this.getEntityId(), -1, (int) this.posZ);
-		return true;
-	}
-
-	@Override
-	public boolean isStorageCart() {
 		return true;
 	}
 
