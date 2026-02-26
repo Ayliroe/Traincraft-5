@@ -47,11 +47,6 @@ public class EntityLocoElectricBR185 extends ElectricTrain {
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.7F;
 	}
-
-	@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return canBeAdjusted;
-	}
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;

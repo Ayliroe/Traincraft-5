@@ -40,7 +40,6 @@ import train.client.render.TransportRenderCache;
 import train.common.Traincraft;
 import train.common.adminbook.ItemAdminBook;
 import train.common.core.handlers.ConfigHandler;
-import train.common.core.handlers.TrainHandler;
 import train.common.core.util.DepreciatedUtil;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemChunkLoaderActivator;
@@ -65,7 +64,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public AbstractTrains backLink;
     //private Set chunks;
     protected Ticket chunkTicket;
-    public TrainHandler train;
     public List<ChunkCoordIntPair> loadedChunks = new ArrayList<>();
     public boolean shouldChunkLoad = true;
     protected boolean itemdropped = false;
@@ -280,10 +278,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public float getLinkageDistanceBack(EntityMinecart cart){return 0.0f;}
 
     public abstract float getLinkageDistance(EntityMinecart cart);
-
-    //public abstract int getID();
-
-    public abstract boolean canBeAdjusted(EntityMinecart cart2);
 
     public abstract List<ItemStack> getItemsDropped();
 
@@ -538,7 +532,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
     @Override
     public boolean canBePushed() {
-        return false;
+        return true;
     }
 
 
@@ -723,7 +717,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         }
 
         for (AbstractTrains train : transports) {
-            if (train instanceof Locomotive && ((Locomotive)train).canBePulled) {
+            if (train instanceof Locomotive && train.canBePushed()) {
                 return train;
             }
         }
@@ -742,10 +736,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * @return Returns 1 if from front, -1 if from back, or 0 if no pulling locomotive exists or this is the pulling locomotive.
      */
     protected int pullingLocomotiveDirection() {
-        if (this instanceof Locomotive) {
-            if (!((Locomotive) this).canBePulled) {
-                return 0;
-            }
+        if (this instanceof Locomotive && !canBePushed()) {
+            return 0;
         }
 
         ArrayList<AbstractTrains> visited = new ArrayList<>();  // In case somebody makes a circular train
@@ -771,10 +763,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
             visited.add(train);
 
-            if (train instanceof Locomotive) {
-                if (!((Locomotive) train).canBePulled) {
-                    return visitingFront ? 1 : -1;
-                }
+            if (train instanceof Locomotive && !train.canBePushed()) {
+                return visitingFront ? 1 : -1;
             }
 
             // Trains can link front to front and back to back, so keep traversing toward whatever side we didn't come from

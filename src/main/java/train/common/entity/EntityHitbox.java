@@ -88,8 +88,7 @@ public class EntityHitbox {
                         continue;
                     }
                     if (entityOne.isAttaching && host.isAttaching) {
-                        if(entityOne.canBeAdjusted(host) || host.canBeAdjusted(entityOne)){
-
+                        if(entityOne.canBePushed() || host.canBePushed()){
 
                             if(new Vec3f(front.posX,front.posY,front.posZ).subtract(new Vec3f(entityOne.posX,entityOne.posY,entityOne.posZ)).length()
                                     <

@@ -50,11 +50,6 @@ public class EntityLocoElectricBR_E69 extends ElectricTrain {
 	}
 
 	@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return canBeAdjusted;
-	}
-
-	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;
 	}

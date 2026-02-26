@@ -106,25 +106,9 @@ public class LinkHandler {
 					}
 
 					cart2.isAttached = true;
-
 					cart2.isAttaching = false;
-
 					cart1.isAttaching = false;
-
-
 					cart1.isAttached = true;
-
-					if (cart2.frontLink.train != null) {
-						EntityRollingStock.allTrains.remove(cart2.frontLink.train);
-						cart2.frontLink.train.getTrains().clear();
-						//System.out.println("clearing linked 1");
-					}
-					if (cart2.backLink != null && cart2.backLink.train != null) {
-						EntityRollingStock.allTrains.remove(cart2.backLink.train);
-						cart2.backLink.train.getTrains().clear();
-						//System.out.println("clearing linked 2");
-					}
-
 
 					EntityPlayer entityplayer = cart1.worldObj.getClosestPlayerToEntity(cart1, 20);//
 					if (entityplayer != null && byPlayer) {

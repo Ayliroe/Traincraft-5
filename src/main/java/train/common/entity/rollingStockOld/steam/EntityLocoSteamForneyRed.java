@@ -84,11 +84,6 @@ public class EntityLocoSteamForneyRed extends SteamTrain {
 	}
 
 	@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return canBeAdjusted;
-	}
-
-	@Override
 	public int getInventoryStackLimit() {
 		return 64;
 	}

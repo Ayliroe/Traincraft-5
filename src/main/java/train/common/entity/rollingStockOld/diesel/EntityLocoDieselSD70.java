@@ -47,10 +47,6 @@ public class EntityLocoDieselSD70 extends DieselTrain {
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1.2F);
 	}
-	@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return canBeAdjusted;
-	}
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {

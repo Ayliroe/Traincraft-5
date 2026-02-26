@@ -113,11 +113,6 @@ public class CollisionBox extends EntityDragonPart implements IInventory, IFluid
     }
 
     @Override
-    public boolean canBeAdjusted(EntityMinecart cart) {
-        return host.canBeAdjusted(cart);
-    }
-
-    @Override
     public void onLinkCreated(EntityMinecart cart) {
         host.onLinkCreated(cart);
     }

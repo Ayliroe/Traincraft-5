@@ -50,11 +50,6 @@ public class EntityLocoDieselIC4_DSB_MG extends DieselTrain {
 	}
 
 	@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return canBeAdjusted;
-	}
-
-	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;
 	}

@@ -47,7 +47,6 @@ import train.common.adminbook.ServerLogger;
 import train.common.core.HandleOverheating;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.handlers.FuelHandler;
-import train.common.core.handlers.TrainHandler;
 import train.common.core.network.PacketRollingStockRotation;
 import train.common.core.util.DepreciatedUtil;
 import train.common.entity.CollisionBox;
@@ -101,20 +100,8 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
     private SoundHandler theSoundManager;
     @SideOnly(Side.CLIENT)
     private SoundUpdaterRollingStock sndUpdater;
-    /**
-     * Array containing @TrainHandler objects. In other words it contains all
-     * the "trains" object the train object contains an array which contains all @RollingStocks
-     * that are part of the train
-     */
-    public static ArrayList<TrainHandler> allTrains = new ArrayList<TrainHandler>();
-    private HandleOverheating handleOverheating;
-    /**
-     * each ticks: numLaps++ used for fuel consumption rate
-     */
-    private int numLaps;
 
-    private int ticksSinceHeld = 0;
-    private boolean cartLocked = false;
+    private HandleOverheating handleOverheating;
 
     /**
      * New physics integration
@@ -439,25 +426,6 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
     public void setDead() {
         super.setDead();
         unLink();
-        if (train != null) {
-            if (train.getTrains() != null) {
-                for (int i2 = 0; i2 < train.getTrains().size(); i2++) {
-                    if ((train.getTrains().get(i2)) instanceof Locomotive) {
-                        train.getTrains().get(i2).frontLink = null;
-                        train.getTrains().get(i2).Link1 = 0;
-                        train.getTrains().get(i2).backLink = null;
-                        train.getTrains().get(i2).Link2 = 0;
-                    }
-                    if ((train.getTrains().get(i2)) != this) {
-                        if (train != null && train.getTrains() != null && train.getTrains().get(i2) != null && train.getTrains().get(i2).train != null && train.getTrains().get(i2).train.getTrains() != null) train.getTrains().get(i2).train.getTrains().clear();
-                    }
-                }
-            }
-        }
-        if (train != null && train.getTrains().size() <= 1) {
-            train.getTrains().clear();
-            allTrains.remove(train);
-        }
         if (bogieFront != null) {
             bogieFront.setDead();
             bogieFront.isDead = true;
@@ -543,83 +511,9 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
         }
 
 
-    }
+    }   
 
-    private void handleTrain() {
-        if (this instanceof Locomotive && train != null) {
-            for (int i2 = 0; i2 < train.getTrains().size(); i2++) {
-                if (RailTools.isCartLockedDown(train.getTrains().get(i2))) {
-                    cartLocked = true;
-                    /** If something in the train is locked down */
-                    ticksSinceHeld = 40;
-                    if (!((Locomotive) this).canBeAdjusted) {
-                        ((Locomotive) this).setCanBeAdjusted(true);
-
-                    }
-                }
-                cartLocked = false;
-            }
-            if (ticksSinceHeld > 0 && !cartLocked) {
-                ticksSinceHeld--;
-            }
-            if (ticksSinceHeld <= 0 && !cartLocked) {
-                if (((Locomotive) this).canBeAdjusted && !((Locomotive) this).canBePulled) {
-                    ((Locomotive) this).setCanBeAdjusted(false);
-
-                }
-            }
-        }
-
-
-        /**
-         * if the global train list is empty this is only used when the first @EntityRollingStock
-         * is put down or when the world reloads
-         */
-        if (ticksExisted % 20 != 0) return;
-        if (allTrains.isEmpty()) {
-            if ((frontLink != null || backLink != null)) {
-                train = new TrainHandler(this);
-            }
-            /**
-             * This is used when global train list isn't empty but this @EntityRollingStock
-             * isn't part of a train yet
-             */
-        } else if (train == null || train.getTrains().isEmpty()) {
-            if ((frontLink != null || backLink != null)) {
-                if (frontLink != null && frontLink.train != null && frontLink.train.getTrains() != null && !frontLink.train.getTrains().isEmpty()) {
-                    train = frontLink.train;
-                    return;
-                }
-                if (backLink != null && backLink.train != null && backLink.train.getTrains() != null && !backLink.train.getTrains().isEmpty()) {
-                    train = backLink.train;
-                    return;
-                }
-
-                train = new TrainHandler(this);
-            }
-        }
-        /**
-         * getting main locomotive of the train and copying its destination to
-         * all attached carts
-         */
-        if (train != null && train.getTrains().size() > 1) {
-            if (this instanceof Locomotive && !((Locomotive) this).canBeAdjusted && !getDestination().isEmpty()) {
-                for (int i = 0; i < train.getTrains().size(); i++) {
-                    if (train.getTrains().get(i) != null && !train.getTrains().get(i).equals(this))
-                        train.getTrains().get(i).destination = getDestination();
-                    CartTools.setCartOwner(train.getTrains().get(i), CartTools.getCartOwner(this));
-                }
-            }
-        }
-        /**
-         * Resets destination
-         */
-        else if (!(this instanceof Locomotive)) {
-            destination = "";
-        }
-    }
-
-    private double rollingX=0,rollingY=0,rollingZ=0, rollingPitch=0;
+    private double rollingX=0,rollingY=0,rollingZ=0;
     @Override
     @SideOnly(Side.CLIENT)
     /**
@@ -631,9 +525,7 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
         rollingY = par3;
         rollingZ = par5;
         rollingturnProgress = par9 + 2;
-        rollingPitch=par8;
     }
-
 
     @Override
     public void onUpdate() {
@@ -710,11 +602,10 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
             if (TraincraftEntityHelper.getIsJumping(seats.get(0).getPassenger())) isBraking = true;
         }
 
-        int var2;
         if (!worldObj.isRemote && worldObj instanceof WorldServer) {
             worldObj.theProfiler.startSection("portal");
             MinecraftServer var1 = MinecraftServer.getServer();
-            var2 = getMaxInPortalTime();
+            int var2 = getMaxInPortalTime();
 
             if (inPortal) {
                 if (var1.getAllowNether()) {
@@ -788,28 +679,8 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
             positionSeats();
             return;
         }
-        /**
-         * As entities can't be registered in nbttagcompound I had to setup this
-         * system... When world loads, only the (double) Link1 and Link2 are
-         * known. This method search for the entity with the ID corresponding to
-         * Link1 or Link2 When it finds it, (EntityRollingStock)frontLink and
-         * backLink will be updated accordingly
-         */
-        if (addedToChunk && ((frontLink == null && Link1 != 0) || (backLink == null && Link2 != 0))) {
-            List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(15, 15, 15));
 
-            if (list != null && list.size() > 0) {
-                for (Object entity : list) {
-                    if (entity instanceof EntityRollingStock) {
-                        if (((EntityRollingStock) entity).uniqueID == Link1) {
-                            frontLink = (EntityRollingStock) entity;
-                        } else if (((EntityRollingStock) entity).uniqueID == Link2) {
-                            backLink = (EntityRollingStock) entity;
-                        }
-                    }
-                }
-            }
-        }
+        restoreLinks();
 
         prevPosX = posX;
         prevPosY = posY;
@@ -827,8 +698,6 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
 
         updatePosition();
 
-
-
         if (bogieFront != null && bogieBack!=null) {
 
             double d6 = bogieBack.posX - bogieFront.posX;
@@ -844,18 +713,9 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
             Traincraft.rotationChannel.sendToAllAround(new PacketRollingStockRotation(this), new TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300.0D));
         }
 
-        handleTrain();
         handleOverheating.HandleHeatLevel(this);
         func_145775_I();
         MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, floor_posX, floor_posY, floor_posZ));
-
-        numLaps++;
-        if ((this instanceof Locomotive) && (Link1 == 0) && (Link2 == 0) && numLaps > 700) {
-            consist.clear();
-            consist.add(this);
-            updateLinks();
-        }
-
 
         //update the collision handler's positions
         collisionHandler.position(posX, posY, posZ, rotationPitch, rotationYaw);
@@ -875,6 +735,32 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
         }
         if(!getWorld().isRemote) {
             dataWatcher.updateObject(29, getVelocity());
+        }
+    }
+
+    /**
+     * As entities can't be registered in nbttagcompound I had to setup this
+     * system... When world loads, only the (double) Link1 and Link2 are
+     * known. This method search for the entity with the ID corresponding to
+     * Link1 or Link2 When it finds it, (EntityRollingStock)frontLink and
+     * backLink will be updated accordingly
+     */
+    private void restoreLinks(){
+
+        if (addedToChunk && ((frontLink == null && Link1 != 0) || (backLink == null && Link2 != 0))) {
+            List<?> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(15, 15, 15));
+
+            if (list != null && !list.isEmpty()) {
+                for (Object entity : list) {
+                    if (entity instanceof EntityRollingStock) {
+                        if (((EntityRollingStock) entity).uniqueID == Link1) {
+                            frontLink = (EntityRollingStock) entity;
+                        } else if (((EntityRollingStock) entity).uniqueID == Link2) {
+                            backLink = (EntityRollingStock) entity;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -991,15 +877,9 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
     }
 
     public double manageLink(EntityRollingStock other) {
-        if (isBraking || other.bogieBack == null || other.bogieFront == null || bogieBack == null || bogieFront == null) {
+        // Don't apply spring movement if uninitialized or a non-passive loco
+        if (other.bogieBack == null || other.bogieFront == null || bogieBack == null || bogieFront == null || (this instanceof Locomotive && !canBePushed())) {
             return 0d;
-        }
-
-        // Locos that are not set to be pulled don't receive link movement
-        if (this instanceof Locomotive) {
-            if (!((Locomotive) this).canBePulled) {
-                return 0d;
-            }
         }
 
         double vecX = other.posX - posX;
@@ -1277,24 +1157,9 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
     public void applyEntityCollision(Entity par1Entity) {}
 
     public void multiplyVelocity(double vel) {
-        EntityRollingStock last = this;
-        for(AbstractTrains train : consist) {
-            if (train == null || train.bogieBack == null || train.bogieFront == null) { continue; } //This method can fire before the stock fully initializes, so we need to make sure bogies exist.
-            if (train.backLink != null && last.backLink != null
-                    && last == train.backLink
-                    && train == last.backLink) {
-                train.bogieBack.multiplyVelocity(-vel);
-                train.bogieFront.multiplyVelocity(-vel);
-            } else if (train.frontLink != null && last.frontLink != null
-                    && last == train.frontLink
-                    && train == last.frontLink) {
-                train.bogieBack.multiplyVelocity(-vel);
-                train.bogieFront.multiplyVelocity(-vel);
-            } else {
-                train.bogieBack.multiplyVelocity(vel);
-                train.bogieFront.multiplyVelocity(vel);
-            }
-        }
+        if (bogieBack == null || bogieFront == null) { return; } //This method can fire before the stock fully initializes, so we need to make sure bogies exist.
+        bogieBack.multiplyVelocity(vel);
+        bogieFront.multiplyVelocity(vel);
     }
 
     /**
@@ -1340,20 +1205,6 @@ public class EntityRollingStock extends AbstractTrains implements ILinkableCart 
     @Override
     public float getLinkageDistance(EntityMinecart cart) {
         return getOptimalDistance(cart);
-    }
-
-
-    /**
-     * Return false if linked carts have no effect on the velocity of this cart.
-     * Use carefully, if you link two carts that can't be adjusted, it will
-     * behave as if they are not linked.
-     *
-     * @param cart The cart doing the adjusting.
-     * @return Whether the cart can have its velocity adjusted.
-     */
-    @Override
-    public boolean canBeAdjusted(EntityMinecart cart) {
-        return true;
     }
 
     @Override

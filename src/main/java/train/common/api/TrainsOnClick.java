@@ -12,16 +12,13 @@ public class TrainsOnClick {
         if (itemstack != null && itemstack.getItem() == ItemIDs.stake.item && !world.isRemote &&
                 (FMLCommonHandler.instance().getMinecraftServerInstance().isSinglePlayer() || !train.isLinked() || train.getTrainOwner().equals(playerEntity.getDisplayName()) || train.getTrainOwner().isEmpty() || train.getTrainOwner() == null)) {
             if (playerEntity.isSneaking() && train instanceof Locomotive) {
-                if (!train.canBeAdjusted(train)) {
+                if (!train.canBePushed()) {
                     playerEntity.addChatMessage(new ChatComponentText(((EntityRollingStock) train).getTrainName() + " can be pulled, don't forget to fuel it!"));
-                    playerEntity.addChatMessage(new ChatComponentText("Attach the BACK of this locomotive to the BACK of another locomotive. Otherwise you will encounter weird problems on turns"));
-                    ((Locomotive) train).setCanBeAdjusted(true);
-                    ((Locomotive) train).canBePulled = true;
+                    ((Locomotive) train).setCanBePushed(true);
                     ((Locomotive) train).disconnectFromServer();
                 } else {
                     playerEntity.addChatMessage(new ChatComponentText(((EntityRollingStock) train).getTrainName() + " can pull"));
-                    ((Locomotive) train).setCanBeAdjusted(false);
-                    ((Locomotive) train).canBePulled = false;
+                    ((Locomotive) train).setCanBePushed(false);
                 }
 
                 if(train.consistLeadID!=train.getEntityId()){
@@ -74,16 +71,6 @@ public class TrainsOnClick {
                 train.backLink = null;
                 train.isAttaching = false;
                 train.isAttached = false;
-
-                if (train.train != null) {
-                    train.train.resetTrain();
-                }
-
-                if (train.train != null && train.train.getTrains().size() <= 1) {
-                    /** no more @RollingStocks in the train then remove the train object from the global list */
-                    EntityRollingStock.allTrains.remove(train.train);
-                    //System.out.println("Train is destroyed, remove it from the global array");
-                }
             }
             return true;
         } else {

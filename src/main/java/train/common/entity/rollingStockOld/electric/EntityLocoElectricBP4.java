@@ -49,10 +49,6 @@ public class EntityLocoElectricBP4 extends ElectricTrain {
 		return (0.7F);
 	}
 	/*@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return canBeAdjusted;
-	}
-	@Override
 	public float[] getHitboxSize(){return new float[]{4,2,1};}
 	@Override
 	public float[] rotationPoints(){return new float[]{4,0};}*/

@@ -9,6 +9,8 @@ import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
 import io.netty.buffer.ByteBuf;
+import mods.railcraft.api.carts.CartTools;
+import mods.railcraft.api.tracks.RailTools;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityMinecart;
@@ -96,12 +98,6 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
      * state of the loco
      */
     private String locoState = "";
-    /**
-     * false if linked carts have no effect on the velocity of this cart. Use
-     * carefully, if you link two carts that can't be adjusted, it will behave
-     * as if they are not linked.
-     */
-    protected boolean canBeAdjusted = false;
 
     /**
      * These variables are used to display changes in the GUI
@@ -117,11 +113,9 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
      */
     protected int fuelRate;
     /**
-     * This is for the "can pull" feature It is used to avoid conflict with
-     * isCartLockDown @see EntityRollingStock line 422 This is set in @see
-     * TrainsOnClick
+     * Whether or not the locomotive is passively pullable/pushable; set with a stake (see TrainsOnClick)
      */
-    public boolean canBePulled = false;
+    private boolean canBePulled = false;
 
 
     public Locomotive(World world) {
@@ -349,7 +343,6 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         super.writeEntityToNBT(nbttagcompound);
-        nbttagcompound.setBoolean("canBeAdjusted", canBeAdjusted);
         nbttagcompound.setBoolean("canBePulled", canBePulled);
         nbttagcompound.setInteger("overheatLevel", getOverheatLevel());
         nbttagcompound.setString("lastRider", lastRider);
@@ -384,13 +377,11 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
         nbttagcompound.setBoolean("stationStop", stationStop);
         nbttagcompound.setString(DataMemberName.lightingDetailsJSONString.AsString(), lightingDetailsJSONString());
         nbttagcompound.setShort("fuelTrain", (short) fuelTrain);
-        nbttagcompound.setBoolean("canBeAdjusted", canBeAdjusted);
     }
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound ntc) {
         super.readEntityFromNBT(ntc);
-        canBeAdjusted = ntc.getBoolean("canBeAdjusted");
         canBePulled = ntc.getBoolean("canBePulled");
         setOverheatLevel(ntc.getInteger("overheatLevel"));
         lastRider = ntc.getString("lastRider");
@@ -440,25 +431,12 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
 
         dataWatcher.updateObject(28, lightingDetailsJSONString());
         fuelTrain = ntc.getShort("fuelTrain");
-        canBeAdjusted = ntc.getBoolean("canBeAdjusted");
     }
 
-    /**
-     * Returns true if this entity should push and be pushed by other entities
-     * when colliding.
-     */
     @Override
-    public boolean canBePushed() {
-        return false;
-    }
+    public boolean canBePushed() { return canBePulled; }
 
-    public void setCanBeAdjusted(boolean canBeAdj) {
-        canBeAdjusted = canBeAdj;
-    }
-    @Override
-    public boolean canBeAdjusted(EntityMinecart cart) {
-        return canBeAdjusted;
-    }
+    public void setCanBePushed(boolean pushable) { canBePulled = pushable; }
 
     /**
      * gets packet from server and distribute for GUI handles motion
@@ -720,7 +698,7 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
                 }
             }
         }
-        if (getState().equals("cold") && !canBePulled) {
+        if (getState().equals("cold") && !canBePushed()) {
             extinguish();
             if (getCurrentMaxSpeed() >= (getMaxSpeed() * 0.6)) {
                 multiplyVelocity(0.98);
@@ -758,13 +736,27 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
                 }
             }
         }
+        
+        for (AbstractTrains train : consist) {
+            if (train != null) {
+                if (RailTools.isCartLockedDown(train)) {
+                    multiplyVelocity(0);
+                }
+
+                // Getting main locomotive of the train and copying its destination to all attached carts
+                if (!getDestination().isEmpty()) {
+                    if (train != this) { train.destination = getDestination(); }
+                    CartTools.setCartOwner(train, CartTools.getCartOwner(this));
+                }
+            }
+        }
 
         //Minecraft Train Control things.
         if (!worldObj.isRemote) {
             if (mtcStatus == 1 | mtcStatus == 2) {
                 if (mtcType == 2) {
                     //Send updates every few seconds
-                    if (ticksExisted % 20 == 0 && !canBePulled) {
+                    if (ticksExisted % 20 == 0 && !canBePushed()) {
                         JsonObject sendingObj = new JsonObject();
                         sendingObj.addProperty("funct", "update");
                         sendingObj.addProperty("signalBlock", currentSignalBlock);
@@ -1315,7 +1307,7 @@ public abstract class Locomotive extends Freight implements WirelessTransmitter,
 
     public void attemptConnection(String theServerUUID) {
         //Oh, that's great! We just got the servers UUID. Now let's try connecting to it.
-        if (theServerUUID != null && !serverUUID.equals(theServerUUID) && !canBePulled) {
+        if (theServerUUID != null && !serverUUID.equals(theServerUUID) && !canBePushed()) {
             //	System.out.println("Oh, that's great! We just got the servers UUID. Now let's try connecting to it.");
             JsonObject sendTo = new JsonObject();
             sendTo.addProperty("funct", "attemptconnection");

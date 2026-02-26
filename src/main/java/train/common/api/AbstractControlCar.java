@@ -154,21 +154,13 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     {
         cycleBeaconIndex();
 
-        if (worldObj.isRemote == false)
-        {
+        if (!worldObj.isRemote)  {
             //Server side stuff.
-            if (frontLink != null)
-            {
-                if ((frontLink).train != null && (frontLink).train.getTrains().size() != 0)
-                {
-                    for (int j1 = 0; j1 < (frontLink).train.getTrains().size(); j1++)
-                    {
-                        AbstractTrains daRollingStock = (frontLink).train.getTrains().get(j1);
-                        if (daRollingStock instanceof Locomotive)
-                        {
-                            connectedLocomotive = (Locomotive) daRollingStock;
-                            break;
-                        }
+            if (frontLink != null)  {
+                for (AbstractTrains train : frontLink.consist)  {
+                    if (train instanceof Locomotive) {
+                        connectedLocomotive = (Locomotive) train;
+                        break;
                     }
                 }
             }

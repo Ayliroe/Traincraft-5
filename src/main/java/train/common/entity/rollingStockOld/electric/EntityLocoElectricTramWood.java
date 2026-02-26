@@ -51,11 +51,6 @@ public class EntityLocoElectricTramWood extends ElectricTrain {
 		//float dist = 0.1F;
 		return (0.7F);
 	}
-
-	@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return canBeAdjusted;
-	}
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;

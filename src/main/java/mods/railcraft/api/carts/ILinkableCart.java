@@ -63,15 +63,6 @@ public interface ILinkableCart
     public float getOptimalDistance(EntityMinecart cart);
 
     /**
-     * Return false if linked carts have no effect on the velocity of this cart.
-     * Use carefully, if you link two carts that can't be adjusted,
-     * it will behave as if they are not linked.
-     * @param cart The cart doing the adjusting.
-     * @return Whether the cart can have its velocity adjusted.
-     */
-    public boolean canBeAdjusted(EntityMinecart cart);
-
-    /**
      * Called upon successful link creation.
      * @param cart The cart we linked with.
      */

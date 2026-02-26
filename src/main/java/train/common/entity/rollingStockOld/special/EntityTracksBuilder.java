@@ -419,11 +419,6 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 		return (dist + 0.5F);
 	}
 
-	@Override
-	public boolean canBeAdjusted(EntityMinecart cart) {
-		return false;
-	}
-
 	public void Smoke() {
 		if (getFuel() > 0) {
 			fuelTrain--;
