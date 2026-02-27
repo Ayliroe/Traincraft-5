@@ -14,7 +14,7 @@ public class PacketATOHandler implements IMessageHandler<PacketATO, IMessage> {
    public IMessage onMessage(PacketATO message, MessageContext ctx) {
       Entity theTrain = Minecraft.getMinecraft().theWorld.getEntityByID(message.entity);
       if(theTrain instanceof Locomotive) {
-         ((Locomotive)theTrain).atoStatus = message.status;
+         ((Locomotive)theTrain).MTC.atoStatus = message.status;
       }
 
       return null;

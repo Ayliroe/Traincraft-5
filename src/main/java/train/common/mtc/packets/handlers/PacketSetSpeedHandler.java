@@ -38,7 +38,7 @@ public  class PacketSetSpeedHandler implements IMessageHandler<PacketSetSpeed, I
 
         if (theTrain != null && theTrain instanceof Locomotive) {
 
-            ((Locomotive) theTrain).speedLimit = message.speed;
+            ((Locomotive) theTrain).MTC.speedLimit = message.speed;
 
 
         }

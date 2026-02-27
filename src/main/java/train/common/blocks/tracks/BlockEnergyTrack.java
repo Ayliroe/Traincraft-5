@@ -177,13 +177,12 @@ public class BlockEnergyTrack extends TrackBaseTraincraft implements ITrackPower
 	}
 	@Override
 	public void onMinecartPass(EntityMinecart cart) {
-		if (!(cart instanceof ElectricTrain)) {
-			return;
-		}
-		if ((this.RFChandler.getCharge() > 20) && (((ElectricTrain) cart).fuelTrain) < (((ElectricTrain) cart).maxEnergy)) {
-			double transfered = this.RFChandler.getCharge() * 0.05;
-			(((EntityRollingStock) cart).fuelTrain) += transfered;
-			this.RFChandler.removeCharge(transfered);
+		if (cart instanceof ElectricTrain) {
+			if ((this.RFChandler.getCharge() > 20) && (((ElectricTrain) cart).fuelTrain) < (((ElectricTrain) cart).maxEnergy)) {
+				double transferred = this.RFChandler.getCharge() * 0.05;
+				(((ElectricTrain) cart).fuelTrain) += transferred;
+				this.RFChandler.removeCharge(transferred);
+			}
 		}
 	}
 

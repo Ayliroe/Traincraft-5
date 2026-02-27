@@ -165,13 +165,11 @@ public class GuiLoco2 extends GuiContainer {
             if (!loco.parkingBrake && loco.getSpeed() < 10) {
                 Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(true, loco.getEntityId()));
                 loco.parkingBrake = true;
-                loco.isBraking = true;
                 guibutton.displayString = "Brake: On";
                 this.initGui();
             } else if (loco.getSpeed() < 10) {
                 Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(false, loco.getEntityId()));
                 loco.parkingBrake = false;
-                loco.isBraking = false;
                 guibutton.displayString = "Brake: Off";
                 this.initGui();
             }
@@ -212,7 +210,6 @@ public class GuiLoco2 extends GuiContainer {
                     // An auto parking brakingRate is implemented here because Brutal tried to implement it in the Locomotive API when you turn off the Train.
                     Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(true, loco.getEntityId()));
                     loco.parkingBrake = true;
-                    loco.isBraking = true;
                     this.initGui();
                 } else {
                     getEntityPlayer().addChatMessage(new ChatComponentText("Stop before turning it Off!"));

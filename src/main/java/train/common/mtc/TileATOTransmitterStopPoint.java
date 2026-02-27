@@ -35,16 +35,16 @@ public class TileATOTransmitterStopPoint extends TileEntity implements IPeripher
                Object obj = var2.next();
                if(obj instanceof Locomotive) {
                   Locomotive daTrain = (Locomotive)obj;
-                   if (daTrain.mtcOverridePressed) { return;}
-                  if(daTrain.mtcStatus == 1 |daTrain.mtcStatus == 2  ) {
+                   if (daTrain.MTC.mtcOverridePressed) { return;}
+                  if(daTrain.MTC.mtcStatus == 1 |daTrain.MTC.mtcStatus == 2  ) {
                      if(this.stopX == 0) {
                         return;
                      }
 
-                     daTrain.xFromStopPoint = this.stopX;
-                     daTrain.yFromStopPoint = this.stopY;
-                     daTrain.zFromStopPoint = this.stopZ;
-                     Traincraft.atoSetStopPoint.sendToAllAround(new PacketATOSetStopPoint(daTrain.getEntityId(), Double.valueOf(this.stopX), Double.valueOf(this.stopY), Double.valueOf(this.stopZ), daTrain.xStationStop, daTrain.yStationStop, daTrain.zStationStop) , new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, daTrain.posX, daTrain.posY, daTrain.posZ, 150.0D));
+                     daTrain.MTC.xFromStopPoint = this.stopX;
+                     daTrain.MTC.yFromStopPoint = this.stopY;
+                     daTrain.MTC.zFromStopPoint = this.stopZ;
+                     Traincraft.atoSetStopPoint.sendToAllAround(new PacketATOSetStopPoint(daTrain.getEntityId(), Double.valueOf(this.stopX), Double.valueOf(this.stopY), Double.valueOf(this.stopZ), daTrain.MTC.xStationStop, daTrain.MTC.yStationStop, daTrain.MTC.zStationStop) , new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, daTrain.posX, daTrain.posY, daTrain.posZ, 150.0D));
                   }
                }
             }

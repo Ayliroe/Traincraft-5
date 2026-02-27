@@ -97,7 +97,7 @@ public class TileInfoGrabberDestination extends TileEntity implements IPeriphera
                     if (obj instanceof Locomotive) {
 
                         Locomotive daTrain = (Locomotive) obj;
-                        if (daTrain.mtcOverridePressed) { return;}
+                        if (daTrain.MTC.mtcOverridePressed) { return;}
                        trainThere = true;
                        trainDestination = daTrain.getDestinationGUI();
                     }

@@ -106,14 +106,12 @@ public class GuiControlCar extends GuiContainer
                 if ((!locomotiveUnderControl.parkingBrake) && locomotiveUnderControl.getSpeed() < 10) {
                     Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(true, locomotiveUnderControl.getEntityId()));
                     locomotiveUnderControl.parkingBrake=true;
-                    locomotiveUnderControl.isBraking=true;
                     guibutton.displayString = "Brake: On";
                     this.initGui();
                 }
                 else if (locomotiveUnderControl.getSpeed() < 10) {
                     Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(false, locomotiveUnderControl.getEntityId()));
                     locomotiveUnderControl.parkingBrake=false;
-                    locomotiveUnderControl.isBraking=false;
                     guibutton.displayString = "Brake: Off";
                     this.initGui();
                 }

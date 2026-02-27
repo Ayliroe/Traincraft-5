@@ -149,50 +149,24 @@ public class TCKeyHandler {
 
                 if (toggleATO.getIsKeyPressed() && Minecraft.getMinecraft().thePlayer.ridingEntity instanceof Locomotive) {
                     sendKeyControlsPacket(16);
+
                     Locomotive train = (Locomotive) Minecraft.getMinecraft().thePlayer.ridingEntity;
-                    if (train.mtcStatus != 0 && train.mtcType == 2) {
-                        if (train instanceof SteamTrain && !ConfigHandler.ALLOW_ATO_ON_STEAMERS) {
-                            ((EntityPlayer) train.riddenByEntity).addChatMessage(new ChatComponentText("Automatic Train Operation cannot be used with steam trains"));
-                        } else {
-                            train.atoStatus = train.atoStatus == 1 ? 0 : 1;
-                        }
-                    } else {
-                        ((EntityPlayer) train.riddenByEntity).addChatMessage(new ChatComponentText("Automatic Train Operation can only be activated when you are using W-MTC"));
-                    }
+                    train.MTC.toggleATO();
                 }
 
                 if (mtcOverride.getIsKeyPressed() && Minecraft.getMinecraft().thePlayer.ridingEntity instanceof Locomotive) {
-                    Locomotive train = (Locomotive) Minecraft.getMinecraft().thePlayer.ridingEntity;
-
-                    if (train.mtcOverridePressed) {
-                        train.mtcOverridePressed = false;
-                        ((EntityPlayer) train.riddenByEntity).addChatMessage(new ChatComponentText("MTC has been enabled and will re-activate when the system receives new data"));
-                    } else {
-                        train.mtcOverridePressed = true;
-                        ((EntityPlayer) train.riddenByEntity).addChatMessage(new ChatComponentText("MTC has been disabled and will not receive speed changes or transmit MTC data"));
-                        train.mtcStatus = 0;
-                        train.speedLimit = 0;
-                        train.nextSpeedLimit = 0;
-                        train.xSpeedLimitChange = 0.0;
-                        train.ySpeedLimitChange = 0.0;
-                        train.zSpeedLimitChange = 0.0;
-                        train.xFromStopPoint = 0.0;
-                        train.yFromStopPoint = 0.0;
-                        train.zFromStopPoint = 0.0;
-                        train.trainLevel = "0";
-                    }
-
                     sendKeyControlsPacket(17);
+
+                    Locomotive train = (Locomotive) Minecraft.getMinecraft().thePlayer.ridingEntity;
+                    train.MTC.toggleMTCOverride();
                 }
 
                 if (overspeedOverride.getIsKeyPressed() && Minecraft.getMinecraft().thePlayer.ridingEntity instanceof Locomotive) {
-                    Locomotive train = (Locomotive) Minecraft.getMinecraft().thePlayer.ridingEntity;
                     sendKeyControlsPacket(18);
-                    if (train.mtcStatus == 1 || train.mtcStatus == 2) {
-                        train.overspeedOveridePressed = !train.overspeedOveridePressed;
-                    }
-                }
 
+                    Locomotive train = (Locomotive) Minecraft.getMinecraft().thePlayer.ridingEntity;
+                    train.MTC.toggleOverspeedOverride();
+                }
             }
         }
     }

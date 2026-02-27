@@ -20,15 +20,15 @@ public class PacketGetSomethingFromServerHandler implements IMessageHandler<Pack
 
             PacketThingFromServer packetToSend = new PacketThingFromServer();
             assert packetToSend != null;
-            packetToSend.speedLimit = Integer.valueOf(trainEntity.speedLimit);
-            packetToSend.nextSpeedLimit = trainEntity.nextSpeedLimit;
-            packetToSend.xFromStopPoint = trainEntity.xFromStopPoint;
-            packetToSend.yFromStopPoint = trainEntity.yFromStopPoint;
-            packetToSend.zFromStopPoint = trainEntity.zFromStopPoint;
+            packetToSend.speedLimit = Integer.valueOf(trainEntity.MTC.speedLimit);
+            packetToSend.nextSpeedLimit = trainEntity.MTC.nextSpeedLimit;
+            packetToSend.xFromStopPoint = trainEntity.MTC.xFromStopPoint;
+            packetToSend.yFromStopPoint = trainEntity.MTC.yFromStopPoint;
+            packetToSend.zFromStopPoint = trainEntity.MTC.zFromStopPoint;
 
-            packetToSend.xFromSpeedChange = trainEntity.xSpeedLimitChange;
-            packetToSend.yFromSpeedChange = trainEntity.ySpeedLimitChange;
-            packetToSend.zFromSpeedChange = trainEntity.zSpeedLimitChange;
+            packetToSend.xFromSpeedChange = trainEntity.MTC.xSpeedLimitChange;
+            packetToSend.yFromSpeedChange = trainEntity.MTC.ySpeedLimitChange;
+            packetToSend.zFromSpeedChange = trainEntity.MTC.zSpeedLimitChange;
             DebugUtil.println("Completed creation!");
             DebugUtil.println(packetToSend.xFromSpeedChange);
             Traincraft.gsfsrChannel.sendToAll(packetToSend);

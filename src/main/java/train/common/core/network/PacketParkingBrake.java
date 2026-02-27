@@ -42,10 +42,6 @@ public class PacketParkingBrake implements IMessage {
                 ((Locomotive) TrainEntity).setParkingBrakeFromPacket(message.ParkingBrake);
             }
 
-            if (TrainEntity instanceof EntityRollingStock) {
-                ((EntityRollingStock) TrainEntity).isBraking = message.ParkingBrake;
-            }
-
             return null;
         }
     }

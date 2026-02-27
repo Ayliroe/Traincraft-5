@@ -1040,8 +1040,4 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;
 	}
-
-	@Override
-	public GameProfile getOwner(){return null;}
-
 }

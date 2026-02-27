@@ -37,7 +37,7 @@ public class PacketUpdateTrainID implements IMessage {
         public IMessage onMessage(PacketUpdateTrainID message, MessageContext context) {
             Entity TrainEntity = context.getServerHandler().playerEntity.worldObj.getEntityByID(message.entityID);
             if (TrainEntity instanceof Locomotive) {
-                ((Locomotive) TrainEntity).trainID = message.trainID;
+                ((Locomotive) TrainEntity).MTC.trainID = message.trainID;
             }
             return null;
         }

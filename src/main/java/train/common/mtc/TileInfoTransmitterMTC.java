@@ -70,7 +70,7 @@ public class TileInfoTransmitterMTC extends TileEntity implements IPeripheral {
                 if (obj instanceof Locomotive) {
 
                     Locomotive daTrain = (Locomotive) obj;
-                    if (daTrain.mtcOverridePressed) { return;}
+                    if (daTrain.MTC.mtcOverridePressed) { return;}
                 //    daTrain.mtcStatus = MTCInfo;
                  //   if (daTrain.mtcStatus == 0) {
                  //       daTrain.speedLimit = "0";
@@ -81,20 +81,20 @@ public class TileInfoTransmitterMTC extends TileEntity implements IPeripheral {
                     //ExampleMod.msChannel.sendToAll(new PacketMTC(daTrain.getEntityId(), MTCInfo, 2));
                     Traincraft.mscChannel.sendToAllAround(new PacketMTC(daTrain.getEntityId(), MTCInfo, 0) , new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, daTrain.posX, daTrain.posY, daTrain.posZ, 150.0D));
 
-                    daTrain.mtcStatus =  MTCInfo;
-                    daTrain.currentSignalBlock = this.signalBlock;
-                    daTrain.mtcType = this.mtcType;
+                    daTrain.MTC.mtcStatus =  MTCInfo;
+                    daTrain.MTC.currentSignalBlock = this.signalBlock;
+                    daTrain.MTC.mtcType = this.mtcType;
                     if (this.mtcType == 2) {
-                        daTrain.stationStop = false;
-                        daTrain.speedGoingDown = false;
-                        if (!(daTrain.serverUUID.equals(this.serverUUID))) {
+                        daTrain.MTC.stationStop = false;
+                        daTrain.MTC.speedGoingDown = false;
+                        if (!(daTrain.MTC.serverUUID.equals(this.serverUUID))) {
 
-                            daTrain.attemptConnection(serverUUID);
+                            daTrain.MTC.attemptConnection(serverUUID);
                         }
                     } else if (serverUUID.equals("end")) {
                     //End communications with the server
-                        daTrain.disconnectFromServer();
-                        daTrain.serverUUID = "";
+                        daTrain.MTC.disconnectFromServer();
+                        daTrain.MTC.serverUUID = "";
                     }
 
 

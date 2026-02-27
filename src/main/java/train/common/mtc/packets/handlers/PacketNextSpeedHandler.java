@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import train.common.api.Locomotive;
+import train.common.api.MTC;
 import train.common.mtc.TileInfoTransmitterSpeed;
 import train.common.mtc.packets.PacketNextSpeed;
 
@@ -36,11 +37,11 @@ public  class PacketNextSpeedHandler implements IMessageHandler<PacketNextSpeed,
 
 
         if (theTrain != null && theTrain instanceof Locomotive) {
-            Locomotive actualTrain = ((Locomotive) theTrain);
-            actualTrain.nextSpeedLimit = message.nextSpeed;
-            actualTrain.xSpeedLimitChange = message.nx;
-            actualTrain.ySpeedLimitChange = message.ny;
-            actualTrain.zSpeedLimitChange = message.nz;
+            MTC MTC = ((Locomotive) theTrain).MTC;
+            MTC.nextSpeedLimit = message.nextSpeed;
+            MTC.xSpeedLimitChange = message.nx;
+            MTC.ySpeedLimitChange = message.ny;
+            MTC.zSpeedLimitChange = message.nz;
 
         }
 

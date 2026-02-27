@@ -16,8 +16,8 @@ public class PacketMTChandler implements IMessageHandler<PacketMTC, IMessage> {
             Entity theTrain = Minecraft.getMinecraft().theWorld.getEntityByID(message.entity);
             if (theTrain != null && theTrain instanceof Locomotive) {
 
-                ((Locomotive) theTrain).mtcStatus = message.mtcStatus;
-                if (message.mode != 0) { ((Locomotive) theTrain).mtcType = message.mode;}
+                ((Locomotive) theTrain).MTC.mtcStatus = message.mtcStatus;
+                if (message.mode != 0) { ((Locomotive) theTrain).MTC.mtcType = message.mode;}
                 //if (message.mtcStatus == 0) {
 //
                 //        ((Locomotive) theTrain).speedLimit = "0";

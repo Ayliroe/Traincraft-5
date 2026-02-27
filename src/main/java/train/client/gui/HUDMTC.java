@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import train.common.api.Locomotive;
+import train.common.api.MTC;
 import train.common.library.Info;
 
 public class HUDMTC extends GuiScreen {
@@ -36,9 +37,11 @@ public class HUDMTC extends GuiScreen {
         windowWidth = event.resolution.getScaledWidth();
         windowHeight = event.resolution.getScaledHeight() - 100;
 
-        if (rcCar.mtcStatus == 1 || rcCar.mtcStatus == 2) {
+        MTC MTC = rcCar.MTC;
+
+        if (MTC.mtcStatus == 1 || MTC.mtcStatus == 2) {
 			// Steam Trains have water.
-            int width = this.game.fontRenderer.getStringWidth("Speed Limit: " + rcCar.speedLimit + " km/h");
+            int width = this.game.fontRenderer.getStringWidth("Speed Limit: " + MTC.speedLimit + " km/h");
 
             int height = this.game.fontRenderer.FONT_HEIGHT;
             int padding = 2;
@@ -46,43 +49,43 @@ public class HUDMTC extends GuiScreen {
 
             Gui.drawRect(margin, margin, margin + width + padding * 2 + 70, margin + height + padding + padding + 35, 0xAA000000);
 
-			this.drawString(this.game.fontRenderer, "Speed Limit: " + rcCar.speedLimit + " km/h" + (rcCar.atoStatus == 1 ? ", ATO on" : ""), margin + 4, margin, 14737632);
-            this.drawString(this.game.fontRenderer, "Next Speed Limit: " + rcCar.nextSpeedLimit + " km/h", margin + 4, margin + 10, 14737632);
+			this.drawString(this.game.fontRenderer, "Speed Limit: " + MTC.speedLimit + " km/h" + (MTC.atoStatus == 1 ? ", ATO on" : ""), margin + 4, margin, 14737632);
+            this.drawString(this.game.fontRenderer, "Next Speed Limit: " + MTC.nextSpeedLimit + " km/h", margin + 4, margin + 10, 14737632);
 
-            rcCar.distanceFromStopPoint = rcCar.getDistance(rcCar.xFromStopPoint, rcCar.yFromStopPoint, rcCar.zFromStopPoint);
-            rcCar.distanceFromSpeedChange = rcCar.getDistance(rcCar.xSpeedLimitChange, rcCar.ySpeedLimitChange, rcCar.zSpeedLimitChange);
-            rcCar.distanceFromStationStop = rcCar.getDistance(rcCar.xStationStop, rcCar.yStationStop, rcCar.zStationStop);
+            MTC.distanceFromStopPoint = rcCar.getDistance(MTC.xFromStopPoint, MTC.yFromStopPoint, MTC.zFromStopPoint);
+            MTC.distanceFromSpeedChange = rcCar.getDistance(MTC.xSpeedLimitChange, MTC.ySpeedLimitChange, MTC.zSpeedLimitChange);
+            MTC.distanceFromStationStop = rcCar.getDistance(MTC.xStationStop, MTC.yStationStop, MTC.zStationStop);
 
-            if (rcCar.xFromStopPoint != 0 && rcCar.yFromStopPoint != 0 && rcCar.zFromStopPoint != 0) {
-                this.drawString(this.game.fontRenderer, "Stop in " + Math.round(rcCar.distanceFromStopPoint) + " blocks.", margin + 4, margin + 19, 14737632);
+            if (MTC.xFromStopPoint != 0 && MTC.yFromStopPoint != 0 && MTC.zFromStopPoint != 0) {
+                this.drawString(this.game.fontRenderer, "Stop in " + Math.round(MTC.distanceFromStopPoint) + " blocks.", margin + 4, margin + 19, 14737632);
             }
 
-            if (rcCar.xFromStopPoint == 0 && rcCar.yFromStopPoint == 0 && rcCar.zFromStopPoint == 0 && rcCar.xStationStop != 0 && rcCar.yStationStop != 0) {
-                this.drawString(this.game.fontRenderer, "Station stop in " + Math.round(rcCar.distanceFromStationStop) + " blocks.", margin + 4, margin + 19, 14737632);
+            if (MTC.xFromStopPoint == 0 && MTC.yFromStopPoint == 0 && MTC.zFromStopPoint == 0 && MTC.xStationStop != 0 && MTC.yStationStop != 0) {
+                this.drawString(this.game.fontRenderer, "Station stop in " + Math.round(MTC.distanceFromStationStop) + " blocks.", margin + 4, margin + 19, 14737632);
             }
 
-            if (rcCar.xSpeedLimitChange != 0 && rcCar.ySpeedLimitChange != 0 && rcCar.zSpeedLimitChange != 0) {
-                this.drawString(this.game.fontRenderer, "Next speed limit in " + Math.round(rcCar.distanceFromSpeedChange) + " blocks.", margin + 4, margin + 28, 14737632);
+            if (MTC.xSpeedLimitChange != 0 && MTC.ySpeedLimitChange != 0 && MTC.zSpeedLimitChange != 0) {
+                this.drawString(this.game.fontRenderer, "Next speed limit in " + Math.round(MTC.distanceFromSpeedChange) + " blocks.", margin + 4, margin + 28, 14737632);
             }
 
-            if (rcCar.speedLimit < rcCar.getSpeed() && !rcCar.overspeedOveridePressed) {
+            if (MTC.speedLimit < rcCar.getSpeed() && !MTC.overspeedOveridePressed) {
                 drawTexturedRect(new ResourceLocation(Info.resourceLocation, Info.guiPrefix + "mtcspeeding.png"), 30, 45, 0, 0, 64, 64, 64, 64, 0.25);
-            } else if (rcCar.overspeedOveridePressed) {
+            } else if (MTC.overspeedOveridePressed) {
                 drawTexturedRect(new ResourceLocation(Info.resourceLocation, Info.guiPrefix + "mtcspeedingoverride.png"), 30, 45, 0, 0, 64, 64, 64, 64, 0.25);
             }
         }
 
-        if (rcCar.ticksExisted % 21 == 0 && rcCar.mtcStatus == 2) {
+        if (rcCar.ticksExisted % 21 == 0 && MTC.mtcStatus == 2) {
             mtcIconOnOff = !mtcIconOnOff;
-        } else if (rcCar.mtcStatus == 1) {
+        } else if (MTC.mtcStatus == 1) {
             mtcIconOnOff = true;
         }
 
-        if (rcCar.mtcOverridePressed) {
+        if (MTC.mtcOverridePressed) {
             drawTexturedRect(new ResourceLocation(Info.resourceLocation, Info.guiPrefix + "mtcdisable.png"), 12, 45, 0, 0, 64, 64, 64, 64, 0.25);
-        } else if (rcCar.mtcStatus == 1 || rcCar.mtcStatus == 2) {
+        } else if (MTC.mtcStatus == 1 || MTC.mtcStatus == 2) {
             if (mtcIconOnOff) {
-                if (rcCar.mtcType == 1 || rcCar.mtcType == 0) {
+                if (MTC.mtcType == 1 || MTC.mtcType == 0) {
                     drawTexturedRect(new ResourceLocation(Info.resourceLocation, Info.guiPrefix + "mtcicon.png"), 12, 45, 0, 0, 64, 64, 64, 64, 0.25);
                 } else {
                     drawTexturedRect(new ResourceLocation(Info.resourceLocation, Info.guiPrefix + "mtcicon2.png"), 12, 45, 0, 0, 64, 64, 64, 64, 0.25);

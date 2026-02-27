@@ -67,9 +67,9 @@ public class TileInfoGrabberMTC  extends TileEntity implements IPeripheral {
                         if (obj instanceof Locomotive) {
 
                             Locomotive daTrain = (Locomotive) obj;
-                            if (daTrain.mtcOverridePressed) { return;}
-                           this.trainLevel = daTrain.trainLevel;
-                           this.trainID = daTrain.trainID;
+                            if (daTrain.MTC.mtcOverridePressed) { return;}
+                           this.trainLevel = daTrain.MTC.trainLevel;
+                           this.trainID = daTrain.MTC.trainID;
                            this.trainName = daTrain.getTrainName();
                            this.trainType = daTrain.getTrainType();
                            trainOverSensor = true;

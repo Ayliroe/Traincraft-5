@@ -19,9 +19,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailBase;
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.TraincraftEntityHelper;
 import net.minecraft.entity.boss.EntityDragonPart;
-import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemDye;
@@ -62,7 +60,9 @@ import java.util.List;
 import static train.common.core.util.TraincraftUtil.isRailBlockAt;
 
 public class EntityRollingStock extends AbstractTrains {
-    public int fuelTrain;
+
+    public int fuelTrain = 0; // Note: Used by locos, but also b-units which derive from different classes, so this can't be moved higher-up
+
     protected static final int[][][] matrix = {
             {{0, 0, -1}, {0, 0, 1}},
             {{-1, 0, 0}, {1, 0, 0}},
@@ -77,8 +77,6 @@ public class EntityRollingStock extends AbstractTrains {
 
     protected EntityPlayer playerEntity;
 
-    public double speedLimiter = 1;
-
 
     /**
      * appears to be the progress of the turn
@@ -87,8 +85,6 @@ public class EntityRollingStock extends AbstractTrains {
 
     public EntityHitbox collisionHandler=null;
 
-    private TrainsOnClick trainsOnClick;
-    public boolean isBraking;
     public int linkageNumber;
 
     @SideOnly(Side.CLIENT)
@@ -103,15 +99,14 @@ public class EntityRollingStock extends AbstractTrains {
     private boolean hasSpawnedBogie = false;
     private boolean derail = false;
 
-    public Vec3f[] cachedVectors = new Vec3f[]{
-            new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0)};
+    public Vec3f[] cachedVectors = new Vec3f[]{ new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0) };
 
     public EntityRollingStock(World world) {
         super(world);
         initRollingStock(world);
     }
 
-    @Override
+
     public GameProfile getOwner() {
         return CartTools.getCartOwner(this);
     }
@@ -149,7 +144,6 @@ public class EntityRollingStock extends AbstractTrains {
         updateLinks();
 
         collisionHandler=new EntityHitbox(this);
-        trainsOnClick = new TrainsOnClick();
 
         /* Railcraft's stuff */
         //maxSpeed = defaultMaxSpeedRail;
@@ -186,7 +180,6 @@ public class EntityRollingStock extends AbstractTrains {
      */
     @Override
     public void readSpawnData(ByteBuf additionalData) {
-        isBraking = additionalData.readBoolean();
         setTrainLockedFromPacket(additionalData.readBoolean());
         int numOfTrustedPlayers = additionalData.readInt();
         for (int i = 0; i < numOfTrustedPlayers; i++) {
@@ -205,7 +198,6 @@ public class EntityRollingStock extends AbstractTrains {
      */
     @Override
     public void writeSpawnData(ByteBuf buffer) {
-        buffer.writeBoolean(isBraking);
         buffer.writeBoolean(getTrainLockedFromPacket());
         buffer.writeInt(getTrustedList().size());
         for (TrustedPlayer player : getTrustedList()) {
@@ -219,22 +211,7 @@ public class EntityRollingStock extends AbstractTrains {
         }
     }
 
-    public String getTrainName() {
-        return dataWatcher.getWatchableObjectString(9);
-    }
 
-    public String getTrainType() {
-        return dataWatcher.getWatchableObjectString(6);
-    }
-
-    @Override
-    public String getTrainOwner() {
-        return dataWatcher.getWatchableObjectString(7);
-    }
-
-    public String getTrainCreator() {
-        return dataWatcher.getWatchableObjectString(13);
-    }
 
     /*
      * @Override public int getID() { return ID; }
@@ -259,15 +236,6 @@ public class EntityRollingStock extends AbstractTrains {
     @Override
     public AxisAlignedBB getCollisionBox(Entity entity) {
         return null;
-    }
-
-    @Override
-    public boolean canBePushed() {
-        return true;
-    }
-
-    public boolean isPassenger() {
-        return (this instanceof IPassenger);
     }
 
     protected int steamFuelLast(ItemStack it) {
@@ -522,8 +490,6 @@ public class EntityRollingStock extends AbstractTrains {
             setDamage(getDamage() - 1);
         }
 
-        isBraking = false;
-
         if (getRiderOffsets() != null && getRiderOffsets().length > 0 && seats.size() < getRiderOffsets().length) {
             for (int i = 0; i < getRiderOffsets().length; i++) {
                 EntitySeat seat = new EntitySeat(getWorld(), posX, posY, posZ, getRiderOffsets()[i][0], getRiderOffsets()[i][1] + 2, getRiderOffsets()[i][2], this, i);
@@ -533,10 +499,6 @@ public class EntityRollingStock extends AbstractTrains {
                 }
                 getWorld().spawnEntityInWorld(seats.get(i));
             }
-        }
-        //dont check for jumping until at least a tick after seats spawned
-        else if (!seats.isEmpty() && getWorld().isRemote && Traincraft.proxy.getCurrentScreen() == null && seats.get(0).getPassenger() != null) {
-            if (TraincraftEntityHelper.getIsJumping(seats.get(0).getPassenger())) isBraking = true;
         }
 
         // --- PORTAL ---
@@ -906,18 +868,15 @@ public class EntityRollingStock extends AbstractTrains {
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         super.writeEntityToNBT(nbttagcompound);
-        nbttagcompound.setDouble("speedLimiter", speedLimiter);
+
         nbttagcompound.setBoolean("firstLoad", firstLoad);
-        nbttagcompound.setBoolean("isBraking", isBraking);
     }
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
-        speedLimiter = nbttagcompound.getDouble("speedLimiter");
 
         firstLoad = nbttagcompound.getBoolean("firstLoad");
-        isBraking = nbttagcompound.getBoolean("isBraking");
     }
 
     @Override
@@ -925,116 +884,37 @@ public class EntityRollingStock extends AbstractTrains {
         if (super.interactFirst(entityplayer)) {
             return true;
         }
-        //if we are mounted on a seat, ignore this interaction
+        // If we are mounted on a seat, ignore this interaction
         if (entityplayer.ridingEntity instanceof EntitySeat) {
             return true;
         }
 
         playerEntity = entityplayer;
+
+        // --- LOCKED CARTS ---
+        // Prevent interaction if locked + not a trusted user + cannot be ridden while locked
+        if (!getWorld().isRemote && getTrainLockedFromPacket()) {
+            boolean isTrustedPlayer = isPlayerTrusted(entityplayer.getDisplayName());
+            if (!entityplayer.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isTrustedPlayer && !canBeRiddenWhileLocked(this)) {
+                if (!getWorld().isRemote)
+                    entityplayer.addChatMessage(new ChatComponentText("Train is locked by " + getTrainOwner() + "."));
+                return true;
+            }
+        }
+
+        // --- ITEM IN HAND ---
         ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-
-        if (getTrainLockedFromPacket() && !getWorld().isRemote) {
-            boolean isTrustedPlayer = isPlayerTrusted(playerEntity.getDisplayName());
-            if (!playerEntity.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !canBeRiddenWhileLocked(this) && !isTrustedPlayer) {
-                if (!getWorld().isRemote) entityplayer.addChatMessage(new ChatComponentText("Train is locked by " + getTrainOwner() + "."));
-                return true;
-            }
-            else if (!playerEntity.getDisplayName().equalsIgnoreCase(getTrainOwner()) && entityplayer.inventory.getCurrentItem() != null && entityplayer.inventory.getCurrentItem().getItem() instanceof ItemDye && (this instanceof Locomotive) && !isTrustedPlayer) {
-                if (!getWorld().isRemote) entityplayer.addChatMessage(new ChatComponentText("Train is locked by " + getTrainOwner() + "."));
-                return true;
-            }
-        }
-
-
         if(itemstack != null) {
-            if (itemstack.getItem() instanceof ItemWrench && this instanceof Locomotive && entityplayer.isSneaking() && !getWorld().isRemote) {
-                destination = "";
-                entityplayer.addChatMessage(new ChatComponentText("Destination reset"));
-                return true;
-            }
-            ItemStack crowbar = GameRegistry.findItemStack("railcraft", "tool.crowbar", 1);
-            ItemStack crowbar1 = GameRegistry.findItemStack("railcraft", "tool.crowbar.reinforced", 1);
-            if (itemstack == crowbar || itemstack == crowbar1) {
-                return false;
-            }
-            if (itemstack.hasTagCompound() && getTicketDestination(itemstack) != null && getTicketDestination(itemstack).length() > 0) {
-                setDestination(itemstack);
-                /**
-                 * ticket are single use but golden ones are multiple uses
-                 */
-                ItemStack ticket = GameRegistry.findItemStack("Railcraft", "railcraft.routing.ticket", 1);
-                if (ticket != null && ticket.getItem() != null && itemstack.getItem() == ticket.getItem()) {
-                    if (--itemstack.stackSize == 0) {
-                        entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, null);
-                    }
-                }
-                return true;
-            }
-            /**
-             * If the color is valid for the cart, then change it and reduce
-             * itemstack size
-             */
-            if (itemstack.getItem() instanceof ItemDye) {
-                if (SkinRegistry.get(this).size() > 0) {
-                    for (TransportSkin s : SkinRegistry.get(this).values()) {
-                        if (itemstack.getItemDamage() == DepreciatedUtil.getColorFromString(s.addr)) {
-                            setColor(s.addr);
-                            itemstack.stackSize--;
-
-                            //if (!getWorld().isRemote)PacketHandler.sendPacketToClients(PacketHandler.sendStatsToServer(10,uniqueID,trainName ,trainType, trainOwner, getColorAsString(itemstack.getItemDamage()), (int)posX, (int)posY, (int)posZ),getWorld(), (int)posX,(int)posY,(int)posZ, 12.0D);
-
-                            return true;
-                        }
-                    }
-                    if (getWorld().isRemote && ConfigHandler.SHOW_POSSIBLE_COLORS) {
-                        String concatColors = ": ";
-                        for (int t = 0; t < SkinRegistry.get(this).size(); t++) {
-                            concatColors = concatColors.concat(SkinRegistry.get(this).get(t) + ", ");
-                        }
-                        entityplayer.addChatMessage(new ChatComponentText("Possible colors" + concatColors));
-                        entityplayer.addChatMessage(new ChatComponentText("To paint, click me with the right dye"));
-                        return true;
-                    }
-                } else if (SkinRegistry.get(this) != null || SkinRegistry.get(this).size() == 0) {
-                    entityplayer.addChatMessage(new ChatComponentText("No other colors available"));
-                }
-            }
-            if ((trainsOnClick.onClickWithStake(this, itemstack, playerEntity, getWorld()))) {
-                return true;
-            }
-
-            if (itemstack.getItem() instanceof ItemPaintbrushThing && entityplayer.isSneaking()) {
-                if (SkinRegistry.get(this).size() > 0) {
-                    entityplayer.openGui(Traincraft.instance, GuiIDs.PAINTBRUSH, entityplayer.getEntityWorld(), getEntityId(), -1, (int) posZ);
-                }
-
-                if (SkinRegistry.get(this).size() == 0) {
-                    entityplayer.addChatMessage(new ChatComponentText("There are no other colors available."));
-                }
-                return true;
-            } else if (itemstack.getItem() instanceof ItemPaintbrushThing) {
-                for (int i = 0; i < SkinRegistry.get(this).size(); i++) {
-                    if (getColor().equals(SkinRegistry.get(this).get(i))) {
-                        if (SkinRegistry.get(this).size() > i+1) {
-                            setColor(SkinRegistry.get(this).get(i+1).addr);
-                        } else {
-                            setColor(SkinRegistry.get(this).get(0).addr);
-                        }
-                        return true;
-                    }
-                }
-            }  else if (entityplayer.isSneaking() && itemstack.getItem() instanceof ItemPadlock) {
-                if (getTrainOwner().equalsIgnoreCase(entityplayer.getDisplayName())) {
-                    entityplayer.openGui(Traincraft.instance, GuiIDs.LOCK_MENU, entityplayer.getEntityWorld(), getEntityId(), -1, (int) posZ);
-                    return true;
-                } else {
-                    if (!getWorld().isRemote) entityplayer.addChatMessage(new ChatComponentText("Train is locked by " + getTrainOwner() + "."));
-                    return false;
-                }
-            }
+            System.out.println("test");
+            if ((TrainUtils.onClickWithWrench(this, itemstack, entityplayer)))      { return true; }
+            if ((TrainUtils.onClickWithCrowbar(this, itemstack, entityplayer)))     { return false; }
+            if ((TrainUtils.onClickWithTicket(this, itemstack, entityplayer)))      { return true; }
+            if ((TrainUtils.onClickWithDye(this, itemstack, entityplayer)))         { return true; }
+            if ((TrainUtils.onClickWithStake(this, itemstack, entityplayer)))       { return true; }
+            if ((TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer)))  { return true; }
         }
 
-
+        // --- ENTERING SEAT ---
         //be sure the player has permission to enter the transport, and that the transport has the main seat open.
         if (getRiderOffsets() != null && getPermissions(playerEntity, false) && !entityplayer.isSneaking()) {
             for (EntitySeat seat : seats) {
@@ -1085,20 +965,22 @@ public class EntityRollingStock extends AbstractTrains {
     @Override
     public boolean isLinked() {return frontLink !=null || backLink!=null;}
 
+
+    /*
+     * =========================================== VANILLA OVERRIDES ===========================================
+     **/
+
     /**
-     * Return false if this cart should not call IRail.onMinecartPass() and
-     * should ignore Powered Rails.
-     *
+     * Return false if this cart should not call IRail.onMinecartPass() and should ignore Powered Rails.
      * @return True if this cart should call IRail.onMinecartPass().
      */
     @Override
-    public boolean shouldDoRailFunctions() {
-        return true;
-    }
+    public boolean shouldDoRailFunctions() { return true; }
 
     @Override
     public void moveMinecartOnRail(int i, int j, int k, double d) {}
-
+    @Override
+    public int getMinecartType() { return 0; }
 
 
 
@@ -1127,19 +1009,14 @@ public class EntityRollingStock extends AbstractTrains {
      * Used in SoundUpdaterRollingStock
      */
     public int getMotionXClient() {
-        return (dataWatcher.getWatchableObjectInt(14));
+        return dataWatcher.getWatchableObjectInt(14);
     }
 
     /**
      * Used in SoundUpdaterRollingStock
      */
     public int getMotionZClient() {
-        return (dataWatcher.getWatchableObjectInt(21));
-    }
-
-    @Override
-    public int getMinecartType() {
-        return 0;
+        return dataWatcher.getWatchableObjectInt(21);
     }
 
     @Override

@@ -59,7 +59,6 @@ public class WorldEvents {
     public void playerQuitEvent(PlayerEvent.PlayerLoggedOutEvent event) {
         if (event.player.ridingEntity instanceof AbstractTrains) {
             if (event.player.ridingEntity instanceof Locomotive) {
-                ((Locomotive) event.player.ridingEntity).isBraking = true;
                 ((Locomotive) event.player.ridingEntity).parkingBrake = true;
             }
 

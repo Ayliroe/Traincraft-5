@@ -110,7 +110,7 @@ public class TilePDMInstructionRadio extends TileEntity implements IPeripheral, 
                 if (wt instanceof Locomotive) {
 
                     Locomotive actualLocomotive = (Locomotive)wt;
-                    if (actualLocomotive.trainID.equals(message.UUIDTo)) {
+                    if (actualLocomotive.MTC.trainID.equals(message.UUIDTo)) {
                     //    System.out.println("Both of those match! Sending message..");
                       wt.receiveMessage(new PDMMessage(this.uniqueID, message.UUIDTo, message.message, system));
                     }
@@ -156,7 +156,7 @@ public class TilePDMInstructionRadio extends TileEntity implements IPeripheral, 
 
                             if(obj instanceof Locomotive){
 
-                                toAdd.add((Locomotive)obj);
+                                toAdd.add(((Locomotive)obj).MTC);
                             }
 
                         }

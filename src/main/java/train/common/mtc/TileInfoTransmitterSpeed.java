@@ -78,15 +78,15 @@ public class TileInfoTransmitterSpeed  extends TileEntity implements IPeripheral
                     if (obj instanceof Locomotive) {
 
                         Locomotive daTrain = (Locomotive) obj;
-                        if (daTrain.mtcOverridePressed) { return;}
-                         if (daTrain.mtcStatus == 0  && hadSentMTCPacket == false) {
-                             daTrain.mtcStatus = 1;
-                            Traincraft.mscChannel.sendToAllAround(new PacketMTC(daTrain.getEntityId(),   daTrain.mtcStatus, 1)  , new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, daTrain.posX, daTrain.posY, daTrain.posZ, 150.0D));
+                        if (daTrain.MTC.mtcOverridePressed) { return;}
+                         if (daTrain.MTC.mtcStatus == 0  && hadSentMTCPacket == false) {
+                             daTrain.MTC.mtcStatus = 1;
+                            Traincraft.mscChannel.sendToAllAround(new PacketMTC(daTrain.getEntityId(),   daTrain.MTC.mtcStatus, 1)  , new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, daTrain.posX, daTrain.posY, daTrain.posZ, 150.0D));
 							 hadSentMTCPacket = true;
                          }
 
 
-                        daTrain.speedLimit = setSpeed;
+                        daTrain.MTC.speedLimit = setSpeed;
 
                         if (!worldObj.isRemote && hadSentPacket == false) {
 
@@ -95,10 +95,10 @@ public class TileInfoTransmitterSpeed  extends TileEntity implements IPeripheral
                             Traincraft.itsChannel.sendToAllAround(new PacketSetSpeed(setSpeed, this.xCoord, this.yCoord, this.zCoord, daTrain.getEntityId()) , new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, daTrain.posX, daTrain.posY, daTrain.posZ, 150.0D));
 
 
-                                daTrain.nextSpeedLimit = this.nextSpeedLimit;
-                                daTrain.xSpeedLimitChange = this.xFromSpeedChange;
-                                daTrain.ySpeedLimitChange = this.yFromSpeedChange;
-                                daTrain.zSpeedLimitChange = this.zFromSpeedChange;
+                                daTrain.MTC.nextSpeedLimit = this.nextSpeedLimit;
+                                daTrain.MTC.xSpeedLimitChange = this.xFromSpeedChange;
+                                daTrain.MTC.ySpeedLimitChange = this.yFromSpeedChange;
+                                daTrain.MTC.zSpeedLimitChange = this.zFromSpeedChange;
 
                                 Traincraft.itnsChannel.sendToAllAround(new PacketNextSpeed(this.nextSpeedLimit, this.xCoord, this.yCoord, this.zCoord, this.xFromSpeedChange, this.yFromSpeedChange,this.zFromSpeedChange, daTrain.getEntityId()) , new NetworkRegistry.TargetPoint(this.worldObj.provider.dimensionId, daTrain.posX, daTrain.posY, daTrain.posZ, 150.0D));
 

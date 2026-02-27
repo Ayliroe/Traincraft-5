@@ -38,7 +38,7 @@ public class PacketDestination implements IMessage {
         public IMessage onMessage(PacketDestination message, MessageContext context) {
             Entity TrainEntity = context.getServerHandler().playerEntity.worldObj.getEntityByID(message.entityID);
             if (TrainEntity instanceof Locomotive) {
-                ((Locomotive) TrainEntity).destination = message.destination;
+                ((Locomotive) TrainEntity).MTC.destination = message.destination;
             }
 
             return null;

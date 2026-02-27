@@ -15,7 +15,7 @@ public class PacketMTCLevelUpdateHandler implements IMessageHandler<PacketMTCLev
         Entity trainEntity = ctx.getServerHandler().playerEntity.worldObj.getEntityByID(message.entity);
 
         if (trainEntity != null ) {
-            ((Locomotive) trainEntity).trainLevel = Integer.toString(message.level);
+            ((Locomotive) trainEntity).MTC.trainLevel = Integer.toString(message.level);
         }
         return null;
     }

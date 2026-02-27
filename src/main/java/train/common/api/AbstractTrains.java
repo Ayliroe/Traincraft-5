@@ -49,7 +49,7 @@ import train.common.overlaytexture.OverlayTextureManager;
 
 import java.util.*;
 
-public abstract class AbstractTrains extends EntityMinecart implements IMinecart, IRoutableCart, IEntityAdditionalSpawnData, IEntityMultiPart, IInventory, IFluidHandler {
+public abstract class AbstractTrains extends EntityMinecart implements IMinecart, IEntityAdditionalSpawnData, IEntityMultiPart, IInventory, IFluidHandler {
 
     public boolean isAttached = false;
     public boolean isAttaching = false;
@@ -73,7 +73,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public List<EntitySeat> seats = new LinkedList<>();
 
     public ArrayList<AbstractTrains> consist;
-    public double pullingWeight=0;
+
     public Integer consistLeadID=null;
     /**
      * A reference to EnumTrains containing all spec for this specific train
@@ -84,7 +84,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
     public TrainRecord getSpec() {
         if(trainSpec==null){
-            trainSpec = Traincraft.instance.traincraftRegistry.getTrainRecord(this.getClass());
+            trainSpec = Traincraft.instance.traincraftRegistry.getTrainRecord(getClass());
             //fallback if that failed
             if (trainSpec == null) {
                 Traincraft.instance.traincraftRegistry.findTrainRecordByItem(getCartItem().getItem());
@@ -96,7 +96,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @SideOnly(Side.CLIENT)
     public TrainRenderRecord getRender() {
         if (render == null) {
-            render = Traincraft.instance.traincraftRegistry.getTrainRenderRecord(this.getClass());
+            render = Traincraft.instance.traincraftRegistry.getTrainRenderRecord(getClass());
         }
         return render;
     }
@@ -133,9 +133,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      */
     public String trainOwner = "";
 
-    public String getTrainOwner() {
-        return trainOwner;
-    }
 
 
     public void setTrainOwner(String trainOwner) {
@@ -167,7 +164,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      */
     public double trainDistanceTraveled = 0;
 
-    public String destination = "";
     public final Map<String, TextureDescription> textureDescriptionMap = new HashMap<>();
     private OverlayTextureManager overlayTextureContainer;
     private boolean acceptsOverlayTextures = false;
@@ -186,19 +182,28 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         dataWatcher.addObject(11, uniqueID);
         dataWatcher.addObject(13, trainCreator);
         shouldChunkLoad = ConfigHandler.CHUNK_LOADING;
-        this.setFlag(7, shouldChunkLoad);
+        setFlag(7, shouldChunkLoad);
 
 
         if (getSpec() != null) {
-            this.setDefaultMass(weightKg()*0.1);
-            this.setSize(0.98f, 1.98f);
-            this.setMinecartName(transportName());
+            setDefaultMass(weightKg()*0.1);
+            setSize(0.98f, 1.98f);
+            setMinecartName(transportName());
         }
     }
 
+    public String getTrainOwner() {         return dataWatcher.getWatchableObjectString(7); }
+    public String getTrainName() {          return dataWatcher.getWatchableObjectString(9); }
+    public String getTrainCreator() {       return dataWatcher.getWatchableObjectString(13); }
+
+
+
+    public String getTrainType(){           return TraincraftRegistry.findTrainType(this); }
+
+
     public AbstractTrains(World world, double x, double y, double z) {
         this(world);
-        this.setPosition(x, y, z);
+        setPosition(x, y, z);
     }
 
     @Override
@@ -216,9 +221,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         return 0.0F;
     }
 
-    public String getTrainType(){
-        return TraincraftRegistry.findTrainType(this);
-    }
 
     /**
      * <p>This method is called on the client side when an entity is being loaded in. The additionalData buffer is sent from the server
@@ -263,7 +265,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         } else {
             uniqueIDs = numberOfTrains++;
         }
-        this.uniqueID = numberOfTrains;
+        uniqueID = numberOfTrains;
         getEntityData().setInteger("uniqueID", numberOfTrains);
         // System.out.println("setting new ID "+uniqueID);
         return numberOfTrains;
@@ -274,14 +276,14 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         ItemStack itemstack = entityplayer.inventory.getCurrentItem();
         if (!getWorld().isRemote && ConfigHandler.CHUNK_LOADING && (this instanceof Locomotive)) {
             if (itemstack != null && itemstack.getItem() instanceof ItemChunkLoaderActivator) {
-                this.playerEntity = entityplayer;
+                playerEntity = entityplayer;
                 if (getFlag(7)) {
-                    this.setFlag(7, false);
+                    setFlag(7, false);
                     entityplayer.addChatMessage(new ChatComponentText("Stop loading chunks"));
                     ForgeChunkManager.releaseTicket(chunkTicket);
                     chunkTicket = null;
                 } else if (!getFlag(7)) {
-                    this.setFlag(7, true);
+                    setFlag(7, true);
                     entityplayer.addChatMessage(new ChatComponentText("Start loading chunks"));
                 }
                 itemstack.damageItem(1, entityplayer);
@@ -308,7 +310,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
             entity_data.putString("color", trainRecord.getLiveries().get(color).addr);
         }
         dataWatcher.updateObject(30, entity_data.toXMLString());
-        this.getEntityData().setString("xml", entity_data.toXMLString());
+        getEntityData().setString("xml", entity_data.toXMLString());
     }
 
     public void setColor(String color) {
@@ -322,7 +324,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
         entity_data.putString("color", SkinRegistry.get(this).get(color).addr);
         dataWatcher.updateObject(30, entity_data.toXMLString());
-        this.getEntityData().setString("xml", entity_data.toXMLString());
+        getEntityData().setString("xml", entity_data.toXMLString());
     }
 
     public String getColor() {
@@ -352,17 +354,17 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         //nbttagcompound.setInteger("uniqueIDs",uniqueIDs);
 
         nbttagcompound.setInteger("numberOfTrains", AbstractTrains.numberOfTrains);
-        nbttagcompound.setBoolean("isAttached", this.isAttached);
+        nbttagcompound.setBoolean("isAttached", isAttached);
         //nbttagcompound.setDouble("motionX", motionX);
         //nbttagcompound.setDouble("motionZ", motionZ);
-        nbttagcompound.setTag("Motion", this.newDoubleNBTList(this.motionX, this.motionY, this.motionZ));
+        nbttagcompound.setTag("Motion", newDoubleNBTList(motionX, motionY, motionZ));
         nbttagcompound.setDouble("Link1", Link1);
         nbttagcompound.setDouble("Link2", Link2);
 
-        nbttagcompound.setInteger("Dim", this.dimension);
+        nbttagcompound.setInteger("Dim", dimension);
 
-        nbttagcompound.setLong("UUIDM", this.getUniqueID().getMostSignificantBits());
-        nbttagcompound.setLong("UUIDL", this.getUniqueID().getLeastSignificantBits());
+        nbttagcompound.setLong("UUIDM", getUniqueID().getMostSignificantBits());
+        nbttagcompound.setLong("UUIDL", getUniqueID().getLeastSignificantBits());
         nbttagcompound.setBoolean("acceptsOverlayTextures", acceptsOverlayTextures);
         if (acceptsOverlayTextures) {
             nbttagcompound.setTag("overlayTextureConfigTag", overlayTextureContainer.getOverlayConfigTag());
@@ -381,7 +383,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         setFlag(7, nbttagcompound.getBoolean("chunkLoadingState"));
         trainDistanceTraveled = nbttagcompound.getDouble("trainDistanceTraveled");
         trainOwner = nbttagcompound.getString("theOwner");
-        this.locked = nbttagcompound.getBoolean("locked");
+        locked = nbttagcompound.getBoolean("locked");
         setFlag(8, locked);
         trainCreator = nbttagcompound.getString("theCreator");
         importTrustedListFromNBT(nbttagcompound);
@@ -394,16 +396,16 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         isAttached = nbttagcompound.getBoolean("isAttached");
         //motionX = nbttagcompound.getDouble("motionX");
         //motionZ = nbttagcompound.getDouble("motionZ");
-        NBTTagList nbttaglist1 = nbttagcompound.getTagList("Motion", 6);            this.motionX = nbttaglist1.func_150309_d(0);
-        this.motionX = nbttaglist1.func_150309_d(0);
-        this.motionZ = nbttaglist1.func_150309_d(2);
+        NBTTagList nbttaglist1 = nbttagcompound.getTagList("Motion", 6);            motionX = nbttaglist1.func_150309_d(0);
+        motionX = nbttaglist1.func_150309_d(0);
+        motionZ = nbttaglist1.func_150309_d(2);
         Link1 = nbttagcompound.getDouble("Link1");
         Link2 = nbttagcompound.getDouble("Link2");
         if(nbttagcompound.hasKey("Dim")){
-            this.dimension=nbttagcompound.getInteger("Dim");
+            dimension=nbttagcompound.getInteger("Dim");
         }
         if(nbttagcompound.hasKey("UUIDM")){
-            this.entityUniqueID = new UUID(nbttagcompound.getLong("UUIDM"), nbttagcompound.getLong("UUIDL"));
+            entityUniqueID = new UUID(nbttagcompound.getLong("UUIDM"), nbttagcompound.getLong("UUIDL"));
         }
         if (nbttagcompound.getBoolean("acceptsOverlayTextures")) {
             acceptsOverlayTextures = true;
@@ -418,9 +420,9 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
     @Override
     public boolean writeToNBTOptional(NBTTagCompound p_70039_1_) {
-        if (!this.isDead && this.getEntityString() != null) {
-            p_70039_1_.setString("id", this.getEntityString());
-            this.writeToNBT(p_70039_1_);
+        if (!isDead && getEntityString() != null) {
+            p_70039_1_.setString("id", getEntityString());
+            writeToNBT(p_70039_1_);
             return true;
         }
         return false;
@@ -442,7 +444,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
             itemdropped = true;
             for (ItemStack item : getItemsDropped()) {
                 if (item.getItem() instanceof ItemRollingStock) {
-                    ItemStack stack = ItemRollingStock.setPersistentData(item, this, this.getUniqueTrainID(), trainCreator, trainOwner, getColor());
+                    ItemStack stack = ItemRollingStock.setPersistentData(item, this, getUniqueTrainID(), trainCreator, trainOwner, getColor());
                     entityDropItem(stack != null ? stack : item, 0);
                 } else {
                     setUniqueIDToItem(item);
@@ -458,19 +460,19 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
             var3 = new NBTTagCompound();
             stack.setTagCompound(var3);
         }
-        if (this.uniqueID != -1) stack.getTagCompound().setInteger("uniqueID", this.uniqueID);
-        if (this.trainCreator != null && !this.trainCreator.isEmpty()) stack.getTagCompound().setString("trainCreator", this.trainCreator);
+        if (uniqueID != -1) stack.getTagCompound().setInteger("uniqueID", uniqueID);
+        if (trainCreator != null && !trainCreator.isEmpty()) stack.getTagCompound().setString("trainCreator", trainCreator);
         exportTrustedListToNBT(stack.getTagCompound());
-        stack.getTagCompound().setString("trainColor", this.getColor());
+        stack.getTagCompound().setString("trainColor", getColor());
         // Only save the overlay configuration to NBT if it exists. No need to store an empty configuration in NBT as it will be initialized as the default when the entity spawns in.
-        if (this.acceptsOverlayTextures && this.getOverlayTextureContainer().getType() != OverlayTextureManager.Type.NONE) {
+        if (acceptsOverlayTextures && getOverlayTextureContainer().getType() != OverlayTextureManager.Type.NONE) {
             stack.getTagCompound().setTag("overlayTextureConfigTag", getOverlayTextureContainer().getOverlayConfigTag());
         }
     }
 
     protected void setDefaultMass(double def) {
-        this.mass = def;
-        this.defaultMass = def;
+        mass = def;
+        defaultMass = def;
     }
 
     protected double getDefaultMass() {
@@ -503,8 +505,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      */
     protected boolean lockThisCart(ItemStack itemstack, EntityPlayer entityplayer) {
         if (itemstack != null && (itemstack.getItem() instanceof ItemWrench || itemstack.getItem() instanceof ItemAdminBook)) {
-            if (entityplayer.getDisplayName().equals(this.trainOwner) || entityplayer.getGameProfile().getName().equals(this.trainOwner)
-                    || this.trainOwner.isEmpty() || entityplayer.canCommandSenderUseCommand(2, "")) {
+            if (entityplayer.getDisplayName().equals(trainOwner) || entityplayer.getGameProfile().getName().equals(trainOwner)
+                    || trainOwner.isEmpty() || entityplayer.canCommandSenderUseCommand(2, "")) {
                 if (locked) {
                     locked = false;
                     if (getWorld().isRemote) {
@@ -529,7 +531,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     protected boolean canBeDestroyedByPlayer(DamageSource damagesource) {
-        if (this.getTrainLockedFromPacket()) {
+        if (getTrainLockedFromPacket()) {
             if (damagesource.getEntity() instanceof EntityPlayer) {
                 if ((damagesource.getEntity() instanceof EntityPlayerMP) &&
                         ((EntityPlayerMP) damagesource.getEntity()).canCommandSenderUseCommand(2, "") &&
@@ -539,7 +541,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
                     ((EntityPlayer) damagesource.getEntity()).addChatMessage(new ChatComponentText("Removing the train using OP permission."));
                     return false;
                 }
-                else if (!((EntityPlayer) damagesource.getEntity()).getDisplayName().equalsIgnoreCase(this.trainOwner) && !(this.isPlayerTrustedToBreak(((EntityPlayerMP) damagesource.getEntity()).getDisplayName()))) {
+                else if (!((EntityPlayer) damagesource.getEntity()).getDisplayName().equalsIgnoreCase(trainOwner) && !(isPlayerTrustedToBreak(((EntityPlayerMP) damagesource.getEntity()).getDisplayName()))) {
                     ((EntityPlayer) damagesource.getEntity()).addChatMessage(new ChatComponentText("You are not the owner!"));
                     return true;
                 }
@@ -561,33 +563,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     @Override
-    public String getDestination() {
-        if (destination == null) return "";
-        return destination;
-    }
-
-    /**
-     * Only locomotives can receive a destination from a track. It is then
-     * transmitted to attached carts
-     */
-    @Override
-    public boolean setDestination(ItemStack ticket) {
-        return false;
-    }
-
-    public static String getTicketDestination(ItemStack ticket) {
-        if ((ticket == null)) {
-            return "";
-        }
-        NBTTagCompound nbt = ticket.getTagCompound();
-        if (nbt == null) {
-            return "";
-        }
-        return nbt.getString("dest");
-    }
-
-
-    @Override
     public String getCommandSenderName() {
         String s = EntityList.getEntityString(this);
         if (s == null) {
@@ -599,11 +574,11 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
 
     public void setTicket(ForgeChunkManager.Ticket ticket) {
-        this.chunkTicket = ticket;
+        chunkTicket = ticket;
     }
 
     public ForgeChunkManager.Ticket getTicket() {
-        return this.chunkTicket;
+        return chunkTicket;
     }
 
     public void requestTicket() {
@@ -611,7 +586,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         if (chunkTicket != null) {
             chunkTicket.setChunkListDepth(25);
             chunkTicket.bindEntity(this);
-            this.setTicket(chunkTicket);
+            setTicket(chunkTicket);
         }
     }
 
@@ -620,7 +595,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
             return getEntityData().getString("puuid");
         } else {
             getEntityData().setString("puuid", getUniqueID().toString());
-            return this.getUniqueID().toString();
+            return getUniqueID().toString();
         }
     }
 
@@ -629,10 +604,13 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * @param consist the list of entities in the consist
      */
     public void setValuesOnLinkUpdate(ArrayList<AbstractTrains> consist){
-        pullingWeight=0;
         this.consist=consist;
-        for(AbstractTrains t : consist) {
-            pullingWeight +=t.weightKg();
+
+        if (this instanceof Locomotive) {
+            ((Locomotive)this).currentMassPulled=0;
+            for (AbstractTrains t : consist) {
+                ((Locomotive)this).currentMassPulled += t.weightKg();
+            }
         }
     }
 
@@ -751,7 +729,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * @return True if the player is trusted, false if the player is not trusted.
      */
     public boolean isPlayerTrusted(String displayName) {
-        for (TrustedPlayer trustedPlayer : this.getTrustedList()) {
+        for (TrustedPlayer trustedPlayer : getTrustedList()) {
             if (trustedPlayer.getDisplayName().equalsIgnoreCase(displayName)) {
                 return true;
             }
@@ -765,7 +743,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * @return True if player has break access, false if player does not have break access.
      */
     public boolean isPlayerTrustedToBreak(String displayName) {
-        for (TrustedPlayer trustedPlayer : this.getTrustedList()) {
+        for (TrustedPlayer trustedPlayer : getTrustedList()) {
             if (trustedPlayer.getDisplayName().equalsIgnoreCase(displayName)) {
                 return trustedPlayer.hasBreakAccess();
             }
@@ -979,7 +957,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     /**event is to add skins for the model to the skins registry on mod initialization.
      * this function can be used to register multiple skins, one after another.
      * example:
-     * SkinRegistry.addSkin(this.class, MODID, "folder/mySkin.png", new int[][]{{oldHex, newHex},{oldHex, newHex}, etc... }, displayName, displayDescription);
+     * SkinRegistry.addSkin(class, MODID, "folder/mySkin.png", new int[][]{{oldHex, newHex},{oldHex, newHex}, etc... }, displayName, displayDescription);
      * the int[][] for hex recolors may be null.
      * hex values use "0x" in place of "#"
      * "0xff00aa" as an example.
@@ -988,7 +966,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * the registerSkins method is only for organization and convenience.*/
     public void registerSkins(){
         for (String col : getSpec().getColors()) {
-            SkinRegistry.addSkin(this.getClass(), Info.resourceLocation+":"+ col + ".png", col);
+            SkinRegistry.addSkin(getClass(), Info.resourceLocation+":"+ col + ".png", col);
         }
     }
 
@@ -1023,7 +1001,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public int getTier(){return 1;}
 
     public TrainSound getHorn(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(this.getClass());
+        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getClass());
         if(sound != null && !sound.getHornString().isEmpty()){
             return new TrainSound(sound.getHornString(),sound.getHornVolume(),1f, 0);
         }
@@ -1035,7 +1013,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public TrainSound getRunningSound(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(this.getClass());
+        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getClass());
         if(sound != null && !sound.getRunString().isEmpty()){
             if(sound.getSoundChangeWithSpeed()){
                 return new TrainSound(sound.getRunString(), sound.getRunVolume(), 0.4f, sound.getRunSoundLength()).enableRunningPitch();
@@ -1048,7 +1026,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
 
     public TrainSound getIdleSound(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(this.getClass());
+        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getClass());
         if(sound != null && !sound.getIdleString().isEmpty()){
             return new TrainSound(sound.getIdleString(),sound.getIdleVolume(),0.001F, sound.getIdleSoundLength());
         }

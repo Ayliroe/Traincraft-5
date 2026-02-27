@@ -7,6 +7,7 @@ import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
 import ebf.tim.utility.DebugUtil;
 import fexcraft.tmt.slim.Vec3f;
+import mods.railcraft.api.carts.CartTools;
 import mods.railcraft.api.carts.IMinecart;
 import mods.railcraft.api.carts.IRoutableCart;
 import mods.railcraft.api.tracks.ITrackSwitch;
@@ -150,21 +151,26 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		return -1;
 	}
 
+	// --- RC IROUTABLECART ---
 	@Override
 	public String getDestination() {
-
-		if (entityMainTrain != null) {
-
-			return entityMainTrain.getDestination();
+		if (entityMainTrain != null && entityMainTrain instanceof Locomotive) {
+			return ((Locomotive)entityMainTrain).MTC.getDestination();
 		}
-
 		return null;
 	}
 
 	@Override
 	public boolean setDestination(ItemStack ticket) {
+		if (entityMainTrain != null && entityMainTrain instanceof Locomotive) {
+			return ((Locomotive)entityMainTrain).MTC.setDestination(ticket);
+		}
+		return false;
+	}
 
-		return (entityMainTrain != null && entityMainTrain.setDestination(ticket));
+	@Override
+	public GameProfile getOwner() {
+		return entityMainTrain.getOwner();
 	}
 
 	@Override
@@ -414,7 +420,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		double maxSpeed = getMaxCartSpeedOnRail();
 		// Current max speed for locos
 		if (host instanceof Locomotive) {
-			maxSpeed = Math.min(maxSpeed,SpeedHandler.convertSpeed((double)((Locomotive)host).getCurrentMaxSpeed()));
+			maxSpeed = Math.min(maxSpeed,TrainUtils.convertSpeed((double)((Locomotive)host).getCurrentMaxSpeed()));
 		}
 
 		if (speedMagnitude > maxSpeed) {
@@ -422,12 +428,6 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 			velocity[0] /= overspeedFactor;
 			velocity[1] /= overspeedFactor;
 		}
-	}
-
-	@Override
-	public GameProfile getOwner() {
-
-		return  entityMainTrain.getOwner();
 	}
 
 	/*
