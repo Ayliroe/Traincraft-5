@@ -329,35 +329,13 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 		return "Tracks Builder";
 	}
 
-	@Override
-	public boolean interactFirst(EntityPlayer entityplayer) {
-		if ((super.interactFirst(entityplayer))) {
-			return false;
-		}
-		if (worldObj.isRemote) {
-			return true;
-		}
-
-		entityplayer.openGui(Traincraft.instance, GuiIDs.BUILDER, worldObj, this.getEntityId(), -1, (int) this.posZ);
-		pushZ = (posZ - entityplayer.posZ);
-		pushX = (posX - entityplayer.posX);
-		applyDragAndPushForces();
-		return true;
-	}
-
-	@Override
-	public void openInventory() {}
-
-	@Override
-	public void closeInventory() {}
-
 	public int scaleMaxFuel(int i) {
 		return (this.getFuel() * i) / maxFuel;
 	}
 
 	// TODO: Convert to cleaner EntityRollingStock drag?
 	@Deprecated
-	protected void applyDragAndPushForces() {
+	public void applyDragAndPushForces() {
 		double d26 = MathHelper.sqrt_double(pushX * pushX + pushZ * pushZ);
 		if (d26 > 0.01D) {
 			pushX /= d26;
@@ -398,10 +376,6 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 	}
 
 	public boolean canInteractWith(EntityPlayer entityplayer) {
-		return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D;
-	}
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D;
 	}
 
@@ -1029,13 +1003,5 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 			return  (rail.onItemUse(stack, null, world, i, j, k, 0,0,0, builder.rotationYaw+90));
 		}
 		return RailTools.placeRailAt(builder, stack, world, i, j, k);
-	}
-
-	@Override
-	public void markDirty() {}
-
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
 	}
 }

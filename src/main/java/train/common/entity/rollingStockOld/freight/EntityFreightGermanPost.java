@@ -13,27 +13,8 @@ import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
 public class EntityFreightGermanPost extends Freight implements IInventory {
-	public int freightInventorySize;
-	public int numFreightSlots;
 	public EntityFreightGermanPost(World world) {
 		super(world);
-		initFreightCart();
-	}
-
-	public void initFreightCart() {
-		freightInventorySize = getSizeInventory();
-		cargoItems = new ItemStack[freightInventorySize];
-	}
-
-	public EntityFreightGermanPost(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + (double) yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
 	}
 
 	@Override
@@ -42,20 +23,7 @@ public class EntityFreightGermanPost extends Freight implements IInventory {
 	}
 
 	@Override
-	public boolean interactFirst(EntityPlayer entityplayer) {
-		if ((super.interactFirst(entityplayer))) {
-			return false;
-		}
-		entityplayer.openGui(Traincraft.instance, GuiIDs.FREIGHT, worldObj, this.getEntityId(), -1, (int) this.posZ);
-		return true;
-	}
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 3.955F;
-	}
-
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
 	}
 }

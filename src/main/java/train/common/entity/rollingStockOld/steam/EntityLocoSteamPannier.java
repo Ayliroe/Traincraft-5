@@ -14,26 +14,10 @@ public class EntityLocoSteamPannier extends SteamTrain {
 		super(world, LiquidManager.WATER_FILTER);
 	}
 
-	public EntityLocoSteamPannier(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
-	@Override
-	public boolean shouldRiderSit(){return false;}
-
 	@Override
 	public String getInventoryName() {
 		return "0-6-0 Pannier";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
@@ -41,10 +25,8 @@ public class EntityLocoSteamPannier extends SteamTrain {
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
-	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{2.1f,1.7f, 0.3f}};}
-    
+
+	@Override
+	public boolean shouldRiderSit(){return false;}
 }

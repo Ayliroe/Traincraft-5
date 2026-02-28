@@ -25,13 +25,13 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 
 	public AbstractWorkCart(World world) {
 		super(world);
+		furnaceItemStacks = new ItemStack[getSizeInventory()];
 	}
-	public AbstractWorkCart(World world, double d, double d1, double d2) {
-		super(world, d, d1, d2);
-	}
+
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
+		updateBurning();
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
 		super.readEntityFromNBT(nbttagcompound);
 		NBTTagList var2 = nbttagcompound.getTagList("Items", Constants.NBT.TAG_COMPOUND);
-		this.furnaceItemStacks = new ItemStack[this.getSizeInventoryWork()];
+		this.furnaceItemStacks = new ItemStack[furnaceItemStacks.length];
 
 		for (int var3 = 0; var3 < var2.tagCount(); ++var3) {
 			NBTTagCompound var4 = var2.getCompoundTagAt(var3);
@@ -239,11 +239,6 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 		return getItemBurnTime(par0ItemStack) > 0;
 	}
 
-	/** for the workCart **/
-	public int getSizeInventoryWork() {
-		return this.furnaceItemStacks.length;
-	}
-
 	/** for the freight carts inventory **/
 	@Override
 	public ItemStack getStackInSlot(int i) {
@@ -300,15 +295,10 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 			par2ItemStack.stackSize = this.getInventoryStackLimit();
 		}
 	}
-	@Override
-	public void openInventory() {}
-
-	@Override
-	public void closeInventory() {}
 
 	@Override
 	public int getSizeInventory() {
-		return 0;
+		return 3;
 	}
 
 	@Override
@@ -339,11 +329,6 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 				dropCartAsItem(((EntityPlayer)damagesource.getEntity()).capabilities.isCreativeMode);
 			}
 		}
-		return true;
-	}
-	
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;
 	}
 }

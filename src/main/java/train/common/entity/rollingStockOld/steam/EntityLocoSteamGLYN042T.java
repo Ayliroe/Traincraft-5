@@ -14,26 +14,10 @@ public class EntityLocoSteamGLYN042T extends SteamTrain {
 		super(world, LiquidManager.WATER_FILTER);
 	}
 
-	public EntityLocoSteamGLYN042T(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
-		@Override
-	public boolean shouldRiderSit(){return false;}
-
 	@Override
 	public String getInventoryName() {
 		return "0-4-2 GLYN";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
@@ -41,10 +25,8 @@ public class EntityLocoSteamGLYN042T extends SteamTrain {
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
-	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{1.2f,1.3f, 0.4f}};}
-    
+
+	@Override
+	public boolean shouldRiderSit(){return false;}
 }

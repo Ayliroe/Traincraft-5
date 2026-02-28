@@ -14,50 +14,13 @@ import train.common.library.GuiIDs;
 
 public class EntityBulkheadFlatCart extends Freight implements IInventory {
 
-    public int freightInventorySize;
-    public int numFreightSlots;
-
     public EntityBulkheadFlatCart(World world) {
         super(world);
-        initBulkheadFlat();
     }
 
-    public void initBulkheadFlat() {
-        freightInventorySize = getSizeInventory();
-        cargoItems = new ItemStack[freightInventorySize];
-    }
-
-    public EntityBulkheadFlatCart(World world, double d, double d1, double d2) {
-        this(world);
-        setPosition(d, d1 + (double) yOffset, d2);
-        motionX = 0.0D;
-        motionY = 0.0D;
-        motionZ = 0.0D;
-        prevPosX = d;
-        prevPosY = d1;
-        prevPosZ = d2;
-
-    }
-
-    @Override
-    public void onUpdate() {
-        super.onUpdate();
-    }
     @Override
     public String getInventoryName() {
         return "Bulkhead Flat Cart";
-    }
-
-    @Override
-    public boolean interactFirst(EntityPlayer entityplayer) {
-        if (super.interactFirst(entityplayer)) {
-            return false;
-        }
-
-        if (!this.worldObj.isRemote) {
-            entityplayer.openGui(Traincraft.instance, GuiIDs.FREIGHT, worldObj, this.getEntityId(), -1, (int) this.posZ);
-        }
-        return true;
     }
 
     @Override

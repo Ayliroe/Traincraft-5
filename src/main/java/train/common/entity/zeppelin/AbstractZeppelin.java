@@ -139,17 +139,6 @@ public abstract class AbstractZeppelin extends Entity implements IInventory {
 		}
 	}
 
-	public AbstractZeppelin(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public double getMountedYOffset() {
 		return height * 0.0D - 0.30000001192092896D;

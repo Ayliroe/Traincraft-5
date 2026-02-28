@@ -15,31 +15,16 @@ public class EntityLocoDieselGP7Red extends DieselTrain {
 
 	}
 
-	public EntityLocoDieselGP7Red(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "GP7";
 	}
 
-
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1.14F);
 	}
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
+
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{-0.5f,1.2f, 0.25f}};}
     

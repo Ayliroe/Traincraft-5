@@ -14,23 +14,10 @@ public class EntityLocoSteamHallClass extends SteamTrain {
 		super(world, LiquidManager.WATER_FILTER);
 	}
 
-	public EntityLocoSteamHallClass(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "Hall Class";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
@@ -38,8 +25,5 @@ public class EntityLocoSteamHallClass extends SteamTrain {
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) { return true; }
-	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{2.8f,1.5f, 0.3f}};}
-    
 }

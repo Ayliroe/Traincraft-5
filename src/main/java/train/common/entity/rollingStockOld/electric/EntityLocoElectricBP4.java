@@ -13,37 +13,16 @@ public class EntityLocoElectricBP4 extends ElectricTrain {
 		super(world);
 	}
 
-	public EntityLocoElectricBP4(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "BP4";
 	}
 
-
-
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.7F);
 	}
-	/*@Override
-	public float[] getHitboxSize(){return new float[]{4,2,1};}
-	@Override
-	public float[] rotationPoints(){return new float[]{4,0};}*/
 
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{-1.7f,1.35f, 0.25f}};}
     

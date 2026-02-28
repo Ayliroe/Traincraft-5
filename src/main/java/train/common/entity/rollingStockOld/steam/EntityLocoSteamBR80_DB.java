@@ -13,23 +13,11 @@ public class EntityLocoSteamBR80_DB extends SteamTrain {
 	public EntityLocoSteamBR80_DB(World world) {
 		super(world, LiquidManager.WATER_FILTER);
 	}
-	public EntityLocoSteamBR80_DB(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
 
 	@Override
 	public String getInventoryName() {
 		return "BR80";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
@@ -37,10 +25,5 @@ public class EntityLocoSteamBR80_DB extends SteamTrain {
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
-	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0.8f,1.5f, 0.45f}};}
-    
 }

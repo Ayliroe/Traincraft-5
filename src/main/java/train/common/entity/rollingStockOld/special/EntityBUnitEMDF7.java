@@ -18,32 +18,18 @@ import train.common.api.LiquidTank;
 import train.common.library.GuiIDs;
 
 public class EntityBUnitEMDF7 extends LiquidTank implements IFluidHandler {
-    public int freightInventorySize;
 
     private int update = 8;
     private final LiquidManager.StandardTank theTank;
 
     public EntityBUnitEMDF7(World world) {
         super(world);
-        initFreightWater();
         this.theTank = LiquidManager.getInstance().new FilteredTank(getTankCapacity()[0], LiquidManager.dieselFilter());
-    }
-
-    public EntityBUnitEMDF7(World world, double d, double d1, double d2) {
-        this(world);
-        setPosition(d, d1 + yOffset, d2);
-        motionX = 0.0D;
-        motionY = 0.0D;
-        motionZ = 0.0D;
-        prevPosX = d;
-        prevPosY = d1;
-        prevPosZ = d2;
     }
 
     @Override
     public void onUpdate() {
         super.onUpdate();
-        checkInvent(cargoItems[0]);
         if (worldObj.isRemote) {
             return;
         }
@@ -132,6 +118,7 @@ public class EntityBUnitEMDF7 extends LiquidTank implements IFluidHandler {
         }
     }
 
+    @Override
     public ItemStack checkInvent(ItemStack cargoItems0) {
         if (getDiesel() > 0) {
             fuelTrain = (getDiesel());
@@ -148,33 +135,10 @@ public class EntityBUnitEMDF7 extends LiquidTank implements IFluidHandler {
         return cargoItems0;
     }
 
-    public void initFreightWater() {
-        freightInventorySize = 2;
-        cargoItems = new ItemStack[freightInventorySize];
-    }
-
     @Override
     public String getInventoryName() {
         return "EMD F7 B-Unit";
     }
-
-    @Override
-    public int getSizeInventory() {
-        return freightInventorySize;
-    }
-
-    @Override
-    public boolean interactFirst(EntityPlayer entityplayer) {
-        if ((super.interactFirst(entityplayer))) {
-            return false;
-        }
-
-        if (!this.worldObj.isRemote) {
-            entityplayer.openGui(Traincraft.instance, GuiIDs.LIQUID, worldObj, this.getEntityId(), -1, (int) this.posZ);
-        }
-        return true;
-    }
-
     @Override
     public float getOptimalDistance(EntityMinecart cart) {
         return 2.2F;

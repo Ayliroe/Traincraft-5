@@ -696,8 +696,7 @@ public class EntityRotativeDigger extends Entity implements IInventory {
     }
 
     @Override
-    public void markDirty() {
-    }
+    public void markDirty() {}
 
     public int getFuel() {
         return (this.dataWatcher.getWatchableObjectInt(20));

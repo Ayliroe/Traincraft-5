@@ -23,17 +23,10 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
     private FluidTank theTank;
     public TileEntity[] blocksToCheck;
 
-	/**
-	 * 
-	 * @param world
-	 * @param fluid
-	 * @param quantity
-	 */
-	public LiquidTank(World world, Fluid fluid, int quantity) {
-			this(new FluidStack(fluid, quantity), world);
-	}
+
 	public LiquidTank(World world) {
 		this(null, world);
+        cargoItems = new ItemStack[getSizeInventory()];
 	}
 
     private LiquidTank(@Nullable FluidStack liquid, World world) {
@@ -122,6 +115,8 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
             this.dataWatcher.updateObject(4, 0);
             this.dataWatcher.updateObject(22, "");
         }
+
+        checkInvent(cargoItems[0]);
     }
 
     /**
@@ -323,21 +318,8 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
     }
 
     @Override
-    public void markDirty() {
-
-    }
-
-    @Override
     public String getInventoryName() {
         return null;
-    }
-
-    @Override
-    public void openInventory() {
-    }
-
-    @Override
-    public void closeInventory() {
     }
 
     @Override
@@ -347,7 +329,7 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
 
     @Override
     public int getSizeInventory() {
-        return cargoItems.length;
+        return 2;
     }
 
     @Override
@@ -372,11 +354,6 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
                 dropCartAsItem(((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode);
             }
         }
-        return true;
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int i, ItemStack itemstack) {
         return true;
     }
 

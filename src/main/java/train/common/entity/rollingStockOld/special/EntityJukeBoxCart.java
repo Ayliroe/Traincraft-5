@@ -32,17 +32,6 @@ public class EntityJukeBoxCart extends EntityRollingStock {
 		side = FMLCommonHandler.instance().getEffectiveSide();
 	}
 
-	public EntityJukeBoxCart(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float i) {
 		if (worldObj.isRemote) {
@@ -163,21 +152,6 @@ public class EntityJukeBoxCart extends EntityRollingStock {
 
 	public boolean isPlaying() {
 		return this.isPlaying;
-	}
-
-	@Override
-	public boolean interactFirst(EntityPlayer entityplayer) {
-		if ((super.interactFirst(entityplayer))) {
-			return false;
-		}
-		if (locked && !entityplayer.getDisplayName().toLowerCase().equals(this.trainOwner.toLowerCase())) {
-			if (!worldObj.isRemote)
-				entityplayer.addChatMessage(new ChatComponentText("this train is locked"));
-			return true;
-		}
-		
-		entityplayer.openGui(Traincraft.instance, GuiIDs.JUKEBOX, worldObj, this.getEntityId(), -1, (int) this.posZ);
-		return true;
 	}
 
 	@Override

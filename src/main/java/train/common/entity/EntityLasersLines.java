@@ -94,12 +94,6 @@ public class EntityLasersLines extends Entity {
 	}
 
 	@Override
-	public void onUpdate() {
-
-		super.onUpdate();
-	}
-
-	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
 
 	}

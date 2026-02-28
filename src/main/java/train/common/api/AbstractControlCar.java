@@ -459,19 +459,8 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     }
 
     @Override
-    public void markDirty() { }
-
-    @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
         return false;
-    }
-
-    @Override
-    public void openInventory() {
-    }
-
-    @Override
-    public void closeInventory() {
     }
 
     @Override

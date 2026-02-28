@@ -52,7 +52,7 @@ public abstract class Tender extends Freight implements IFluidHandler {
     }
 
     @Override
-    public abstract int getSizeInventory();
+    public int getSizeInventory() { return 16; };
 
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
@@ -78,6 +78,7 @@ public abstract class Tender extends Freight implements IFluidHandler {
             this.dataWatcher.updateObject(27, 0);
             this.dataWatcher.updateObject(4, 0);
         }
+        checkInvent(cargoItems[0], this);
     }
 
     /**

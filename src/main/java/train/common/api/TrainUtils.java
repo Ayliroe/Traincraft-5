@@ -10,9 +10,13 @@ import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.common.ForgeChunkManager;
 import train.common.Traincraft;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.util.DepreciatedUtil;
+import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
+import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
+import train.common.items.ItemChunkLoaderActivator;
 import train.common.items.ItemPadlock;
 import train.common.items.ItemPaintbrushThing;
 import train.common.items.ItemWrench;
@@ -24,6 +28,27 @@ public final class TrainUtils {
     /*
      * =========================================== CLICK ACTIONS ===========================================
      **/
+
+    public static boolean onClickWithChunkloader(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
+        if (!train.getWorld().isRemote && ConfigHandler.CHUNK_LOADING && train instanceof Locomotive) {
+            if (itemstack.getItem() instanceof ItemChunkLoaderActivator) {
+                if (train.getShouldChunkLoad()) {
+                    train.setShouldChunkLoad(false);
+                    playerEntity.addChatMessage(new ChatComponentText("Stop loading chunks"));
+                    ForgeChunkManager.releaseTicket(train.chunkTicket);
+                    train.chunkTicket = null;
+                } else {
+                    train.setShouldChunkLoad(true);
+                    playerEntity.addChatMessage(new ChatComponentText("Start loading chunks"));
+                }
+                itemstack.damageItem(1, playerEntity);
+                return true;
+            } else if (train.lockThisCart(itemstack, playerEntity)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
     public static boolean onClickWithDye(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
         if (itemstack.getItem() instanceof ItemDye) {
@@ -227,6 +252,37 @@ public final class TrainUtils {
 
         if (targetGUI > 0) {
             player.openGui(Traincraft.instance, targetGUI, train.getWorld(), (int) train.posX, (int) train.posY, (int) train.posZ);
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean onOpeningInventory(EntityRollingStock train, EntityPlayer playerEntity) {
+        EntityPlayer player = playerEntity;
+
+        int targetGUI = -1;
+
+        if (train instanceof Tender) {
+            targetGUI = GuiIDs.TENDER;
+        }
+        else if (train instanceof Freight && !(train instanceof Locomotive)) {
+            targetGUI = GuiIDs.FREIGHT;
+        }
+        else if (train instanceof LiquidTank) {
+            targetGUI = GuiIDs.LIQUID;
+        }
+        else if (train instanceof EntityTracksBuilder) {
+            targetGUI = GuiIDs.BUILDER;
+            ((EntityTracksBuilder)train).pushZ = (train.posZ - player.posZ);
+            ((EntityTracksBuilder)train).pushX = (train.posX - player.posX);
+            ((EntityTracksBuilder)train).applyDragAndPushForces();
+        }
+        else if (train instanceof EntityJukeBoxCart) {
+            targetGUI = GuiIDs.JUKEBOX;
+        }
+
+        if (targetGUI > 0) {
+            player.openGui(Traincraft.instance, targetGUI, train.getWorld(), train.getEntityId(), -1, (int) train.posZ);
             return true;
         }
         return false;

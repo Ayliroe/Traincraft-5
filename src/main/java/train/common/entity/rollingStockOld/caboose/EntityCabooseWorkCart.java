@@ -12,32 +12,7 @@ import train.common.library.GuiIDs;
 public class EntityCabooseWorkCart extends AbstractWorkCart implements IInventory {
 
 	public EntityCabooseWorkCart(World world) {
-		super(world);
-		initCabooseWorkCart();
-	}
-
-	public void initCabooseWorkCart() {
-		furnaceItemStacks = new ItemStack[3];
-		furnaceBurnTime = 0;
-		currentItemBurnTime = 0;
-		furnaceCookTime = 0;
-	}
-
-	public EntityCabooseWorkCart(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		updateBurning();
+		super(world);;
 	}
 
 	@Override
@@ -45,23 +20,11 @@ public class EntityCabooseWorkCart extends AbstractWorkCart implements IInventor
 		return "Caboose";
 	}
 
-
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1.45F);
 	}
 
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return !isDead &&entityplayer.getDistanceSqToEntity(this) <= 124D;
-	}
-
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
-
-	public void markDirty(){}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0,1.2f, 0f}};}
     

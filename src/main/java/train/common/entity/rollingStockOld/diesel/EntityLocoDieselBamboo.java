@@ -15,17 +15,6 @@ public class EntityLocoDieselBamboo extends DieselTrain {
 
 	}
 
-	public EntityLocoDieselBamboo(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "Bamboo Flatcar With Engine";
@@ -36,10 +25,6 @@ public class EntityLocoDieselBamboo extends DieselTrain {
 		return (0.3F);
 	}
 
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0.8f,1.2f, 0.3f}};}
     

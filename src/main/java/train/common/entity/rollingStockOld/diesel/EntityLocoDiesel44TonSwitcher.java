@@ -15,17 +15,6 @@ public class EntityLocoDiesel44TonSwitcher extends DieselTrain {
 
 	}
 
-	public EntityLocoDiesel44TonSwitcher(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "GE 44 Ton Switcher";
@@ -41,10 +30,6 @@ public class EntityLocoDiesel44TonSwitcher extends DieselTrain {
 		return (1.0F);
 	}
 
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0.1f,1.6f, 0.35f},{0.1f,1.6f, -0.35f}};}
     

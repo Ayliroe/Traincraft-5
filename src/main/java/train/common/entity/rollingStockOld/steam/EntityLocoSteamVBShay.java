@@ -14,26 +14,10 @@ public class EntityLocoSteamVBShay extends SteamTrain {
 		super(world, LiquidManager.WATER_FILTER);
 	}
 
-	public EntityLocoSteamVBShay(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
-		@Override
-	public boolean shouldRiderSit(){return false;}
-
 	@Override
 	public String getInventoryName() {
 		return "Vertical Boiler Shay";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
@@ -41,10 +25,8 @@ public class EntityLocoSteamVBShay extends SteamTrain {
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
-	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0.5f,1.5f, 0f}};}
-    
+
+	@Override
+	public boolean shouldRiderSit(){return false;}
 }

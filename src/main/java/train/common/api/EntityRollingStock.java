@@ -836,14 +836,10 @@ public class EntityRollingStock extends AbstractTrains {
 
     @Override
     public boolean interactFirst(EntityPlayer entityplayer) {
-        if (super.interactFirst(entityplayer)) {
-            return true;
-        }
+        if (super.interactFirst(entityplayer))                                    { return true; }
 
         // Prevent interactions if we are mounted on a seat
-        if (entityplayer.ridingEntity instanceof EntitySeat) {
-            return true;
-        }
+        if (entityplayer.ridingEntity instanceof EntitySeat)                      { return true; }
 
         // --- LOCKED CARTS ---
         // Prevent interactions if locked + not a trusted user + cannot be ridden while locked
@@ -859,13 +855,13 @@ public class EntityRollingStock extends AbstractTrains {
         // --- ITEM IN HAND ---
         ItemStack itemstack = entityplayer.inventory.getCurrentItem();
         if(itemstack != null) {
-            System.out.println("test");
-            if ((TrainUtils.onClickWithWrench(this, itemstack, entityplayer)))      { return true; }
-            if ((TrainUtils.onClickWithCrowbar(this, itemstack, entityplayer)))     { return false; }
-            if ((TrainUtils.onClickWithTicket(this, itemstack, entityplayer)))      { return true; }
-            if ((TrainUtils.onClickWithDye(this, itemstack, entityplayer)))         { return true; }
-            if ((TrainUtils.onClickWithStake(this, itemstack, entityplayer)))       { return true; }
-            if ((TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer)))  { return true; }
+            if (TrainUtils.onClickWithChunkloader(this, itemstack, entityplayer)) { return true; }
+            if (TrainUtils.onClickWithWrench(this, itemstack, entityplayer))      { return true; }
+            if (TrainUtils.onClickWithCrowbar(this, itemstack, entityplayer))     { return false; }
+            if (TrainUtils.onClickWithTicket(this, itemstack, entityplayer))      { return true; }
+            if (TrainUtils.onClickWithDye(this, itemstack, entityplayer))         { return true; }
+            if (TrainUtils.onClickWithStake(this, itemstack, entityplayer))       { return true; }
+            if (TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer))  { return true; }
         }
 
         // --- ENTERING SEAT ---
@@ -881,6 +877,10 @@ public class EntityRollingStock extends AbstractTrains {
                 }
             }
         }
+
+        // --- INVENTORY GUI ---
+        if (TrainUtils.onOpeningInventory(this, entityplayer))                      { return true; }
+
 
         if (MinecraftForge.EVENT_BUS.post(new MinecartInteractEvent(this, entityplayer))) {
             return true;
@@ -998,13 +998,16 @@ public class EntityRollingStock extends AbstractTrains {
         }
     }
 
-    public boolean shouldRiderSit(int seat){
-        return shouldRiderSit();
-    }
+    public boolean shouldRiderSit(int seat){ return shouldRiderSit(); }
+
     @Override
-    public boolean shouldRiderSit(){
-        return true;
-    }
+    public boolean shouldRiderSit(){ return true; }
+
+    @Override
+    public boolean isItemValidForSlot(int i, ItemStack itemstack) { return true; }
+
+    @Override
+    public boolean isUseableByPlayer(EntityPlayer entityplayer) {return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D; }
 
     /**
      * <h2>Permissions handler</h2>

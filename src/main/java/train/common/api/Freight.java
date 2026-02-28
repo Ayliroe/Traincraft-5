@@ -64,15 +64,6 @@ public abstract class Freight extends EntityRollingStock {
     }
 
     @Override
-    public void openInventory() {
-    }
-
-
-    @Override
-    public void closeInventory() {
-    }
-
-    @Override
     public ItemStack getStackInSlotOnClosing(int par1) {
         if (this.cargoItems[par1] != null) {
             ItemStack var2 = this.cargoItems[par1];
@@ -163,11 +154,6 @@ public abstract class Freight extends EntityRollingStock {
             }
         }
         mass += (this.itemInsideCount * 0.0001);
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-        return true;
     }
 
     public int getAmmountOfCargo() {

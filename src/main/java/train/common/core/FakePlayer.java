@@ -52,11 +52,6 @@ public class FakePlayer extends EntityPlayer {
     }
 
     @Override
-    protected void entityInit() {
-        super.entityInit();
-    }
-
-    @Override
     public void onUpdate() {
     }
 
@@ -125,11 +120,6 @@ public class FakePlayer extends EntityPlayer {
 
     @Override
     public void respawnPlayer() {
-    }
-
-    @Override
-    public void setDead() {
-        super.setDead();
     }
 
     @Override

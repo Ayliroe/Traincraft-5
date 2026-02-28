@@ -14,23 +14,10 @@ public class EntityLocoSteam4_4_0 extends SteamTrain {
 		super(world, LiquidManager.WATER_FILTER);
 	}
 
-	public EntityLocoSteam4_4_0(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "4-4-0 (US)";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
@@ -38,14 +25,5 @@ public class EntityLocoSteam4_4_0 extends SteamTrain {
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
-	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{1.0f,1.55f, 0.2f}};}
-
-    /**
-     * defines the size of the hitbox for processing, in order of length, height, and width.
-     */
-    
 }

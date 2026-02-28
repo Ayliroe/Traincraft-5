@@ -15,33 +15,16 @@ public class EntityLocoDieselWLs40 extends DieselTrain {
 
 	}
 
-	public EntityLocoDieselWLs40(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "WLs40";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1F);
 	}
 
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{1.4f,1.4f, 0.3f}};}
     

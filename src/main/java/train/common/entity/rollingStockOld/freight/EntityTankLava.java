@@ -15,39 +15,17 @@ import train.common.api.LiquidTank;
 import train.common.library.GuiIDs;
 
 public class EntityTankLava extends LiquidTank {
-	public int freightInventorySize;
 
 	public EntityTankLava(World world) {
 		super(world);
-		initFreightWater();
-	}
-
-	public void initFreightWater() {
-		freightInventorySize = 2;
-		cargoItems = new ItemStack[freightInventorySize];
-	}
-
-	public EntityTankLava(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
 	}
 
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		checkInvent(cargoItems[0]);
-		if (worldObj.isRemote)
-			return;
-		if (getAmount() > 0)
-			setColor("Full");
-		if (getAmount() <= 0)
-			setColor("Empty");
+		if (!getWorld().isRemote) {
+			setColor(getAmount() > 0 ? "Full" : "Empty");
+		}
 	}
 	
 	@Override
@@ -55,21 +33,6 @@ public class EntityTankLava extends LiquidTank {
 		return "Lava Tank cart";
 	}
 
-	@Override
-	public int getSizeInventory() {
-		return freightInventorySize;
-	}
-
-	@Override
-	public boolean interactFirst(EntityPlayer entityplayer) {
-		if ((super.interactFirst(entityplayer))) {
-			return false;
-		}
-		if (!this.worldObj.isRemote) {
-			entityplayer.openGui(Traincraft.instance, GuiIDs.LIQUID, worldObj, this.getEntityId(), -1, (int) this.posZ);
-		}
-		return true;
-	}
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.85F;

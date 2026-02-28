@@ -15,33 +15,16 @@ public class EntityLocoDieselChME3 extends DieselTrain {
 
 	}
 
-	public EntityLocoDieselChME3(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "ChME3";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1.5F);
 	}
 
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0.65f,1.42f, 0.35f}};}
     

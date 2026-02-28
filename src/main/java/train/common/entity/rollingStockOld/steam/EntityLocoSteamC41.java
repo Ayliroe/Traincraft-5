@@ -12,34 +12,10 @@ public class EntityLocoSteamC41 extends SteamTrain {
 		super(world, LiquidManager.WATER_FILTER);
 	}
 
-	public EntityLocoSteamC41(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + (double) yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
-	@Override
-	public float getPlayerScale() {
-		return 0.65f;
-	}
-
-	@Override
-	public float[][] getRiderOffsets() {
-
-		return new float[][] {{-0.2f,0.2f,-0.4f},{-0.2f,0.2f,0.4f}};
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "C41";
 	}
-
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
@@ -47,7 +23,10 @@ public class EntityLocoSteamC41 extends SteamTrain {
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
+	public float[][] getRiderOffsets() { return new float[][] {{-0.2f,0.2f,-0.4f},{-0.2f,0.2f,0.4f}}; }
+
+	@Override
+	public float getPlayerScale() {
+		return 0.65f;
 	}
 }

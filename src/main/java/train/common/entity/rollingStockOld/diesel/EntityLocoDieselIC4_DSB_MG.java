@@ -15,32 +15,16 @@ public class EntityLocoDieselIC4_DSB_MG extends DieselTrain {
 
 	}
 
-	public EntityLocoDieselIC4_DSB_MG(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
 	@Override
 	public String getInventoryName() {
 		return "IC4MG";
 	}
-
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.1f);
 	}
 
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{-3.0f,1.2f, 0f},{2f,1.2f, -0.25f},{-0.4f,1.2f, -0.25f},{-1.2f,1.2f, 0.25f}};}
     

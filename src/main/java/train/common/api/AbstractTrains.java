@@ -181,7 +181,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         dataWatcher.addObject(11, uniqueID);
         dataWatcher.addObject(13, trainCreator);
         shouldChunkLoad = ConfigHandler.CHUNK_LOADING;
-        setFlag(7, shouldChunkLoad);
+        setShouldChunkLoad(shouldChunkLoad);
 
 
         if (getSpec() != null) {
@@ -269,28 +269,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         return numberOfTrains;
     }
 
-    @Override
-    public boolean interactFirst(EntityPlayer entityplayer) {
-        ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-        if (!getWorld().isRemote && ConfigHandler.CHUNK_LOADING && (this instanceof Locomotive)) {
-            if (itemstack != null && itemstack.getItem() instanceof ItemChunkLoaderActivator) {
-                if (getFlag(7)) {
-                    setFlag(7, false);
-                    entityplayer.addChatMessage(new ChatComponentText("Stop loading chunks"));
-                    ForgeChunkManager.releaseTicket(chunkTicket);
-                    chunkTicket = null;
-                } else if (!getFlag(7)) {
-                    setFlag(7, true);
-                    entityplayer.addChatMessage(new ChatComponentText("Start loading chunks"));
-                }
-                itemstack.damageItem(1, entityplayer);
-                return true;
-            } else if (lockThisCart(itemstack, entityplayer)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    public void setShouldChunkLoad(boolean chunkLoadState) { setFlag(7, chunkLoadState); }
+    public boolean getShouldChunkLoad() { return getFlag(7); }
 
     /**
      * set the color of the rollingstock
@@ -377,7 +357,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         } else if (nbttagcompound.hasKey("colorstr")) {
             setColor(nbttagcompound.getString("colorstr"));
         }
-        setFlag(7, nbttagcompound.getBoolean("chunkLoadingState"));
+        setShouldChunkLoad(nbttagcompound.getBoolean("chunkLoadingState"));
         trainDistanceTraveled = nbttagcompound.getDouble("trainDistanceTraveled");
         trainOwner = nbttagcompound.getString("theOwner");
         locked = nbttagcompound.getBoolean("locked");
@@ -1060,7 +1040,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @Override
     public void markDirty() {}
 
-    public boolean isUseableByPlayer(EntityPlayer entityplayer) {return false;}
+    public boolean isUseableByPlayer(EntityPlayer entityplayer) {return false; }
 
     @Override
     public void openInventory() {}

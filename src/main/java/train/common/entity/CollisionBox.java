@@ -60,7 +60,7 @@ public class CollisionBox extends EntityDragonPart implements IInventory, IFluid
         if(worldObj.isRemote){
             Traincraft.keyChannel.sendToServer(new PacketInteract(host.getEntityId()));
         }
-        return host != null && host.interactFirst(p_130002_1_);
+        return host == null;
     }
 
     //check often to be sure the host actually exists and didnt somehow get deleted in such a way that would make it skip hitbox removal.

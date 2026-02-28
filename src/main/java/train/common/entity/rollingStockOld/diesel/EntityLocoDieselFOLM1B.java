@@ -15,17 +15,6 @@ public class EntityLocoDieselFOLM1B extends DieselTrain {
         super(world, LiquidManager.dieselFilter());
     }
 
-    public EntityLocoDieselFOLM1B(World world, double d, double d1, double d2) {
-        this(world);
-        setPosition(d, d1 + yOffset, d2);
-        motionX = 0.0D;
-        motionY = 0.0D;
-        motionZ = 0.0D;
-        prevPosX = d;
-        prevPosY = d1;
-        prevPosZ = d2;
-    }
-
     @Override
     public void updateRiderPosition() {
         TraincraftUtil.updateRider(this, 4.0, 0.35f);
@@ -39,10 +28,5 @@ public class EntityLocoDieselFOLM1B extends DieselTrain {
     @Override
     public float getOptimalDistance(EntityMinecart cart) {
         return (1F);
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-        return true;
     }
 }

@@ -14,63 +14,19 @@ import train.common.api.LiquidManager;
 import train.common.api.Tender;
 import train.common.library.GuiIDs;
 
-public class EntityTenderMILW extends Tender implements IInventory {
-	public int freightInventorySize;
+public class EntityTenderMILW extends Tender {
+
 	public EntityTenderMILW(World world) {
 		super(world, FluidRegistry.WATER, 0, LiquidManager.WATER_FILTER);
-		initFreightTender();
 	}
 
-	public void initFreightTender() {
-		freightInventorySize = 16;
-		cargoItems = new ItemStack[freightInventorySize];
-		this.setDefaultMass(0.2);
-	}
-
-	public EntityTenderMILW(World world, double d, double d1, double d2) {
-		this(world);
-		setPosition(d, d1 + yOffset, d2);
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-	}
-
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		checkInvent(cargoItems[0], this);
-	}
 	@Override
 	public String getInventoryName() {
 		return "MILW Tender";
 	}
 
 	@Override
-	public int getSizeInventory() {
-		return freightInventorySize;
-	}
-
-	@Override
-	public boolean interactFirst(EntityPlayer entityplayer) {
-		if ((super.interactFirst(entityplayer))) {
-			return false;
-		}
-		if (!this.worldObj.isRemote) {
-			entityplayer.openGui(Traincraft.instance, GuiIDs.TENDER, worldObj, this.getEntityId(), -1, (int) this.posZ);
-		}
-		return true;
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.9F;
-	}
-
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
 	}
 }
