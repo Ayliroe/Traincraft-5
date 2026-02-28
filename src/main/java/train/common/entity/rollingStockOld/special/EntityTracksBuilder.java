@@ -65,7 +65,6 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 	public double currentHeight;
 	public int plannedHeight;
 
-	EntityPlayer playerEntity;
 	/** Affected by the button */
 	public boolean followTracks;
 	/** stack representing the tracks in the inventory */
@@ -332,7 +331,6 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

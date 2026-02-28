@@ -35,13 +35,6 @@ public class EntityLocoSteamForneyRed extends SteamTrain {
 	}
 
 	@Override
-	public void pressKey(int i) {
-		if (i == 7 && riddenByEntity instanceof EntityPlayer) {
-			((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.FORNEY, worldObj, (int) this.posX, (int) this.posY, (int) this.posZ);
-		}
-	}
-
-	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		if (worldObj.isRemote) {

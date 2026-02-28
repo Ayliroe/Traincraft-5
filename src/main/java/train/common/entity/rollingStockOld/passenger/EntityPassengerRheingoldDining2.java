@@ -34,21 +34,6 @@ public class EntityPassengerRheingoldDining2  extends AbstractWorkCart implement
 	}
 
 	@Override
-	public void pressKey(int i) {
-		if (riddenByEntity != null && riddenByEntity instanceof EntityPlayer) {
-			if (locked && !((EntityPlayer) riddenByEntity).getDisplayName().toLowerCase().equals(this.trainOwner.toLowerCase())) {
-				return;
-			}
-			if (i == 7) {
-				((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.CRAFTING_CART, worldObj, (int) this.posX, (int) this.posY, (int) this.posZ);
-			}
-			if (i == 9) {
-				((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.FURNACE_CART, worldObj, (int) this.posX, (int) this.posY, (int) this.posZ);
-			}
-		}
-	}
-
-	@Override
 	public void onUpdate() {
 		super.onUpdate();
 		updateBurning();

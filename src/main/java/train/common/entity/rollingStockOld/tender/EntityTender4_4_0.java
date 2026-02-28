@@ -54,7 +54,6 @@ public class EntityTender4_4_0 extends Tender {
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

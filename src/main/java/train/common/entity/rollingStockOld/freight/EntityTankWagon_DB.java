@@ -53,7 +53,6 @@ public class EntityTankWagon_DB extends LiquidTank {
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

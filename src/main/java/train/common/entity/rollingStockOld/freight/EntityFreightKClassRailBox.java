@@ -15,7 +15,6 @@ import train.common.library.GuiIDs;
 public class EntityFreightKClassRailBox extends Freight implements IInventory {
 	public int freightInventorySize;
 	public int numFreightSlots;
-	EntityPlayer playerEntity;
 
 	public EntityFreightKClassRailBox(World world) {
 		super(world);
@@ -45,7 +44,6 @@ public class EntityFreightKClassRailBox extends Freight implements IInventory {
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

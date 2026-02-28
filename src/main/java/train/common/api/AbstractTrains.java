@@ -54,7 +54,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public boolean isAttached = false;
     public boolean isAttaching = false;
     public static int numberOfTrains;
-    public EntityPlayer playerEntity;
     public double Link1;
     public double Link2;
     public AbstractTrains frontLink;
@@ -259,7 +258,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public int setNewUniqueID(int numberOfTrains) {
-        // System.out.println(numberOfTrains);
+
         if (numberOfTrains <= 0) {
             numberOfTrains = uniqueIDs++;
         } else {
@@ -267,7 +266,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         }
         uniqueID = numberOfTrains;
         getEntityData().setInteger("uniqueID", numberOfTrains);
-        // System.out.println("setting new ID "+uniqueID);
         return numberOfTrains;
     }
 
@@ -276,7 +274,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         ItemStack itemstack = entityplayer.inventory.getCurrentItem();
         if (!getWorld().isRemote && ConfigHandler.CHUNK_LOADING && (this instanceof Locomotive)) {
             if (itemstack != null && itemstack.getItem() instanceof ItemChunkLoaderActivator) {
-                playerEntity = entityplayer;
                 if (getFlag(7)) {
                     setFlag(7, false);
                     entityplayer.addChatMessage(new ChatComponentText("Stop loading chunks"));

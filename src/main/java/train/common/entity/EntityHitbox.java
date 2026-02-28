@@ -69,6 +69,9 @@ public class EntityHitbox {
     }
 
     public void manageCollision(){
+        if (front == null && back == null)
+            return;
+
         for(Entity e:collidingEntities) {
             //on client we need to push away players.
             if (host.getWorld().isRemote) {

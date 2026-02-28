@@ -67,7 +67,7 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
     public boolean stationStop = false;
     public String destination = "";
 
-    private Locomotive loco = null;
+    private final Locomotive loco;
 
     MTC(Locomotive loco) {
         this.loco = loco;
@@ -417,8 +417,7 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
 
     @Override
     public void sendMessage(PDMMessage message) {
-        //	System.out.println("Sendmessage..");
-        AxisAlignedBB targetBox = AxisAlignedBB.getBoundingBox(loco.posX, loco.posY, loco.posZ, loco.posX + 2000, loco.posY + 2000, loco.posZ + 2000);
+        //AxisAlignedBB targetBox = AxisAlignedBB.getBoundingBox(loco.posX, loco.posY, loco.posZ, loco.posX + 2000, loco.posY + 2000, loco.posZ + 2000);
         List<TileEntity> allTEs = loco.getWorld().loadedTileEntityList;
         for (TileEntity te : allTEs) {
 
@@ -467,7 +466,7 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
     @Override
     public boolean setDestination(ItemStack ticket) {
         if (ticket != null) {
-            destination = TrainUtils.getTicketDestination(ticket);
+            destination = MTC.getTicketDestination(ticket);
             return true;
         }
         return false;
@@ -476,5 +475,16 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
     @Override
     public GameProfile getOwner() {
         return CartTools.getCartOwner(loco);
+    }
+
+    public static String getTicketDestination(ItemStack ticket) {
+        if (ticket == null) {
+            return "";
+        }
+        NBTTagCompound nbt = ticket.getTagCompound();
+        if (nbt == null) {
+            return "";
+        }
+        return nbt.getString("dest");
     }
 }

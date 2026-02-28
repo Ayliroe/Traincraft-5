@@ -4,12 +4,12 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import ebf.tim.api.SkinRegistry;
 import ebf.tim.api.TransportSkin;
+import ebf.tim.entities.EntitySeat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.world.World;
 import train.common.Traincraft;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.util.DepreciatedUtil;
@@ -21,12 +21,14 @@ import train.common.library.ItemIDs;
 
 public final class TrainUtils {
 
-    /**
-     * If the color is valid for the cart, then change it and reduce itemstack size
-     */
+    /*
+     * =========================================== CLICK ACTIONS ===========================================
+     **/
+    
     public static boolean onClickWithDye(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
         if (itemstack.getItem() instanceof ItemDye) {
             if (!SkinRegistry.get(train).isEmpty()) {
+                // If the color is valid for the cart, then change it and reduce itemstack size
                 for (TransportSkin s : SkinRegistry.get(train).values()) {
                     if (itemstack.getItemDamage() == DepreciatedUtil.getColorFromString(s.addr)) {
                         train.setColor(s.addr);
@@ -172,9 +174,9 @@ public final class TrainUtils {
     }
 
     public static boolean onClickWithTicket(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
-        if (itemstack.hasTagCompound() && TrainUtils.getTicketDestination(itemstack) != null && !TrainUtils.getTicketDestination(itemstack).isEmpty() && train instanceof Locomotive) {
+        if (itemstack.hasTagCompound() && MTC.getTicketDestination(itemstack) != null && !MTC.getTicketDestination(itemstack).isEmpty() && train instanceof Locomotive) {
             ((Locomotive)train).MTC.setDestination(itemstack);
-            if (!train.getWorld().isRemote) playerEntity.addChatMessage(new ChatComponentText("Setting destination to " + TrainUtils.getTicketDestination(itemstack) + "."));
+            if (!train.getWorld().isRemote) playerEntity.addChatMessage(new ChatComponentText("Setting destination to " + MTC.getTicketDestination(itemstack) + "."));
 
             // Ticket are single use but golden ones are multiple uses
             ItemStack ticket = GameRegistry.findItemStack("Railcraft", "railcraft.routing.ticket", 1);
@@ -188,16 +190,51 @@ public final class TrainUtils {
         return false;
     }
 
-    public static String getTicketDestination(ItemStack ticket) {
-        if ((ticket == null)) {
-            return "";
+    /*
+     * =========================================== GUI ===========================================
+     **/
+
+    public static boolean onOpeningGUI(EntityRollingStock train, int i, EntityPlayer playerEntity) {
+        //EntityPlayer targetPlayer = (train.seats != null && !train.seats.isEmpty() && train.seats.get(0).getPassenger() != null) ? (EntityPlayer)train.seats.get(0).getPassenger() : playerEntity;
+        EntityPlayer player = playerEntity;
+
+        int targetGUI = -1;
+        if (i == 7) {
+            // Loco
+            if (train instanceof Locomotive & train.seats != null) {
+                for (EntitySeat seat : train.seats) {
+                    if(seat.isControlSeat() && seat.getPassenger() != null && player == seat.getPassenger() && player.ridingEntity == seat) {
+                        player = (EntityPlayer)seat.getPassenger();
+                        targetGUI = GuiIDs.LOCO;
+                        break;
+                    } else if (seat.getPassenger() != null && seat.getPassenger() instanceof EntityPlayer) {
+                        Traincraft.proxy.seatGUI((EntityPlayer) seat.getPassenger(),train);
+                        break;
+                    }
+                }
+            }
+            else if (train instanceof AbstractWorkCart)     { targetGUI = GuiIDs.CRAFTING_CART; }
+            else if (train instanceof AbstractControlCar)   { targetGUI = GuiIDs.CONTROL_CAR; }
+            // Generic - Seat
+            else if (train.seats != null && train.seats.size() > 1 && train.getInventoryRows() == 0 && train.riddenByEntity instanceof EntityPlayer) {
+                player = (EntityPlayer)train.riddenByEntity;
+                targetGUI = GuiIDs.SEAT_GUI;
+            }
         }
-        NBTTagCompound nbt = ticket.getTagCompound();
-        if (nbt == null) {
-            return "";
+        if (i == 9) {
+            if (train instanceof AbstractWorkCart)          { targetGUI = GuiIDs.FURNACE_CART; }
         }
-        return nbt.getString("dest");
+
+        if (targetGUI > 0) {
+            player.openGui(Traincraft.instance, targetGUI, train.getWorld(), (int) train.posX, (int) train.posY, (int) train.posZ);
+            return true;
+        }
+        return false;
     }
+
+    /*
+     * =========================================== OTHER UTILS ===========================================
+     **/
 
     public static double convertSpeed(double speed) {
         speed /= ConfigHandler.REAL_TRAIN_SPEED?2f:6f;

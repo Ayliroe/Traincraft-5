@@ -15,7 +15,6 @@ import train.common.library.GuiIDs;
 public class EntityFreightHeavyweightBaggage extends Freight implements IInventory {
 	public int freightInventorySize;
 	public int numFreightSlots;
-	EntityPlayer playerEntity;
 
 	public EntityFreightHeavyweightBaggage(World world) {
 		super(world);
@@ -45,7 +44,6 @@ public class EntityFreightHeavyweightBaggage extends Freight implements IInvento
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

@@ -17,7 +17,6 @@ import train.common.library.GuiIDs;
 public class EntityTenderSmall extends Tender implements IInventory {
 
 	public int freightInventorySize;
-	EntityPlayer playerEntity;
 
 	public EntityTenderSmall(World world) {
 		super(world, FluidRegistry.WATER, 0, LiquidManager.WATER_FILTER);
@@ -58,7 +57,6 @@ public class EntityTenderSmall extends Tender implements IInventory {
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

@@ -3,13 +3,9 @@ package train.common.api;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import ebf.tim.entities.EntitySeat;
-import ebf.tim.utility.CommonUtil;
 import io.netty.buffer.ByteBuf;
-import mods.railcraft.api.carts.CartTools;
 import mods.railcraft.api.tracks.RailTools;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -17,22 +13,17 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import train.common.Traincraft;
 import train.common.adminbook.ServerLogger;
 import train.common.core.handlers.ConfigHandler;
-import train.common.core.network.PacketParkingBrake;
 import train.common.core.network.PacketSlotsFilled;
 import train.common.enums.DataMemberName;
 import train.common.library.GuiIDs;
-import train.common.mtc.PDMMessage;
-import train.common.mtc.TilePDMInstructionRadio;
 import train.common.mtc.packets.*;
 
 import java.util.List;
-import java.util.Random;
 
 public abstract class Locomotive extends Freight implements IRollingStockLightControls  {
 
@@ -506,6 +497,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
      * =========================================== DATA WATCHER & PACKETS ===========================================
      **/
 
+    // NOTE: Should be an override of entityInit(), but that causes a ticking memory exception on placing a stock
     public void initDataWatcher() {
         dataWatcher.addObject(2, (int) getSpecMaxSpeed());
         dataWatcher.addObject(3, MTC.destination);
@@ -578,6 +570,8 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     public void setPacketBeacon(boolean isLocoBeaconEnabled) { isBeaconEnabled = isLocoBeaconEnabled; }
     public void setPacketDitchLightsMode(byte ditchLightMode) { this.ditchLightMode = ditchLightMode; }
 
+    private JsonObject AsJsonObject(String string) { return new JsonParser().parse(string).getAsJsonObject(); }
+
     public String lightingDetailsJSONString()  {
         JsonObject lightingDetailsJSONString = new JsonObject();
         lightingDetailsJSONString.addProperty(DataMemberName.isLightsEnabled.AsString(), isLightsEnabled);
@@ -602,10 +596,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     // Loco on
     public void setLocoTurnedOnFromPacket(boolean set) {    isLocoTurnedOn = set; }
-
-    private JsonObject AsJsonObject(String string) {
-        return new JsonParser().parse(string).getAsJsonObject();
-    }
 
     /*
      * =========================================== NBT ===========================================
@@ -668,33 +658,13 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     // Gets packet from server and distribute for GUI handles motion
     @Override
-    public void keyHandlerFromPacket(int i, int player) {
-        if (getTrainLockedFromPacket()) {
-            if (isLockedAndNotOwner(player)) {
-                return;
-            }
-        }
-        pressKey(i);
+    public boolean keyHandlerFromPacket(int i, EntityPlayer player) {
+        if (super.keyHandlerFromPacket(i, player)) { return true; }
 
+        if (i == 4)  {  forwardPressed = true; }
+        if (i == 5)  {  backwardPressed = true; }
         if (i == 8 && ConfigHandler.SOUNDS) {   soundHorn(); }
         if (i == 10 && ConfigHandler.SOUNDS) {  soundWhistle(); }
-        if (i == 4) {   forwardPressed = true; }
-        if (i == 5) {   backwardPressed = true; }
-
-        if (i == 7) {
-            if (seats != null && !seats.isEmpty()) {
-                for(EntitySeat seat: seats) {
-                    if(seat.isControlSeat() && seat.getPassenger() != null && playerEntity == seat.getPassenger() && playerEntity.ridingEntity == seat) {
-                        ((EntityPlayer) seat.getPassenger()).openGui(Traincraft.instance, GuiIDs.LOCO, getWorld(), (int) posX, (int) posY, (int) posZ);
-                        break;
-                    } else if (seat.getPassenger() != null && seat.getPassenger() instanceof EntityPlayer) {
-                        Traincraft.proxy.seatGUI((EntityPlayer) seat.getPassenger(),this);
-                        break;
-                    }
-                }
-            }
-        }
-
         if (i == 12) {  brakePressed = true; }
         if (i == 13) {  forwardPressed = false; }
         if (i == 14) {  backwardPressed = false; }
@@ -702,6 +672,8 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         if (i == 16) {  MTC.toggleATO(); }
         if (i == 17) {  MTC.toggleMTCOverride(); }
         if (i == 18) {  MTC.toggleOverspeedOverride(); }
+
+        return false;
     }
 
     public void soundHorn() {

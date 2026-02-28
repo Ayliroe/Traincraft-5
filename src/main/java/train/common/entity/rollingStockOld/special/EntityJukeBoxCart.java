@@ -167,8 +167,6 @@ public class EntityJukeBoxCart extends EntityRollingStock {
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		//ItemStack var2 = entityplayer.inventory.getCurrentItem();
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

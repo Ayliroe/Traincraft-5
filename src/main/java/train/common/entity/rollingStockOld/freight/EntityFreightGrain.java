@@ -16,7 +16,6 @@ import train.common.library.GuiIDs;
 public class EntityFreightGrain extends Freight implements IInventory {
 	public int freightInventorySize;
 	public int numFreightSlots;
-	EntityPlayer playerEntity;
 
 	public EntityFreightGrain(World world) {
 		super(world);
@@ -51,7 +50,6 @@ public class EntityFreightGrain extends Freight implements IInventory {
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

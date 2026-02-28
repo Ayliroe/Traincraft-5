@@ -26,12 +26,6 @@ public class EntityLocoSteamC62Class extends SteamTrain {
 	}
 
 	@Override
-	public void pressKey(int i) {
-		if (i == 7 && riddenByEntity != null && riddenByEntity instanceof EntityPlayer) {
-			((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.LOCO, worldObj, (int) this.posX, (int) this.posY, (int) this.posZ);
-		}
-	}
-	@Override
 	public String getInventoryName() {
 		return "C62 Class [JNR]";
 	}

@@ -15,7 +15,6 @@ import train.common.library.GuiIDs;
 public class EntityFreightCenterbeam_Wood_1 extends Freight implements IInventory {
 	public int freightInventorySize;
 	public int numFreightSlots;
-	private EntityPlayer playerEntity;
 
 	public EntityFreightCenterbeam_Wood_1(World world) {
 		super(world);
@@ -45,7 +44,6 @@ public class EntityFreightCenterbeam_Wood_1 extends Freight implements IInventor
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-		playerEntity = entityplayer;
 		if ((super.interactFirst(entityplayer))) {
 			return false;
 		}

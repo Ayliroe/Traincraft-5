@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -220,15 +221,6 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
         }
     }
 
-    @Override
-    public void pressKey(int i)
-    {
-        if (i == 7 && riddenByEntity != null && riddenByEntity instanceof EntityPlayer)
-        {
-            ((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.CONTROL_CAR, getWorld(), (int) this.posX, (int) this.posY, (int) this.posZ);
-        }
-    }
-
     public boolean isNotOwner() {
         if (this.riddenByEntity instanceof EntityPlayer && !((EntityPlayer) this.riddenByEntity).getDisplayName().equalsIgnoreCase(this.getTrainOwner())) {
             return true;
@@ -368,39 +360,18 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     }
 
     @Override
-    public void keyHandlerFromPacket(int i, int player)
-    {
-        if (this.getTrainLockedFromPacket())
-        {
-            if (this.riddenByEntity != null && this.riddenByEntity instanceof EntityPlayer
-                    && !((EntityPlayer) this.riddenByEntity).getDisplayName().toLowerCase()
-                    .equals(this.getTrainOwner().toLowerCase()))
-            {
-                return;
-            }
-        }
-        pressKey(i);
-        if (i == 8 && ConfigHandler.SOUNDS) {
-            soundHorn();
-        }
-        if (i == 4) {
-            forwardPressed = true;
-        }
-        if (i == 5) {
-            backwardPressed = true;
-        }
-        if (i == 12) {
-            brakePressed = true;
-        }
-        if (i == 13) {
-            forwardPressed = false;
-        }
-        if (i == 14) {
-            backwardPressed = false;
-        }
-        if (i == 15) {
-            brakePressed = false;
-        }
+    public boolean keyHandlerFromPacket(int i, EntityPlayer player)  {
+        if (super.keyHandlerFromPacket(i, player)) { return true; }
+
+        if (i == 4)                         { forwardPressed = true; }
+        if (i == 5)                         { backwardPressed = true; }
+        if (i == 8 && ConfigHandler.SOUNDS) { soundHorn(); }
+        if (i == 12)                        { brakePressed = true; }
+        if (i == 13)                        { forwardPressed = false; }
+        if (i == 14)                        { backwardPressed = false; }
+        if (i == 15)                        { brakePressed = false; }
+
+        return false;
     }
 
     public String lightingDetailsJSONString()

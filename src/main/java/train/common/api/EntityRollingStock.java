@@ -5,11 +5,8 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.tim.api.SkinRegistry;
-import ebf.tim.api.TransportSkin;
 import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
 import fexcraft.tmt.slim.Vec3f;
@@ -22,7 +19,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityDragonPart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
@@ -43,16 +39,11 @@ import train.common.adminbook.ServerLogger;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.handlers.FuelHandler;
 import train.common.core.network.PacketRollingStockRotation;
-import train.common.core.util.DepreciatedUtil;
 import train.common.entity.CollisionBox;
 import train.common.entity.EntityHitbox;
 import train.common.entity.TrustedPlayer;
-import train.common.items.ItemPadlock;
-import train.common.items.ItemPaintbrushThing;
 import train.common.items.ItemRollingStock;
-import train.common.items.ItemWrench;
 import train.common.library.BlockIDs;
-import train.common.library.GuiIDs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,8 +65,6 @@ public class EntityRollingStock extends AbstractTrains {
             {{0, 0, 1}, {-1, 0, 0}},
             {{0, 0, -1}, {-1, 0, 0}},
             {{0, 0, -1}, {1, 0, 0}}};
-
-    protected EntityPlayer playerEntity;
 
 
     /**
@@ -211,11 +200,6 @@ public class EntityRollingStock extends AbstractTrains {
         }
     }
 
-
-
-    /*
-     * @Override public int getID() { return ID; }
-     */
 
     @Override
     public double getMountedYOffset() {
@@ -371,10 +355,6 @@ public class EntityRollingStock extends AbstractTrains {
         }
     }
 
-    public void pressKey(int i) {
-    }
-
-
     public float getPlayerScale() {
         return 1f;
     }
@@ -384,45 +364,20 @@ public class EntityRollingStock extends AbstractTrains {
      *
      * @param
      */
-    public boolean isLockedAndNotOwner(int player) {
-        Entity p = getWorld().getEntityByID(player);
-        if(!(p instanceof EntityPlayer)){
-            return false;
-        }
+    public boolean isLockedAndNotOwner(EntityPlayer player) {
         if (getTrainLockedFromPacket()) {
-            return !((EntityPlayer) p).getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isPlayerTrusted(((EntityPlayer) p).getDisplayName());
+            return !player.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isPlayerTrusted(player.getDisplayName());
         }
         return false;
     }
-    public void keyHandlerFromPacket(int i, int player) {
-        if (getTrainLockedFromPacket()) {
-            if (isLockedAndNotOwner(player)) {
-                return;
-            }
-        }
-        pressKey(i);
-        if (i == 7) {
-            if (this instanceof AbstractWorkCart) {
-                if (seats != null && seats.size() != 0 && seats.get(0).getPassenger() != null) {
-                    ((EntityPlayer) seats.get(0).getPassenger()).openGui(Traincraft.instance, GuiIDs.CRAFTING_CART, getWorld(), (int) posX, (int) posY, (int) posZ);
-                } else {
-                    playerEntity.openGui(Traincraft.instance,GuiIDs.CRAFTING_CART, getWorld(), (int) posX, (int) posY, (int) posZ);
-                }
-            } else if (seats != null && seats.size() > 1 && getInventoryRows() == 0 && riddenByEntity != null && riddenByEntity instanceof EntityPlayer) {
-                ((EntityPlayer) riddenByEntity).openGui(Traincraft.instance, GuiIDs.SEAT_GUI, getWorld(), (int) posX, (int) posY, (int) posZ);
-            }
-        }
-        if (i == 9) {
-            if (this instanceof AbstractWorkCart) {
-                if (seats != null && seats.size() != 0 && seats.get(0).getPassenger() != null) {
-                    ((EntityPlayer) seats.get(0).getPassenger()).openGui(Traincraft.instance, GuiIDs.FURNACE_CART, getWorld(), (int) posX, (int) posY, (int) posZ);
-                } else {
-                    playerEntity.openGui(Traincraft.instance,GuiIDs.FURNACE_CART, getWorld(), (int) posX, (int) posY, (int) posZ);
-                }
-            }
-        }
-
-
+    /**
+     * The actions to perform on key press
+     * @return Returns true if the action isn't allowed or has been 'eaten'
+     */
+    public boolean keyHandlerFromPacket(int i, EntityPlayer player) {
+        if (getTrainLockedFromPacket() && isLockedAndNotOwner(player))
+            return true;
+        return TrainUtils.onOpeningGUI(this, i, player);
     }   
 
     private double rollingX=0,rollingY=0,rollingZ=0;
@@ -884,15 +839,14 @@ public class EntityRollingStock extends AbstractTrains {
         if (super.interactFirst(entityplayer)) {
             return true;
         }
-        // If we are mounted on a seat, ignore this interaction
+
+        // Prevent interactions if we are mounted on a seat
         if (entityplayer.ridingEntity instanceof EntitySeat) {
             return true;
         }
 
-        playerEntity = entityplayer;
-
         // --- LOCKED CARTS ---
-        // Prevent interaction if locked + not a trusted user + cannot be ridden while locked
+        // Prevent interactions if locked + not a trusted user + cannot be ridden while locked
         if (!getWorld().isRemote && getTrainLockedFromPacket()) {
             boolean isTrustedPlayer = isPlayerTrusted(entityplayer.getDisplayName());
             if (!entityplayer.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isTrustedPlayer && !canBeRiddenWhileLocked(this)) {
@@ -916,12 +870,12 @@ public class EntityRollingStock extends AbstractTrains {
 
         // --- ENTERING SEAT ---
         //be sure the player has permission to enter the transport, and that the transport has the main seat open.
-        if (getRiderOffsets() != null && getPermissions(playerEntity, false) && !entityplayer.isSneaking()) {
+        if (getRiderOffsets() != null && getPermissions(entityplayer, false) && !entityplayer.isSneaking()) {
             for (EntitySeat seat : seats) {
                 //1.12 is stupid, sometimes when the passenger is null, it returns the player
                 if (!getWorld().isRemote && (seat.getPassenger() == null
-                        || seat.getPassenger().getEntityId()==playerEntity.getEntityId())) {
-                    seat.addPassenger(playerEntity);
+                        || seat.getPassenger().getEntityId()==entityplayer.getEntityId())) {
+                    seat.addPassenger(entityplayer);
                     entityplayer.mountEntity(seat);
                     return true;
                 }
