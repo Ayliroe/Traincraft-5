@@ -13,12 +13,7 @@ public class EntityLocoElectricHighSpeedZeroED extends ElectricTrain {
 
 	@Override
 	public float[][] getRiderOffsets() {
-
 		return new float[][]{{2.3f,0,-0.15f}};
-	}
-	@Override
-	public String getInventoryName() {
-		return "High Speed";
 	}
 
 	@Override

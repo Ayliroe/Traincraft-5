@@ -1,57 +1,15 @@
 package train.common.entity.rollingStockOld.steam;
 
 import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import train.common.Traincraft;
 import train.common.api.LiquidManager;
 import train.common.api.SteamTrain;
 import train.common.api.TextureDescription;
-import train.common.library.GuiIDs;
 
 public class EntityLocoSteamForneyRed extends SteamTrain {
 	public EntityLocoSteamForneyRed(World world) {
 		super(world, LiquidManager.WATER_FILTER);
 		textureDescriptionMap.put("Default", new TextureDescription(null, "Forney locomotives are considered as a type of tank engine, small and powerful! The characteristics of this locomotive consisted of a pilot truck (if built with it), four drivers with the second set without flanges for tight turns, and a trailing truck/bogie of two sets of wheels. This little puppy was created to make tight turns conventional locomotives couldn’t. These mainly operated on commuter lines in New York, Chicago, & Boston. The most recognizable ones are from Disneyland No. 3 and the Maine Narrow Gauge Railroad Co. locomotives which the TC models are based off.\n"));
-		textureDescriptionMap.put("Yellow", new TextureDescription(null, "Special texture description for yellow Forney."));
-	}
-
-	@Override//todo:why was this so much?
-	public int getSizeInventory() {
-		return 17;
-	}
-
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		if (worldObj.isRemote) {
-			return;
-		}
-		checkInvent(cargoItems[0], cargoItems[1], this);
-		for (int h = 0; h < this.cargoItems.length; h++) {
-			if (this.cargoItems[h] != null && steamFuelLast(this.cargoItems[h]) != 0) {
-				if (fuelTrain <= 0 && !worldObj.isRemote) {
-					fuelTrain = steamFuelLast(this.cargoItems[h]);
-					if (!worldObj.isRemote) {
-						this.decrStackSize(h, 1);
-					}
-				}
-			}
-			else if (this.cargoItems[h] != null && steamFuelLast(this.cargoItems[h]) != 0) {
-				if (fuelTrain <= 0 && !worldObj.isRemote) {
-					fuelTrain = steamFuelLast(this.cargoItems[h]);
-					if (!worldObj.isRemote) {
-						this.decrStackSize(h, 1);
-					}
-				}
-			}
-		}
-	}
-	@Override
-	public String getInventoryName() {
-		return "Forney";
 	}
 
 	@Override
@@ -60,20 +18,5 @@ public class EntityLocoSteamForneyRed extends SteamTrain {
 	}
 
 	@Override
-	public int getInventoryStackLimit() {
-		return 64;
-	}
-
-	@Override
-	public float getSpecMaxSpeed() {
-		return super.getSpecMaxSpeed()*(riddenByEntity instanceof EntityPlayerMP &&(((EntityPlayerMP) riddenByEntity).getDisplayName().equals("EternalBlueFlame") || ((EntityPlayerMP) riddenByEntity).getDisplayName().equals("minecarftmano9"))?3:1);
-	}
-
-	@Override
-	public float getSpecMHP() {
-		return super.getSpecMHP()*(riddenByEntity instanceof EntityPlayerMP &&(((EntityPlayerMP) riddenByEntity).getDisplayName().equals("EternalBlueFlame") || ((EntityPlayerMP) riddenByEntity).getDisplayName().equals("minecarftmano9"))?3:1);
-	}
-	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0.4f,1.6f, 0f}};}
-    
 }

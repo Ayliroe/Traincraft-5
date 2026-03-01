@@ -25,38 +25,6 @@ public abstract class Freight extends EntityRollingStock {
         cargoItems = new ItemStack[getSizeInventory()];
     }
 
-    @Override
-    public boolean attackEntityFrom(DamageSource damagesource, float i) {
-        if (getWorld().isRemote) {
-            return true;
-        }
-
-        if (canBeDestroyedByPlayer(damagesource)) {
-			return true;
-		}
-
-        super.attackEntityFrom(damagesource, i);
-        setRollingDirection(-getRollingDirection());
-        setRollingAmplitude(10);
-        setBeenAttacked();
-        setDamage(getDamage() + i * 10);
-
-        if (getDamage() > 40) {
-            if (riddenByEntity != null) {
-                riddenByEntity.mountEntity(this);
-            }
-
-            this.setDead();
-            ServerLogger.deleteWagon(this);
-
-            if (damagesource.getEntity() instanceof EntityPlayer) {
-                dropCartAsItem(((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode);
-            }
-        }
-        return true;
-    }
-
-
     /* IInventory implements */
     @Override
     public ItemStack getStackInSlot(int i) {
@@ -65,9 +33,9 @@ public abstract class Freight extends EntityRollingStock {
 
     @Override
     public ItemStack getStackInSlotOnClosing(int par1) {
-        if (this.cargoItems[par1] != null) {
-            ItemStack var2 = this.cargoItems[par1];
-            this.cargoItems[par1] = null;
+        if (cargoItems[par1] != null) {
+            ItemStack var2 = cargoItems[par1];
+            cargoItems[par1] = null;
             return var2;
         } else {
             return null;
@@ -103,20 +71,15 @@ public abstract class Freight extends EntityRollingStock {
     @Override
     public void markDirty() {
         if (!getWorld().isRemote) {
-            this.slotsFilled = 0;
+            slotsFilled = 0;
             for (int i = 0; i < getSizeInventory(); i++) {
                 ItemStack itemstack = getStackInSlot(i);
                 if (itemstack != null) {
                     slotsFilled++;
                 }
             }
-            this.dataWatcher.updateObject(22, slotsFilled);
+            dataWatcher.updateObject(22, slotsFilled);
         }
-    }
-
-    @Override
-    public String getInventoryName() {
-        return "Freight cart";
     }
 
     @Override
@@ -141,23 +104,23 @@ public abstract class Freight extends EntityRollingStock {
      * Handle mass depending on item count tenders are done differently
      */
     protected void handleMass() {
-        if (this.ticksExisted % 10 != 0)
+        if (ticksExisted % 10 != 0)
             return;
         if (getWorld().isRemote)
             return;
-        this.mass = this.getDefaultMass();
-        this.itemInsideCount = 0;
+        mass = getDefaultMass();
+        itemInsideCount = 0;
         for (int i = 0; i < getSizeInventory(); i++) {
             ItemStack itemstack = getStackInSlot(i);
             if (itemstack != null && itemstack.stackSize > 0) {
-                this.itemInsideCount += itemstack.stackSize;
+                itemInsideCount += itemstack.stackSize;
             }
         }
-        mass += (this.itemInsideCount * 0.0001);
+        mass += (itemInsideCount * 0.0001);
     }
 
     public int getAmmountOfCargo() {
-        return this.dataWatcher.getWatchableObjectInt(22);
+        return dataWatcher.getWatchableObjectInt(22);
     }
 
     @Override
@@ -177,7 +140,7 @@ public abstract class Freight extends EntityRollingStock {
                 }
             }
         }
-        this.dataWatcher.updateObject(22, slotsFilled);
+        dataWatcher.updateObject(22, slotsFilled);
     }
 
     @Override

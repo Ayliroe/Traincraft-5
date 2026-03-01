@@ -15,11 +15,6 @@ public class EntityLocoSteamMallardA4 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "A4 Mallard";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1F);
 	}

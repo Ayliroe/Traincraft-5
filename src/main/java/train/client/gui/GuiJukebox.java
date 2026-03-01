@@ -13,10 +13,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 import train.common.Traincraft;
+import train.common.api.AbstractJukeBox;
 import train.common.api.AbstractTrains;
 import train.common.core.network.PacketSetJukeboxStreamingUrl;
 import train.common.core.network.PacketSetTrainLockedToClient;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 import train.common.library.Info;
 
 import java.awt.*;
@@ -32,7 +32,7 @@ import java.util.List;
 public class GuiJukebox extends GuiScreen {
 
     private GuiTCTextField streamTextBox;
-    private final EntityJukeBoxCart jukebox;
+    private final AbstractJukeBox jukebox;
     private final EntityPlayer player;
     public boolean exists = true;
     private GuiButton buttonLock;
@@ -43,7 +43,7 @@ public class GuiJukebox extends GuiScreen {
     private int anim = 0;
     private String infoText;
 
-    public GuiJukebox(EntityPlayer player, EntityJukeBoxCart jukebox) {
+    public GuiJukebox(EntityPlayer player, AbstractJukeBox jukebox) {
         this.jukebox = jukebox;
         this.player = player;
         gui_width = 352;

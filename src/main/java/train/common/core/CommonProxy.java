@@ -18,16 +18,12 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.MinecraftForge;
 import train.common.Traincraft;
-import train.common.api.EntityRollingStock;
-import train.common.api.Freight;
-import train.common.api.LiquidTank;
-import train.common.api.Tender;
+import train.common.api.*;
 import train.common.containers.*;
 import train.common.core.handlers.ChunkEvents;
 import train.common.core.handlers.WorldEvents;
 import train.common.core.util.MP3Player;
 import train.common.entity.digger.EntityRotativeDigger;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
 import train.common.entity.zeppelin.AbstractZeppelin;
 import train.common.inventory.*;
@@ -209,7 +205,7 @@ public class CommonProxy implements IGuiHandler {
                 //System.out.println("Freight: " + ID + " | " + entity1.getEntityName() + " | " + x + ":" + y + ":" + z);
                 return entity1 instanceof Freight ? new InventoryFreight(player.inventory, (Freight) entity1) : null;
             case (GuiIDs.JUKEBOX):
-                return entity1 instanceof EntityJukeBoxCart ? new InventoryJukeBoxCart(player.inventory, (EntityJukeBoxCart) entity1) : null;
+                return entity1 instanceof AbstractJukeBox ? new InventoryJukeBoxCart(player.inventory, (AbstractJukeBox) entity1) : null;
             case (GuiIDs.TENDER):
                 return entity1 instanceof Tender ? new InventoryTender(player.inventory, (Tender) entity1) : null;
             case (GuiIDs.BUILDER):

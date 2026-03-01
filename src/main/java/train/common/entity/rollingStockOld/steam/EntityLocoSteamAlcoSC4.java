@@ -15,11 +15,6 @@ public class EntityLocoSteamAlcoSC4 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Alco SC4";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.6F;
 	}

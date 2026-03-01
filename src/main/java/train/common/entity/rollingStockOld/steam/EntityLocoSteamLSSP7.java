@@ -15,11 +15,6 @@ public class EntityLocoSteamLSSP7 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "LSSP 7";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 			return 0.5f;
 	}

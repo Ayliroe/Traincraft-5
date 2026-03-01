@@ -12,15 +12,10 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightShortCoveredHopper extends Freight implements IInventory {
+public class EntityFreightShortCoveredHopper extends Freight {
 
 	public EntityFreightShortCoveredHopper(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Short Covered Hopper";
 	}
 
 	@Override

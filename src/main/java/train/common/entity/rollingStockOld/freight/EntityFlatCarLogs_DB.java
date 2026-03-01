@@ -16,15 +16,10 @@ import train.common.library.ItemIDs;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityFlatCarLogs_DB extends Freight implements IInventory {
+public class EntityFlatCarLogs_DB extends Freight {
 
 	public EntityFlatCarLogs_DB(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Wood transport";
 	}
 
 	@Override

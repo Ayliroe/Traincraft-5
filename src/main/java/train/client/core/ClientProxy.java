@@ -36,6 +36,7 @@ import train.client.render.*;
 import train.client.render.renderSwitch.*;
 import train.common.Traincraft;
 import train.common.adminbook.GUIAdminBook;
+import train.common.api.AbstractJukeBox;
 import train.common.api.EntityBogie;
 import train.common.api.EntityRollingStock;
 import train.common.blocks.TCBlocks;
@@ -45,7 +46,6 @@ import train.common.core.handlers.ConfigHandler;
 import train.common.entity.CollisionBox;
 import train.common.entity.digger.EntityRotativeDigger;
 import train.common.entity.digger.EntityRotativeWheel;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 import train.common.entity.zeppelin.EntityZeppelinOneBalloon;
 import train.common.entity.zeppelin.EntityZeppelinTwoBalloons;
 import train.common.library.BlockIDs;
@@ -384,7 +384,7 @@ public class ClientProxy extends CommonProxy {
             case (GuiIDs.LANTERN):
                 return new GuiLantern(player, (TileLantern) te);
             case (GuiIDs.JUKEBOX):
-                return entity1 != null ? new GuiJukebox(player, (EntityJukeBoxCart) entity1) : null;
+                return entity1 != null ? new GuiJukebox(player, (AbstractJukeBox) entity1) : null;
             case (GuiIDs.FORTY_FOOT_CONTAINER):
                 return new GuiFortyFootContainer((TileFortyFootContainer) te, player);
             case (GuiIDs.PAINTBRUSH):

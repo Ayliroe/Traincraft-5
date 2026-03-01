@@ -16,11 +16,6 @@ public class EntityLocoDieselClass66 extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Class 66";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1F);
 	}

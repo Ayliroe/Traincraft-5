@@ -35,17 +35,17 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 
 	private DieselTrain(World world, FluidStack filter, String[] multiFilter) {
 		super(world);
-		this.maxTank = getTankCapacity()[0];
+		maxTank = getTankCapacity()[0];
 		if (filter == null && multiFilter == null) {
-			this.theTank = LiquidManager.getInstance().new StandardTank(maxTank);
+			theTank = LiquidManager.getInstance().new StandardTank(maxTank);
 		}if (filter != null) {
-			this.theTank = LiquidManager.getInstance().new FilteredTank(maxTank, filter);
+			theTank = LiquidManager.getInstance().new FilteredTank(maxTank, filter);
 		}if (multiFilter != null) {
-			this.theTank = LiquidManager.getInstance().new FilteredTank(maxTank, multiFilter);
+			theTank = LiquidManager.getInstance().new FilteredTank(maxTank, multiFilter);
 		}
 		dataWatcher.addObject(4, 0);
-		this.dataWatcher.addObject(27, 0);
-		this.dataWatcher.addObject(5, "");
+		dataWatcher.addObject(27, 0);
+		dataWatcher.addObject(5, "");
 	}
 	public DieselTrain(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2);
@@ -60,11 +60,11 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	public void onUpdate() {
 		super.onUpdate();
 		if (!getWorld().isRemote) {
-			if (theTank.getFluidAmount() != this.dataWatcher.getWatchableObjectInt(27)){
-				this.dataWatcher.updateObject(27, theTank.getFluidAmount());
+			if (theTank.getFluidAmount() != dataWatcher.getWatchableObjectInt(27)){
+				dataWatcher.updateObject(27, theTank.getFluidAmount());
 				fuelTrain = theTank.getFluidAmount();
-				this.dataWatcher.updateObject(4, theTank.getFluid()!=null?theTank.getFluid().getFluidID():0);
-				this.dataWatcher.updateObject(5, theTank.getFluid()!=null?theTank.getFluid().getUnlocalizedName():"");
+				dataWatcher.updateObject(4, theTank.getFluid()!=null?theTank.getFluid().getFluidID():0);
+				dataWatcher.updateObject(5, theTank.getFluid()!=null?theTank.getFluid().getUnlocalizedName():"");
 			}
 			if (isLocoTurnedOn && theTank.getFluidAmount() >0) {
 				if (theTank.getFluid().amount <= 1) {
@@ -77,12 +77,12 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	}
 
 	public int getDiesel() {
-		return getFuel()==0?(this.dataWatcher.getWatchableObjectInt(27)):getFuel();
+		return getFuel()==0?(dataWatcher.getWatchableObjectInt(27)):getFuel();
 	}
-	public String getLiquidName(){ return  this.dataWatcher.getWatchableObjectString(5);}
+	public String getLiquidName(){ return  dataWatcher.getWatchableObjectString(5);}
 
 	public int getLiquidItemID() {
-		return (this.dataWatcher.getWatchableObjectInt(4));
+		return (dataWatcher.getWatchableObjectInt(4));
 	}
 
 	public StandardTank getTank() {
@@ -92,13 +92,13 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
-		this.theTank.writeToNBT(nbttagcompound);
+		theTank.writeToNBT(nbttagcompound);
 	}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
 		super.readEntityFromNBT(nbttagcompound);
-		this.theTank.readFromNBT(nbttagcompound);
+		theTank.readFromNBT(nbttagcompound);
 	}
 
 	public int getCartTankCapacity() {
@@ -132,8 +132,8 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	public void liquidInSlot(ItemStack itemstack) {
 		if (getWorld().isRemote)
 			return;
-		this.update += 1;
-		if (this.update % 8 == 0 && itemstack != null) {
+		update += 1;
+		if (update % 8 == 0 && itemstack != null) {
 			ItemStack result = LiquidManager.getInstance().processContainer(this, 0, this, itemstack);
 			if (result != null) {
 				placeInInvent(result);
@@ -142,7 +142,7 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	}
 
 	protected ItemStack checkInvent(ItemStack locoInvent0) {
-		if (!this.canCheckInvent)
+		if (!canCheckInvent)
 			return locoInvent0;
 
 		if (getDiesel() > 0) {
@@ -223,11 +223,11 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 
 
 	public void setCapacity(int capacity) {
-		this.maxTank = capacity;
+		maxTank = capacity;
 	}
 
 	public int getCapacity() {
-		return this.maxTank;
+		return maxTank;
 	}
 
 	@Override

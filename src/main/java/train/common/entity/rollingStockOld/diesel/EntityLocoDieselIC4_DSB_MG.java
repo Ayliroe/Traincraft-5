@@ -16,11 +16,6 @@ public class EntityLocoDieselIC4_DSB_MG extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "IC4MG";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.1f);
 	}

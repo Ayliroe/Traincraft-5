@@ -15,11 +15,6 @@ public class EntityLocoSteamBR01_DB extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "BR01";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.4F;
 	}

@@ -12,15 +12,10 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightHeavyweightBaggage extends Freight implements IInventory {
+public class EntityFreightHeavyweightBaggage extends Freight {
 
 	public EntityFreightHeavyweightBaggage(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Heavyweight Baggage";
 	}
 
 	@Override

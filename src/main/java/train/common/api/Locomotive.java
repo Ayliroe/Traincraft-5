@@ -4,7 +4,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
-import ebf.tim.entities.EntitySeat;
 import io.netty.buffer.ByteBuf;
 import mods.railcraft.api.tracks.RailTools;
 import net.minecraft.block.material.Material;
@@ -16,12 +15,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import train.common.Traincraft;
-import train.common.adminbook.ServerLogger;
+import train.common.api.components.MTC;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.network.PacketSlotsFilled;
 import train.common.enums.DataMemberName;
-import train.common.library.GuiIDs;
-import train.common.mtc.packets.*;
 
 import java.util.List;
 
@@ -59,7 +56,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     public double fuelRate;
 
     // --- MTC & ATO ---
-    public MTC MTC = null;
+    public MTC MTC = new MTC(this);
 
     // --- LIGHTING ---
     private boolean isLightsEnabled = false;
@@ -81,10 +78,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     public Locomotive(World world) {
         super(world);
         if(world==null){return;}
-
-        if (MTC == null) {
-            MTC = new MTC(this);
-        }
 
         // --- DEFAULTS ---
         setDefaultMass(0);
@@ -466,31 +459,11 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     @Override
     public boolean attackEntityFrom(DamageSource damagesource, float i) {
-        if (getWorld().isRemote) { return true; }
-
-        if (canBeDestroyedByPlayer(damagesource)) { return true; }
-
-        super.attackEntityFrom(damagesource, i);
-        setRollingDirection(-getRollingDirection());
-        setRollingAmplitude(10);
-        setBeenAttacked();
-        setDamage(getDamage() + i * 10);
-        if (getDamage() > 40) {
-            if (riddenByEntity != null) {
-                riddenByEntity.mountEntity(this);
-            }
-
-            setDead();
+        if (super.attackEntityFrom(damagesource, i)) {
             MTC.disconnectFromServer();
-            ServerLogger.deleteWagon(this);
-
-            if (damagesource.getEntity() instanceof EntityPlayer) {
-                dropCartAsItem(((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode);
-            } else {
-                dropCartAsItem(false);
-            }
+            return true;
         }
-        return true;
+        return false;
     }
 
     /*

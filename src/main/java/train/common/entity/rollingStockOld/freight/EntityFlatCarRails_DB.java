@@ -12,7 +12,7 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFlatCarRails_DB extends Freight implements IInventory {
+public class EntityFlatCarRails_DB extends Freight {
 
 	public EntityFlatCarRails_DB(World world) {
 		super(world);

@@ -15,11 +15,6 @@ public class EntityLocoSteamBerk765 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Berkshire 765";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.375F;
 	}

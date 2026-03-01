@@ -16,11 +16,6 @@ public class EntityLocoDieselKof_DB extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Kof";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.6F);
 	}

@@ -21,11 +21,6 @@ public class EntityTenderEr_Ussr extends Tender {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "USSR 0-5-0's Tender";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.67F;
 	}

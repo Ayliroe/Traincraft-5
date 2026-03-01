@@ -13,15 +13,10 @@ import train.common.api.Freight;
 import train.common.api.blocks.EnumCargoTypes;
 import train.common.library.GuiIDs;
 
-public class EntityFreightGrain extends Freight implements IInventory {
+public class EntityFreightGrain extends Freight {
 
 	public EntityFreightGrain(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Grain Hopper";
 	}
 
 	@Override

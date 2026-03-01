@@ -14,11 +14,6 @@ public class EntityLocoElectricE10_DB extends ElectricTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "E10 (DB)";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1F;
 	}

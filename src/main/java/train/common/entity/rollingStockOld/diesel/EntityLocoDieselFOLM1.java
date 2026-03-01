@@ -16,11 +16,6 @@ public class EntityLocoDieselFOLM1 extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "FOL M1";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1F);
 	}

@@ -12,15 +12,10 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightWagenDB extends Freight implements IInventory {
+public class EntityFreightWagenDB extends Freight {
 
 	public EntityFreightWagenDB(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Freight Wagen (DB)";
 	}
 
 	@Override

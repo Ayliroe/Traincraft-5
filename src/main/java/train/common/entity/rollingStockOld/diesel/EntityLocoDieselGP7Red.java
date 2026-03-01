@@ -16,11 +16,6 @@ public class EntityLocoDieselGP7Red extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "GP7";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1.14F);
 	}

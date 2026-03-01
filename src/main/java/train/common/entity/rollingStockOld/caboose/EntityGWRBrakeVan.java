@@ -9,15 +9,10 @@ import train.common.Traincraft;
 import train.common.api.AbstractWorkCart;
 import train.common.library.GuiIDs;
 
-public class EntityGWRBrakeVan extends AbstractWorkCart implements IInventory {
+public class EntityGWRBrakeVan extends AbstractWorkCart {
 
 	public EntityGWRBrakeVan(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "GWR Brake Van";
 	}
 
 	@Override

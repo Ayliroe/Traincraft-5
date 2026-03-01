@@ -16,11 +16,6 @@ public class EntityLocoDieselChME3 extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "ChME3";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1.5F);
 	}

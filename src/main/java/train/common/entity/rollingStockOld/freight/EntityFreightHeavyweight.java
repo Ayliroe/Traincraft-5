@@ -12,7 +12,7 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightHeavyweight extends Freight implements IInventory {
+public class EntityFreightHeavyweight extends Freight {
 
 	public EntityFreightHeavyweight(World world) {
 		super(world);
@@ -24,17 +24,7 @@ public class EntityFreightHeavyweight extends Freight implements IInventory {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Heavyweight Mailcar";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 3.2F;
-	}
-
-	@Override
-	public int getInventoryStackLimit() {
-		return 64;
 	}
 }

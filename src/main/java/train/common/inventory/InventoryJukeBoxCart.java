@@ -3,17 +3,17 @@ package train.common.inventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import train.common.api.AbstractJukeBox;
 import train.common.api.EntityRollingStock;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 
 public class InventoryJukeBoxCart extends Container {
 
-	private EntityJukeBoxCart jukebox;
+	private AbstractJukeBox jukebox;
 	private InventoryPlayer player;
 
 	public InventoryJukeBoxCart(InventoryPlayer iinventory, EntityRollingStock entityminecart) {
 		player = iinventory;
-		jukebox = (EntityJukeBoxCart) entityminecart;
+		jukebox = (AbstractJukeBox) entityminecart;
 	}
 
 	@Override

@@ -21,11 +21,6 @@ public class EntityTenderCoranationClass extends Tender {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Coronation Tender";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 2F;
 	}

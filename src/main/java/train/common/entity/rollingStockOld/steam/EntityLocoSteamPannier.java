@@ -13,12 +13,6 @@ public class EntityLocoSteamPannier extends SteamTrain {
 	public EntityLocoSteamPannier(World world) {
 		super(world, LiquidManager.WATER_FILTER);
 	}
-
-	@Override
-	public String getInventoryName() {
-		return "0-6-0 Pannier";
-	}
-
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.3F;

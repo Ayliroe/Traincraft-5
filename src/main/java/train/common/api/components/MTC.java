@@ -1,4 +1,4 @@
-package train.common.api;
+package train.common.api.components;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -12,11 +12,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import train.common.Traincraft;
+import train.common.api.Locomotive;
+import train.common.api.SteamTrain;
+import train.common.api.WirelessTransmitter;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.network.PacketParkingBrake;
 import train.common.mtc.PDMMessage;
@@ -69,7 +71,7 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
 
     private final Locomotive loco;
 
-    MTC(Locomotive loco) {
+    public MTC(Locomotive loco) {
         this.loco = loco;
     }
 
@@ -294,7 +296,7 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
      * =========================================== NBT ===========================================
      **/
 
-    protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+    public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         nbttagcompound.setString("serverUUID", serverUUID);
         nbttagcompound.setString("trainID", trainID);
         nbttagcompound.setString("trainLevel", trainLevel);

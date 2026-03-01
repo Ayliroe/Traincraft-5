@@ -15,11 +15,6 @@ public class EntityLocoSteam040VB extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "0-4-0 Vertical Boiler";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.75F;
 	}

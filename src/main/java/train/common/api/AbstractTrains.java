@@ -507,26 +507,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         return (train instanceof Locomotive) || (train instanceof IPassenger) || (train instanceof AbstractWorkCart);
     }
 
-    protected boolean canBeDestroyedByPlayer(DamageSource damagesource) {
-        if (getTrainLockedFromPacket()) {
-            if (damagesource.getEntity() instanceof EntityPlayer) {
-                if ((damagesource.getEntity() instanceof EntityPlayerMP) &&
-                        ((EntityPlayerMP) damagesource.getEntity()).canCommandSenderUseCommand(2, "") &&
-                        ((EntityPlayer) damagesource.getEntity()).inventory.getCurrentItem() != null &&
-                        ((EntityPlayer) damagesource.getEntity()).inventory.getCurrentItem().getItem() instanceof ItemWrench) {
-
-                    ((EntityPlayer) damagesource.getEntity()).addChatMessage(new ChatComponentText("Removing the train using OP permission."));
-                    return false;
-                }
-                else if (!((EntityPlayer) damagesource.getEntity()).getDisplayName().equalsIgnoreCase(trainOwner) && !(isPlayerTrustedToBreak(((EntityPlayerMP) damagesource.getEntity()).getDisplayName()))) {
-                    ((EntityPlayer) damagesource.getEntity()).addChatMessage(new ChatComponentText("You are not the owner!"));
-                    return true;
-                }
-            } else return !damagesource.isProjectile();
-        }
-        return false;
-    }
-
     /**
      * Railcraft routing integration
      */
@@ -1031,8 +1011,9 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @Override
     public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {}
 
+    // Do not override, use getCommandSenderName() instead
     @Override
-    public String getInventoryName() {return null;}
+    public final String getInventoryName() {return null; }
 
     @Override
     public int getInventoryStackLimit() {return 0;}

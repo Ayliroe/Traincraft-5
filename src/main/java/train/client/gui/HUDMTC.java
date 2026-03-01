@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import train.common.api.Locomotive;
-import train.common.api.MTC;
+import train.common.api.components.MTC;
 import train.common.library.Info;
 
 public class HUDMTC extends GuiScreen {

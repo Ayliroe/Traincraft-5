@@ -15,11 +15,6 @@ public class EntityLocoSteamUSATCUK extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "S100 USATCUK";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.65F;
 	}

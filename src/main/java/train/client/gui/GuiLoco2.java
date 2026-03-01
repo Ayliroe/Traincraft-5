@@ -317,16 +317,16 @@ public class GuiLoco2 extends GuiContainer {
         GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glDisable(GL11.GL_DEPTH_TEST);
 
-        fontRendererObj.drawString(loco.getInventoryName(), 39, 7, 0x000000);
-        fontRendererObj.drawString(loco.getInventoryName(), 41, 5, 0x000000);
-        fontRendererObj.drawString(loco.getInventoryName(), 39, 5, 0x000000);
-        fontRendererObj.drawString(loco.getInventoryName(), 41, 7, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 39, 7, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 41, 5, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 39, 5, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 41, 7, 0x000000);
 
-        fontRendererObj.drawString(loco.getInventoryName(), 39, 6, 0x000000);
-        fontRendererObj.drawString(loco.getInventoryName(), 41, 6, 0x000000);
-        fontRendererObj.drawString(loco.getInventoryName(), 40, 7, 0x000000);
-        fontRendererObj.drawString(loco.getInventoryName(), 40, 5, 0x000000);
-        fontRendererObj.drawString(loco.getInventoryName(), 40, 6, 0xd3a900);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 39, 6, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 41, 6, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 40, 7, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 40, 5, 0x000000);
+        fontRendererObj.drawString(loco.getCommandSenderName(), 40, 6, 0xd3a900);
 
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glEnable(GL11.GL_DEPTH_TEST);

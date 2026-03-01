@@ -12,15 +12,10 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightGS4_Baggage extends Freight implements IInventory {
+public class EntityFreightGS4_Baggage extends Freight {
 
 	public EntityFreightGS4_Baggage(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "GS4 Baggage cart";
 	}
 
 	@Override

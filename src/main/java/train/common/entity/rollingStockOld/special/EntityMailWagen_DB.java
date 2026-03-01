@@ -9,15 +9,10 @@ import train.common.Traincraft;
 import train.common.api.AbstractWorkCart;
 import train.common.library.GuiIDs;
 
-public class EntityMailWagen_DB extends AbstractWorkCart implements IInventory {
+public class EntityMailWagen_DB extends AbstractWorkCart {
 
 	public EntityMailWagen_DB(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Mail Wagen";
 	}
 
 	@Override

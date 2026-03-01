@@ -15,11 +15,6 @@ public class EntityLocoSteamEr_Ussr extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "USSR 0-5-0";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.53F;
 	}

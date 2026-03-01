@@ -225,16 +225,16 @@ public class GuiControlCar extends GuiContainer
         GL11.glDisable(GL11.GL_LIGHTING);
         GL11.glDisable(GL11.GL_DEPTH_TEST);
 
-        fontRendererObj.drawString(controlCar.getInventoryName(), 39, 7, 0x000000);
-        fontRendererObj.drawString(controlCar.getInventoryName(), 41, 5, 0x000000);
-        fontRendererObj.drawString(controlCar.getInventoryName(), 39, 5, 0x000000);
-        fontRendererObj.drawString(controlCar.getInventoryName(), 41, 7, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 39, 7, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 41, 5, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 39, 5, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 41, 7, 0x000000);
 
-        fontRendererObj.drawString(controlCar.getInventoryName(), 39, 6, 0x000000);
-        fontRendererObj.drawString(controlCar.getInventoryName(), 41, 6, 0x000000);
-        fontRendererObj.drawString(controlCar.getInventoryName(), 40, 7, 0x000000);
-        fontRendererObj.drawString(controlCar.getInventoryName(), 40, 5, 0x000000);
-        fontRendererObj.drawString(controlCar.getInventoryName(), 40, 6, 0xd3a900);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 39, 6, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 41, 6, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 40, 7, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 40, 5, 0x000000);
+        fontRendererObj.drawString(controlCar.getCommandSenderName(), 40, 6, 0xd3a900);
 
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glEnable(GL11.GL_DEPTH_TEST);
@@ -290,7 +290,7 @@ public class GuiControlCar extends GuiContainer
             fontRendererObj.drawStringWithShadow("Heat level: " + locomotiveUnderControl.getHeat(), 1, 100, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("Maximum Speed: " + locomotiveUnderControl.getCurrentMaxSpeed() + " km/h", 1, 110, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("Destination: " + locomotiveUnderControl.getDestinationGUI(), 1, 120, 0xFFFFFF);
-            fontRendererObj.drawStringWithShadow("Primary Loco: " + locomotiveUnderControl.getInventoryName(), 1, 130, 0xFFFFFF);
+            fontRendererObj.drawStringWithShadow("Primary Loco: " + locomotiveUnderControl.getCommandSenderName(), 1, 130, 0xFFFFFF);
         }
         else
         {

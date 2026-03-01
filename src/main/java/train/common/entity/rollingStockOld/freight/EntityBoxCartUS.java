@@ -12,7 +12,7 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityBoxCartUS extends Freight implements IInventory {
+public class EntityBoxCartUS extends Freight {
 
     public EntityBoxCartUS(World world) {
         super(world);

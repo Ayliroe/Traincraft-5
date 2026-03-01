@@ -16,10 +16,6 @@ public class EntityTankWagon extends LiquidTank {
     public EntityTankWagon(World world) {
         super(world);
     }
-    @Override
-    public String getInventoryName() {
-        return "Tank cart";
-    }
 
     @Override
     public float getOptimalDistance(EntityMinecart cart) {

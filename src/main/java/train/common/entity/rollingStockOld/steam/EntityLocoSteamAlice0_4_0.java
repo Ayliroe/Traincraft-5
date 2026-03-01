@@ -15,11 +15,6 @@ public class EntityLocoSteamAlice0_4_0 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "0-4-0 Alice";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.9F;
 	}

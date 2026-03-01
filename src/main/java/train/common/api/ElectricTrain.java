@@ -39,14 +39,14 @@ public abstract class ElectricTrain extends Locomotive {
 		if (getWorld().isRemote) {
 			return;
 		}
-		this.setState("hot");
+		setState("hot");
 		
 		if (rand.nextInt(4) == 0 && Ignite) {
 
 			timeSinceIgnited++;
 
 		}
-		if(!this.canCheckInvent)return;
+		if(!canCheckInvent)return;
 		
 		/* if the loco has fuel */
 		if (getFuel() < maxEnergy && cargoItems[0] != null)
@@ -104,9 +104,9 @@ public abstract class ElectricTrain extends Locomotive {
 	@Override
 	public int getFuelDiv(int i) {
 		if (getWorld().isRemote) {
-			return ((this.dataWatcher.getWatchableObjectInt(24) * (i)) / maxEnergy);
+			return ((dataWatcher.getWatchableObjectInt(24) * (i)) / maxEnergy);
 		}
-		return (this.fuelTrain * (i)) / maxEnergy;
+		return (fuelTrain * (i)) / maxEnergy;
 	}
 	@Override
 	public boolean canOverheat() {

@@ -12,14 +12,9 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightGermanPost extends Freight implements IInventory {
+public class EntityFreightGermanPost extends Freight {
 	public EntityFreightGermanPost(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Freight cart";
 	}
 
 	@Override

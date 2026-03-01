@@ -12,15 +12,10 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightWood extends Freight implements IInventory {
+public class EntityFreightWood extends Freight {
 
 	public EntityFreightWood(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Wood transport";
 	}
 
 	@Override

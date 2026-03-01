@@ -15,11 +15,6 @@ public class EntityLocoSteamClimax extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "4-0-4 Climax";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.5F;
 	}

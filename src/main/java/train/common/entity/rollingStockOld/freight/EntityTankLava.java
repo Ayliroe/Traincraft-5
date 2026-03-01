@@ -27,11 +27,6 @@ public class EntityTankLava extends LiquidTank {
 			setColor(getAmount() > 0 ? "Full" : "Empty");
 		}
 	}
-	
-	@Override
-	public String getInventoryName() {
-		return "Lava Tank cart";
-	}
 
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

@@ -18,29 +18,17 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	private StandardTank theTank;
 	private IFluidTank[] tankArray = new IFluidTank[1];
 
-	/**
-	 * 
-	 * @param world
-	 */
-	public SteamTrain(World world) {
-		this(world, null);
-	}
-
-
 	public SteamTrain(World world, FluidStack filter) {
 		super(world);
-		this.maxTank = getTankCapacity()[0];
+		maxTank = getTankCapacity()[0];
 		if (filter == null) {
-			this.theTank = LiquidManager.getInstance().new StandardTank(maxTank);
+			theTank = LiquidManager.getInstance().new StandardTank(maxTank);
 		} else {
-			this.theTank = LiquidManager.getInstance().new FilteredTank(maxTank, filter);
+			theTank = LiquidManager.getInstance().new FilteredTank(maxTank, filter);
 		}
 		tankArray[0] = theTank;
 		dataWatcher.addObject(4, 0);
-		this.dataWatcher.addObject(27, 0);
-	}
-	public SteamTrain(World world, double d, double d1, double d2) {
-		super(world, d, d1, d2);
+		dataWatcher.addObject(27, 0);
 	}
 
 	@Override
@@ -67,8 +55,8 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 			return;
 		}
 		if (theTank != null && theTank.getFluid() != null) {
-			this.dataWatcher.updateObject(27, theTank.getFluid().amount);
-			this.dataWatcher.updateObject(4, theTank.getFluid().getFluidID());
+			dataWatcher.updateObject(27, theTank.getFluid().amount);
+			dataWatcher.updateObject(4, theTank.getFluid().getFluidID());
 		}
 
 		if (theTank != null && theTank.getFluid() != null && getFuel() > 0) {
@@ -78,8 +66,8 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 			}
 		}
 		else if (theTank != null && theTank.getFluid() == null) {
-			this.dataWatcher.updateObject(27, 0);
-			this.dataWatcher.updateObject(4, 0);
+			dataWatcher.updateObject(27, 0);
+			dataWatcher.updateObject(4, 0);
 		}
 		if (rand.nextInt(100) == 0 && getWater() > 0 && getFuel() > 0) {
 			drain(ForgeDirection.UNKNOWN, getWaterConsumption() / 5, true);
@@ -94,7 +82,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	 * @return
 	 */
 	public int getWater() {
-		return (this.dataWatcher.getWatchableObjectInt(27));
+		return (dataWatcher.getWatchableObjectInt(27));
 	}
 
 	/**
@@ -103,7 +91,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	 * @return int
 	 */
 	public int getLiquidItemID() {
-		return (this.dataWatcher.getWatchableObjectInt(4));
+		return (dataWatcher.getWatchableObjectInt(4));
 	}
 
 	public StandardTank getTank() {
@@ -113,13 +101,13 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
-		this.theTank.writeToNBT(nbttagcompound);
+		theTank.writeToNBT(nbttagcompound);
 	}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
 		super.readEntityFromNBT(nbttagcompound);
-		this.theTank.readFromNBT(nbttagcompound);
+		theTank.readFromNBT(nbttagcompound);
 	}
 
 	public int getCartTankCapacity() {
@@ -155,8 +143,8 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 
 		if (getWorld().isRemote)
 			return;
-		this.update += 1;
-		if (this.update % 8 == 0 && itemstack != null) {
+		update += 1;
+		if (update % 8 == 0 && itemstack != null) {
 			ItemStack result = LiquidManager.getInstance().processContainer(this, 1, this, itemstack); //'this' needs to be the loco inventory, but that's not an inventory it's a Itemstack[]
 			if (result != null) {
 				placeInInvent(result, loco);
@@ -166,7 +154,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	}
 
 	protected void checkInvent(ItemStack locoInvent0, ItemStack locoInvent1, SteamTrain loco) {
-		if (!this.canCheckInvent)
+		if (!canCheckInvent)
 			return;
 
 		boolean hasCoalInTender = false;
@@ -195,44 +183,28 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 				}
 			}
 
-			if(frontLink instanceof Tender){
-				if(drain==null && fill(ForgeDirection.UNKNOWN,new FluidStack(FluidRegistry.WATER, 100), false)==100) {
-					if (getFluid() == null || getFluid().getFluid() == FluidRegistry.WATER) {
-						drain = frontLink.drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
-					}
-				}
-				for (int h = 0; h < ((Tender) frontLink).cargoItems.length; h++) {
-					if (((Tender) frontLink).cargoItems[h] != null && FuelHandler.steamFuelLast(((Tender) frontLink).cargoItems[h]) != 0) {
-						if (getFuel() < maxFuel && ((getFuel() + FuelHandler.steamFuelLast(((Tender) frontLink).cargoItems[h])) <= maxFuel)) {
-							fuelTrain += FuelHandler.steamFuelLast(((Tender) frontLink).cargoItems[h]);
-							hasCoalInTender = true;
-							frontLink.decrStackSize(h, 1);
-							break;
+			AbstractTrains[] links = {backLink,frontLink};
+			for (AbstractTrains link : links) {
+				if (link instanceof Tender){
+					if(drain==null && fill(ForgeDirection.UNKNOWN,new FluidStack(FluidRegistry.WATER, 100), false)==100) {
+						if (getFluid() == null || getFluid().getFluid() == FluidRegistry.WATER) {
+							drain = link.drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
 						}
 					}
-				}
 
-
-			} else if (backLink instanceof Tender){
-
-				if(drain==null && fill(ForgeDirection.UNKNOWN,new FluidStack(FluidRegistry.WATER, 100), false)==100) {
-					if (getFluid() == null || getFluid().getFluid() == FluidRegistry.WATER) {
-						drain = backLink.drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
-					}
-				}
-
-
-				for (int h = 0; h < ((Tender) backLink).cargoItems.length; h++) {
-					if (((Tender) backLink).cargoItems[h] != null && FuelHandler.steamFuelLast(((Tender) backLink).cargoItems[h]) != 0) {
-						if (getFuel() < maxFuel && ((getFuel() + FuelHandler.steamFuelLast(((Tender) backLink).cargoItems[h])) <= maxFuel)) {
-							fuelTrain += FuelHandler.steamFuelLast(((Tender) backLink).cargoItems[h]);
-							hasCoalInTender = true;
-							backLink.decrStackSize(h, 1);
-							break;
+					for (int h = 0; h < ((Tender) link).cargoItems.length; h++) {
+						if (((Tender) link).cargoItems[h] != null && FuelHandler.steamFuelLast(((Tender) link).cargoItems[h]) != 0) {
+							if (getFuel() < maxFuel && ((getFuel() + FuelHandler.steamFuelLast(((Tender) link).cargoItems[h])) <= maxFuel)) {
+								fuelTrain += FuelHandler.steamFuelLast(((Tender) link).cargoItems[h]);
+								hasCoalInTender = true;
+								link.decrStackSize(h, 1);
+								break;
+							}
 						}
 					}
 				}
 			}
+
 			if (drain != null){
 				fill(ForgeDirection.UNKNOWN, drain, true);
 			}
@@ -259,17 +231,17 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	@Override
 	public int getFuelDiv(int i) {
 		if (getWorld().isRemote) {
-			return ((this.dataWatcher.getWatchableObjectInt(24) * i) / maxFuel);
+			return ((dataWatcher.getWatchableObjectInt(24) * i) / maxFuel);
 		}
-		return (this.fuelTrain * i) / maxFuel;
+		return (fuelTrain * i) / maxFuel;
 	}
 
 	public void setCapacity(int capacity) {
-		this.maxTank = capacity;
+		maxTank = capacity;
 	}
 
 	public int getCapacity() {
-		return this.maxTank;
+		return maxTank;
 	}
 
 	@Override

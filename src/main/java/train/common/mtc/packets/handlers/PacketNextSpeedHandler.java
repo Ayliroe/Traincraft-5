@@ -7,7 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import train.common.api.Locomotive;
-import train.common.api.MTC;
+import train.common.api.components.MTC;
 import train.common.mtc.TileInfoTransmitterSpeed;
 import train.common.mtc.packets.PacketNextSpeed;
 

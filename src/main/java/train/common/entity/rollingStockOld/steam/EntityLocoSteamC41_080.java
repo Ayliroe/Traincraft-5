@@ -15,11 +15,6 @@ public class EntityLocoSteamC41_080 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "C41";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.6F;
 	}

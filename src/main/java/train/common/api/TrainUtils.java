@@ -6,15 +6,16 @@ import ebf.tim.api.SkinRegistry;
 import ebf.tim.api.TransportSkin;
 import ebf.tim.entities.EntitySeat;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ForgeChunkManager;
 import train.common.Traincraft;
+import train.common.api.components.MTC;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.util.DepreciatedUtil;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
 import train.common.items.ItemChunkLoaderActivator;
 import train.common.items.ItemPadlock;
@@ -277,7 +278,7 @@ public final class TrainUtils {
             ((EntityTracksBuilder)train).pushX = (train.posX - player.posX);
             ((EntityTracksBuilder)train).applyDragAndPushForces();
         }
-        else if (train instanceof EntityJukeBoxCart) {
+        else if (train instanceof AbstractJukeBox) {
             targetGUI = GuiIDs.JUKEBOX;
         }
 
@@ -302,5 +303,33 @@ public final class TrainUtils {
         speed *= ConfigHandler.REAL_TRAIN_SPEED ? 2 : 6;
         speed *= 36; // *10 for minecraft speed
         return speed;
+    }
+
+    public static boolean canBeAttackedBySource(AbstractTrains train, DamageSource damagesource) {
+        if (damagesource.getEntity() instanceof EntityPlayer && !damagesource.isProjectile()) {
+            EntityPlayer player = (EntityPlayer)damagesource.getEntity();
+
+            // MP and locked
+            if (train.getTrainLockedFromPacket() && player instanceof EntityPlayerMP) {
+                // OP + Wrench
+                if (player.canCommandSenderUseCommand(2, "") &&
+                        player.inventory.getCurrentItem() != null &&
+                        player.inventory.getCurrentItem().getItem() instanceof ItemWrench) {
+
+                    player.addChatMessage(new ChatComponentText("Removing the train using OP permission."));
+                    return true;
+                }
+                // Owner
+                if (player.getDisplayName().equalsIgnoreCase(train.trainOwner) && train.isPlayerTrustedToBreak(player.getDisplayName())) {
+                    return true;
+                } else {
+                    player.addChatMessage(new ChatComponentText("You are not the owner!"));
+                    return false;
+                }
+            }
+            // SP or not locked
+            else return true;
+        }
+        return false;
     }
 }

@@ -16,11 +16,6 @@ public class EntityLocoDieselEMDF7 extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "EMD F7";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (1F);
 	}

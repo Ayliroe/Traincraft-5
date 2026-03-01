@@ -15,11 +15,6 @@ public class EntityLocoSteamVBShay extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Vertical Boiler Shay";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 2.275F;
 	}

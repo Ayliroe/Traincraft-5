@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
+import train.common.api.AbstractJukeBox;
 
 /**
  * Sent to the server to set a Jukebox' music stream URL.<p>
@@ -19,11 +19,11 @@ import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 public class PacketSetJukeboxStreamingUrl implements IMessage {
 
     /**
-     * The entity ID of the {@link EntityJukeBoxCart}.
+     * The entity ID of the {@link AbstractJukeBox}.
      */
     int entityID;
     /**
-     * True if the EntityJukeBoxCart should start playing, false if it should stop playing.
+     * True if the AbstractJukeBox should start playing, false if it should stop playing.
      */
     boolean setPlaying;
     /**
@@ -34,7 +34,7 @@ public class PacketSetJukeboxStreamingUrl implements IMessage {
     public PacketSetJukeboxStreamingUrl() {
     }
 
-    public PacketSetJukeboxStreamingUrl(EntityJukeBoxCart jukeBoxCart, String url, boolean setPlaying) {
+    public PacketSetJukeboxStreamingUrl(AbstractJukeBox jukeBoxCart, String url, boolean setPlaying) {
         this.entityID = jukeBoxCart.getEntityId();
         this.url = url;
         this.setPlaying = setPlaying;
@@ -59,8 +59,8 @@ public class PacketSetJukeboxStreamingUrl implements IMessage {
         public IMessage onMessage(PacketSetJukeboxStreamingUrl message, MessageContext context) {
             Entity entity = context.getServerHandler().playerEntity.worldObj.getEntityByID(message.entityID);
 
-            if (entity instanceof EntityJukeBoxCart) {
-                ((EntityJukeBoxCart) entity).recievePacket(message.url, message.setPlaying);
+            if (entity instanceof AbstractJukeBox) {
+                ((AbstractJukeBox) entity).recievePacket(message.url, message.setPlaying);
             }
 
             return null;

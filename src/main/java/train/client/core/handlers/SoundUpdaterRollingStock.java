@@ -5,10 +5,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.util.MathHelper;
+import train.common.api.AbstractJukeBox;
 import train.common.api.EntityRollingStock;
 import train.common.api.Locomotive;
 import train.common.core.handlers.ConfigHandler;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 
 //TODO Fix the sounds
 @SideOnly(Side.CLIENT)
@@ -24,7 +24,7 @@ public class SoundUpdaterRollingStock {
             return;
         }
 
-        if (!ConfigHandler.SOUNDS || rollingStock instanceof EntityJukeBoxCart || rollingStock instanceof Locomotive) {
+        if (!ConfigHandler.SOUNDS || rollingStock instanceof AbstractJukeBox || rollingStock instanceof Locomotive) {
             // Somehow interferes with music discs.
             return;
         }

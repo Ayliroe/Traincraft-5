@@ -18,11 +18,6 @@ public class EntityTankWagonUS extends LiquidTank {
     }
 
     @Override
-    public String getInventoryName() {
-        return "Tank cart";
-    }
-
-    @Override
     public float getOptimalDistance(EntityMinecart cart) {
         return 1.6F;
     }

@@ -8,7 +8,7 @@ import train.common.Traincraft;
 import train.common.api.AbstractWorkCart;
 import train.common.library.GuiIDs;
 
-public class EntityPassengerRheingoldDining1 extends AbstractWorkCart implements IInventory {
+public class EntityPassengerRheingoldDining1 extends AbstractWorkCart {
 	public EntityPassengerRheingoldDining1(World world) {
 		super(world);
 	}
@@ -23,10 +23,5 @@ public class EntityPassengerRheingoldDining1 extends AbstractWorkCart implements
 	@Override
 	public float[] rotationPoints() {
 		return new float[]{3.125f, -3.125f};
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Rheingold Dining";
 	}
 }

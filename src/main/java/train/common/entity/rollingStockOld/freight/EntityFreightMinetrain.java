@@ -12,15 +12,10 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightMinetrain extends Freight implements IInventory {
+public class EntityFreightMinetrain extends Freight {
 
 	public EntityFreightMinetrain(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Minecart";
 	}
 
 	@Override

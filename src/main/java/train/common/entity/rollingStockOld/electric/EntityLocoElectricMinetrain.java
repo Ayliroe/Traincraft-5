@@ -14,11 +14,6 @@ public class EntityLocoElectricMinetrain extends ElectricTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Cart hauler";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.53F;
 	}

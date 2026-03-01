@@ -15,11 +15,6 @@ public class EntityLocoSteamAdler extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Adler";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.5F;
 	}

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import train.common.api.AbstractWorkCart;
 
-public class EntityWorkCart extends AbstractWorkCart implements IInventory {
+public class EntityWorkCart extends AbstractWorkCart {
 	public EntityWorkCart(World world) {
 		super(world);
 	}
@@ -16,11 +16,6 @@ public class EntityWorkCart extends AbstractWorkCart implements IInventory {
 	public float[][] getRiderOffsets() {
 
 		return new float[][]{{0f,-0.15f,0f}};
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Work cart";
 	}
 
 	@Override

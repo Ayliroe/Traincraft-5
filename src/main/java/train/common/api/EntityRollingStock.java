@@ -18,6 +18,7 @@ import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityDragonPart;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,6 +44,7 @@ import train.common.entity.CollisionBox;
 import train.common.entity.EntityHitbox;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemRollingStock;
+import train.common.items.ItemWrench;
 import train.common.library.BlockIDs;
 
 import java.util.ArrayList;
@@ -233,39 +235,31 @@ public class EntityRollingStock extends AbstractTrains {
 
     @Override
     public boolean attackEntityFrom(DamageSource damagesource, float i) {
-        if (getWorld().isRemote || isDead) {
-            return true;
-        }
-        if (damagesource.getEntity() instanceof EntityPlayer && !damagesource.isProjectile()) {
-            if (this instanceof IPassenger) {
-                if (canBeDestroyedByPlayer(damagesource)) return false;
-            }
+        if (!getWorld().isRemote && !isDead && TrainUtils.canBeAttackedBySource(this, damagesource)) {
+            EntityPlayer player = (EntityPlayer)damagesource.getEntity(); // canBeAttackedBySource guarantees this is valid
+
             setRollingDirection(-getRollingDirection());
             setRollingAmplitude(10);
             setBeenAttacked();
-            if (((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode) {
+            if (player.capabilities.isCreativeMode) {
                 setDamage(1000);
-                if (ConfigHandler.ENABLE_WAGON_REMOVAL_NOTICES && ((EntityPlayer) damagesource.getEntity()).canCommandSenderUseCommand(2, "")) {
-                    ((EntityPlayer) damagesource.getEntity()).addChatComponentMessage(new ChatComponentText("Operator removed train owned by " + getTrainOwner()));
+                if (ConfigHandler.ENABLE_WAGON_REMOVAL_NOTICES && player.canCommandSenderUseCommand(2, "")) {
+                    player.addChatComponentMessage(new ChatComponentText("Operator removed train owned by " + getTrainOwner()));
                 }
             }
             setDamage(getDamage() + i * 10);
             if (getDamage() > 40) {
-/*                if (riddenByEntity != null) {
+                //TODO: check the seats instead
+                if (riddenByEntity != null) {
                     riddenByEntity.mountEntity(this);
-                }*/ //#!#
-                ServerLogger.deleteWagon(this);
-                /**
-                 * Destroy IPassenger since they don't extend Freight or
-                 * Locomotive and don't have a proper attackEntityFrom() method
-                 */
-                if (this instanceof IPassenger) {
-                    setDead();
-                    dropCartAsItem(((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode);
                 }
+                ServerLogger.deleteWagon(this);
+                setDead();
+                dropCartAsItem(player.capabilities.isCreativeMode);
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -879,7 +873,7 @@ public class EntityRollingStock extends AbstractTrains {
         }
 
         // --- INVENTORY GUI ---
-        if (TrainUtils.onOpeningInventory(this, entityplayer))                      { return true; }
+        if (TrainUtils.onOpeningInventory(this, entityplayer))                    { return true; }
 
 
         if (MinecraftForge.EVENT_BUS.post(new MinecartInteractEvent(this, entityplayer))) {

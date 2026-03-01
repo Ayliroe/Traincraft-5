@@ -9,14 +9,9 @@ import train.common.Traincraft;
 import train.common.api.AbstractWorkCart;
 import train.common.library.GuiIDs;
 
-public class EntityPassengerRheingoldDining2  extends AbstractWorkCart implements IInventory {
+public class EntityPassengerRheingoldDining2  extends AbstractWorkCart {
 	public EntityPassengerRheingoldDining2(World world) {
 		super(world);
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Rheingold Dining Pantograph";
 	}
 
 	@Override

@@ -26,7 +26,7 @@ import train.common.library.Info;
 
 import java.util.List;
 
-public abstract class AbstractControlCar extends EntityRollingStock implements IInventory, IPassenger, IRollingStockLightControls
+public abstract class AbstractControlCar extends EntityRollingStock implements IPassenger, IRollingStockLightControls
 {
     public Locomotive connectedLocomotive;
     public int whistleDelay;

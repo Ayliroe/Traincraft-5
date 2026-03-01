@@ -15,11 +15,6 @@ public class EntityLocoSteamCherepanov extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Cherepanov";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.5F;
 	}

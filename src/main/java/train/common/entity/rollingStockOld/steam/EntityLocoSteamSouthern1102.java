@@ -15,11 +15,6 @@ public class EntityLocoSteamSouthern1102 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Southern 1102";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.65F;
 	}

@@ -14,13 +14,7 @@ public class EntityLocoElectricTramWood extends ElectricTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Tram";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
-		//float dist = 0.1F;
 		return (0.7F);
 	}
 

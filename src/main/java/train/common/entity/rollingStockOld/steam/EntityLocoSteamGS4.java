@@ -15,11 +15,6 @@ public class EntityLocoSteamGS4 extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Daylight";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.62F;
 	}

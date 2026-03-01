@@ -12,15 +12,10 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityBulkheadFlatCart extends Freight implements IInventory {
+public class EntityBulkheadFlatCart extends Freight {
 
     public EntityBulkheadFlatCart(World world) {
         super(world);
-    }
-
-    @Override
-    public String getInventoryName() {
-        return "Bulkhead Flat Cart";
     }
 
     @Override

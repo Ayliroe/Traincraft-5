@@ -21,11 +21,6 @@ public class EntityTender_Southern1102 extends Tender {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Baldwin 4-6-0 Tender";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.5F;
 	}

@@ -15,11 +15,6 @@ public class EntityLocoSteamC62Class extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "C62 Class [JNR]";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.5F);
 	}

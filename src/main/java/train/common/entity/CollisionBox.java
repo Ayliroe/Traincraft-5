@@ -117,7 +117,7 @@ public class CollisionBox extends EntityDragonPart implements IInventory, IFluid
 
     @Override
     public String getInventoryName() {
-        return host.getInventoryName();
+        return host.getCommandSenderName();
     }
 
     @Override

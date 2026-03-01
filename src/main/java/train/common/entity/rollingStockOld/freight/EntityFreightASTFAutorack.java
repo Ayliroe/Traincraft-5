@@ -12,7 +12,7 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightASTFAutorack extends Freight implements IInventory {
+public class EntityFreightASTFAutorack extends Freight {
 
 	public EntityFreightASTFAutorack(World world) {
 		super(world);
@@ -21,11 +21,6 @@ public class EntityFreightASTFAutorack extends Freight implements IInventory {
 	@Override
 	public double getMountedYOffset() {
 		return (double) height * 0.0D - 0.30000001192092896D;
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "ASTF ft-41 Auto Rack";
 	}
 
 	@Override

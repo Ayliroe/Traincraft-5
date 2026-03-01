@@ -45,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class EntityTracksBuilder extends EntityRollingStock implements IInventory {
+public class EntityTracksBuilder extends EntityRollingStock {
 	public ItemStack item;
 	private ItemStack BuilderInvent[];
 
@@ -322,11 +322,6 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 		if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()) {
 			itemstack.stackSize = getInventoryStackLimit();
 		}
-	}
-
-	@Override
-	public String getInventoryName() {
-		return "Tracks Builder";
 	}
 
 	public int scaleMaxFuel(int i) {
@@ -686,31 +681,15 @@ public class EntityTracksBuilder extends EntityRollingStock implements IInventor
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float i) {
-		if (worldObj.isRemote) {
-			return true;
-		}
-		if(canBeDestroyedByPlayer(damagesource))return true;
-		super.attackEntityFrom(damagesource, i);
-		setRollingDirection(-getRollingDirection());
-		setRollingAmplitude(10);
-		setBeenAttacked();
-		setDamage(getDamage() + i * 10);
-		if (getDamage() > 40) {
-			if (riddenByEntity != null) {
-				riddenByEntity.mountEntity(this);
-			}
-			this.setDead();
-			ServerLogger.deleteWagon(this);
-			if(damagesource.getEntity() instanceof EntityPlayer) {
-				dropCartAsItem(((EntityPlayer)damagesource.getEntity()).capabilities.isCreativeMode);
-				for(ItemStack stack : BuilderInvent){
-					if (stack != null) {
-						entityDropItem(stack, 0);
-					}
+		if (super.attackEntityFrom(damagesource, i)) {
+			for(ItemStack stack : BuilderInvent){
+				if (stack != null) {
+					entityDropItem(stack,1);
 				}
 			}
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**

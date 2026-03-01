@@ -16,11 +16,6 @@ public class EntityLocoDiesel44TonSwitcher extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "GE 44 Ton Switcher";
-	}
-
-	@Override
 	public String transportcountry(){
 		return "us";
 	}

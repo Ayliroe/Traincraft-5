@@ -15,11 +15,6 @@ public class EntityLocoSteamD51Long extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "D51 [JNR]";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.5F);
 	}

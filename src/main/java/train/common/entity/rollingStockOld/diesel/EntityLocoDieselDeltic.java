@@ -16,11 +16,6 @@ public class EntityLocoDieselDeltic extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Deltic";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.5F;
 	}

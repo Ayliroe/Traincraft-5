@@ -12,7 +12,7 @@ import train.common.Traincraft;
 import train.common.api.Freight;
 import train.common.library.GuiIDs;
 
-public class EntityFreightDenverRioGrande extends Freight implements IInventory {
+public class EntityFreightDenverRioGrande extends Freight {
 
 	public EntityFreightDenverRioGrande(World world) {
 		super(world);
@@ -23,17 +23,7 @@ public class EntityFreightDenverRioGrande extends Freight implements IInventory 
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "DRG Baggage";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 3.15F;
-	}
-
-	@Override
-	public int getInventoryStackLimit() {
-		return 64;
 	}
 }

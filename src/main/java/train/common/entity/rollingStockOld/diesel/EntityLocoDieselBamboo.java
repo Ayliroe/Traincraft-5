@@ -16,11 +16,6 @@ public class EntityLocoDieselBamboo extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Bamboo Flatcar With Engine";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.3F);
 	}

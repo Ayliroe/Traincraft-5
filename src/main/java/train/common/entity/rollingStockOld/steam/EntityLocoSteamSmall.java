@@ -15,11 +15,6 @@ public class EntityLocoSteamSmall extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Small steam Locomotive";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.2F;
 	}

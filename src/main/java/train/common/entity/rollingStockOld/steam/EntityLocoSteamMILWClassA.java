@@ -15,11 +15,6 @@ public class EntityLocoSteamMILWClassA extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "MILW Class A";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.8F);
 	}

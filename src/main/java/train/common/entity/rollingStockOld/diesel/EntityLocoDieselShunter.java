@@ -16,11 +16,6 @@ public class EntityLocoDieselShunter extends DieselTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Class 08 Shunter";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.6F);
 	}

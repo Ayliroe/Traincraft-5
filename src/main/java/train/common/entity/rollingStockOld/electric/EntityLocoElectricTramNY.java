@@ -14,11 +14,6 @@ public class EntityLocoElectricTramNY extends ElectricTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Kawasaki PA4";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.7F;
 	}

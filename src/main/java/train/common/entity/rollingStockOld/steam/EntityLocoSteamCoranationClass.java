@@ -15,11 +15,6 @@ public class EntityLocoSteamCoranationClass extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Coranation Class";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return (0.9F);
 	}

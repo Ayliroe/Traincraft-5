@@ -7,10 +7,10 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.world.ChunkEvent;
+import train.common.api.AbstractJukeBox;
 import train.common.api.AbstractTrains;
 import train.common.api.Locomotive;
 import train.common.entity.ai.EntityAIFearHorn;
-import train.common.entity.rollingStockOld.special.EntityJukeBoxCart;
 
 import java.util.Random;
 
@@ -70,9 +70,9 @@ public class WorldEvents {
     @SubscribeEvent
     public void chunkUnloadEvent(ChunkEvent.Unload event) {
         for (Object o : event.getChunk().entityLists) {
-            if (o instanceof EntityJukeBoxCart && ((EntityJukeBoxCart) o).isPlaying) {
-                ((EntityJukeBoxCart) o).player.stop();
-                ((EntityJukeBoxCart) o).player.setVolume(0);
+            if (o instanceof AbstractJukeBox && ((AbstractJukeBox) o).isPlaying) {
+                ((AbstractJukeBox) o).player.stop();
+                ((AbstractJukeBox) o).player.setVolume(0);
             }
         }
     }

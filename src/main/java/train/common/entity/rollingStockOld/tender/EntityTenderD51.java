@@ -21,11 +21,6 @@ public class EntityTenderD51 extends Tender {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "D51 Tender [JNR]";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 1.9F;
 	}

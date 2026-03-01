@@ -14,11 +14,6 @@ public class EntityLocoElectricClass85 extends ElectricTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Class 85";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.56F;
 	}

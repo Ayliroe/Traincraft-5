@@ -15,11 +15,6 @@ public class EntityLocoSteamMogulBlue extends SteamTrain {
 	}
 
 	@Override
-	public String getInventoryName() {
-		return "Mogul";
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 0.7F;
 	}
