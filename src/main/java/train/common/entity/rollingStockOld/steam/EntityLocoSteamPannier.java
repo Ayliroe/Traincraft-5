@@ -11,7 +11,7 @@ import train.common.library.GuiIDs;
 
 public class EntityLocoSteamPannier extends SteamTrain {
 	public EntityLocoSteamPannier(World world) {
-		super(world, LiquidManager.WATER_FILTER);
+		super(world);
 	}
 	@Override
 	public float getOptimalDistance(EntityMinecart cart) {

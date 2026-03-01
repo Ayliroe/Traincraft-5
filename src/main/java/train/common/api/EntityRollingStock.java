@@ -52,7 +52,7 @@ import java.util.List;
 
 import static train.common.core.util.TraincraftUtil.isRailBlockAt;
 
-public class EntityRollingStock extends AbstractTrains {
+public abstract class EntityRollingStock extends AbstractTrains {
 
     public int fuelTrain = 0; // Note: Used by locos, but also b-units which derive from different classes, so this can't be moved higher-up
 
@@ -100,21 +100,6 @@ public class EntityRollingStock extends AbstractTrains {
 
     public GameProfile getOwner() {
         return CartTools.getCartOwner(this);
-    }
-
-    public EntityRollingStock(World world, double d, double d1, double d2) {
-        super(world, d, d1, d2);
-        if(world==null){return;}
-        setPosition(d, d1, d2);
-        initRollingStock(world);
-        motionX = 0.0D;
-        motionY = 0.0D;
-        motionZ = 0.0D;
-        prevPosX = d;
-        prevPosY = d1;
-        prevPosZ = d2;
-        consist = new ArrayList<AbstractTrains>();
-        consist.add(this);
     }
 
     public void initRollingStock(World world) {

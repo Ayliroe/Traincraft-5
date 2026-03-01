@@ -11,7 +11,7 @@ import train.common.library.GuiIDs;
 
 public class EntityLocoSteamClimax extends SteamTrain {
 	public EntityLocoSteamClimax(World world) {
-		super(world, LiquidManager.WATER_FILTER);
+		super(world);
 	}
 
 	@Override

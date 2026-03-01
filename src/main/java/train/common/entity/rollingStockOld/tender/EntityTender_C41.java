@@ -17,7 +17,7 @@ import train.common.library.GuiIDs;
 public class EntityTender_C41 extends Tender {
 
 	public EntityTender_C41(World world) {
-		super(world, FluidRegistry.WATER, 0, LiquidManager.WATER_FILTER);
+		super(world);
 	}
 
 	@Override

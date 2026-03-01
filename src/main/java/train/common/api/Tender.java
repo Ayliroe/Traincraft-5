@@ -19,23 +19,8 @@ public abstract class Tender extends Freight implements IFluidHandler {
     private StandardTank theTank;
     public TileEntity[] blocksToCheck;
 
-    /**
-     *
-     * @param world world
-     * @param fluid fluid
-     * @param quantity quantity
-     */
-    public Tender(World world, Fluid fluid, int quantity) {
-        this(new FluidStack(fluid, quantity), world, null);
-    }
-    public Tender(World world){
-        super(world);
-    }
-    public Tender(World world, double x, double y, double z){
-        super(world,x,y,z);
-    }
-    public Tender(World world, Fluid fluid, int quantity, FluidStack filter) {
-        this(new FluidStack(fluid, quantity), world, filter);
+    public Tender(World world) {
+        this(new FluidStack(FluidRegistry.WATER, 0), world, LiquidManager.WATER_FILTER);
     }
 
     private Tender(FluidStack fluid, World world, FluidStack filter) {

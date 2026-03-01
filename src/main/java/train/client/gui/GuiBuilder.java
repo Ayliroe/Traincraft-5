@@ -11,10 +11,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 import train.common.Traincraft;
+import train.common.api.AbstractTracksBuilder;
 import train.common.core.network.PacketSetTrainLockedToClient;
 import train.common.core.network.PacketTrackBuilderFollow;
 import train.common.core.network.PacketTrackBuilderHeight;
-import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
 import train.common.inventory.InventoryBuilder;
 import train.common.library.Info;
 
@@ -22,16 +22,16 @@ import java.util.List;
 
 public class GuiBuilder extends GuiContainer {
 
-    private final EntityTracksBuilder builder;
+    private final AbstractTracksBuilder builder;
     private final int requestedHeight;
     private final EntityPlayer player;
     private GuiButton buttonLock;
 
     public GuiBuilder(EntityPlayer player, InventoryPlayer inventoryplayer, Entity entityminecart) {
-        super(new InventoryBuilder(inventoryplayer, (EntityTracksBuilder) entityminecart));
+        super(new InventoryBuilder(inventoryplayer, (AbstractTracksBuilder) entityminecart));
         xSize = 255;
         ySize = 193;
-        builder = (EntityTracksBuilder) entityminecart;
+        builder = (AbstractTracksBuilder) entityminecart;
         requestedHeight = builder.getPlannedHeight();
         this.player = player;
     }

@@ -11,12 +11,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
 import train.common.adminbook.ServerLogger;
-import train.common.entity.rollingStockOld.freight.EntityTankLava;
 import train.common.library.ItemIDs;
 
 import javax.annotation.Nullable;
 
-public class LiquidTank extends EntityRollingStock implements ISidedInventory {
+public abstract class LiquidTank extends EntityRollingStock implements ISidedInventory {
     private int capacity;
     protected ItemStack[] cargoItems;
     private int update = 8;
@@ -36,9 +35,6 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
         dataWatcher.addObject(4, 0);
         dataWatcher.addObject(22, "");
 
-    }
-    public LiquidTank(World world, double d, double d1, double d2) {
-        super(world, d, d1, d2);
     }
 
     public int getAmount() {
@@ -144,12 +140,12 @@ public class LiquidTank extends EntityRollingStock implements ISidedInventory {
                         if (LiquidManager.getInstance().containsFluid(itemstack,
                                 FluidRegistry.getFluidStack(FluidRegistry.getFluidName(fluid), 0))) {
                             if (fluid.getTemperature() < 1000) {
-                                if (!(this instanceof EntityTankLava)) {// Input fluid from itemstack (not lava or molten liquids).
+                                if (!(this instanceof AbstractLavaTank)) {// Input fluid from itemstack (not lava or molten liquids).
                                     result = LiquidManager.getInstance().processContainer(this, 0, this, itemstack);
                                     break;
                                 }
                             } else {
-                                if (this instanceof EntityTankLava) {// Input fluid from itemstack (lava or molten liquids).
+                                if (this instanceof AbstractLavaTank) {// Input fluid from itemstack (lava or molten liquids).
                                     result = LiquidManager.getInstance().processContainer(this, 0, this, itemstack);
                                     break;
                                 }

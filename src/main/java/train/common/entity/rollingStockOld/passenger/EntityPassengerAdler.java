@@ -8,13 +8,10 @@
 package train.common.entity.rollingStockOld.passenger;
 
 import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import train.common.api.EntityRollingStock;
-import train.common.api.IPassenger;
+import train.common.api.AbstractPassengerCar;
 
-public class EntityPassengerAdler extends EntityRollingStock implements IPassenger {
+public class EntityPassengerAdler extends AbstractPassengerCar {
 	public EntityPassengerAdler(World world) {
 		super(world);
 	}

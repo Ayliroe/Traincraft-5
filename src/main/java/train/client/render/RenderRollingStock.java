@@ -13,13 +13,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import train.common.Traincraft;
-import train.common.api.AbstractTrains;
-import train.common.api.EntityRollingStock;
-import train.common.api.Locomotive;
-import train.common.api.TrainRenderRecord;
+import train.common.api.*;
 import train.common.blocks.BlockTCRail;
 import train.common.blocks.BlockTCRailGag;
-import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
 import train.common.library.Info;
 import train.common.overlaytexture.OverlayTextureManager;
 
@@ -185,7 +181,7 @@ public class RenderRollingStock extends Render {
         }
         if (Math.abs(pitch) > 30) return;
         //if (pitch != 0 && !hasSmokeOnSlopes) { return; }
-        if ((cart instanceof Locomotive && ((Locomotive) cart).getFuel() > 0) || (cart instanceof EntityTracksBuilder && ((EntityTracksBuilder) cart).getFuel() > 0)) {
+        if ((cart instanceof Locomotive && ((Locomotive) cart).getFuel() > 0) || (cart instanceof AbstractTracksBuilder && ((AbstractTracksBuilder) cart).getFuel() > 0)) {
             double speed = cart instanceof Locomotive ? ((Locomotive) cart).getSpeed() : 0;
             if (random.nextInt(10 * smokeIterations) < ((smokeIterations * 4) + (speed * 5))) {
                 double rotatedvec[];

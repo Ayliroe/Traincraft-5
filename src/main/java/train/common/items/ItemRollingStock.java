@@ -27,7 +27,6 @@ import train.common.Traincraft;
 import train.common.api.*;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.util.TraincraftUtil;
-import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
 import train.common.library.BlockIDs;
 import train.common.library.EnumTracks;
 import train.common.tile.TileTCRail;
@@ -364,7 +363,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 			}
 			if (!world.isRemote) {
 
-				if ((rollingStock instanceof SteamTrain && !ConfigHandler.ENABLE_STEAM) || (rollingStock instanceof ElectricTrain && !ConfigHandler.ENABLE_ELECTRIC) || (rollingStock instanceof DieselTrain && !ConfigHandler.ENABLE_DIESEL) || (rollingStock instanceof EntityTracksBuilder && !ConfigHandler.ENABLE_BUILDER) || (rollingStock instanceof Tender && !ConfigHandler.ENABLE_TENDER)) {
+				if ((rollingStock instanceof SteamTrain && !ConfigHandler.ENABLE_STEAM) || (rollingStock instanceof ElectricTrain && !ConfigHandler.ENABLE_ELECTRIC) || (rollingStock instanceof DieselTrain && !ConfigHandler.ENABLE_DIESEL) || (rollingStock instanceof AbstractTracksBuilder && !ConfigHandler.ENABLE_BUILDER) || (rollingStock instanceof Tender && !ConfigHandler.ENABLE_TENDER)) {
 					if (player != null)
 						player.addChatMessage(new ChatComponentText("This type of train has been deactivated by the OP"));
 					rollingStock.setDead();

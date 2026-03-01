@@ -9,7 +9,7 @@ import train.common.api.SteamTrain;
 
 public class EntityLocoSteamC41 extends SteamTrain {
 	public EntityLocoSteamC41(World world) {
-		super(world, LiquidManager.WATER_FILTER);
+		super(world);
 	}
 
 	@Override

@@ -4,10 +4,11 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import train.common.api.AbstractPassengerCar;
 import train.common.api.EntityRollingStock;
 import train.common.api.IPassenger;
 
-public class EntityFlatCar_DB extends EntityRollingStock implements IPassenger {
+public class EntityFlatCar_DB extends AbstractPassengerCar {
 
 	public EntityFlatCar_DB(World world) {
 		super(world);

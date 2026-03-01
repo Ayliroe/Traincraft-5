@@ -102,11 +102,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         MTC.attemptConnection(MTC.serverUUID);
     }
 
-    public Locomotive(World world, double d, double d1, double d2) {
-        super(world, d, d1, d2);
-        fuelTrain = 0;
-    }
-
     // Additional spawn data to check for
     @Override
     public void readSpawnData(ByteBuf additionalData) {

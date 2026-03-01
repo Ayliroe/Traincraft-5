@@ -11,7 +11,7 @@ import train.common.library.GuiIDs;
 
 public class EntityLocoDieselV60_DB extends DieselTrain {
 	public EntityLocoDieselV60_DB(World world) {
-		super(world, LiquidManager.dieselFilter());
+		super(world);
 
 	}
 

@@ -11,7 +11,7 @@ public class EntityLocoSteamSnowPlow extends SteamTrain {
 	SnowPlow snowPlow = new SnowPlow(this);
 
 	public EntityLocoSteamSnowPlow(World world) {
-		super(world, LiquidManager.WATER_FILTER);
+		super(world);
 	}
 
 	@Override

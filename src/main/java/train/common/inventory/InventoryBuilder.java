@@ -8,12 +8,12 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
+import train.common.api.AbstractTracksBuilder;
 import train.common.slots.SpecialSlots;
 
 public class InventoryBuilder extends Container {
 
-	public InventoryBuilder(InventoryPlayer iinventory, EntityTracksBuilder entityminecart) {
+	public InventoryBuilder(InventoryPlayer iinventory, AbstractTracksBuilder entityminecart) {
 		inventorySize = 40;
 		player = iinventory;
 		loco = entityminecart;
@@ -114,7 +114,7 @@ public class InventoryBuilder extends Container {
 		return itemstack;
 	}
 
-	private EntityTracksBuilder loco;
+	private AbstractTracksBuilder loco;
 	private InventoryPlayer player;
 	private int inventorySize;
 }

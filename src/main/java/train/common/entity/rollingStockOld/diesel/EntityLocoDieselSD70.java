@@ -9,7 +9,7 @@ import train.common.api.LiquidManager;
 
 public class EntityLocoDieselSD70 extends DieselTrain {
 	public EntityLocoDieselSD70(World world) {
-		super(world, LiquidManager.dieselFilter());
+		super(world);
 
 	}
 

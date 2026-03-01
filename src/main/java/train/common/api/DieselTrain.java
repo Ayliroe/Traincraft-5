@@ -22,15 +22,7 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	private StandardTank theTank;
 
 	public DieselTrain(World world) {
-		this(world, null, null);
-	}
-
-	public DieselTrain(World world, FluidStack filter) {
-		this(world, filter, null);
-	}
-
-	public DieselTrain(World world, String[] multiFilter) {
-		this(world, null, multiFilter);
+		this(world, null, LiquidManager.dieselFilter());
 	}
 
 	private DieselTrain(World world, FluidStack filter, String[] multiFilter) {
@@ -46,9 +38,6 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 		dataWatcher.addObject(4, 0);
 		dataWatcher.addObject(27, 0);
 		dataWatcher.addObject(5, "");
-	}
-	public DieselTrain(World world, double d, double d1, double d2) {
-		super(world, d, d1, d2);
 	}
 
 	@Override

@@ -11,7 +11,7 @@ import train.common.library.GuiIDs;
 
 public class EntityLocoDieselIC4_DSB_MG extends DieselTrain {
 	public EntityLocoDieselIC4_DSB_MG(World world) {
-		super(world, LiquidManager.dieselFilter());
+		super(world);
 
 	}
 

@@ -16,7 +16,6 @@ import train.common.Traincraft;
 import train.common.api.components.MTC;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.util.DepreciatedUtil;
-import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
 import train.common.items.ItemChunkLoaderActivator;
 import train.common.items.ItemPadlock;
 import train.common.items.ItemPaintbrushThing;
@@ -272,11 +271,11 @@ public final class TrainUtils {
         else if (train instanceof LiquidTank) {
             targetGUI = GuiIDs.LIQUID;
         }
-        else if (train instanceof EntityTracksBuilder) {
+        else if (train instanceof AbstractTracksBuilder) {
             targetGUI = GuiIDs.BUILDER;
-            ((EntityTracksBuilder)train).pushZ = (train.posZ - player.posZ);
-            ((EntityTracksBuilder)train).pushX = (train.posX - player.posX);
-            ((EntityTracksBuilder)train).applyDragAndPushForces();
+            ((AbstractTracksBuilder)train).pushZ = (train.posZ - player.posZ);
+            ((AbstractTracksBuilder)train).pushX = (train.posX - player.posX);
+            ((AbstractTracksBuilder)train).applyDragAndPushForces();
         }
         else if (train instanceof AbstractJukeBox) {
             targetGUI = GuiIDs.JUKEBOX;

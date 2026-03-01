@@ -12,7 +12,7 @@ import train.common.library.GuiIDs;
 
 public class EntityLocoDieselFOLM1B extends DieselTrain {
     public EntityLocoDieselFOLM1B(World world) {
-        super(world, LiquidManager.dieselFilter());
+        super(world);
     }
 
     @Override

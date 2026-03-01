@@ -16,7 +16,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
+import train.common.api.AbstractTracksBuilder;
 import train.common.items.ItemTCRail;
 
 import java.util.HashSet;
@@ -51,7 +51,7 @@ public abstract class RailTools {
      * @return true if successful
      * @see ITrackItem
      */
-    public static boolean placeRailAt(EntityTracksBuilder builder, ItemStack stack, World world, int i, int j, int k) {
+    public static boolean placeRailAt(AbstractTracksBuilder builder, ItemStack stack, World world, int i, int j, int k) {
         return false;
     }
 

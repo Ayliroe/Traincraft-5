@@ -1,7 +1,5 @@
 package train.common.entity.rollingStock;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import ebf.tim.api.SkinRegistry;
 import fexcraft.tmt.slim.ModelBase;
 import net.minecraft.item.Item;
@@ -9,8 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import train.common.Traincraft;
-import train.common.api.EntityRollingStock;
-import train.common.api.IPassenger;
+import train.common.api.AbstractPassengerCar;
 import train.common.items.ItemRollingStock;
 import train.common.library.Info;
 import train.common.library.ItemIDs;
@@ -21,7 +18,7 @@ import train.common.library.ItemIDs;
  * @see EntityPassengerCar1
  * @author Eternal Blue Flame
  */
-public class EntityPassengerCar1 extends EntityRollingStock implements IPassenger {
+public class EntityPassengerCar1 extends AbstractPassengerCar {
     /*private static final String[] itemDescription = new String[]{
             "\u00A77" + StatCollector.translateToLocal("menu.item.weight") +": 2 " + StatCollector.translateToLocal("menu.item.tons"),
             "\u00A77" + StatCollector.translateToLocal("menu.item.seats") +": 4 " + StatCollector.translateToLocal("menu.item.players")};*/
