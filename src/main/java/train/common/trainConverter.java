@@ -21,7 +21,7 @@ public class trainConverter {
 
 
     public static TrainRecord getTrain(AbstractTrains train) {
-        for (TrainRecord trn : EnumTrains.trains()) {
+        for (TrainRecord trn : Traincraft.instance.trainRecords) {
             if (trn.getEntityClass() == train.getClass()) {
                 return trn;
             }
@@ -38,8 +38,7 @@ public class trainConverter {
         return null;
     }
 
-    public static void write(TrainRecord[] trains) {
-        System.out.println("enumlength " + EnumTrains.trains().length);
+    public static void write(List<TrainRecord> trains) {
         for (TrainRecord t : trains) {
             EntityRollingStock rollingStock = null;
 

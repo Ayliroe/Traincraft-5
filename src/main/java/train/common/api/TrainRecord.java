@@ -68,34 +68,11 @@ public abstract class TrainRecord {
 
     public abstract AbstractTrains getEntity(World world, double x, double y, double z);
 
-
-    public static TrainRecord makeEntry(String entryName, String internalName, Class entityClass, Item item, String trainType, int MHP, int maxSpeed, double mass, int fuelConsumption, int waterConsumption, int heatingTime, double accelerationRate, double brakeRate, int tankCapacity, String[] colors, int guiRenderScale, double bogieLocoPosition) {
-        return makeEntry(entryName, internalName, entityClass, item, trainType, MHP, maxSpeed, mass, fuelConsumption, waterConsumption, heatingTime, accelerationRate, brakeRate, tankCapacity, 0, colors, guiRenderScale, bogieLocoPosition, "");
-    }
-
-    @Deprecated
     /**
      * #param entryName is depreciated
      * #param additionalTooltip is depreciated.
      */
-    public static TrainRecord makeEntry(String entryName, String internalName, Class entityClass, Item item, String trainType, int MHP, int maxSpeed, double mass, int fuelConsumption, int waterConsumption, int heatingTime, double accelerationRate, double brakeRate, int tankCapacity, String[] colors, int guiRenderScale, double bogieLocoPositions, String additionnalTooltip) {
-        return makeEntry(entryName, internalName, entityClass, item, trainType, MHP, maxSpeed, mass, fuelConsumption, waterConsumption, heatingTime, accelerationRate, brakeRate, tankCapacity, 0, colors, guiRenderScale, bogieLocoPositions, additionnalTooltip);
-    }
-    @Deprecated
-    /**
-     * #param entryName is depreciated
-     * #param additionalTooltip is depreciated.
-     */
-    public static TrainRecord makeEntry(String entryName, String internalName, Class entityClass, Item item, String trainType, double mass, String[] colors, int guiRenderScale, int cargoCapacity, String additionnalTooltip) {
-        return makeEntry(entryName, internalName, entityClass, item, trainType, 0, 0, mass, 0, 0, 0, 0, 0, 0, cargoCapacity, colors, guiRenderScale, 0, additionnalTooltip);
-    }
-
-    @Deprecated
-    /**
-     * #param entryName is depreciated
-     * #param additionalTooltip is depreciated.
-     */
-    public static TrainRecord makeEntry(final String entryName, final String internalName, final Class entityClass, final Item item, final String trainType, final int MHP, final int maxSpeed, final double mass, final int fuelConsumption, final int waterConsumption, final int heatingTime, final double accelerationRate, final double brakeRate, final int tankCapacity, final int cargoCapacity, final String[] colors, int guiRenderScale, final double bogieLocoPositions, final String additionnalTooltip) {
+    public static TrainRecord makeEntry(final String entryName, final String internalName, final Class<AbstractTrains> entityClass, final Item item, final String trainType, final int MHP, final int maxSpeed, final double mass, final int fuelConsumption, final int waterConsumption, final int heatingTime, final double accelerationRate, final double brakeRate, final int tankCapacity, final int cargoCapacity, int guiRenderScale, final String additionnalTooltip, final double bogieLocoPositions, final String[] colors) {
         return new TrainRecord() {
             @Override
             public String getName() {

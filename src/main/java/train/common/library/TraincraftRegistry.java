@@ -66,7 +66,7 @@ public class TraincraftRegistry {
     }
 
     public void init() {
-        for (TrainRecord train : EnumTrains.trains()) {
+        for (TrainRecord train : Traincraft.instance.trainRecords) {
             TraincraftRegistry.this.registerTrainRecord(train);
         }
 
@@ -98,7 +98,7 @@ public class TraincraftRegistry {
                 return record;
             }
         }
-        for(TrainRecord fallback : EnumTrains.trains()){
+        for(TrainRecord fallback : Traincraft.instance.trainRecords){
             if (entityClass.equals(fallback.getEntityClass())) {
                 return fallback;
             }

@@ -50,6 +50,7 @@ import train.common.library.TraincraftRegistry;
 import train.common.recipes.AssemblyTableRecipes;
 
 import java.io.File;
+import java.util.List;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
 public class Traincraft {
@@ -103,6 +104,7 @@ public class Traincraft {
     public static final SimpleNetworkWrapper gsfsChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsChannel");
     public static final SimpleNetworkWrapper gsfsrChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsReturnChannel");
 
+    public List<TrainRecord> trainRecords;
     public final TraincraftRegistry traincraftRegistry = new TraincraftRegistry();
 
 
@@ -221,7 +223,8 @@ public class Traincraft {
         EntityRegistry.registerModEntity(EntityBogie.class, "Entity Front Bogie", EntityIds.LOCOMOTIVE_BOGIE, Traincraft.instance, 512, 3, true);//front bogie
         EntityRegistry.registerModEntity(EntityZeppelinOneBalloon.class, "zeppelin big", EntityIds.ZEPPELIN_BIG, Traincraft.instance, 512, 1, true);//zepplin big
         EntityRegistry.registerModEntity(EntitySeat.class, "Seat", 16, Traincraft.instance,512,3,true);//seat
-        for(TrainRecord trains : EnumTrains.trains()){
+        trainRecords = EnumTrains.initTrainRecords();
+        for(TrainRecord trains : trainRecords){
             TraincraftRegistry.registerTransport(trains);
         }
 
@@ -273,7 +276,7 @@ public class Traincraft {
         TrainModCore.ModsLoaded();
 
         if(proxy.isClient()) {
-            trainConverter.write(EnumTrains.trains());
+            trainConverter.write(trainRecords);
             TextureManager.collectIngotColors();
         }
 
