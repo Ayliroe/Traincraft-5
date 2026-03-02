@@ -19,80 +19,17 @@ import train.common.library.ItemIDs;
  * @author Eternal Blue Flame
  */
 public class EntityPassengerCar1 extends AbstractPassengerCar {
-    /*private static final String[] itemDescription = new String[]{
-            "\u00A77" + StatCollector.translateToLocal("menu.item.weight") +": 2 " + StatCollector.translateToLocal("menu.item.tons"),
-            "\u00A77" + StatCollector.translateToLocal("menu.item.seats") +": 4 " + StatCollector.translateToLocal("menu.item.players")};*/
-
-    public static final Item thisItem = new ItemRollingStock(new EntityPassengerCar1(null), Info.modID, Traincraft.tcTab);
 
     public EntityPassengerCar1(World world){
         super(world);
     }
 
-    /**
-     * <h1>Variable Overrides</h1>
-     */
-    /**
-     * <h2>Bogie Offset</h2>
-     */
     @Override
     public float[] rotationPoints(){return new float[]{1.7f,-1.7f};}
-
-
-
-    @Override
-    public void registerSkins() {
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Red.png", new String[]{},
-                "Red", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Blue.png", new String[]{},
-                "Blue", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Green.png", new String[]{},
-                "Green", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_White.png", new String[]{},
-                "White", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Black.png", new String[]{},
-                "Black", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Cyan.png", new String[]{},
-                "Cyan", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Orange.png", new String[]{},
-                "Orange", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Grey.png", new String[]{},
-                "Grey", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_LightGrey.png", new String[]{},
-                "LightGrey", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Brown.png", new String[]{},
-                "Brown", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Pink.png", new String[]{},
-                "Pink", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Purple.png", new String[]{},
-                "Purple", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Lime.png", new String[]{},
-                "Lime", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Magenta.png", new String[]{},
-                "Magenta", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_LightBlue.png", new String[]{},
-                "LightBlue", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Yellow.png", new String[]{},
-                "Yellow", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Skin17.png", new String[]{},
-                "Skin", "");
-        SkinRegistry.addSkin(this.getClass(), Info.modID, "textures/trains/passenger_Skin19.png", new String[]{},
-                "Skin19", "");
-    }
 
     @Override
     public String getDefaultSkin(){
         return "Red";
-    }
-
-    @Override
-    public int[] getTankCapacity() {
-        return null;
-    }
-
-    @Override
-    public float weightKg() {
-        return 1000f;
     }
 
     @Override
@@ -111,18 +48,13 @@ public class EntityPassengerCar1 extends AbstractPassengerCar {
             new ItemStack(ItemIDs.seats.item, 1),
             null,
             new ItemStack(dyeBlue.getItem(), 1, dyeBlue.getItemDamage()),
-            new ItemStack(thisItem)
+            new ItemStack(ItemIDs.minecartPassengerBlue.item)
 
         };
     }
 
     @Override
     public int getTier(){ return 2; }
-
-    @Override
-    public String transportName() {
-        return "Passenger Car 1";
-    }
 
     @Override
     public String transportcountry() {
@@ -168,12 +100,4 @@ public class EntityPassengerCar1 extends AbstractPassengerCar {
 
     @Override
     public float[][] modelOffsets() { return new float[][] {{0.0f, -0.47f, 0.0f}};}
-
-    /**
-     * <h2>pre-asigned values</h2>
-     */
-    @Override
-    public Item getItem(){
-        return thisItem;
-    }
 }

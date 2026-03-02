@@ -28,6 +28,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import train.client.render.RenderEnum;
 import train.common.api.AbstractTrains;
 import train.common.api.EntityBogie;
 import train.common.api.LiquidManager;
@@ -105,6 +106,7 @@ public class Traincraft {
     public static final SimpleNetworkWrapper gsfsrChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsReturnChannel");
 
     public List<TrainRecord> trainRecords;
+    public List<RenderEnum> renderRecords;
     public final TraincraftRegistry traincraftRegistry = new TraincraftRegistry();
 
 
@@ -224,20 +226,10 @@ public class Traincraft {
         EntityRegistry.registerModEntity(EntityZeppelinOneBalloon.class, "zeppelin big", EntityIds.ZEPPELIN_BIG, Traincraft.instance, 512, 1, true);//zepplin big
         EntityRegistry.registerModEntity(EntitySeat.class, "Seat", 16, Traincraft.instance,512,3,true);//seat
         trainRecords = EnumTrains.initTrainRecords();
+        renderRecords = RenderEnum.initRenderRecords();
         for(TrainRecord trains : trainRecords){
             TraincraftRegistry.registerTransport(trains);
         }
-
-
-        TraincraftRegistry.registerTransports("", listSteamTrains());
-        TraincraftRegistry.registerTransports("", listFreight());
-        TraincraftRegistry.registerTransports("", listPassenger());
-        TraincraftRegistry.registerTransports("", listTanker());
-        TraincraftRegistry.registerTransports("", listElectricTrains());
-        TraincraftRegistry.registerTransports("", listDieselTrains());
-        TraincraftRegistry.registerTransports("", listTender());
-
-
 
         /* Liquid FX */
         proxy.registerTextureFX();
@@ -301,31 +293,4 @@ public class Traincraft {
     }
 
     public static boolean hasTCCEAddon() {return Loader.isModLoaded("tcce");}
-
-
-
-
-    public static AbstractTrains[] listElectricTrains() {
-        return new AbstractTrains[]{};
-    }
-    public static AbstractTrains[] listDieselTrains() {
-        return new AbstractTrains[]{};
-    }
-    public static AbstractTrains[] listSteamTrains() {
-        return new AbstractTrains[]{};
-    }
-    public static AbstractTrains[] listPassenger() {
-        return new AbstractTrains[]{new EntityPassengerCar1(null)};
-    }
-    public static AbstractTrains[] listFreight() {
-        return new AbstractTrains[]{};
-    }
-    public static AbstractTrains[] listTanker() {
-        return new AbstractTrains[]{};
-    }
-    public static AbstractTrains[] listTender() {
-        return new AbstractTrains[]{};
-    }
-
-
 }

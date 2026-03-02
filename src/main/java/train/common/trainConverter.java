@@ -9,8 +9,6 @@ import train.common.api.*;
 import train.common.api.crafting.ITierRecipe;
 import train.common.core.managers.TierRecipe;
 import train.common.core.managers.TierRecipeManager;
-import train.common.library.EnumTrains;
-import train.common.library.Info;
 import train.common.library.ItemIDs;
 
 import java.io.File;
@@ -22,7 +20,7 @@ public class trainConverter {
 
     public static TrainRecord getTrain(AbstractTrains train) {
         for (TrainRecord trn : Traincraft.instance.trainRecords) {
-            if (trn.getEntityClass() == train.getClass()) {
+            if (trn.getName() == train.getName()) {
                 return trn;
             }
         }
@@ -30,8 +28,8 @@ public class trainConverter {
     }
 
     public static RenderEnum getRender(AbstractTrains train) {
-        for (RenderEnum trn : RenderEnum.values()) {
-            if (trn.getEntityClass() == train.getClass()) {
+        for (RenderEnum trn : Traincraft.instance.renderRecords) {
+            if (trn.getEntryName() == train.getName()) {
                 return trn;
             }
         }
@@ -185,7 +183,7 @@ public class trainConverter {
 
         for (int color = 0; color < colours.size(); color++) {
             transportSkin = getRender(trn).getTextureFile(colours.get(color)).toString();
-            builder.append("        SkinRegistry.addSkin(this.getClass(), Info.modID,\"" + transportSkin.replace("tc:", "") + "\" , new String[]{} ,\"" + colours.get(color) + "\", \"\");\n");
+            builder.append("        SkinRegistry.addSkin(this.getName(), Info.modID,\"" + transportSkin.replace("tc:", "") + "\" , new String[]{} ,\"" + colours.get(color) + "\", \"\");\n");
 
         }
         builder.append("    }\n\n");

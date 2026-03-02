@@ -95,10 +95,12 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @SideOnly(Side.CLIENT)
     public TrainRenderRecord getRender() {
         if (render == null) {
-            render = Traincraft.instance.traincraftRegistry.getTrainRenderRecord(getClass());
+            render = Traincraft.instance.traincraftRegistry.getTrainRenderRecord(getName());
         }
         return render;
     }
+
+    public String getName() { return getSpec().getName(); }
 
     //@Override
     // public boolean shouldRenderInPass(int pass){return pass==1;}
@@ -187,7 +189,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         if (getSpec() != null) {
             setDefaultMass(weightKg()*0.1);
             setSize(0.98f, 1.98f);
-            setMinecartName(transportName());
+            setMinecartName(getName());
         }
     }
 
@@ -787,8 +789,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * Functionality imported from TC5
      */
 
-    public String transportName(){return getSpec().getName();}
-
     public String transportcountry(){return "";}
 
     public String transportYear(){return "";}
@@ -923,7 +923,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * the registerSkins method is only for organization and convenience.*/
     public void registerSkins(){
         for (String col : getSpec().getColors()) {
-            SkinRegistry.addSkin(getClass(), Info.resourceLocation+":"+ col + ".png", col);
+            SkinRegistry.addSkin(getName(), Info.resourceLocation+":"+ col + ".png", col);
         }
     }
 

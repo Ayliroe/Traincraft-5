@@ -224,6 +224,7 @@ public enum ItemIDs implements IItemIDs {
 
 	minecartPassenger2("ItemRollingStock", "train_passenger_1", 2),
 	minecartPassenger5("ItemRollingStock", "train_passenger_2", 2),
+	minecartPassengerBlue("ItemRollingStock", "train_passenger_3", 2),
 	minecartPassenger7("ItemRollingStock", "train_passenger_4", 2),
 	minecartPassenger8_1class_DB("ItemRollingStock", "train_passenger_5", 6),
 	minecartPassenger9_2class_DB("ItemRollingStock", "train_passenger_6", 5),

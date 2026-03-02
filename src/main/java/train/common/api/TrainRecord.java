@@ -12,7 +12,6 @@ import java.util.List;
 
 public abstract class TrainRecord {
 
-    @Deprecated
     public abstract String getName();
 
     public abstract String getInternalName();
@@ -21,13 +20,10 @@ public abstract class TrainRecord {
 
     public abstract String getTrainType();
 
-    @Deprecated
     public abstract int getMHP();
 
-    @Deprecated
     public abstract int getMaxSpeed();
 
-    @Deprecated
     public abstract double getMass();
 
     public abstract int getFuelConsumption();
@@ -46,12 +42,12 @@ public abstract class TrainRecord {
     public abstract List<String> getColors();
 
     public List<TransportSkin> getLiveries() {
-        if (!SkinRegistry.liveryMap.containsKey(getEntityClass()) && getColors() != null) {
+        if (!SkinRegistry.liveryMap.containsKey(getName()) && getColors() != null) {
             for(String color:getColors()){
-                SkinRegistry.addSkin(getEntityClass(),color);
+                SkinRegistry.addSkin(getName(),color);
             }
         }
-        return (List<TransportSkin>) SkinRegistry.get(getEntityClass()).values();
+        return (List<TransportSkin>) SkinRegistry.get(getName()).values();
     }
 
     public abstract double getBogieLocoPosition();

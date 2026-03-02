@@ -1,0 +1,5099 @@
+[
+  {
+    "entryName": "passengerCartBlackSmall",
+    "model": "train.client.render.models.ModelPassenger2",
+    "texture": "passenger3",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.32,
+      -0.1
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerLongGreen",
+    "model": "train.client.render.models.ModelPassenger5",
+    "texture": "passenger5_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerShortGreen",
+    "model": "train.client.render.models.ModelPassenger7",
+    "texture": "passenger7",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passenger_1class_DB",
+    "model": "train.client.render.models.ModelPassenger_1class_DB",
+    "texture": "passenger_1class_DB",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passenger_2class_DB",
+    "model": "train.client.render.models.ModelPassenger_2class_DB",
+    "texture": "passenger_2class_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerHighSpeedZeroED",
+    "model": "train.client.render.models.ModelPassengerHighSpeedCarZeroED",
+    "texture": "passengerHighSpeedCarZeroED",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerTramNY",
+    "model": "train.client.render.models.ModelTramNY",
+    "texture": "locoTramNY",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerAdler",
+    "model": "train.client.render.models.ModelPassengerAdler",
+    "texture": "passengerAdler",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      1.04,
+      0
+    ],
+    "rotate": [
+      180,
+      -90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerDBOriental",
+    "model": "train.client.render.models.ModelPassenger_DB_oriental",
+    "texture": "passenger_DB_oriental_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [
+      180,
+      0,
+      0
+    ],
+    "scale": [
+      -1,
+      -1,
+      1
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerICE1_Class1",
+    "model": "train.client.render.models.ModelICE1Passenger",
+    "texture": "ICE1_1st_class_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerICE1_Class2",
+    "model": "train.client.render.models.ModelICE1Passenger",
+    "texture": "ICE1_2nd_class_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerICE1_Restaurant",
+    "model": "train.client.render.models.ModelICE1Restaurant",
+    "texture": "ICE1_Restaurant_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerGS4",
+    "model": "train.client.render.models.ModelGS4Passenger",
+    "texture": "GS4_Passenger_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.03,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerGS4_Tail",
+    "model": "train.client.render.models.ModelGS4Tail",
+    "texture": "GS4_Tail_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.2,
+      0.025,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerGS4Observatory",
+    "model": "train.client.render.models.ModelGS4Tavern",
+    "texture": "GS4_Tavern_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.025,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerRheingold",
+    "model": "train.client.render.models.ModelRheingoldPassenger",
+    "texture": "Rheingold_passenger_",
+    "multiTexture": "TRUE",
+    "trans": [
+      1.55,
+      0.15,
+      -0.6
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerRheingoldDining1",
+    "model": "train.client.render.models.ModelRheingoldPassenger_Dining1",
+    "texture": "Rheingold_passenger_dining1_",
+    "multiTexture": "TRUE",
+    "trans": [
+      1.7,
+      0.15,
+      -0.6
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerRheingoldDining2",
+    "model": "train.client.render.models.ModelRheingoldPassenger_Dining2",
+    "texture": "Rheingold_passenger_dining2_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0.05,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerRheingoldPanorama",
+    "model": "train.client.render.models.ModelRheingoldPassenger_Panorama",
+    "texture": "Rheingold_passenger_panorama_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.1,
+      0.15,
+      0.1
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerDenverRioGrange",
+    "model": "train.client.render.models.ModelDRGPassenger",
+    "texture": "drg_passenger_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.14,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerDenverRioGrandeCombo",
+    "model": "train.client.render.models.ModelDRGCombo",
+    "texture": "drg_combo_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.14,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerMILW",
+    "model": "train.client.render.models.ModelMILWPassenger",
+    "texture": "milw_passenger",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.1,
+      0,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerMILWTail",
+    "model": "train.client.render.models.ModelMILWTail",
+    "texture": "milw_passenger_tail",
+    "multiTexture": "FALSE",
+    "trans": [
+      0.1,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerBamboo",
+    "model": "train.client.render.models.ModelBambooTrainPassenger",
+    "texture": "passenger_bamboo_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0.1,
+      0,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "cabooseBlack",
+    "model": "train.client.render.models.ModelCaboose3",
+    "texture": "caboose3",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "cabooseRed",
+    "model": "train.client.render.models.ModelCaboose",
+    "texture": "caboose",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "cabooseLogging",
+    "model": "train.client.render.models.ModelCabooseLogging",
+    "texture": "cabLogging_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.45,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "cabooseLoggingPRR",
+    "model": "train.client.render.models.ModelPRRCaboose",
+    "texture": "PRRCaboose_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.38,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "GWRBrakeVan",
+    "model": "train.client.render.models.ModelGWRBrakeVan",
+    "texture": "GWRBrakeVan",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "stockCar",
+    "model": "train.client.render.models.ModelStockCar",
+    "texture": "stockcar_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [
+      0,
+      0,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "drwgStockCar",
+    "model": "train.client.render.models.ModelDRWGStockCar",
+    "texture": "drwgstockcar",
+    "multiTexture": "FALSE",
+    "trans": [
+      1,
+      -0.4,
+      0
+    ],
+    "rotate": [
+      0,
+      0,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "workCart",
+    "model": "train.client.render.models.ModelWorkCart",
+    "texture": "workcart",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCart",
+    "model": "train.client.render.models.ModelFlatCar",
+    "texture": "flatcart",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "workCaboose",
+    "model": "train.client.render.models.ModelWorkCaboose",
+    "texture": "workcaboose",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "jukeBoxCart",
+    "model": "train.client.render.models.ModelJukeBox",
+    "texture": "jukebox",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCartSU",
+    "model": "train.client.render.models.ModelFlatCarSU",
+    "texture": "flatcarsu",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCartUS",
+    "model": "train.client.render.models.ModelFlatCarUS",
+    "texture": "flatCartUS",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tracksBuilder",
+    "model": "train.client.render.models.ModelBuilder",
+    "texture": "builder2",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        -1.3,
+        2.1,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "freightCartRed",
+    "model": "train.client.render.models.ModelFreightCart2",
+    "texture": "freightcart2",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCartYellow",
+    "model": "train.client.render.models.ModelFreightCart2",
+    "texture": "freightcart",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightWood",
+    "model": "train.client.render.models.ModelWood",
+    "texture": "wood_Full",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightHopper",
+    "model": "train.client.render.models.ModelGrain",
+    "texture": "hopper",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightOpenWagon",
+    "model": "train.client.render.models.ModelOpenWagon",
+    "texture": "openwagon",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightHopperUS",
+    "model": "train.client.render.models.ModelFreightHopper",
+    "texture": "freightHopperUS_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCartWoodUS",
+    "model": "train.client.render.models.ModelFlatCarWoodUS",
+    "texture": "flatCartWoodUS",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCartUS",
+    "model": "train.client.render.models.ModelFreightCartUS",
+    "texture": "freightCartUS_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightBoxCartUS",
+    "model": "train.client.render.models.ModelBoxCartUS",
+    "texture": "boxCartUS_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.45,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightBoxCartPRR",
+    "model": "train.client.render.models.ModelPRRX31Wagon",
+    "texture": "PRR_X31a",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.38,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightGTNG",
+    "model": "train.client.render.models.ModelGTNG",
+    "texture": "GTNGOreWagon",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      0,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCartSmall",
+    "model": "train.client.render.models.ModelSmallFreightCart",
+    "texture": "freightCartSmall",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.2,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightMinetrain",
+    "model": "train.client.render.models.ModelMinetrain",
+    "texture": "minetrain",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCartWoodLogs",
+    "model": "train.client.render.models.ModelFreightWood",
+    "texture": "flatCartWood2",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightClosedRedBrown",
+    "model": "train.client.render.models.ModelFreightClosed",
+    "texture": "freightClosed",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightOpenRedBrown",
+    "model": "train.client.render.models.ModelFreightOpen2",
+    "texture": "freightOpen2",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "mailWagen_DB",
+    "model": "train.client.render.models.ModelMailWagen",
+    "texture": "mailWagen_DB",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightWagen_DB",
+    "model": "train.client.render.models.ModelFreightWagenDB",
+    "texture": "freightWagen_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCarRails_DB",
+    "model": "train.client.render.models.ModelFlatCarRails_DB",
+    "texture": "flatCarRails_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCar_DB",
+    "model": "train.client.render.models.ModelFlatCar_DB",
+    "texture": "flatCar_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "flatCarLogs_DB",
+    "model": "train.client.render.models.ModelFlatCarLogs_DB",
+    "texture": "flatCarLogs_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightGondola_DB",
+    "model": "train.client.render.models.ModelFreightGondola_DB",
+    "texture": "freightGondola_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCenterBeam_Empty",
+    "model": "train.client.render.models.ModelFreightCenterBeam_Empty",
+    "texture": "freight_centerbeam_empty_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCenterBeam_Wood1",
+    "model": "train.client.render.models.ModelFreightCenterBeam_Wood_1",
+    "texture": "freight_centerbeam_wood_1_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCenterBeam_Wood2",
+    "model": "train.client.render.models.ModelFreightCenterBeam_Wood_2",
+    "texture": "freight_centerbeam_wood_2_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightWellcar",
+    "model": "train.client.render.models.ModelWellcar",
+    "texture": "wellcar_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightTrailer",
+    "model": "train.client.render.models.ModelFreightTrailer",
+    "texture": "freightTrailer_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCartGS4",
+    "model": "train.client.render.models.ModelGS4Baggage",
+    "texture": "GS4_baggage_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.025,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "slateWagon",
+    "model": "train.client.render.models.ModelSlateWagon",
+    "texture": "freightslatewagon",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "iceWagon",
+    "model": "train.client.render.models.ModelIceWagon",
+    "texture": "icewagon",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freight100TonHopper",
+    "model": "train.client.render.models.Model100TonHopper",
+    "texture": "freight_100tonhopper_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.1,
+      0,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "bulkheadFlatCartWood",
+    "model": "train.client.render.models.ModelBulkheadFlat",
+    "texture": "BulkheadFlat_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightDenverRioGrange",
+    "model": "train.client.render.models.ModelDRGBaggage",
+    "texture": "drg_baggage_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.14,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightMILWBaggage",
+    "model": "train.client.render.models.ModelMILWBaggage",
+    "texture": "milw_baggage",
+    "multiTexture": "FALSE",
+    "trans": [
+      0.1,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightheavyweight",
+    "model": "train.client.render.models.ModelHeavyweight",
+    "texture": "heavyweight_mailcar",
+    "multiTexture": "FALSE",
+    "trans": [
+      0.1,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCartBamboo",
+    "model": "train.client.render.models.ModelBambooTrainCargo",
+    "texture": "bamboo_freight_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0.1,
+      0,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightGermanPost",
+    "model": "train.client.render.models.ModelGermanPost",
+    "texture": "german_post_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1,
+      0.15,
+      -0.075
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightDepressedFlatbed",
+    "model": "train.client.render.models.ModelDepressedFlatbed",
+    "texture": "depressed_flatbed_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.1,
+      0.15,
+      -0.075
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightCarL",
+    "model": "train.client.render.models.ModelFreightCarL",
+    "texture": "freightCarL_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.2,
+      0.825
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightKClassRailBox",
+    "model": "train.client.render.models.ModelKClassRailBox",
+    "texture": "KClassRailBox_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1.5,
+      0.1,
+      0.125
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightShortCoveredHopper",
+    "model": "train.client.render.models.ModelShortCoveredHopper",
+    "texture": "ShortCoveredHopper_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2.2,
+      -0.25,
+      0.7
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightLongCoveredHopper",
+    "model": "train.client.render.models.ModelLongCoveredHopper",
+    "texture": "LongCoveredHopper_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1,
+      -0.25,
+      0.65
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "freightHeavyweight",
+    "model": "train.client.render.models.ModelHeavyweightBaggage",
+    "texture": "heavyweightBoxcar_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.1,
+      -0.05
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "ASTFAutorack",
+    "model": "train.client.render.models.ModelASTFAutorack",
+    "texture": "astf_autorack",
+    "multiTexture": "FALSE",
+    "trans": [
+      -1,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tankWagon_DB",
+    "model": "train.client.render.models.ModelTankWagon_DB",
+    "texture": "tankWagon_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tankWagonUS",
+    "model": "train.client.render.models.ModelTankWagonUS",
+    "texture": "tankWagonUS_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tankWagonGrey",
+    "model": "train.client.render.models.ModelTankWagon2",
+    "texture": "tankwagon2",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.32,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tankCartLava",
+    "model": "train.client.render.models.ModelWatertransp",
+    "texture": "lavacar_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tankWagonYellow",
+    "model": "train.client.render.models.ModelTankWagon",
+    "texture": "tankwagon",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tankThreeDome",
+    "model": "train.client.render.models.ModelTankWagonThreeDome",
+    "texture": "tanker_three_dome_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.17,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderSmall",
+    "model": "train.client.render.models.ModelTender",
+    "texture": "tender2_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [
+      0.75,
+      0.75,
+      0.75
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderHeavy",
+    "model": "train.client.render.models.ModelTenderHeavy",
+    "texture": "heavytender_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.4,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tender4_4_0",
+    "model": "train.client.render.models.ModelNormalSteamTender",
+    "texture": "4-4-0-loco_tender_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderBR01",
+    "model": "train.client.render.models.ModelTenderBR01_DB",
+    "texture": "tenderBR01_DB",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderEr_Ussr",
+    "model": "train.client.render.models.ModelTenderEr_Ussr",
+    "texture": "tenderEr_Ussr",
+    "multiTexture": "FALSE",
+    "trans": [
+      0.06,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderC62Class",
+    "model": "train.client.render.models.ModelC62Tender",
+    "texture": "c62_tender_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderD51",
+    "model": "train.client.render.models.ModelD51Tender",
+    "texture": "d51_tender",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3,
+      0.35,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderAdler",
+    "model": "train.client.render.models.ModelTenderAdler",
+    "texture": "tender_adler",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      1.05,
+      0
+    ],
+    "rotate": [
+      180,
+      -90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderGS4",
+    "model": "train.client.render.models.ModelGS4Tender",
+    "texture": "GS4_tender_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.15,
+      -0.05
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "Model4000GallonTender",
+    "model": "train.client.render.models.Model4000GallonTender",
+    "texture": "GWR_Tender_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -4,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "ModelFowler4FTender",
+    "model": "train.client.render.models.ModelFowler4FTender",
+    "texture": "Fowler_4F_Tender",
+    "multiTexture": "FALSE",
+    "trans": [
+      -5.25,
+      -0.51585,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tenderCoranationClass",
+    "model": "train.client.render.models.ModelCoranationClassTender",
+    "texture": "CoranationClassTender",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "Model225Tender",
+    "model": "train.client.render.models.Model1225Tender",
+    "texture": "Berkshire_tender_",
+    "multiTexture": "TRUE",
+    "trans": [
+      2.75,
+      -0.65,
+      0.0625
+    ],
+    "rotate": [
+      0,
+      0,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tender_C41",
+    "model": "train.client.render.models.ModelTenderC41",
+    "texture": "C41Tender",
+    "multiTexture": "FALSE",
+    "trans": [
+      0.1,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tender_Southern1102",
+    "model": "train.client.render.models.ModelSouthern1102Tender",
+    "texture": "Southern1102Tender",
+    "multiTexture": "FALSE",
+    "trans": [
+      -5.25,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "tender_MILW",
+    "model": "train.client.render.models.ModelMILWTender",
+    "texture": "milw_tender",
+    "multiTexture": "FALSE",
+    "trans": [
+      0.15,
+      0.055,
+      0.025
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselKOF",
+    "model": "train.client.render.models.ModelKof",
+    "texture": "locoKof_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 2,
+    "smokeFX": [
+      [
+        0.9,
+        1.1,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoDieselGP40",
+    "model": "train.client.render.models.ModelGP40",
+    "texture": "cd742_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.8,
+      0.75,
+      0
+    ],
+    "rotate": [
+      180,
+      180,
+      0
+    ],
+    "scale": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 5,
+    "smokeFX": [
+      [
+        1.25,
+        1.15,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselChME3",
+    "model": "train.client.render.models.ModelChME3",
+    "texture": "chme3",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.5,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        0.6,
+        1.55,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselGP7Red",
+    "model": "train.client.render.models.ModelGP7",
+    "texture": "gp7_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.8,
+      -0.47,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        -0.2,
+        1.3,
+        0
+      ],
+      [
+        0.45,
+        1.3,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDiesel44TonSwitcher",
+    "model": "train.client.render.models.ModelLoco44TonSwitcher",
+    "texture": "loco_44tonswitcher_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2.75,
+      -0.425,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        0.6,
+        1.55,
+        0
+      ],
+      [
+        2,
+        1.55,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselSD40",
+    "model": "train.client.render.models.ModelSD40",
+    "texture": "locoSD40_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1.2,
+      -0.47,
+      0
+    ],
+    "rotate": [
+      180,
+      90,
+      0
+    ],
+    "scale": [
+      -1,
+      -1,
+      1
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 5,
+    "smokeFX": [
+      [
+        1.45,
+        1.45,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselSD70",
+    "model": "train.client.render.models.ModelSD70",
+    "texture": "locoSD70_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1.2,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 5,
+    "smokeFX": [
+      [
+        0.4,
+        1.3,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselShunter",
+    "model": "train.client.render.models.ModelShunter",
+    "texture": "shunter_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1.2,
+      -0.451,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 5,
+    "smokeFX": [
+      [
+        2.4,
+        1.5,
+        -0.1
+      ],
+      [
+        2.4,
+        1.5,
+        0.1
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoDieselWLs40",
+    "model": "train.client.render.models.ModelWLs40",
+    "texture": "wls40",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 5,
+    "smokeFX": [
+      [
+        3,
+        1.4,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoDieselV60_DB",
+    "model": "train.client.render.models.ModelV60",
+    "texture": "locoV60_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.75,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        0.75,
+        1.7,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselMILW_H1044",
+    "model": "train.client.render.models.ModelMILW_H1044",
+    "texture": "MILW_H1044_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.06,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        3.7,
+        1.7,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselEMDF7",
+    "model": "train.client.render.models.ModelEMDF7",
+    "texture": "emdf7_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2.2,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        -0.15,
+        1.6,
+        0
+      ],
+      [
+        0.5,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselEMDF3",
+    "model": "train.client.render.models.ModelEMDF3",
+    "texture": "emdf3_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2.2,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        -0.15,
+        1.6,
+        0
+      ],
+      [
+        0.55,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "BUnitEMDF7",
+    "model": "train.client.render.models.ModelEMDF7B",
+    "texture": "emdf7b_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 4,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "BUnitEMDF3",
+    "model": "train.client.render.models.ModelEMDF3B",
+    "texture": "emdf3b_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 4,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "BUnitDD35",
+    "model": "train.client.render.models.ModelDD35B",
+    "texture": "dd35b_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselDD35A",
+    "model": "train.client.render.models.ModelDD35A",
+    "texture": "dd35a_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -5,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        3.9,
+        1.6,
+        0
+      ],
+      [
+        -0.4,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselBamboo",
+    "model": "train.client.render.models.ModelBambooTrainEngine",
+    "texture": "loco_bamboo_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1,
+      0,
+      0
+    ],
+    "rotate": [
+      180,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 2,
+    "smokeFX": [
+      [
+        -0.05,
+        -0.05,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoDieselE10lDB",
+    "model": "train.client.render.models.ModelE10DB",
+    "texture": "locoe10_db_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1.7,
+      0.05,
+      0
+    ],
+    "rotate": [
+      0,
+      0,
+      180
+    ],
+    "scale": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricCD151",
+    "model": "train.client.render.models.ModelLocoCD151",
+    "texture": "CD151_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselE103",
+    "model": "train.client.render.models.ModelE103",
+    "texture": "E103_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2,
+      0.05,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricVL10",
+    "model": "train.client.render.models.ModelVL10",
+    "texture": "vl10",
+    "multiTexture": "FALSE",
+    "trans": [
+      -1.2,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricBR_E69",
+    "model": "train.client.render.models.ModelBR_E69",
+    "texture": "locoBR_E69_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricMineTrain",
+    "model": "train.client.render.models.ModelLocoMinetrain",
+    "texture": "locoMinetrain",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.8,
+      -0.47,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricSpeedZeroED",
+    "model": "train.client.render.models.ModelLocoHighSpeedZeroED",
+    "texture": "locoHighSpeedZeroED",
+    "multiTexture": "FALSE",
+    "trans": [
+      -1.7,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricICE1",
+    "model": "train.client.render.models.ModelICE1",
+    "texture": "ICE1_Engine_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.18,
+      0.1
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.8,
+      1,
+      0.8
+    ],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricTramYellow",
+    "model": "train.client.render.models.ModelTram",
+    "texture": "tram",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.8,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricTramNY",
+    "model": "train.client.render.models.ModelTramNY",
+    "texture": "locoTramNY",
+    "multiTexture": "FALSE",
+    "trans": [
+      -1.5,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerIC4_DSB_FG",
+    "model": "train.client.render.models.ModelLocoDieselIC4_DSB_FG",
+    "texture": "IC4_DSB_FG",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.8,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerIC4_DSB_FH",
+    "model": "train.client.render.models.ModelLocoDieselIC4_DSB_FH",
+    "texture": "IC4_DSB_FH",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.8,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselIC4_DSB_MG",
+    "model": "train.client.render.models.ModelLocoDieselIC4_DSB_MG",
+    "texture": "IC4_DSB_MG_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.8,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricBR185",
+    "model": "tc:models/engine/br185.bob",
+    "texture": "BR185_Engine_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricClass85",
+    "model": "train.client.render.models.ModelClass85",
+    "texture": "Class85_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -3,
+      0.65,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoElectricBP4",
+    "model": "train.client.render.models.ModelBP4",
+    "texture": "bp4_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2.2,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselDeltic",
+    "model": "train.client.render.models.ModelDeltic",
+    "texture": "Deltic",
+    "multiTexture": "FALSE",
+    "trans": [
+      -2.25,
+      0.8,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      180
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 1,
+    "smokeFX": [
+      [
+        2.3,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselEWSClass66",
+    "model": "train.client.render.models.ModelEWSClass66",
+    "texture": "Class66_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -3,
+      0.65,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      180
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 2,
+    "smokeFX": [
+      [
+        0.9,
+        1.4,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoDieselFOL_M1",
+    "model": "train.client.render.models.ModelFOL_M1",
+    "texture": "FOL_M1_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2.8,
+      0.05,
+      0.9
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        1.3,
+        1.45,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "FOLM1B",
+    "model": "train.client.render.models.ModelFOLM1B",
+    "texture": "FOL_M1b_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -2.2,
+      0.05,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        1.6,
+        1.45,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamCherepanov",
+    "model": "train.client.render.models.ModelLocoCherepanov",
+    "texture": "locoCherepanov",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.875,
+      -0.47,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        1.5,
+        2.1,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        0.875,
+        0.2,
+        0.2
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamPannier",
+    "model": "train.client.render.models.ModelLocoPannier",
+    "texture": "locoPannier",
+    "multiTexture": "FALSE",
+    "trans": [
+      0.15,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.4,
+        1.8,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.575,
+        0.05,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamC41",
+    "model": "train.client.render.models.ModelLocoC41",
+    "texture": "locoC41",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3.5,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.55,
+        1.65,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.9,
+        0.05,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamC41_080",
+    "model": "train.client.render.models.ModelC41_080",
+    "texture": "locoC41_080",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3.5,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.55,
+        1.65,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.9,
+        0.05,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamAlcoSc4",
+    "model": "train.client.render.models.ModelAlcoSC4",
+    "texture": "AlcoSC4",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3.5,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.55,
+        1.65,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.9,
+        0.05,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamC41T",
+    "model": "train.client.render.models.ModelLocoC41T",
+    "texture": "locoC41t",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3.5,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.55,
+        1.65,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.9,
+        0.05,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamSouthern1102",
+    "model": "train.client.render.models.ModelSouthern1102",
+    "texture": "Southern1102",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3.5,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.55,
+        1.65,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.9,
+        0.05,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamUSATCUS",
+    "model": "train.client.render.models.ModelUSATCUS",
+    "texture": "USATCUS",
+    "multiTexture": "FALSE",
+    "trans": [
+      -2,
+      -0.2,
+      0.8375
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        2.5,
+        1.2,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.5,
+        -0.5,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamUSATCUK",
+    "model": "train.client.render.models.ModelUSATCUK",
+    "texture": "USATCUK",
+    "multiTexture": "FALSE",
+    "trans": [
+      -2,
+      -0.2,
+      0.8375
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        2.5,
+        1.2,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.5,
+        -0.5,
+        0.65
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamCoranationClass",
+    "model": "train.client.render.models.ModelCoranationClass",
+    "texture": "CoranationClass",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3.8,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        5.45,
+        1.9,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4.8,
+        0.15,
+        0.5
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamBR80",
+    "model": "train.client.render.models.ModelLocoBR80_DB",
+    "texture": "locoBR80_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.75,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        1.8,
+        1.75,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.6,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 4,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteam4_4_0",
+    "model": "train.client.render.models.ModelLoco",
+    "texture": "4-4-0-loco_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.66,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        1.6,
+        2.05,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.56,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 4,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamSmall",
+    "model": "train.client.render.models.ModelLoco3",
+    "texture": "loco3_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.99,
+      -0.5,
+      0
+    ],
+    "rotate": [
+      0,
+      -90,
+      0
+    ],
+    "scale": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        1.69,
+        1.1,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.6,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamLSSP7",
+    "model": "train.client.render.models.ModelLSSP7",
+    "texture": "LSSP7",
+    "multiTexture": "FALSE",
+    "trans": [
+      -1,
+      -0.2,
+      0.8
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        0.1,
+        1.15,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        0.7,
+        -0.4,
+        0.5
+      ],
+      [
+        0.7,
+        -0.4,
+        -0.5
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoHeavySteam",
+    "model": "train.client.render.models.ModelHeavySteamLoco",
+    "texture": "heavysteam_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.42,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.1,
+        2,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        3,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamC62Class",
+    "model": "train.client.render.models.ModelC62Locomotive",
+    "texture": "c62_engine_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        5,
+        1.75,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        5.2,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamD51Short",
+    "model": "train.client.render.models.ModelD51ShortStreamlining",
+    "texture": "d51_short_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.5,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        4.85,
+        1.85,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4.6,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamD51Long",
+    "model": "train.client.render.models.ModelD51LongStreamlining",
+    "texture": "d51_long_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.5,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        4.85,
+        1.85,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4.6,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamBR01_DB",
+    "model": "train.client.render.models.ModelLocoBR01_DB",
+    "texture": "locoBR01_DB_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.45,
+        1.8,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        3.4,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamGS4",
+    "model": "train.client.render.models.ModelGS4Loco",
+    "texture": "GS4_engine_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.95,
+      0.95,
+      0.95
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 5,
+    "smokeFX": [
+      [
+        5.8,
+        1.7,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        5.2,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamEr_USSR",
+    "model": "train.client.render.models.ModelLocoEr_Ussr",
+    "texture": "locoEr_Ussr",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.75,
+      -0.44,
+      0
+    ],
+    "rotate": [],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        3.45,
+        1.9,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        3.4,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamForney",
+    "model": "train.client.render.models.ModelLocoForney",
+    "texture": "locoForney_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1.3,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        2.2,
+        1.9,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.2,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamMogul",
+    "model": "train.client.render.models.ModelLocoMogul",
+    "texture": "locoMogul_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.6,
+      -0.44,
+      0
+    ],
+    "rotate": [
+      0,
+      90,
+      0
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 3,
+    "smokeFX": [
+      [
+        1.55,
+        1.95,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.45,
+        -0.2,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamShay",
+    "model": "train.client.render.models.ModelLocoSteamShay",
+    "texture": "locoShay",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.4,
+      -0.45,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        1.8,
+        1.7,
+        0.2
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.6,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamVBShay",
+    "model": "train.client.render.models.ModelVBShay",
+    "texture": "vbshay",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        0.55,
+        2.2,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.6,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamClimax",
+    "model": "train.client.render.models.ModelLocoClimax",
+    "texture": "loco_climax",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.18,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        2.05,
+        1.9,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.6,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamAdler",
+    "model": "train.client.render.models.ModelLocoSteamAdler",
+    "texture": "locoAdler",
+    "multiTexture": "FALSE",
+    "trans": [
+      -0.8,
+      1.05,
+      0
+    ],
+    "rotate": [
+      180,
+      -90,
+      0
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        1.6,
+        1.3,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.5,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamAlice",
+    "model": "train.client.render.models.ModelLocoAlice040",
+    "texture": "0-4-0-loco-alice",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        2.2,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.8,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteam040VB",
+    "model": "train.client.render.models.ModelVB040",
+    "texture": "loco040VB",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        0.6,
+        1.75,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.8,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamGLYN",
+    "model": "train.client.render.models.Model042TGLYN",
+    "texture": "0-4-2-loco-glyn",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        2.15,
+        1.75,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        1.8,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteam262T",
+    "model": "train.client.render.models.ModelT262",
+    "texture": "262t",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      1,
+      0.9
+    ],
+    "smokeType": "smoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        2.65,
+        1.7,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2.8,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamA4",
+    "model": "train.client.render.models.ModelA4Locomotive",
+    "texture": "locoA4_UK_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -3,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.975,
+      0.975,
+      0.975
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        4.8,
+        1.95,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4.9,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locosteamHallClass",
+    "model": "train.client.render.models.ModelHallClass",
+    "texture": "Hall_Class_Locomotive_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.65,
+      0.15,
+      -0.25
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        4.25,
+        1.55,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locosteamKingClass",
+    "model": "train.client.render.models.ModelKingClass",
+    "texture": "King_Class_Locomotive_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -1.75,
+      0.15,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        4.8,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        3.6,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locosteamBerk1225",
+    "model": "train.client.render.models.Model1225",
+    "texture": "Berk1225_Locomotive",
+    "multiTexture": "FALSE",
+    "trans": [
+      -2,
+      -0.65,
+      0.0625
+    ],
+    "rotate": [
+      0,
+      0,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        4.65,
+        1.7,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4.2,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locosteamBerk765",
+    "model": "train.client.render.models.Model765",
+    "texture": "Berk765_Locomotive",
+    "multiTexture": "FALSE",
+    "trans": [
+      -2,
+      -0.65,
+      0.0625
+    ],
+    "rotate": [
+      0,
+      0,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        4.65,
+        1.7,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4.2,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locoSteamMILW",
+    "model": "train.client.render.models.ModelMILWClassA",
+    "texture": "locoMILW_ClassA",
+    "multiTexture": "FALSE",
+    "trans": [
+      0,
+      0.1,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        4.4,
+        1.35,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        4.2,
+        -0.4,
+        0.8
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "locosteamFowler",
+    "model": "train.client.render.models.ModelFowler",
+    "texture": "loco_Fowler",
+    "multiTexture": "FALSE",
+    "trans": [
+      -3,
+      -0.51585,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "smokeType": "largesmoke",
+    "smokeIterations": 20,
+    "smokeFX": [
+      [
+        3.2,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "explode",
+    "explosionFX": [
+      [
+        2,
+        -0.4,
+        0
+      ]
+    ],
+    "explosionFXIterations": 2,
+    "hasSmokeOnSlopes": "TRUE"
+  },
+  {
+    "entryName": "tenderA4",
+    "model": "train.client.render.models.ModelTenderA4",
+    "texture": "tenderA4_UK_",
+    "multiTexture": "TRUE",
+    "trans": [
+      -0.2,
+      0.2,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "propagandaUs",
+    "model": "train.client.render.models.ModelPropagandaCar",
+    "texture": "propaganda_US_",
+    "multiTexture": "TRUE",
+    "trans": [
+      1.1,
+      0.2,
+      -0.1
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "propagandaJapan",
+    "model": "train.client.render.models.ModelPropagandaCar",
+    "texture": "propaganda_Japan_",
+    "multiTexture": "TRUE",
+    "trans": [
+      1.1,
+      0.2,
+      -0.1
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "propagandaUSSR",
+    "model": "train.client.render.models.ModelPropagandaCar",
+    "texture": "propaganda_USSR_",
+    "multiTexture": "TRUE",
+    "trans": [
+      1.1,
+      0.2,
+      -0.1
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "propagandaBritain",
+    "model": "train.client.render.models.ModelPropagandaCar",
+    "texture": "propaganda_Britain_",
+    "multiTexture": "TRUE",
+    "trans": [
+      1.1,
+      0.2,
+      -0.1
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "locoSteamSnowPlow",
+    "model": "train.client.render.models.ModelSnowPlow",
+    "texture": "train_snowplow",
+    "multiTexture": "FALSE",
+    "trans": [
+      -2,
+      0.12,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      180
+    ],
+    "scale": [],
+    "smokeType": "smoke",
+    "smokeIterations": 4,
+    "smokeFX": [
+      [
+        3.15,
+        1.6,
+        0
+      ]
+    ],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
+  }
+]

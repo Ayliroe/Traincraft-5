@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface TrainRenderRecord {
 
-    Class<? extends AbstractTrains> getEntityClass();
+    String getEntryName();
 
     ModelBase getModel();
 

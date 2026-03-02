@@ -955,8 +955,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
     @Override
     public List<ItemStack> getItemsDropped() {
         List<ItemStack> items = new ArrayList<ItemStack>();
-        TrainRecord train = Traincraft.instance.traincraftRegistry.getTrainRecord(getClass());
-        if (train != null) {
+        if (getSpec() != null) {
             items.add(ItemRollingStock.setPersistentData(new ItemStack(getItem()), this, getUniqueTrainID(), trainCreator, trainOwner, getColor()));
             return items;
         }
