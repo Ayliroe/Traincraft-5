@@ -62,8 +62,6 @@ public abstract class TrainRecord {
 
     public abstract AbstractTrains getEntity(World world);
 
-    public abstract AbstractTrains getEntity(World world, double x, double y, double z);
-
     /**
      * #param entryName is depreciated
      * #param additionalTooltip is depreciated.
@@ -172,21 +170,6 @@ public abstract class TrainRecord {
                     return (AbstractTrains) entityClass.getConstructor(World.class).newInstance(world);
                 } catch (IllegalArgumentException | NoSuchMethodException | SecurityException | InstantiationException |
                          IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-
-            @Override
-            public AbstractTrains getEntity(World world, double x, double y, double z) {
-                try {
-                    //if (world.isRemote) {
-                        //entityClass.getConstructor(World.class).newInstance(world);
-                    //} else {
-                        return (AbstractTrains) entityClass.getConstructor(World.class, double.class, double.class, double.class).newInstance(world, x, y, z);
-                    //}
-                } catch (IllegalArgumentException | SecurityException | InstantiationException |
-                         IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                     e.printStackTrace();
                 }
                 return null;

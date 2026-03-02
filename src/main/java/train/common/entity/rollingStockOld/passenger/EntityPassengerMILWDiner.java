@@ -11,12 +11,6 @@ public class EntityPassengerMILWDiner extends AbstractPassengerCar {
 	}
 
 	@Override
-	public void updateRiderPosition() {
-		if(riddenByEntity==null){return;}
-		riddenByEntity.setPosition(posX, posY + getMountedYOffset() + riddenByEntity.getYOffset() + 0.2, posZ);
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 3.1F;
 	}

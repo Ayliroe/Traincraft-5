@@ -54,7 +54,6 @@ public class TraincraftRegistry {
     private Map<Item, TrainRecord> trainRecordsByItem = new HashMap<>();
 
     private Map<String, TrainRenderRecord> trainRenderRecords = new HashMap<>();
-    private List<TrainSoundRecord> trainSoundRecords = new ArrayList<>();
 
     private static final List<TrackRecord> trackRecords = new ArrayList<>();
 
@@ -81,10 +80,6 @@ public class TraincraftRegistry {
                 TraincraftRegistry.this.registerTrainRenderRecord(render);
             }
         }
-
-        for (TrainSoundRecord sound : EnumSounds.values()) {
-            TraincraftRegistry.this.registerTrainSoundRecord(sound);
-        }
     }
 
 
@@ -100,11 +95,11 @@ public class TraincraftRegistry {
         return null;
     }
 
-    public TrainSoundRecord getTrainSoundRecord(Class<?> entityClass) {
-        if (entityClass == null) return null;
+    public TrainSoundRecord getTrainSoundRecord(String entryName) {
+        if (entryName.isEmpty()) return null;
 
-        for (TrainSoundRecord record : trainSoundRecords) {
-            if (entityClass.equals(record.getEntityClass())) {
+        for (TrainSoundRecord record : Traincraft.instance.soundRecords) {
+            if (entryName.equals(record.getEntryName())) {
                 return record;
             }
         }
@@ -131,10 +126,6 @@ public class TraincraftRegistry {
                 SkinRegistry.addSkin(record.getEntryName(),color);
             }
         }
-    }
-
-    public void registerTrainSoundRecord(TrainSoundRecord sound) {
-        trainSoundRecords.add(sound);
     }
 
     public void addLivery(String entryName, String liveryName){
@@ -172,18 +163,8 @@ public class TraincraftRegistry {
     public static int trainID= 32;
     public static void registerTransport(TrainRecord record){
         EntityRegistry.registerModEntity(record.getEntityClass(), record.getInternalName(), trainID, Traincraft.instance, 512, 1, true);
-        AbstractTrains entity = record.getEntity(null);
-        if(entity!=null) {
-            entity.registerSkins();
-            for(String c: record.getColors()){
-                SkinRegistry.addSkin(record.getName(),c);
-            }
-            if(entity.getRecipe()!=null){
-                TierRecipeManager.getInstance().addRecipe(entity.getTier(),
-                        entity.getRecipe()[0],entity.getRecipe()[1],entity.getRecipe()[2],entity.getRecipe()[3],
-                        entity.getRecipe()[4],entity.getRecipe()[5],entity.getRecipe()[6],entity.getRecipe()[7],
-                        entity.getRecipe()[8],entity.getRecipe()[9], entity.getCartItem(),1);
-            }
+        for(String c: record.getColors()){
+            SkinRegistry.addSkin(record.getName(),c);
         }
         trainID++;
         if(trainID== 112 || trainID==51){

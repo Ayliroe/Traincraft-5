@@ -45,12 +45,14 @@ import train.common.entity.zeppelin.EntityZeppelinTwoBalloons;
 import train.common.generation.ComponentVillageTrainstation;
 import train.common.generation.WorldGenWorld;
 import train.common.items.TCItems;
+import train.common.library.EnumSounds;
 import train.common.library.EnumTrains;
 import train.common.library.Info;
 import train.common.library.TraincraftRegistry;
 import train.common.recipes.AssemblyTableRecipes;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
@@ -107,6 +109,8 @@ public class Traincraft {
 
     public List<TrainRecord> trainRecords;
     public List<RenderEnum> renderRecords;
+    public List<EnumSounds> soundRecords;
+    public List<TrainRecord> trainstationRecords;
     public final TraincraftRegistry traincraftRegistry = new TraincraftRegistry();
 
 
@@ -227,6 +231,8 @@ public class Traincraft {
         EntityRegistry.registerModEntity(EntitySeat.class, "Seat", 16, Traincraft.instance,512,3,true);//seat
         trainRecords = EnumTrains.initTrainRecords();
         renderRecords = RenderEnum.initRenderRecords();
+        soundRecords = EnumSounds.initSoundRecords();
+        trainstationRecords = ComponentVillageTrainstation.initTrainstationRecords();
         for(TrainRecord trains : trainRecords){
             TraincraftRegistry.registerTransport(trains);
         }
@@ -268,7 +274,6 @@ public class Traincraft {
         TrainModCore.ModsLoaded();
 
         if(proxy.isClient()) {
-            trainConverter.write(trainRecords);
             TextureManager.collectIngotColors();
         }
 

@@ -921,11 +921,13 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * the first TransportSkin added to the registry for a transport class will be the default
      * additionally the addSkin function may be called from any other class at any time.
      * the registerSkins method is only for organization and convenience.*/
-    public void registerSkins(){
+
+    // Removed in favor of json-based setup
+    /*public void registerSkins(){
         for (String col : getSpec().getColors()) {
             SkinRegistry.addSkin(getName(), Info.resourceLocation+":"+ col + ".png", col);
         }
-    }
+    }*/
 
     /**
      * return the name for the default TransportSkin of the transport.
@@ -954,11 +956,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         }
     }
 
-    public ItemStack[] getRecipe(){return null;}
-    public int getTier(){return 1;}
-
     public TrainSound getHorn(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getClass());
+        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
         if(sound != null && !sound.getHornString().isEmpty()){
             return new TrainSound(sound.getHornString(),sound.getHornVolume(),1f, 0);
         }
@@ -970,7 +969,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public TrainSound getRunningSound(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getClass());
+        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
         if(sound != null && !sound.getRunString().isEmpty()){
             if(sound.getSoundChangeWithSpeed()){
                 return new TrainSound(sound.getRunString(), sound.getRunVolume(), 0.4f, sound.getRunSoundLength()).enableRunningPitch();
@@ -983,7 +982,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
 
     public TrainSound getIdleSound(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getClass());
+        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
         if(sound != null && !sound.getIdleString().isEmpty()){
             return new TrainSound(sound.getIdleString(),sound.getIdleVolume(),0.001F, sound.getIdleSoundLength());
         }

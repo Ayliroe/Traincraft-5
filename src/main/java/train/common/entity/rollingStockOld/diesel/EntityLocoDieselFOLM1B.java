@@ -16,11 +16,6 @@ public class EntityLocoDieselFOLM1B extends DieselTrain {
     }
 
     @Override
-    public void updateRiderPosition() {
-        TraincraftUtil.updateRider(this, 4.0, 0.35f);
-    }
-
-    @Override
     public float getOptimalDistance(EntityMinecart cart) {
         return (1F);
     }

@@ -2,7 +2,7 @@ package train.common.api;
 
 public interface TrainSoundRecord {
 
-    Class<?> getEntityClass();
+    String getEntryName();
 
     String getHornString();
 

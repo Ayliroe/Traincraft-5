@@ -14,9 +14,4 @@ public class EntityPassengerRheingoldDining1 extends AbstractWorkCart {
 	public float[] getHitboxSize() {
 		return new float[]{0.55f,2.1f,1f};
 	}
-
-	@Override
-	public float[] rotationPoints() {
-		return new float[]{3.125f, -3.125f};
-	}
 }

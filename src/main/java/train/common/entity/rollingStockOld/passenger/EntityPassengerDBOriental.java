@@ -15,9 +15,6 @@ public class EntityPassengerDBOriental extends AbstractPassengerCar {
 		return 2.25F;
 	}
 
-	public float[] rotationPoints() {
-		return new float[]{1f, 0f};
-	}
 	@Override
 	public float[][] getRiderOffsets(){return new float[][]{{0,1.2f, 0f},{-1,1.2f, 0f},{1,1.2f, 0f}};}
     

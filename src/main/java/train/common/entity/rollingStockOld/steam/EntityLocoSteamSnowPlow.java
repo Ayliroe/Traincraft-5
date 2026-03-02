@@ -2,13 +2,9 @@ package train.common.entity.rollingStockOld.steam;
 
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.world.World;
-import train.common.api.LiquidManager;
-import train.common.api.components.SnowPlow;
-import train.common.api.SteamTrain;
+import train.common.api.AbstractSteamSnowPlow;
 
-public class EntityLocoSteamSnowPlow extends SteamTrain {
-
-	SnowPlow snowPlow = new SnowPlow(this);
+public class EntityLocoSteamSnowPlow extends AbstractSteamSnowPlow {
 
 	public EntityLocoSteamSnowPlow(World world) {
 		super(world);
@@ -17,10 +13,6 @@ public class EntityLocoSteamSnowPlow extends SteamTrain {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-
-		checkInvent(cargoItems[0], cargoItems[1], this);
-
-		snowPlow.updatePlow();
 	}
 
 	@Override

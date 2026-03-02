@@ -5095,5 +5095,29 @@
     "explosionFX": [],
     "explosionFXIterations": 0,
     "hasSmokeOnSlopes": "FALSE"
+  },
+  {
+    "entryName": "passengerCartBlue",
+    "model": "train.client.render.models.ModelPassenger6",
+    "texture": "passenger_",
+    "multiTexture": "TRUE",
+    "trans": [
+      0,
+      -0.47,
+      0
+    ],
+    "rotate": [
+      0,
+      180,
+      0
+    ],
+    "scale": [],
+    "smokeType": "",
+    "smokeIterations": 0,
+    "smokeFX": [],
+    "explosionType": "",
+    "explosionFX": [],
+    "explosionFXIterations": 0,
+    "hasSmokeOnSlopes": "FALSE"
   }
 ]

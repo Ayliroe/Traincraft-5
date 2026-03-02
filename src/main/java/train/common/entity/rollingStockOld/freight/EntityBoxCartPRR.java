@@ -10,11 +10,6 @@ public class EntityBoxCartPRR extends Freight {
 		super(world);
 	}
 
-	@Override
-	public double getMountedYOffset() {
-		return (double) height * 0.0D - 0.30000001192092896D;
-	}
-
     @Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 3.05F;

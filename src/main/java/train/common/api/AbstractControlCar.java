@@ -191,9 +191,9 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
 
     public void soundHorn()
     {
-        for (EnumSounds sounds : EnumSounds.values())
+        for (EnumSounds sounds : Traincraft.instance.soundRecords)
         {
-            if (sounds.getEntityClass() != null && sounds.getEntityClass().equals(this.getClass()) && whistleDelay == 0)
+            if (!sounds.getEntryName().isEmpty() && sounds.getEntryName().equals(getName()) && whistleDelay == 0)
             {
                 getWorld().playSoundAtEntity(this, Info.resourceLocation + ":" + sounds.getHornString(), sounds.getHornVolume(), 1.0F);
                 whistleDelay = 65;

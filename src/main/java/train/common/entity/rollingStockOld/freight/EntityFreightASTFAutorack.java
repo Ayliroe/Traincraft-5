@@ -19,17 +19,7 @@ public class EntityFreightASTFAutorack extends Freight {
 	}
 
 	@Override
-	public double getMountedYOffset() {
-		return (double) height * 0.0D - 0.30000001192092896D;
-	}
-
-	@Override
 	public float getOptimalDistance(EntityMinecart cart) {
 		return 4.35F;
-	}
-
-	@Override
-	public int getInventoryStackLimit() {
-		return 1;
 	}
 }

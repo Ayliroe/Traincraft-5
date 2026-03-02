@@ -3,7 +3,6 @@ package train.common.library;
 import net.minecraft.item.Item;
 import net.minecraft.stats.Achievement;
 import train.common.blocks.TCBlocks;
-import train.common.entity.rollingStock.EntityPassengerCar1;
 
 public enum AchievementIDs {
 	steel(new Item[] { ItemIDs.steel.item }),
