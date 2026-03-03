@@ -29,7 +29,7 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	@Override
 	public void init(TrainRecord spec) {
 		super.init(spec);
-		furnaceItemStacks = new ItemStack[getSizeInventory()];
+		furnaceItemStacks = createFurnaceItemStacks();
 	}
 
 	@Override
@@ -38,19 +38,21 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 		updateBurning();
 	}
 
+	private ItemStack[] createFurnaceItemStacks() { return new ItemStack[getSizeInventory()]; }
+
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeEntityToNBT(nbttagcompound);
 
-		nbttagcompound.setShort("BurnTime", (short) this.furnaceBurnTime);
-		nbttagcompound.setShort("CookTime", (short) this.furnaceCookTime);
+		nbttagcompound.setShort("BurnTime", (short) furnaceBurnTime);
+		nbttagcompound.setShort("CookTime", (short) furnaceCookTime);
 		NBTTagList var2 = new NBTTagList();
 
-		for (int var3 = 0; var3 < this.furnaceItemStacks.length; ++var3) {
-			if (this.furnaceItemStacks[var3] != null) {
+		for (int var3 = 0; var3 < furnaceItemStacks.length; ++var3) {
+			if (furnaceItemStacks[var3] != null) {
 				NBTTagCompound var4 = new NBTTagCompound();
 				var4.setByte("Slot", (byte) var3);
-				this.furnaceItemStacks[var3].writeToNBT(var4);
+				furnaceItemStacks[var3].writeToNBT(var4);
 				var2.appendTag(var4);
 			}
 		}
@@ -61,19 +63,20 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
 		super.readEntityFromNBT(nbttagcompound);
 		NBTTagList var2 = nbttagcompound.getTagList("Items", Constants.NBT.TAG_COMPOUND);
-		this.furnaceItemStacks = new ItemStack[furnaceItemStacks.length];
+		if (furnaceItemStacks == null) furnaceItemStacks = createFurnaceItemStacks();
+		furnaceItemStacks = new ItemStack[furnaceItemStacks.length];
 
 		for (int var3 = 0; var3 < var2.tagCount(); ++var3) {
 			NBTTagCompound var4 = var2.getCompoundTagAt(var3);
 			byte var5 = var4.getByte("Slot");
 
-			if (var5 >= 0 && var5 < this.furnaceItemStacks.length) {
-				this.furnaceItemStacks[var5] = ItemStack.loadItemStackFromNBT(var4);
+			if (var5 >= 0 && var5 < furnaceItemStacks.length) {
+				furnaceItemStacks[var5] = ItemStack.loadItemStackFromNBT(var4);
 			}
 		}
-		this.furnaceBurnTime = nbttagcompound.getShort("BurnTime");
-		this.furnaceCookTime = nbttagcompound.getShort("CookTime");
-		this.currentItemBurnTime = AbstractWorkCart.getItemBurnTime(this.furnaceItemStacks[1]);
+		furnaceBurnTime = nbttagcompound.getShort("BurnTime");
+		furnaceCookTime = nbttagcompound.getShort("CookTime");
+		currentItemBurnTime = AbstractWorkCart.getItemBurnTime(furnaceItemStacks[1]);
 	}
 
 	/**
@@ -90,7 +93,7 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	 * cooked
 	 */
 	public int getCookProgressScaled(int par1) {
-		return this.furnaceCookTime * par1 / 200;
+		return furnaceCookTime * par1 / 200;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -99,76 +102,76 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	 * item, where 0 means that the item is exhausted and the passed value means that the item is fresh
 	 */
 	public int getBurnTimeRemainingScaled(int par1) {
-		if (this.currentItemBurnTime == 0) {
-			this.currentItemBurnTime = 200;
+		if (currentItemBurnTime == 0) {
+			currentItemBurnTime = 200;
 		}
-		return this.furnaceBurnTime * par1 / this.currentItemBurnTime;
+		return furnaceBurnTime * par1 / currentItemBurnTime;
 	}
 
 	public boolean isBurningFurnace() {
-		return this.furnaceBurnTime > 0;
+		return furnaceBurnTime > 0;
 	}
 
 	public void updateBurning() {
-		boolean var1 = this.furnaceBurnTime > 0;
+		boolean var1 = furnaceBurnTime > 0;
 		@SuppressWarnings("unused") boolean var2 = false;
 
-		if (this.furnaceBurnTime > 0) {
-			--this.furnaceBurnTime;
+		if (furnaceBurnTime > 0) {
+			--furnaceBurnTime;
 		}
-		if (!this.getWorld().isRemote) {
-			if (this.furnaceBurnTime == 0 && this.canSmelt()) {
-				this.currentItemBurnTime = this.furnaceBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
+		if (!getWorld().isRemote) {
+			if (furnaceBurnTime == 0 && canSmelt()) {
+				currentItemBurnTime = furnaceBurnTime = getItemBurnTime(furnaceItemStacks[1]);
 
-				if (this.furnaceBurnTime > 0) {
+				if (furnaceBurnTime > 0) {
 					var2 = true;
 
-					if (this.furnaceItemStacks[1] != null) {
-						--this.furnaceItemStacks[1].stackSize;
+					if (furnaceItemStacks[1] != null) {
+						--furnaceItemStacks[1].stackSize;
 
-						if (this.furnaceItemStacks[1].stackSize == 0) {
-							this.furnaceItemStacks[1] = this.furnaceItemStacks[1].getItem().getContainerItem(furnaceItemStacks[1]);
+						if (furnaceItemStacks[1].stackSize == 0) {
+							furnaceItemStacks[1] = furnaceItemStacks[1].getItem().getContainerItem(furnaceItemStacks[1]);
 						}
 					}
 				}
 			}
-			if (this.isBurningFurnace() && this.canSmelt()) {
-				++this.furnaceCookTime;
+			if (isBurningFurnace() && canSmelt()) {
+				++furnaceCookTime;
 
-				if (this.furnaceCookTime == 200) {
-					this.furnaceCookTime = 0;
-					this.smeltItem();
+				if (furnaceCookTime == 200) {
+					furnaceCookTime = 0;
+					smeltItem();
 					var2 = true;
 				}
 			}
 			else {
-				this.furnaceCookTime = 0;
+				furnaceCookTime = 0;
 			}
 
-			if (var1 != this.furnaceBurnTime > 0) {
+			if (var1 != furnaceBurnTime > 0) {
 				var2 = true;
 			}
 		}
 
 		//TODO REIMPLEMENT
 		/*
-		 * if (var2) { this.onInventoryChanged(); } */
+		 * if (var2) { onInventoryChanged(); } */
 	}
 
 	/**
 	 * Returns true if the furnace can smelt an item, i.e. has a source item, destination stack isn't full, etc.
 	 */
 	private boolean canSmelt() {
-		if (this.furnaceItemStacks[0] == null) {
+		if (furnaceItemStacks[0] == null) {
 			return false;
 		}
 		else {
-			ItemStack var1 = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+			ItemStack var1 = FurnaceRecipes.smelting().getSmeltingResult(furnaceItemStacks[0]);
 			if (var1 == null)
 				return false;
-			if (this.furnaceItemStacks[2] == null)
+			if (furnaceItemStacks[2] == null)
 				return true;
-			if (!this.furnaceItemStacks[2].isItemEqual(var1))
+			if (!furnaceItemStacks[2].isItemEqual(var1))
 				return false;
 			int result = furnaceItemStacks[2].stackSize + var1.stackSize;
 			return (result <= getInventoryStackLimit() && result <= var1.getMaxStackSize());
@@ -179,18 +182,18 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	 * Turn one item from the furnace source stack into the appropriate smelted item in the furnace result stack
 	 */
 	public void smeltItem() {
-		if (this.canSmelt()) {
-			ItemStack var1 = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
+		if (canSmelt()) {
+			ItemStack var1 = FurnaceRecipes.smelting().getSmeltingResult(furnaceItemStacks[0]);
 
-			if (this.furnaceItemStacks[2] == null) {
-				this.furnaceItemStacks[2] = var1.copy();
+			if (furnaceItemStacks[2] == null) {
+				furnaceItemStacks[2] = var1.copy();
 			}
-			else if (this.furnaceItemStacks[2].isItemEqual(var1)) {
+			else if (furnaceItemStacks[2].isItemEqual(var1)) {
 				furnaceItemStacks[2].stackSize += var1.stackSize;
 			}
-			--this.furnaceItemStacks[0].stackSize;
-			if (this.furnaceItemStacks[0].stackSize <= 0) {
-				this.furnaceItemStacks[0] = null;
+			--furnaceItemStacks[0].stackSize;
+			if (furnaceItemStacks[0].stackSize <= 0) {
+				furnaceItemStacks[0] = null;
 			}
 		}
 	}
@@ -246,7 +249,7 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	/** for the freight carts inventory **/
 	@Override
 	public ItemStack getStackInSlot(int i) {
-		return this.furnaceItemStacks[i];
+		return furnaceItemStacks[i];
 	}
 
 	/**
@@ -254,9 +257,9 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	 */
 	@Override
 	public ItemStack getStackInSlotOnClosing(int par1) {
-		if (this.furnaceItemStacks[par1] != null) {
-			ItemStack var2 = this.furnaceItemStacks[par1];
-			this.furnaceItemStacks[par1] = null;
+		if (furnaceItemStacks[par1] != null) {
+			ItemStack var2 = furnaceItemStacks[par1];
+			furnaceItemStacks[par1] = null;
 			return var2;
 		}
 		else {
@@ -269,17 +272,17 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	 */
 	@Override
 	public ItemStack decrStackSize(int par1, int par2) {
-		if (this.furnaceItemStacks[par1] != null) {
+		if (furnaceItemStacks[par1] != null) {
 			ItemStack var3;
-			if (this.furnaceItemStacks[par1].stackSize <= par2) {
-				var3 = this.furnaceItemStacks[par1];
-				this.furnaceItemStacks[par1] = null;
+			if (furnaceItemStacks[par1].stackSize <= par2) {
+				var3 = furnaceItemStacks[par1];
+				furnaceItemStacks[par1] = null;
 				return var3;
 			}
 			else {
-				var3 = this.furnaceItemStacks[par1].splitStack(par2);
-				if (this.furnaceItemStacks[par1].stackSize == 0) {
-					this.furnaceItemStacks[par1] = null;
+				var3 = furnaceItemStacks[par1].splitStack(par2);
+				if (furnaceItemStacks[par1].stackSize == 0) {
+					furnaceItemStacks[par1] = null;
 				}
 				return var3;
 			}
@@ -294,9 +297,9 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	 */
 	@Override
 	public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
-		this.furnaceItemStacks[par1] = par2ItemStack;
-		if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit()) {
-			par2ItemStack.stackSize = this.getInventoryStackLimit();
+		furnaceItemStacks[par1] = par2ItemStack;
+		if (par2ItemStack != null && par2ItemStack.stackSize > getInventoryStackLimit()) {
+			par2ItemStack.stackSize = getInventoryStackLimit();
 		}
 	}
 

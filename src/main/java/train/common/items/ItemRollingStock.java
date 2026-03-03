@@ -29,6 +29,7 @@ import train.common.core.handlers.ConfigHandler;
 import train.common.core.util.TraincraftUtil;
 import train.common.library.BlockIDs;
 import train.common.library.EnumTracks;
+import train.common.library.TrainRecord;
 import train.common.tile.TileTCRail;
 import train.common.tile.TileTCRailGag;
 
@@ -40,16 +41,6 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 	private String iconName = "";
 	private ResourceLocation itemTexture;
 	private String trainCreator;
-
-	public AbstractTrains entity=null;
-
-	//TODO: fix this mess, 32 calls each creating a train instance is stupid
-	private AbstractTrains getEntity(){
-		if(entity==null){
-			entity=Traincraft.instance.traincraftRegistry.findTrainRecordByItem(this).getEntity(null);
-		}
-		return entity;
-	}
 
 	public ItemRollingStock(String iconName) {
 		super(1);
@@ -73,18 +64,6 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 		maxStackSize = 1;
 		setCreativeTab(tab);
 	}
-
-	/*@Deprecated
-	public ItemRollingStock(String name, String iconName, String modid){
-		this(modid+":trains/" +iconName);
-		setUnlocalizedName(name);
-		if(!ConfigHandler.SPLIT_CREATIVE) {
-			setCreativeTab(Traincraft.tcTab);
-		} else {
-			setCreativeTab(Traincraft.tcTrainTab);
-		}
-    }*/
-
 
 	public int setNewUniqueID(ItemStack stack, EntityPlayer player, int numberOfTrains) {
 		NBTTagCompound var3 = stack.getTagCompound();
@@ -118,77 +97,90 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 		}
 
-		if(getEntity()!=null){
-			//year is the tell for if the TC4.5 API was used in favor of 4.3's.
-			if(getEntity().getYear() != null && !getEntity().getYear().equals("")) {
-				par3List.add(EnumChatFormatting.GRAY + t("menu.item.year") + ": " + getEntity().getYear());
+		TrainRecord spec = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(this);
+		Class<AbstractTrains> specClass = spec.getEntityClass();
+
+		//year is the tell for if the TC4.5 API was used in favor of 4.3's.
+		if(spec.getYear() != null && !spec.getYear().equals("")) {
+			par3List.add(EnumChatFormatting.GRAY + t("menu.item.year") + ": " + spec.getYear());
+		}
+		if(spec.getCountry()!=null && spec.getCountry().length()>1) {
+			par3List.add(EnumChatFormatting.GRAY + t("menu.item.country") + ": " + t("menu.item." + spec.getCountry().toLowerCase()));
+		}
+
+		StringBuilder s = new StringBuilder();
+		s.append(t("menu.item.types"));
+		s.append(": ");
+
+		if (Locomotive.class.isAssignableFrom(specClass)){
+			s.append(t("menu.item.locomotive")+", ");
+			if(spec.getRiderOffsets()!=null && spec.getRiderOffsets().length > 1){
+				s.append(t("menu.item.passenger")+", ");
 			}
-			if(getEntity().getCountry()!=null && getEntity().getCountry().length()>1) {
-				par3List.add(EnumChatFormatting.GRAY + t("menu.item.country") + ": " +
-						t("menu.item." + getEntity().getCountry().toLowerCase()));
+			if(spec.getCargoCapacity()>0){
+				s.append(t("menu.item.freight")+", ");
 			}
+		} else {
+			s.append(t("menu.item.rollingstock")+", ");
+
+			if(Tender.class.isAssignableFrom(specClass)){
+				s.append(t("menu.item.tender")+", ");
+			}
+			else if(LiquidTank.class.isAssignableFrom(specClass)){
+				s.append(t("menu.item.tanker")+", ");
+			}
+			else if(AbstractWorkCart.class.isAssignableFrom(specClass)){
+				s.append(t("menu.item.workcart")+", ");
+			}
+			else if(IPassenger.class.isAssignableFrom(specClass)){
+				s.append(t("menu.item.passenger")+", ");
+			}
+			else if(Freight.class.isAssignableFrom(specClass)){
+				s.append(t("menu.item.freight")+", ");
+			}
+		}
+		s.delete(s.lastIndexOf(", "),s.length());
+
+		par3List.add(EnumChatFormatting.RED +s.toString());
+
+		String fuelType = "";
+		if(SteamTrain.class.isAssignableFrom(specClass)) {
+			fuelType = "Steam";
+		} else if(DieselTrain.class.isAssignableFrom(specClass)) {
+			fuelType = "Diesel";
+		} else if(ElectricTrain.class.isAssignableFrom(specClass)) {
+			fuelType = "Electric";
+		}
+		if (!fuelType.isEmpty()) {
+			par3List.add(EnumChatFormatting.RED + t("menu.item.fueltype") + ": " + t(fuelType));
+		}
 
 
-			StringBuilder s = new StringBuilder();
-			s.append(t("menu.item.types"));
-			s.append(": ");
-			if (getEntity() instanceof Locomotive){
-				s.append(t("menu.item.locomotive")+", ");
-				if(getEntity().getRiderOffsets()!=null && getEntity().getRiderOffsets().length>0){
-					s.append(t("menu.item.passenger")+", ");
-				}
-				if(getEntity().getSizeInventory()>0){
-					s.append(t("menu.item.freight")+", ");
-				}
-			} else {
-				s.append(t("menu.item.rollingstock")+", ");
-				if(getEntity() instanceof IPassenger){
-					s.append(t("menu.item.passenger")+", ");
-				}
-				if(getEntity() instanceof Tender){
-					s.append(t("menu.item.tender")+", ");
-				} else if(getEntity() instanceof LiquidTank){
-					s.append(t("menu.item.tanker")+", ");
-				}
-				if(getEntity() instanceof AbstractWorkCart){
-					s.append(t("menu.item.workcart")+", ");
-				}
-				if(getEntity() instanceof Freight){
-					s.append(t("menu.item.freight")+", ");
-				}
-			}
-			s.delete(s.lastIndexOf(", "),s.length());
+		if (spec.getMass() != 0) {
+			par3List.add(EnumChatFormatting.GREEN + t("menu.item.weight") + ": " + spec.getMass() + "t");
+		}
 
-			par3List.add(EnumChatFormatting.RED +s.toString());
-
-			if(getEntity().transportFuelType()!=null && !getEntity().transportFuelType().equals("")) {
-				par3List.add(EnumChatFormatting.RED + t("menu.item.fueltype") + ": " +
-						t("menu.item."+getEntity().transportFuelType().toLowerCase()));
+		if (Locomotive.class.isAssignableFrom(specClass)) {
+			if (spec.getMaxSpeed() != 0) {
+				par3List.add(EnumChatFormatting.GREEN + t("menu.item.speed") + ": " + spec.getMaxSpeed() + " km/h");
 			}
-
-			par3List.add(EnumChatFormatting.GREEN + t("menu.item.weight") +": " + getEntity().weightKg() + "kg");
-			if (getEntity() instanceof Locomotive) {
-				if (((Locomotive)getEntity()).getMaxSpeed() != 0) {
-					par3List.add(EnumChatFormatting.GREEN + t("menu.item.speed") + ": " + ((Locomotive)getEntity()).getMaxSpeed() + " km/h");
-				}
-				if (((Locomotive)getEntity()).getMHP() != 0) {
-					par3List.add(EnumChatFormatting.GREEN + t("menu.item.mhp") + ": " + ((Locomotive)getEntity()).getMHP());
-				}
+			if (spec.getMHP() != 0) {
+				par3List.add(EnumChatFormatting.GREEN + t("menu.item.mhp") + ": " + spec.getMHP());
 			}
-			if(getEntity().getSizeInventory()>0){
-				par3List.add(EnumChatFormatting.BLUE +t("menu.item.isizeof")+ ": " + (getEntity().getSizeInventory()) + " " + t("menu.item.slots"));
-			}
-			if(getEntity().getRiderOffsets()!=null){
-				par3List.add(EnumChatFormatting.BLUE +t("menu.item.seats")+ ": " + getEntity().getRiderOffsets().length);
-			}
-			if (getEntity().isFictional()){
-				par3List.add(EnumChatFormatting.WHITE +t("menu.item.fictional"));
-			}
-			if (getEntity().additionalItemText()!=null){
-				for (String a : getEntity().additionalItemText()) {
-					if(!a.equals("")) {
-						par3List.add(EnumChatFormatting.LIGHT_PURPLE + a);
-					}
+		}
+		if(spec.getCargoCapacity()>0){
+			par3List.add(EnumChatFormatting.BLUE +t("menu.item.isizeof")+ ": " + (spec.getCargoCapacity()) + " " + t("menu.item.slots"));
+		}
+		if(spec.getRiderOffsets().length>0){
+			par3List.add(EnumChatFormatting.BLUE +t("menu.item.seats")+ ": " + spec.getRiderOffsets().length);
+		}
+		if (spec.isFictional()){
+			par3List.add(EnumChatFormatting.WHITE +t("menu.item.fictional"));
+		}
+		if (spec.getAdditionnalTooltip()!=null){
+			for (String a : spec.getAdditionnalTooltip().split("\n")) {
+				if(!a.equals("")) {
+					par3List.add(EnumChatFormatting.LIGHT_PURPLE + a);
 				}
 			}
 		}

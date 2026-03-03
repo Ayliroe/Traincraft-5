@@ -99,7 +99,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         dataWatcher.addObject(28, lightingDetailsJSONString());
 
         // --- UPDATE LINKS ---
-        for(AbstractTrains t: consist){
+        for(AbstractTrains t : consist){
             if(t.consistLeadID!=getEntityId()){
                 updateLinks();
             }

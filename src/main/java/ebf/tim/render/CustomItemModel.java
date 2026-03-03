@@ -17,6 +17,7 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 import train.client.core.ClientProxy;
+import train.common.Traincraft;
 import train.common.api.AbstractTrains;
 import train.common.api.blocks.TileRenderFacing;
 import train.common.items.ItemRollingStock;
@@ -105,7 +106,7 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         if(item==null){return;}
 
-        if (item.getItem() instanceof ItemRollingStock){
+        if (item.getItem() instanceof ItemRollingStock) {
             GL11.glPushMatrix();
 
             if(!ClientProxy.hdTransportItems && TextureManager.textureExists(((ItemRollingStock) item.getItem()).getIconResource())){
@@ -114,7 +115,7 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
                 return;
             }
 
-            AbstractTrains entity = ((ItemRollingStock) item.getItem()).entity;
+            AbstractTrains entity = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(item.getItem()).getEntity(null);
             scale = entity.getHitboxSize()[0];
             if(scale!=0){
                 scale = 1.3f/(scale /1.3f);
@@ -154,7 +155,7 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
 
             }
             ClientProxy.transportRenderer.doRender(
-                    ((ItemRollingStock)item.getItem()).entity,0,0,0, 0,0);
+                    entity,0,0,0, 0,0);
             GL11.glPopMatrix();
         } else if(blockTextures.containsKey(item.getItem())) {
             GL11.glPushMatrix();

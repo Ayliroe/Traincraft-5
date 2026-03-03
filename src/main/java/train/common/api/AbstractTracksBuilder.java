@@ -42,18 +42,19 @@ import java.util.UUID;
 public abstract class AbstractTracksBuilder extends EntityRollingStock {
 
     public ItemStack item;
-    private ItemStack BuilderInvent[];
+    private ItemStack[] BuilderInvent;
 
-    public int numBuilderSlots;
-    public int numBuilderSlots1;
-    public int numBuilderSlots2;
-    public int numBuilderSlots3;
-    public int inventoryBuilderSize;
+    public int numBuilderSlots = 8;
+    public int numBuilderSlots1 = 8;
+    public int numBuilderSlots2 = 8;
+    public int numBuilderSlots3 = 8;
+    public int MoreBuilderInvent = 20;
+    public int inventoryBuilderSize = numBuilderSlots + numBuilderSlots2 + numBuilderSlots1 + numBuilderSlots3 + MoreBuilderInvent;
 
     public double pushX;
     public double pushZ;
 
-    public int MoreBuilderInvent;
+
 
     public int trackfuel;
 
@@ -83,26 +84,17 @@ public abstract class AbstractTracksBuilder extends EntityRollingStock {
 
     public AbstractTracksBuilder(World world) {
         super(world);
-        initBuilder();
-
-        if(world instanceof WorldServer)
-            fakeplayer=new FakePlayer((WorldServer) world, getOwner()!=null?getOwner():new GameProfile(UUID.nameUUIDFromBytes(trainOwner==null||trainOwner.length()<1?"[Traincraft]".getBytes(): trainOwner.getBytes()),trainOwner==null||trainOwner.length()<1?"[Traincraft]": trainOwner));
-    }
-
-    public void initBuilder() {
-        numBuilderSlots = 8;
-        numBuilderSlots1 = 8;
-        numBuilderSlots2 = 8;
-        numBuilderSlots3 = 8;
-        MoreBuilderInvent = 20;
-        inventoryBuilderSize = numBuilderSlots + numBuilderSlots2 + numBuilderSlots1 + numBuilderSlots3 + MoreBuilderInvent;
-        BuilderInvent = new ItemStack[inventoryBuilderSize];
-        trackfuel = 0;
-        followTracks = true;
         dataWatcher.addObject(24, fuelTrain);
         dataWatcher.addObject(26, plannedHeight);
         dataWatcher.addObject(27, 1);
         dataWatcher.addObject(28, 0);
+
+        BuilderInvent = new ItemStack[inventoryBuilderSize];
+        trackfuel = 0;
+        followTracks = true;
+
+        if(world instanceof WorldServer)
+            fakeplayer=new FakePlayer((WorldServer) world, getOwner()!=null?getOwner():new GameProfile(UUID.nameUUIDFromBytes(trainOwner==null||trainOwner.length()<1?"[Traincraft]".getBytes(): trainOwner.getBytes()),trainOwner==null||trainOwner.length()<1?"[Traincraft]": trainOwner));
     }
 
     @Override

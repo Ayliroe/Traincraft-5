@@ -9,11 +9,12 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import train.common.library.TrainRecord;
+import train.common.api.LiquidManager.StandardTank;
 
 public abstract class AbstractBUnit extends LiquidTank implements IFluidHandler {
 
     private int update = 8;
-    private LiquidManager.StandardTank theTank;
+    private StandardTank theTank;
 
     public AbstractBUnit(World world) {
         super(world);
@@ -22,8 +23,10 @@ public abstract class AbstractBUnit extends LiquidTank implements IFluidHandler 
     @Override
     public void init(TrainRecord spec) {
         super.init(spec);
-        theTank = LiquidManager.getInstance().new FilteredTank(getTankCapacity()[0], LiquidManager.dieselFilter());
+        theTank = createTank();
     }
+
+    private StandardTank createTank() { return LiquidManager.getInstance().new FilteredTank(getTankCapacity()[0], LiquidManager.dieselFilter()); }
 
     @Override
     public void onUpdate() {
@@ -76,6 +79,7 @@ public abstract class AbstractBUnit extends LiquidTank implements IFluidHandler 
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
+        if (theTank == null) { theTank = createTank(); }
         if (nbttagcompound.hasKey("FluidName")) {
             fill(ForgeDirection.UNKNOWN, FluidStack.loadFluidStackFromNBT(nbttagcompound), true);
         }

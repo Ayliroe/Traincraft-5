@@ -12,7 +12,6 @@ import train.common.library.TrainRecord;
 
 public abstract class Tender extends Freight implements IFluidHandler {
 
-    private int maxTank;
     private int update = 8;
     private StandardTank theTank;
     public TileEntity[] blocksToCheck;
@@ -26,20 +25,16 @@ public abstract class Tender extends Freight implements IFluidHandler {
     @Override
     public void init(TrainRecord spec) {
         super.init(spec);
+        theTank = createTank();
         //FluidStack fluid = new FluidStack(FluidRegistry.WATER, 0);
-        FluidStack filter = LiquidManager.WATER_FILTER;
-
-        maxTank = getTankCapacity()[0];
-        if (filter == null)
-            theTank = LiquidManager.getInstance().new StandardTank(maxTank);
-        if (filter != null)
-            theTank = LiquidManager.getInstance().new FilteredTank(maxTank, filter);
-        IFluidTank[] tankArray = new IFluidTank[1];
-        tankArray[0] = theTank;
+        //IFluidTank[] tankArray = new IFluidTank[1];
+        //tankArray[0] = theTank;
     }
 
+    private StandardTank createTank() { return LiquidManager.getInstance().new FilteredTank(getCartTankCapacity(), LiquidManager.WATER_FILTER); }
+
     @Override
-    public int getSizeInventory() { return 16; };
+    public int getSizeInventory() { return 16; }
 
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
@@ -50,6 +45,7 @@ public abstract class Tender extends Freight implements IFluidHandler {
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
+        if (theTank == null) { theTank = createTank(); }
         theTank.readFromNBT(nbttagcompound);
     }
 
@@ -109,7 +105,7 @@ public abstract class Tender extends Freight implements IFluidHandler {
     }
 
     public int getCartTankCapacity() {
-        return maxTank;
+        return getTankCapacity()[0];
     }
 
     public StandardTank getTank() {
@@ -242,14 +238,6 @@ public abstract class Tender extends Freight implements IFluidHandler {
     }
 
     public void setLiquid(FluidStack liquid) {
-    }
-
-    public void setCapacity(int capacity) {
-        maxTank = capacity;
-    }
-
-    public int getCapacity() {
-        return maxTank;
     }
 
     @Override

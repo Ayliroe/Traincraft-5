@@ -12,7 +12,6 @@ import train.common.library.ItemIDs;
 import train.common.library.TrainRecord;
 
 public abstract class LiquidTank extends EntityRollingStock implements ISidedInventory {
-    private int capacity;
     protected ItemStack[] cargoItems;
     private int update = 8;
     private FluidTank theTank;
@@ -29,22 +28,16 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
     @Override
     public void init(TrainRecord spec) {
         super.init(spec);
-        this.capacity = getTankCapacity()[0];
-        this.theTank = new FluidTank(null, capacity);
-        cargoItems = new ItemStack[getSizeInventory()];
+        theTank = createTank();
+        cargoItems = createCargoItems();
     }
 
-    public int getAmount() {
-        return (this.dataWatcher.getWatchableObjectInt(18));
-    }
+    private FluidTank createTank() { return new FluidTank(null, getCapacity()); }
+    private ItemStack[] createCargoItems() { return new ItemStack[getSizeInventory()]; }
 
-    public int getLiquidItemID() {
-        return (this.dataWatcher.getWatchableObjectInt(4));
-    }
-
-    public String getLiquidName() {
-        return (this.dataWatcher.getWatchableObjectString(22));
-    }
+    public int getAmount() { return dataWatcher.getWatchableObjectInt(18); }
+    public int getLiquidItemID() { return dataWatcher.getWatchableObjectInt(4); }
+    public String getLiquidName() { return dataWatcher.getWatchableObjectString(22); }
 
     public FluidTank getTank() {
         return theTank;
@@ -53,13 +46,15 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         super.writeEntityToNBT(nbttagcompound);
-        this.theTank.writeToNBT(nbttagcompound);
+        theTank.writeToNBT(nbttagcompound);
     }
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
-        this.theTank.readFromNBT(nbttagcompound);
+        if (theTank == null) theTank = createTank();
+        theTank.readFromNBT(nbttagcompound);
+        if (cargoItems == null) cargoItems = createCargoItems();
     }
 
     @Override
@@ -98,15 +93,15 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
 
 
         if (theTank != null && theTank.getFluid() != null) {
-            this.dataWatcher.updateObject(18, theTank.getFluid().amount);
-            this.dataWatcher.updateObject(4, theTank.getFluid().getFluidID());
+            dataWatcher.updateObject(18, theTank.getFluid().amount);
+            dataWatcher.updateObject(4, theTank.getFluid().getFluidID());
             if (theTank.getFluid().getFluid() != null)
-                this.dataWatcher.updateObject(22, theTank.getFluid().getFluid().getUnlocalizedName());
+                dataWatcher.updateObject(22, theTank.getFluid().getFluid().getUnlocalizedName());
             handleMass();
         } else if (theTank != null && theTank.getFluid() == null) {
-            this.dataWatcher.updateObject(18, 0);
-            this.dataWatcher.updateObject(4, 0);
-            this.dataWatcher.updateObject(22, "");
+            dataWatcher.updateObject(18, 0);
+            dataWatcher.updateObject(4, 0);
+            dataWatcher.updateObject(22, "");
         }
 
         checkInvent(cargoItems[0]);
@@ -116,8 +111,8 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
      * Handle mass depending on liquid amount
      */
     protected void handleMass() {
-        if (this.ticksExisted % 10 != 0 && theTank.getFluid().amount > 0) {
-            this.mass = this.getDefaultMass();
+        if (ticksExisted % 10 != 0 && theTank.getFluid().amount > 0) {
+            mass = getDefaultMass();
             double preciseAmount = theTank.getFluid().amount;
             mass += (preciseAmount / 10000);//1 bucket = 1 kilo
         }
@@ -128,8 +123,8 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
         if (worldObj.isRemote) {
             return itemstack;
         }
-        this.update += 1;
-        if (this.update % 8 == 0 && itemstack != null) {
+        update += 1;
+        if (update % 8 == 0 && itemstack != null) {
             ItemStack emptyItem = itemstack.getItem().getContainerItem(itemstack);
             if (cargoItems[1] == null) {// If the output slot is empty...
                 if (theTank.getFluidAmount() == 0) {// Adding the first fluid to the tank...
@@ -178,15 +173,11 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
     }
 
     public void setLiquid(FluidTank liquid) {
-        this.theTank = liquid;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+        theTank = liquid;
     }
 
     public int getCapacity() {
-        return this.capacity;
+        return getTankCapacity()[0];
     }
 
     // private int placeInSpecialInvent(ItemStack itemstack1, int i, boolean doAdd) {
@@ -275,9 +266,9 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
 
     @Override
     public ItemStack getStackInSlotOnClosing(int par1) {
-        if (this.cargoItems[par1] != null) {
-            ItemStack var2 = this.cargoItems[par1];
-            this.cargoItems[par1] = null;
+        if (cargoItems[par1] != null) {
+            ItemStack var2 = cargoItems[par1];
+            cargoItems[par1] = null;
             return var2;
         } else {
             return null;

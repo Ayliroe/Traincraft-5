@@ -15,7 +15,6 @@ import train.common.library.TrainRecord;
 
 public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 
-	private int maxTank = 7 * 1000;
 	private int update = 8;
 	private StandardTank theTank;
 
@@ -29,20 +28,10 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	@Override
 	public void init(TrainRecord spec) {
 		super.init(spec);
-
-		maxTank = getTankCapacity()[0];
-
-		FluidStack filter = null;
-		String[] multiFilter = LiquidManager.dieselFilter();
-
-		if (filter == null && multiFilter == null) {
-			theTank = LiquidManager.getInstance().new StandardTank(maxTank);
-		}if (filter != null) {
-			theTank = LiquidManager.getInstance().new FilteredTank(maxTank, filter);
-		}if (multiFilter != null) {
-			theTank = LiquidManager.getInstance().new FilteredTank(maxTank, multiFilter);
-		}
+		theTank = createTank();
 	}
+
+	private StandardTank createTank() { return LiquidManager.getInstance().new FilteredTank(getTankCapacity()[0], LiquidManager.dieselFilter()); }
 
 	@Override
 	public int getSizeInventory() { return 10; }
@@ -89,12 +78,11 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
 		super.readEntityFromNBT(nbttagcompound);
+		if (theTank == null) theTank = createTank();
 		theTank.readFromNBT(nbttagcompound);
 	}
 
-	public int getCartTankCapacity() {
-		return maxTank;
-	}
+	public int getCartTankCapacity() { return getTankCapacity()[0]; }
 
 	private void placeInInvent(ItemStack itemstack1) {
 		for (int i = 1; i < cargoItems.length; i++) {
@@ -151,7 +139,7 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 
 	@Override
 	protected void updateFuel() {
-		if (ticksExisted%5==0 &&getTank().getFluidAmount()+100 < maxTank) {
+		if (ticksExisted%5==0 &&getTank().getFluidAmount()+100 < getCartTankCapacity()) {
 			FluidStack drain = null;
 			TileEntity[] blocksToCheck = new TileEntity[]{getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY - 1), MathHelper.floor_double(posZ)),
 					getWorld().getTileEntity(MathHelper.floor_double(posX), MathHelper.floor_double(posY + 2), MathHelper.floor_double(posZ)),
@@ -210,15 +198,6 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 				drain(ForgeDirection.UNKNOWN, (int)fuelRate, true);
 			}
 		}
-	}
-
-
-	public void setCapacity(int capacity) {
-		maxTank = capacity;
-	}
-
-	public int getCapacity() {
-		return maxTank;
 	}
 
 	@Override

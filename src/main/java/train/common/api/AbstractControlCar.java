@@ -54,27 +54,23 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
         inventorySize = numCargoSlots + numCargoSlots2 + numCargoSlots1 + 1;
         controlCarInventory = new ItemStack[inventorySize];
         dataWatcher.addObject(28, lightingDetailsJSONString());
-        if (connectedLocomotive == null)
-        {
+        if (connectedLocomotive == null) {
             dataWatcher.addObject(29, 0);
         }
-        else
-        {
+        else {
             dataWatcher.addObject(29, connectedLocomotive.getEntityId());
         }
     }
 
     @Override
-    protected void writeEntityToNBT(NBTTagCompound nbttagcompound)
-    {
+    protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         super.writeEntityToNBT(nbttagcompound);
         writeInventory(nbttagcompound);
 
         nbttagcompound.setString("lightingDetailsJSON", lightingDetailsJSONString());
     }
 
-    private void writeInventory(NBTTagCompound nbttagcompound)
-    {
+    private void writeInventory(NBTTagCompound nbttagcompound) {
         NBTTagList nbttaglist = new NBTTagList();
         for (int i = 0; i < controlCarInventory.length; i++)
         {

@@ -95,7 +95,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
         renderDistanceWeight = 2.0D;
 
-        dataWatcher.addObject(30, "");
+        dataWatcher.addObject(30, (String)"");
         dataWatcher.addObject(7, trainOwner);
         // 8 is unused
         dataWatcher.addObject(9, trainName);
@@ -104,6 +104,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         dataWatcher.addObject(13, trainCreator);
         shouldChunkLoad = ConfigHandler.CHUNK_LOADING;
         setShouldChunkLoad(shouldChunkLoad);
+        entity_data.putString("color", ""); // Crashes on NBT save if there isn't a default "color" string
     }
 
     /**
@@ -165,16 +166,12 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public int[] getTankCapacity()      { return new int[]{getSpec().getTankCapacity()}; }
     @Override
     public int getSizeInventory()       { return getSpec().getCargoCapacity(); }
-    public String[] additionalItemText(){ return getSpec().getAdditionnalTooltip().split("\n");}
     public String getDefaultSkin(){
         if(!getSpec().getColors().isEmpty()){
             return SkinRegistry.get(getSpec().getName()).get(getSpec().getColors().get(0)).addr;
         }
         return !getSpec().getColors().isEmpty() ? getSpec().getColors().get(0) : "";
     }
-    public String getCountry()          { return getSpec().getCountry(); }
-    public String getYear()             { return getSpec().getYear(); }
-    public boolean isFictional()        { return getSpec().isFictional(); }
     public float getOptimalDistance()   { return getSpec().getOptimalDistance() != 0 ? getSpec().getOptimalDistance() : getHitboxSize()[0]*0.5f; }
     public float[] getHitboxSize(){
         if(getSpec().getHitboxSize().length != 0) {
@@ -202,18 +199,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
             return new float[]{getHitboxSize()[0]*0.5f,-getHitboxSize()[0]*0.5f};
         }
         return new float[]{0,-(float)Math.abs(getSpec().getBogieLocoPosition())};
-    }
-
-    public String transportFuelType(){
-        if(this instanceof SteamTrain) {
-            return "Steam";
-        } else if(this instanceof DieselTrain) {
-            return "Diesel";
-        } else if(this instanceof ElectricTrain) {
-            return "Electric";
-        }
-
-        return "";
     }
 
     @SideOnly(Side.CLIENT)
@@ -275,12 +260,11 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * @see ItemRollingStock
      */
     public void setColor(int color) {
-        TrainRecord trainRecord = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(getCartItem().getItem());
-        if (trainRecord != null && !trainRecord.getLiveries().isEmpty()) {
-            if (color == -1 || !trainRecord.getLiveries().contains(DepreciatedUtil.getColorAsString(color))) {
-                color = color+1>trainRecord.getLiveries().size()-1?0:color+1;
+        if (!getSpec().getLiveries().isEmpty()) {
+            if (color == -1 || !getSpec().getLiveries().contains(DepreciatedUtil.getColorAsString(color))) {
+                color = color+1>getSpec().getLiveries().size()-1?0:color+1;
             }
-            entity_data.putString("color", trainRecord.getLiveries().get(color).addr);
+            entity_data.putString("color", getSpec().getLiveries().get(color).addr);
         }
         dataWatcher.updateObject(30, entity_data.toXMLString());
         getEntityData().setString("xml", entity_data.toXMLString());
@@ -313,6 +297,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         //super.writeEntityToNBT(nbttagcompound);
+        nbttagcompound.setString("spec", getSpec().getName());
         if (!getColor().isEmpty()) {
             nbttagcompound.setString("colorstr", getColor());
         }
@@ -348,6 +333,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         //super.readEntityFromNBT(nbttagcompound);
+        spec = Traincraft.instance.traincraftRegistry.getTrainRecord(nbttagcompound.getString("spec"));
         if (nbttagcompound.hasKey("color")) {
             setColor(nbttagcompound.getInteger("color"));
         } else if (nbttagcompound.hasKey("colorstr")) {

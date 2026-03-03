@@ -21,8 +21,10 @@ public abstract class Freight extends EntityRollingStock {
     @Override
     public void init(TrainRecord spec) {
         super.init(spec);
-        cargoItems = new ItemStack[getSizeInventory()];
+        cargoItems = createCargoItems();
     }
+
+    public ItemStack[] createCargoItems() { return new ItemStack[getSizeInventory()]; }
 
     /* IInventory implements */
     @Override
@@ -125,6 +127,7 @@ public abstract class Freight extends EntityRollingStock {
 
         slotsFilled = 0;
         NBTTagList nbttaglist = nbttagcompound.getTagList("Items", Constants.NBT.TAG_COMPOUND);
+        if (cargoItems == null) cargoItems = createCargoItems();
         cargoItems = new ItemStack[getSizeInventory()];
         for (int i = 0; i < nbttaglist.tagCount(); i++) {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);

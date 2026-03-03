@@ -13,11 +13,10 @@ import train.common.library.TrainRecord;
 
 public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 
-	protected int maxTank;
 	private int maxFuel = 20000;
 	private int update = 8;
 	private StandardTank theTank;
-	private IFluidTank[] tankArray = new IFluidTank[1];
+	//private IFluidTank[] tankArray = new IFluidTank[1];
 
 	public SteamTrain(World world) {
 		super(world);
@@ -28,10 +27,10 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	@Override
 	public void init(TrainRecord spec) {
 		super.init(spec);
-		maxTank = getTankCapacity()[0];
-		theTank = LiquidManager.getInstance().new FilteredTank(maxTank, LiquidManager.WATER_FILTER);
-		tankArray[0] = theTank;
+		theTank = createTank();
 	}
+
+	private StandardTank createTank() { return LiquidManager.getInstance().new FilteredTank(getCartTankCapacity(), LiquidManager.WATER_FILTER); }
 
 	@Override
 	public int getSizeInventory() { return 11; }
@@ -98,11 +97,12 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
 		super.readEntityFromNBT(nbttagcompound);
+		if (theTank == null) theTank = createTank();
 		theTank.readFromNBT(nbttagcompound);
 	}
 
 	public int getCartTankCapacity() {
-		return maxTank;
+		return getTankCapacity()[0];
 	}
 
 	private void placeInInvent(ItemStack itemstack1, SteamTrain loco) {
@@ -225,14 +225,6 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 			return ((dataWatcher.getWatchableObjectInt(24) * i) / maxFuel);
 		}
 		return (fuelTrain * i) / maxFuel;
-	}
-
-	public void setCapacity(int capacity) {
-		maxTank = capacity;
-	}
-
-	public int getCapacity() {
-		return maxTank;
 	}
 
 	@Override
