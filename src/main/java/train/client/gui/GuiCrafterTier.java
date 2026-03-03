@@ -12,7 +12,7 @@ import train.client.gui.sideTabs.SideTabRecipes;
 import train.client.gui.sideTabs.SideTabSlots;
 import train.common.Traincraft;
 import train.common.api.AbstractTrains;
-import train.common.api.TrainRecord;
+import train.common.library.TrainRecord;
 import train.common.containers.ContainerTier;
 import train.common.core.interfaces.ITier;
 import train.common.core.managers.TierRecipe;

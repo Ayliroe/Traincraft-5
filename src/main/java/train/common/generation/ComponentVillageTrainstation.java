@@ -10,7 +10,7 @@ import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureVillagePieces;
 import train.common.Traincraft;
 import train.common.api.EntityRollingStock;
-import train.common.api.TrainRecord;
+import train.common.library.TrainRecord;
 import train.common.blocks.TCBlocks;
 
 import java.io.BufferedReader;
@@ -59,12 +59,11 @@ public class ComponentVillageTrainstation extends StructureVillagePieces.Village
 			//TODO: nested loops = BAD
 			for (TrainstationRecordJson recordJson : recordsJson){
 				if (record.getName().equals(recordJson.entryName)) {
-
 					// Attempt to instantiate the stock. This should also cause a stack trace if it fails.
 					if ((EntityRollingStock) record.getEntity((World) null) != null) {
 						validRecords.add(record);
 					} else {
-						tcLog.error("Invalid trainstation stock: " + record.getName());
+						tcLog.warn("Invalid trainstation stock: " + record.getName());
 					}
 				}
 			}
@@ -212,7 +211,7 @@ public class ComponentVillageTrainstation extends StructureVillagePieces.Village
 			if (cart != null) {
 				cart.setLocationAndAngles(j + 0.5D, k, l + 0.5D, 90.0F, 0.0F);
 				cart.shouldChunkLoad = false;
-				List<TransportSkin> skins = new LinkedList<>(SkinRegistry.get(cart).values());
+				List<TransportSkin> skins = new LinkedList<>(SkinRegistry.get(cart.getName()).values());
 				if (skins != null && !skins.isEmpty()) {
 					cart.setColor(skins.get(new Random().nextInt((skins.size() - 1))).addr);
 				}

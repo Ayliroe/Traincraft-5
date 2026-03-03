@@ -8,9 +8,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
 import train.common.api.LiquidManager.StandardTank;
-import train.common.entity.rollingStockOld.special.EntityBUnitDD35;
-import train.common.entity.rollingStockOld.special.EntityBUnitEMDF3;
-import train.common.entity.rollingStockOld.special.EntityBUnitEMDF7;
+import train.common.library.TrainRecord;
 
 public abstract class Tender extends Freight implements IFluidHandler {
 
@@ -20,11 +18,17 @@ public abstract class Tender extends Freight implements IFluidHandler {
     public TileEntity[] blocksToCheck;
 
     public Tender(World world) {
-        this(new FluidStack(FluidRegistry.WATER, 0), world, LiquidManager.WATER_FILTER);
+        super(world);
+        dataWatcher.addObject(4, 0);
+        dataWatcher.addObject(27, 0);
     }
 
-    private Tender(FluidStack fluid, World world, FluidStack filter) {
-        super(world);
+    @Override
+    public void init(TrainRecord spec) {
+        super.init(spec);
+        //FluidStack fluid = new FluidStack(FluidRegistry.WATER, 0);
+        FluidStack filter = LiquidManager.WATER_FILTER;
+
         maxTank = getTankCapacity()[0];
         if (filter == null)
             theTank = LiquidManager.getInstance().new StandardTank(maxTank);
@@ -32,8 +36,6 @@ public abstract class Tender extends Freight implements IFluidHandler {
             theTank = LiquidManager.getInstance().new FilteredTank(maxTank, filter);
         IFluidTank[] tankArray = new IFluidTank[1];
         tankArray[0] = theTank;
-        dataWatcher.addObject(4, 0);
-        dataWatcher.addObject(27, 0);
     }
 
     @Override
@@ -176,14 +178,14 @@ public abstract class Tender extends Freight implements IFluidHandler {
                 }
             }
             if (drain == null && frontLink instanceof LiquidTank
-                    && !(frontLink instanceof EntityBUnitEMDF7) && !(frontLink instanceof EntityBUnitEMDF3) && !(frontLink instanceof EntityBUnitDD35)) {
+                    && !(frontLink instanceof AbstractBUnit)) {
                 if (getFluid() == null) {
                     drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
                 } else if (getFluid().getFluid() == FluidRegistry.WATER) {
                     drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
                 }
             } else if (drain == null && backLink instanceof LiquidTank
-                    && !(frontLink instanceof EntityBUnitEMDF7) && !(frontLink instanceof EntityBUnitEMDF3) && !(frontLink instanceof EntityBUnitDD35)) {
+                    && !(frontLink instanceof AbstractBUnit)) {
                 if (getFluid() == null) {
                     drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
                 } else if (getFluid().getFluid() == FluidRegistry.WATER) {

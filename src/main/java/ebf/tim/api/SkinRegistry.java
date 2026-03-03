@@ -11,16 +11,9 @@ public class SkinRegistry {
 
     public static HashMap<String, HashMap<String,TransportSkin>> liveryMap = new HashMap<String, HashMap<String,TransportSkin>>();
 
-    public static Map<String,TransportSkin> get(AbstractTrains t){
-        if(liveryMap.containsKey(t.getName())) {
-            return liveryMap.get(t.getName());
-        } else {
-            return new HashMap<String,TransportSkin>();
-        }
-    }
-    public static Map<String,TransportSkin> get(String t){
-        if(liveryMap.containsKey(t)) {
-            return liveryMap.get(t);
+    public static Map<String,TransportSkin> get(String trainName){
+        if(liveryMap.containsKey(trainName)) {
+            return liveryMap.get(trainName);
         } else {
             return new HashMap<String,TransportSkin>();
         }

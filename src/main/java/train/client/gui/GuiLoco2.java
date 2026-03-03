@@ -443,7 +443,7 @@ public class GuiLoco2 extends GuiContainer {
         fontRendererObj.drawStringWithShadow("Fuel base consumption: " + ((loco.fuelRate * 0.2) + "").substring(0, Math.min(((loco.fuelRate * 0.2) + "").length(), 4)) + " mB/s", 1,
                 70, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Fuel: " + loco.getFuel(), 1, 80, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Power: " + loco.getSpecMHP() + " Mhp", 1, 90, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Power: " + loco.getMHP() + " Mhp", 1, 90, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("State: " + loco.getState(), 1, 100, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Heat level: " + loco.getHeat(), 1, 110, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Maximum Speed: " + loco.getCurrentMaxSpeed() + " km/h" + " (" + (guiDetails.get("slowDown").getAsFloat()) + "km/h)", 1, 120, 0xFFFFFF);

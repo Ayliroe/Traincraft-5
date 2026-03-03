@@ -1,14 +1,12 @@
 package train.common.api;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
-import train.common.adminbook.ServerLogger;
 import train.common.api.blocks.EnumCargoTypes;
+import train.common.library.TrainRecord;
 
 public abstract class Freight extends EntityRollingStock {
     public ItemStack[] cargoItems;
@@ -18,6 +16,11 @@ public abstract class Freight extends EntityRollingStock {
     public Freight(World world) {
         super(world);
         dataWatcher.addObject(22, 0);
+    }
+
+    @Override
+    public void init(TrainRecord spec) {
+        super.init(spec);
         cargoItems = new ItemStack[getSizeInventory()];
     }
 
@@ -77,9 +80,6 @@ public abstract class Freight extends EntityRollingStock {
             dataWatcher.updateObject(22, slotsFilled);
         }
     }
-
-    @Override
-    public int getSizeInventory(){return getSpec()==null?getInventoryRows()*9:getSpec().getCargoCapacity();}
 
     @Override
     public int getInventoryStackLimit() {

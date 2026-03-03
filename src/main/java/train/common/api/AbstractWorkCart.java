@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.*;
@@ -15,7 +14,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
-import train.common.adminbook.ServerLogger;
+import train.common.library.TrainRecord;
 
 public abstract class AbstractWorkCart extends EntityRollingStock{
 	protected ItemStack[] furnaceItemStacks;
@@ -25,6 +24,11 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 
 	public AbstractWorkCart(World world) {
 		super(world);
+	}
+
+	@Override
+	public void init(TrainRecord spec) {
+		super.init(spec);
 		furnaceItemStacks = new ItemStack[getSizeInventory()];
 	}
 

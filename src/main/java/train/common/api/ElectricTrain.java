@@ -19,16 +19,12 @@ public abstract class ElectricTrain extends Locomotive {
 	public ElectricTrain(World world) {
 		super(world);
 		fuelTrain = 0;
-		//hasUranium = false;
-		//reduceExplosionChance = 1000;
 		Ignite = false;
 		timeSinceIgnited = 0;
 	}
 
 	@Override//todo:why was this so much?
-	public int getSizeInventory() {
-		return 16+(getInventoryRows()*9);
-	}
+	public int getSizeInventory() { return 16; }
 
 	@Override
 	public void onUpdate() {

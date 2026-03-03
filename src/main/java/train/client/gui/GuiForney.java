@@ -253,7 +253,7 @@ public class GuiForney extends GuiContainer {
         fontRendererObj.drawStringWithShadow("Brake reduction: " + guiDetails.get("brakeSlowDown"), 1, 50, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Fuel consumption: 1 every " + loco.fuelRate + " ticks", 1, 60, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Fuel: " + loco.getFuel(), 1, 70, 0xFFFFFF);
-        fontRendererObj.drawStringWithShadow("Power: " + loco.getSpecMHP() + " Mhp", 1, 80, 0xFFFFFF);
+        fontRendererObj.drawStringWithShadow("Power: " + loco.getMHP() + " Mhp", 1, 80, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("State: " + loco.getState(), 1, 90, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Heat level: " + loco.getHeat(), 1, 100, 0xFFFFFF);
         fontRendererObj.drawStringWithShadow("Maximum Speed: " + loco.getCurrentMaxSpeed(), 1, 110, 0xFFFFFF);

@@ -4,7 +4,7 @@ import fexcraft.tmt.slim.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import train.client.render.CustomModelRenderer;
-import train.common.entity.rollingStockOld.special.EntityTracksBuilder;
+import train.common.api.AbstractTracksBuilder;
 import train.common.library.Info;
 
 public class ModelBuilder extends ModelBase {
@@ -551,7 +551,7 @@ public class ModelBuilder extends ModelBase {
 		dig -= (float) elapsed / 500.0f;
 		lastframe = now;
 
-		if (((EntityTracksBuilder) entity).getState()) {
+		if (((AbstractTracksBuilder) entity).getState()) {
 			fexcraft.tmt.slim.Tessellator.bindTexture(new ResourceLocation(Info.resourceLocation,Info.trainsPrefix + "builder2.png"));
 		}
 		else {
@@ -662,7 +662,7 @@ public class ModelBuilder extends ModelBase {
 		rotor6.render(f5);
 		rotor7.render(f5);
 
-		if (((EntityTracksBuilder) entity).getState()) {
+		if (((AbstractTracksBuilder) entity).getState()) {
 			rotor1.rotateAngleX = dig + 0.0F;
 			rotor2.rotateAngleX = dig + 1.58F;
 			rotor3.rotateAngleX = dig + 0.58F;

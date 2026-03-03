@@ -11,9 +11,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import train.common.api.LiquidManager.StandardTank;
-import train.common.entity.rollingStockOld.special.EntityBUnitDD35;
-import train.common.entity.rollingStockOld.special.EntityBUnitEMDF3;
-import train.common.entity.rollingStockOld.special.EntityBUnitEMDF7;
+import train.common.library.TrainRecord;
 
 public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 
@@ -22,12 +20,21 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	private StandardTank theTank;
 
 	public DieselTrain(World world) {
-		this(world, null, LiquidManager.dieselFilter());
+		super(world);
+		dataWatcher.addObject(4, 0);
+		dataWatcher.addObject(27, 0);
+		dataWatcher.addObject(5, "");
 	}
 
-	private DieselTrain(World world, FluidStack filter, String[] multiFilter) {
-		super(world);
+	@Override
+	public void init(TrainRecord spec) {
+		super.init(spec);
+
 		maxTank = getTankCapacity()[0];
+
+		FluidStack filter = null;
+		String[] multiFilter = LiquidManager.dieselFilter();
+
 		if (filter == null && multiFilter == null) {
 			theTank = LiquidManager.getInstance().new StandardTank(maxTank);
 		}if (filter != null) {
@@ -35,15 +42,10 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 		}if (multiFilter != null) {
 			theTank = LiquidManager.getInstance().new FilteredTank(maxTank, multiFilter);
 		}
-		dataWatcher.addObject(4, 0);
-		dataWatcher.addObject(27, 0);
-		dataWatcher.addObject(5, "");
 	}
 
 	@Override
-	public int getSizeInventory() {
-		return 10+(getInventoryRows()*9);
-	}
+	public int getSizeInventory() { return 10; }
 
 	@Override
 	public void onUpdate() {
@@ -170,7 +172,7 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 					}
 				}
 			}
-			if(drain==null && frontLink instanceof LiquidTank && !(frontLink instanceof EntityBUnitEMDF7) && !(frontLink instanceof EntityBUnitEMDF3) && !(frontLink instanceof EntityBUnitDD35)){
+			if(drain==null && frontLink instanceof LiquidTank && !(frontLink instanceof AbstractBUnit)){
 				if (getFluid() == null) {
 					drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
 					if (drain == null){
@@ -181,7 +183,7 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 				} else {
 					drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 50), true);
 				}
-			} else if (drain==null && backLink instanceof LiquidTank && !(backLink instanceof EntityBUnitEMDF7) && !(backLink instanceof EntityBUnitEMDF3) && !(frontLink instanceof EntityBUnitDD35)){
+			} else if (drain==null && backLink instanceof LiquidTank && !(backLink instanceof AbstractBUnit)){
 				if (getFluid() == null) {
 					drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
 					if (drain == null){

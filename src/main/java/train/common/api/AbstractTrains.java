@@ -1,5 +1,6 @@
 package train.common.api;
 
+import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,13 +11,11 @@ import ebf.tim.entities.EntitySeat;
 import fexcraft.tmt.slim.ModelBase;
 import io.netty.buffer.ByteBuf;
 import mods.railcraft.api.carts.IMinecart;
-import mods.railcraft.api.carts.IRoutableCart;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.IEntityMultiPart;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -40,11 +39,9 @@ import train.common.adminbook.ItemAdminBook;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.util.DepreciatedUtil;
 import train.common.entity.TrustedPlayer;
-import train.common.items.ItemChunkLoaderActivator;
 import train.common.items.ItemRollingStock;
 import train.common.items.ItemWrench;
-import train.common.library.Info;
-import train.common.library.TraincraftRegistry;
+import train.common.library.*;
 import train.common.overlaytexture.OverlayTextureManager;
 
 import java.util.*;
@@ -58,153 +55,173 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public double Link2;
     public AbstractTrains frontLink;
     public AbstractTrains backLink;
-    //private Set chunks;
+    public ArrayList<AbstractTrains> consist;
+    public Integer consistLeadID=null;
+
     protected Ticket chunkTicket;
     public List<ChunkCoordIntPair> loadedChunks = new ArrayList<>();
     public boolean shouldChunkLoad = true;
     protected boolean itemdropped = false;
 
     public XmlBuilder entity_data = new XmlBuilder();
-    public TransportRenderCache render_cache=new TransportRenderCache();
+    public TransportRenderCache render_cache = new TransportRenderCache();
 
     public EntityBogie bogieFront=null;
     public EntityBogie bogieBack=null;
+
     public List<EntitySeat> seats = new LinkedList<>();
 
-    public ArrayList<AbstractTrains> consist;
-
-    public Integer consistLeadID=null;
-    /**
-     * A reference to EnumTrains containing all spec for this specific train
-     */
-    private TrainRecord trainSpec = null;
-
-    private TrainRenderRecord render = null;
-
-    public TrainRecord getSpec() {
-        if(trainSpec==null){
-            trainSpec = Traincraft.instance.traincraftRegistry.getTrainRecord(getClass());
-            //fallback if that failed
-            if (trainSpec == null) {
-                Traincraft.instance.traincraftRegistry.findTrainRecordByItem(getCartItem().getItem());
-            }
-        }
-        return trainSpec;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public TrainRenderRecord getRender() {
-        if (render == null) {
-            render = Traincraft.instance.traincraftRegistry.getTrainRenderRecord(getName());
-        }
-        return render;
-    }
-
-    public String getName() { return getSpec().getName(); }
-
-    //@Override
-    // public boolean shouldRenderInPass(int pass){return pass==1;}
-    /**
-     * The name of the train based on the item name
-     */
-    public String trainName = "";
-    /**
-     * determines the mass of the carts from 0 to 10 it's then multiplied by 10
-     * to pretend this is [tons]
-     */
-    public double mass = 1;
-    /**
-     * the default mass, not affected by weight of items/liquids
-     */
-    public double defaultMass = 1;
-    /**
-     * the power of locomotives, 0 for carts
-     */
-    public int power = 0;
-    /**
-     * Whether this train is locked and can only be used by the Owner
-     */
+    public String trainName = "";       // Name taken from the item name
+    public double mass = 1;             // Mass, multiplied by 10 to get tons
+    public double defaultMass = 1;      // Empty mass ignoring items/liquids
     public boolean locked = false;
-    /**
-     * <p>List of players trusted to use the train</p>
-     */
-    private List<TrustedPlayer> trustedList = new ArrayList<>();
-    /**
-     * The owner of the train: The user who spawned it
-     */
-    public String trainOwner = "";
+    private List<TrustedPlayer> trustedList = new ArrayList<>();    // Players trusted to use the train
+    public String trainOwner = "";      // User who spawned the train
+    public String trainCreator = "";    // User who created the train
+    public int uniqueID = -1;           // Unique ID given when created
+    public static int uniqueIDs = 1;    // Stores the last ID given
 
-
-
-    public void setTrainOwner(String trainOwner) {
-        this.trainOwner = trainOwner;
-    }
-
-    /**
-     * The creator of the train
-     */
-    public String trainCreator = "";
-
-    /**
-     * player who destroyed the train
-     */
-    protected String trainDestroyer = "";
-
-    /**
-     * unique ID for a train. ID is create when item is created. This allows to
-     * track a train not only in his entity form
-     */
-    public int uniqueID = -1;
-    /**
-     * supposed to store the last ID given;
-     */
-    public static int uniqueIDs = 1;
-
-    /**
-     * The distance this train has traveled
-     */
     public double trainDistanceTraveled = 0;
 
     public final Map<String, TextureDescription> textureDescriptionMap = new HashMap<>();
     private OverlayTextureManager overlayTextureContainer;
     private boolean acceptsOverlayTextures = false;
 
+    private TrainRecord spec = null;
+    private RenderRecord render = null;
 
     public AbstractTrains(World world) {
         super(world);
-        if(world==null){return;}
+
         renderDistanceWeight = 2.0D;
-        entity_data.putString("color", getDefaultSkin());
-        dataWatcher.addObject(30, entity_data.toXMLString());
+
+        dataWatcher.addObject(30, "");
         dataWatcher.addObject(7, trainOwner);
-        dataWatcher.addObject(8, trainDestroyer);
+        // 8 is unused
         dataWatcher.addObject(9, trainName);
         dataWatcher.addObject(10, numberOfTrains);
         dataWatcher.addObject(11, uniqueID);
         dataWatcher.addObject(13, trainCreator);
         shouldChunkLoad = ConfigHandler.CHUNK_LOADING;
         setShouldChunkLoad(shouldChunkLoad);
-
-
-        if (getSpec() != null) {
-            setDefaultMass(weightKg()*0.1);
-            setSize(0.98f, 1.98f);
-            setMinecartName(getName());
-        }
     }
 
-    public String getTrainOwner() {         return dataWatcher.getWatchableObjectString(7); }
-    public String getTrainName() {          return dataWatcher.getWatchableObjectString(9); }
-    public String getTrainCreator() {       return dataWatcher.getWatchableObjectString(13); }
+    /**
+     * IMPORTANT NOTICE
+     * Minecraft hates the idea of having custom constructors, and can only handle "Entity(World world)" when spawning the clientside entity in EntitySpawnHandler.java
+     * This function allows passing parameters on creation, ex. the stock's spec.
+     * It is called once inside TrainRecord.getEntity() for the server, and below in readSpawnData() for the client
+     * DO NOT PUT FUNCTIONS IN THE CONSTRUCTOR THAT RELY ON SUCH VALUES; as they won't be available yet. Put such functions inside init() instead.
+     */
+    public void init(TrainRecord spec) {
+        this.spec = spec;
+        setDefaultMass(weightKg()*0.1);
+        setSize(0.98f, 1.98f);
+        setMinecartName(getName());
+        entity_data.putString("color", getDefaultSkin());
+        dataWatcher.updateObject(30, entity_data.toXMLString());
+    }
 
+    /**
+     * <p>This method is called on the client side when an entity is being loaded in. The additionalData buffer is sent from the server
+     * and is populated by the server using the writeSpawnData method.</p>
+     * <br></br><p>"this is basically NBT for entity spawn, to keep data between client and server in sync because some data is not automatically shared."</p>
+     * @param additionalData The packet data stream
+     */
+    @Override
+    public void readSpawnData(ByteBuf additionalData) {
+        init(Traincraft.instance.traincraftRegistry.getTrainRecord(ByteBufUtils.readUTF8String(additionalData)));
+        setTrainLockedFromPacket(additionalData.readBoolean());
+    }
 
+    /**
+     * <p>This method is called on the server side when a connected client is loading the entity. Data written
+     * to the ByteBuffer will be synced with the client and available to the client through the readSpawnData method.</p>
+     * <br></br><p>"this is basically NBT for entity spawn, to keep data between client and server in sync because some data is not automatically shared."</p>
+     * @param buffer The packet data stream
+     */
+    @Override
+    public void writeSpawnData(ByteBuf buffer) {
+        ByteBufUtils.writeUTF8String(buffer, spec.getName());
+        buffer.writeBoolean(getTrainLockedFromPacket());
+    }
 
-    public String getTrainType(){           return TraincraftRegistry.findTrainType(this); }
+    public String getTrainOwner()       { return dataWatcher.getWatchableObjectString(7); }
+    public String getTrainName()        { return dataWatcher.getWatchableObjectString(9); }
+    public String getTrainCreator()     { return dataWatcher.getWatchableObjectString(13); }
 
+    private TrainRecord getSpec()       { return spec; }
+    public String getName()             { return getSpec().getName(); }
+    public Item getItem()               { return getSpec().getItem(); }
+    public String getTrainType()        { return TraincraftRegistry.findTrainType(this); }
+    public float getMHP()               { return getSpec().getMHP(); }
+    public float getMaxSpeed()          { return getSpec().getMaxSpeed(); }
+    public float weightKg()             { return getSpec().getMass()*10f; }
+    public int getFuelConsumption()     { return getSpec().getFuelConsumption(); }
+    public int getWaterConsumption()    { return getSpec().getWaterConsumption(); }
+    public int getHeatingTime()         { return getSpec().getHeatingTime(); }
+    public double getAccel()            { return getSpec().getAccelerationRate(); }
+    public double getBrake()            { return getSpec().getBrakeRate(); }
+    public int[] getTankCapacity()      { return new int[]{getSpec().getTankCapacity()}; }
+    @Override
+    public int getSizeInventory()       { return getSpec().getCargoCapacity(); }
+    public String[] additionalItemText(){ return getSpec().getAdditionnalTooltip().split("\n");}
+    public String getDefaultSkin(){
+        if(!getSpec().getColors().isEmpty()){
+            return SkinRegistry.get(getSpec().getName()).get(getSpec().getColors().get(0)).addr;
+        }
+        return !getSpec().getColors().isEmpty() ? getSpec().getColors().get(0) : "";
+    }
+    public String getCountry()          { return getSpec().getCountry(); }
+    public String getYear()             { return getSpec().getYear(); }
+    public boolean isFictional()        { return getSpec().isFictional(); }
+    public float getOptimalDistance()   { return getSpec().getOptimalDistance() != 0 ? getSpec().getOptimalDistance() : getHitboxSize()[0]*0.5f; }
+    public float[] getHitboxSize(){
+        if(getSpec().getHitboxSize().length != 0) {
+            return getSpec().getHitboxSize();
+        }
+        if(getSpec().getBogieLocoPosition() != 0) {
+            return new float[]{(float)Math.abs(getSpec().getBogieLocoPosition())+(Math.abs(getOptimalDistance()*2f)),2f,1f};
+        }
+        return new float[]{Math.abs((getOptimalDistance()*2)),2f,1f};
+    }
+    @Override
+    public boolean shouldRiderSit()     { return getSpec().getShouldRiderSit(); }
+    public float[][] getRiderOffsets()  { return getSpec().getRiderOffsets(); }
+    public AbstractTrains getEntity(World world) { return getSpec().getEntity(world); }
 
-    public AbstractTrains(World world, double x, double y, double z) {
-        this(world);
-        setPosition(x, y, z);
+    /**defines the points that the entity uses for path-finding and rotation, with 0 being the entity center.
+     * Usually the point where the front and back bogies would connect to the transport.
+     * Or the center of the frontmost and backmost wheel if there are no bogies.
+     * The first value is the back point, the second is the front point
+     * example:
+     * return new float{2f, -1f};
+     * may not return null*/
+    public float[] rotationPoints() {
+        if(getSpec().getBogieLocoPosition() == 0){
+            return new float[]{getHitboxSize()[0]*0.5f,-getHitboxSize()[0]*0.5f};
+        }
+        return new float[]{0,-(float)Math.abs(getSpec().getBogieLocoPosition())};
+    }
+
+    public String transportFuelType(){
+        if(this instanceof SteamTrain) {
+            return "Steam";
+        } else if(this instanceof DieselTrain) {
+            return "Diesel";
+        } else if(this instanceof ElectricTrain) {
+            return "Electric";
+        }
+
+        return "";
+    }
+
+    @SideOnly(Side.CLIENT)
+    public RenderRecord getRender() {
+        if (render == null) {
+            render = Traincraft.instance.traincraftRegistry.getTrainRenderRecord(getName());
+        }
+        return render;
     }
 
     @Override
@@ -220,29 +237,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @SideOnly(Side.CLIENT)
     public float getShadowSize() {
         return 0.0F;
-    }
-
-
-    /**
-     * <p>This method is called on the client side when an entity is being loaded in. The additionalData buffer is sent from the server
-     * and is populated by the server using the writeSpawnData method.</p>
-     * <br></br><p>"this is basically NBT for entity spawn, to keep data between client and server in sync because some data is not automatically shared."</p>
-     * @param additionalData The packet data stream
-     */
-    @Override
-    public void readSpawnData(ByteBuf additionalData) {
-        locked = additionalData.readBoolean();
-    }
-
-    /**
-     * <p>This method is called on the server side when a connected client is loading the entity. Data written
-     * to the ByteBuffer will be synced with the client and available to the client through the readSpawnData method.</p>
-     * <br></br><p>"this is basically NBT for entity spawn, to keep data between client and server in sync because some data is not automatically shared."</p>
-     * @param buffer The packet data stream
-     */
-    @Override
-    public void writeSpawnData(ByteBuf buffer) {
-        buffer.writeBoolean(locked);
     }
 
     public abstract boolean isLinked();
@@ -293,15 +287,15 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public void setColor(String color) {
-        if (SkinRegistry.get(this) != null && SkinRegistry.get(this).size()>0) {
-            if (color.equals("-1") || !SkinRegistry.get(this).containsKey(color)) {
+        if (SkinRegistry.get(getSpec().getName()) != null && SkinRegistry.get(getSpec().getName()).size()>0) {
+            if (color.equals("-1") || !SkinRegistry.get(getSpec().getName()).containsKey(color)) {
                 List<TransportSkin> skins = new ArrayList<>();
-                skins.addAll(SkinRegistry.get(this).values());
+                skins.addAll(SkinRegistry.get(getSpec().getName()).values());
                 color = (skins.get(skins.indexOf(color)+1>skins.size()-1?0:skins.indexOf(color)+1).addr);
             }
         }
 
-        entity_data.putString("color", SkinRegistry.get(this).get(color).addr);
+        entity_data.putString("color", SkinRegistry.get(getSpec().getName()).get(color).addr);
         dataWatcher.updateObject(30, entity_data.toXMLString());
         getEntityData().setString("xml", entity_data.toXMLString());
     }
@@ -313,7 +307,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
                 return entity_data.getString("color");
             }
         }
-        return SkinRegistry.get(this).get(0).addr;
+        return SkinRegistry.get(getSpec().getName()).get(0).addr;
     }
 
     @Override
@@ -532,16 +526,16 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
 
-    public void setTicket(ForgeChunkManager.Ticket ticket) {
+    public void setTicket(Ticket ticket) {
         chunkTicket = ticket;
     }
 
-    public ForgeChunkManager.Ticket getTicket() {
+    public Ticket getTicket() {
         return chunkTicket;
     }
 
     public void requestTicket() {
-        ForgeChunkManager.Ticket chunkTicket = ForgeChunkManager.requestTicket(Traincraft.instance, getWorld(), ForgeChunkManager.Type.ENTITY);
+        Ticket chunkTicket = ForgeChunkManager.requestTicket(Traincraft.instance, getWorld(), ForgeChunkManager.Type.ENTITY);
         if (chunkTicket != null) {
             chunkTicket.setChunkListDepth(25);
             chunkTicket.bindEntity(this);
@@ -770,7 +764,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
 
-    public Item getItem(){return getSpec().getItem();}
+
 
 
     /**
@@ -785,85 +779,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public ItemStack getCartItem() {
         return new ItemStack(getItem());
     }
-    /**
-     * Functionality imported from TC5
-     */
-
-    public String transportcountry(){return "";}
-
-    public String transportYear(){return "";}
-
-    public String transportFuelType(){
-        if(this instanceof SteamTrain) {
-            return "Steam";
-        } else if(this instanceof DieselTrain) {
-            return "Diesel";
-        } else if(this instanceof ElectricTrain) {
-            return "Electric";
-        }
-
-        return "";
-    }
-
-    public boolean isFictional(){return false;}
-
-    public String[] additionalItemText(){return getSpec()==null?null:getSpec().getAdditionnalTooltip().split("\n");}
-
-    /**defines the size of the inventory row by row, not counting any special slots like for fuel.
-     * end result number of slots is this times 9. plus any crafting/fuel slots
-     * may not return null*/
-    public int getInventoryRows(){return 0;}
-
-    /**defines the capacity of the fluidTank tank.
-     * each value defibes another tank.
-     * Usually value is 1,000 *the cubic meter capacity, so 242 gallons, is 0.9161 cubic meters, which is 916.1 tank capacity
-     * mind you one water bucket is values at 1000, a full cubic meter of water.
-     *example:
-     * return new int[]{11000, 1000};
-     * may return null*/
-    public int[] getTankCapacity(){return getSpec()==null?new int[]{0}:new int[]{getSpec().getTankCapacity()};}
-
-    /**defines the rider position offsets, with 0 being the center of the entity.
-     * Each set of coords represents a new rider seat, with the first one being the "driver"
-     * example:
-     * return new float[][]{{x1,y1,z1},{x2,y2,z2}, etc...};
-     * may return null*/
-    public float[][] getRiderOffsets(){return null;}
-
-
-    /**
-     * NOTE: either this or getOptimalDistance MUST be overidden.
-     *   bad things will happen if you don't use at least one.
-     * returns the size of the hitbox in blocks.
-     * example:
-     * return new float[]{x,y,z};
-     * may not return null*/
-    public float[] getHitboxSize(){
-
-        if(getSpec()!=null && getSpec().getBogieLocoPosition()!=0){
-            return new float[]{(float)Math.abs(getSpec().getBogieLocoPosition())+(Math.abs(getOptimalDistance(null)*2f)),2f,1f};
-        }
-
-        return new float[]{Math.abs((getOptimalDistance(null)*2)),2f,1f};}
-
-    /**
-     * LEGACY METHOD, still supported, but really, use getHitboxSize instead.
-     * Gets the optimal distance between linked carts. This is called on both
-     * carts and added together to determine the optimal rest distance between
-     * linked carts. The LinkageManager will attempt to maintain this distance
-     * between linked carts at all times. Default =
-     * LinkageManager.OPTIMAL_DISTANCE
-     * ETERNAL's NOTE: because this is forcing the value of EntityMinecart, it's actually a call to the super but using this instance. Not actually an infinate look like compiler thinks.
-     *
-     * @param cart The cart that you are linked with.
-     * @return The optimal rest distance
-     */
-    public float getOptimalDistance(EntityMinecart cart) {
-        return getHitboxSize()[0]*0.5f;
-    }
-
-    /**defines the weight of the transport.*/
-    public float weightKg(){return (float)getSpec().getMass()*10f;}
 
         /*
     <h1>Bogies and models</h1>
@@ -877,24 +792,13 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         return null;
     }
 
-    /**defines the points that the entity uses for path-finding and rotation, with 0 being the entity center.
-     * Usually the point where the front and back bogies would connect to the transport.
-     * Or the center of the frontmost and backmost wheel if there are no bogies.
-     * The first value is the back point, the second is the front point
-     * example:
-     * return new float{2f, -1f};
-     * may not return null*/
-    public float[] rotationPoints(){
-        if(getSpec()==null || getSpec().getBogieLocoPosition()==0){
-            return new float[]{getHitboxSize()[0]*0.5f,-getHitboxSize()[0]*0.5f};
-        }
-        return new float[]{0,-(float)Math.abs(getSpec().getBogieLocoPosition())};}
+
 
     /**defines the scale to render the model at. Default is 0.0625*/
     public float[][] getRenderScale(){return new float[][]{getRender().getScale()};}
 
-    /**defines the scale to render the model at. Default is 0.65*/
-    public float getPlayerScale(){return 0.65f;}
+    /**defines the scale to render the model at. Default is 1*/
+    public float getPlayerScale(){return 1f;}
 
     /**returns the x/y/z offset each model should render at, with 0 being the entity center, in order with getModels
      * example:
@@ -911,33 +815,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @SideOnly(Side.CLIENT)
     public float[][] modelRotations(){return new float[][]{getRender().getRotate()};}
 
-    /**event is to add skins for the model to the skins registry on mod initialization.
-     * this function can be used to register multiple skins, one after another.
-     * example:
-     * SkinRegistry.addSkin(class, MODID, "folder/mySkin.png", new int[][]{{oldHex, newHex},{oldHex, newHex}, etc... }, displayName, displayDescription);
-     * the int[][] for hex recolors may be null.
-     * hex values use "0x" in place of "#"
-     * "0xff00aa" as an example.
-     * the first TransportSkin added to the registry for a transport class will be the default
-     * additionally the addSkin function may be called from any other class at any time.
-     * the registerSkins method is only for organization and convenience.*/
 
-    // Removed in favor of json-based setup
-    /*public void registerSkins(){
-        for (String col : getSpec().getColors()) {
-            SkinRegistry.addSkin(getName(), Info.resourceLocation+":"+ col + ".png", col);
-        }
-    }*/
 
-    /**
-     * return the name for the default TransportSkin of the transport.
-     */
-    public String getDefaultSkin(){
-        if(getSpec().getColors()!=null && getSpec().getColors().size()>0){
-            return SkinRegistry.get(this).get(getSpec().getColors().get(0)).addr;
-        }
-        return getSpec().getColors().size()>0?getSpec().getColors().get(0):"";
-    }
 
     /**returns a list of models to be used for the transport
      * example:
@@ -957,7 +836,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public TrainSound getHorn(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
+        SoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
         if(sound != null && !sound.getHornString().isEmpty()){
             return new TrainSound(sound.getHornString(),sound.getHornVolume(),1f, 0);
         }
@@ -969,7 +848,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public TrainSound getRunningSound(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
+        SoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
         if(sound != null && !sound.getRunString().isEmpty()){
             if(sound.getSoundChangeWithSpeed()){
                 return new TrainSound(sound.getRunString(), sound.getRunVolume(), 0.4f, sound.getRunSoundLength()).enableRunningPitch();
@@ -982,7 +861,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
 
     public TrainSound getIdleSound(){
-        TrainSoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
+        SoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
         if(sound != null && !sound.getIdleString().isEmpty()){
             return new TrainSound(sound.getIdleString(),sound.getIdleVolume(),0.001F, sound.getIdleSoundLength());
         }
@@ -994,9 +873,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public World func_82194_d() {
         return getWorld();
     }
-
-    @Override
-    public int getSizeInventory() {return 0;}
 
     @Override
     public ItemStack getStackInSlot(int p_70301_1_) {return null;}

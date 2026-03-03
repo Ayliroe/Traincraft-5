@@ -8,14 +8,20 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
+import train.common.library.TrainRecord;
 
 public abstract class AbstractBUnit extends LiquidTank implements IFluidHandler {
 
     private int update = 8;
-    private final LiquidManager.StandardTank theTank;
+    private LiquidManager.StandardTank theTank;
 
     public AbstractBUnit(World world) {
         super(world);
+    }
+
+    @Override
+    public void init(TrainRecord spec) {
+        super.init(spec);
         theTank = LiquidManager.getInstance().new FilteredTank(getTankCapacity()[0], LiquidManager.dieselFilter());
     }
 

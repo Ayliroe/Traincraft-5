@@ -28,31 +28,27 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import train.client.render.RenderEnum;
-import train.common.api.AbstractTrains;
 import train.common.api.EntityBogie;
 import train.common.api.LiquidManager;
-import train.common.api.TrainRecord;
 import train.common.blocks.TCBlocks;
 import train.common.core.CommonProxy;
 import train.common.core.CreativeTabTraincraft;
 import train.common.core.EntityIds;
 import train.common.core.TrainModCore;
 import train.common.core.handlers.*;
-import train.common.entity.rollingStock.EntityPassengerCar1;
 import train.common.entity.zeppelin.EntityZeppelinOneBalloon;
 import train.common.entity.zeppelin.EntityZeppelinTwoBalloons;
 import train.common.generation.ComponentVillageTrainstation;
 import train.common.generation.WorldGenWorld;
 import train.common.items.TCItems;
-import train.common.library.EnumSounds;
-import train.common.library.EnumTrains;
 import train.common.library.Info;
+import train.common.library.RenderRecord;
+import train.common.library.SoundRecord;
+import train.common.library.TrainRecord;
 import train.common.library.TraincraftRegistry;
 import train.common.recipes.AssemblyTableRecipes;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
@@ -108,8 +104,8 @@ public class Traincraft {
     public static final SimpleNetworkWrapper gsfsrChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsReturnChannel");
 
     public List<TrainRecord> trainRecords;
-    public List<RenderEnum> renderRecords;
-    public List<EnumSounds> soundRecords;
+    public List<RenderRecord> renderRecords;
+    public List<SoundRecord> soundRecords;
     public List<TrainRecord> trainstationRecords;
     public final TraincraftRegistry traincraftRegistry = new TraincraftRegistry();
 
@@ -229,13 +225,13 @@ public class Traincraft {
         EntityRegistry.registerModEntity(EntityBogie.class, "Entity Front Bogie", EntityIds.LOCOMOTIVE_BOGIE, Traincraft.instance, 512, 3, true);//front bogie
         EntityRegistry.registerModEntity(EntityZeppelinOneBalloon.class, "zeppelin big", EntityIds.ZEPPELIN_BIG, Traincraft.instance, 512, 1, true);//zepplin big
         EntityRegistry.registerModEntity(EntitySeat.class, "Seat", 16, Traincraft.instance,512,3,true);//seat
-        trainRecords = EnumTrains.initTrainRecords();
-        renderRecords = RenderEnum.initRenderRecords();
-        soundRecords = EnumSounds.initSoundRecords();
-        trainstationRecords = ComponentVillageTrainstation.initTrainstationRecords();
+        trainRecords = TrainRecord.initTrainRecords();
+        renderRecords = RenderRecord.initRenderRecords();
+        soundRecords = SoundRecord.initSoundRecords();
         for(TrainRecord trains : trainRecords){
             TraincraftRegistry.registerTransport(trains);
         }
+        trainstationRecords = ComponentVillageTrainstation.initTrainstationRecords();
 
         /* Liquid FX */
         proxy.registerTextureFX();

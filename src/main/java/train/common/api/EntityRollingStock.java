@@ -18,7 +18,6 @@ import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.boss.EntityDragonPart;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -44,7 +43,6 @@ import train.common.entity.CollisionBox;
 import train.common.entity.EntityHitbox;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemRollingStock;
-import train.common.items.ItemWrench;
 import train.common.library.BlockIDs;
 
 import java.util.ArrayList;
@@ -94,15 +92,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
 
     public EntityRollingStock(World world) {
         super(world);
-        initRollingStock(world);
-    }
-
-
-    public GameProfile getOwner() {
-        return CartTools.getCartOwner(this);
-    }
-
-    public void initRollingStock(World world) {
         dataWatcher.addObject(14, 0);
         dataWatcher.addObject(21, 0);
 
@@ -110,9 +99,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
         isImmuneToFire = true;
         setSize(0.25f,0.25f);
         yOffset = 0;
-
         linkageNumber = 0;
-
         entityCollisionReduction = 0.8F;
 
         consist = new ArrayList<AbstractTrains>();
@@ -127,10 +114,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         maxSpeedAirLateral = defaultMaxSpeedAirLateral;
         maxSpeedAirVertical = defaultMaxSpeedAirVertical;
 
-        /**
-         * Trains are always rendered even if out player's sight => no more
-         * flickering/disappearing
-         */
         if (ConfigHandler.FLICKERING) {
             ignoreFrustumCheck = true;
         }
@@ -140,6 +123,10 @@ public abstract class EntityRollingStock extends AbstractTrains {
         }
 
         setCollisionHandler(null);
+    }
+
+    public GameProfile getOwner() {
+        return CartTools.getCartOwner(this);
     }
 
 
@@ -156,7 +143,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
      */
     @Override
     public void readSpawnData(ByteBuf additionalData) {
-        setTrainLockedFromPacket(additionalData.readBoolean());
+        super.readSpawnData(additionalData);
         int numOfTrustedPlayers = additionalData.readInt();
         for (int i = 0; i < numOfTrustedPlayers; i++) {
             getTrustedList().add(new TrustedPlayer(ByteBufUtils.readUTF8String(additionalData), additionalData.readBoolean()));
@@ -174,7 +161,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
      */
     @Override
     public void writeSpawnData(ByteBuf buffer) {
-        buffer.writeBoolean(getTrainLockedFromPacket());
+        super.writeSpawnData(buffer);
         buffer.writeInt(getTrustedList().size());
         for (TrustedPlayer player : getTrustedList()) {
             ByteBufUtils.writeUTF8String(buffer, player.getDisplayName());
@@ -332,10 +319,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
                 getWorld().removeEntity(box);
             }
         }
-    }
-
-    public float getPlayerScale() {
-        return 1f;
     }
 
     /**
@@ -742,7 +725,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
         double vecX = other.posX - posX;
         double vecZ = other.posZ - posZ;
 
-        return MathHelper.sqrt_double(vecX * vecX + vecZ * vecZ) - (getOptimalDistance(other)+other.getOptimalDistance(this));
+        return MathHelper.sqrt_double(vecX * vecX + vecZ * vecZ) - (getOptimalDistance()+other.getOptimalDistance());
     }
 
     @Override
@@ -793,8 +776,8 @@ public abstract class EntityRollingStock extends AbstractTrains {
                 (float)(Math.abs(motionX)+Math.abs(motionZ));
     }
     double maxBoost(Block booster){
-        if(this instanceof Locomotive && ((Locomotive)this).getSpecMaxSpeed() > 0){
-            return Math.min(((Locomotive)this).getSpecMaxSpeed(),
+        if(this instanceof Locomotive && ((Locomotive)this).getMaxSpeed() > 0){
+            return Math.min(((Locomotive)this).getMaxSpeed(),
                     CommonUtil.getMaxRailSpeed(getWorld(), (BlockRailBase) booster,this, posX,posY,posZ));
         }
         return CommonUtil.getMaxRailSpeed(getWorld(), (BlockRailBase) booster,this, posX,posY,posZ);
@@ -915,29 +898,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
     @Override
     public int getMinecartType() { return 0; }
 
-
-
-
-    @Override
-    public float getMaxSpeedAirLateral() {
-        return maxSpeedAirLateral;
-    }
-
-    @Override
-    public void setMaxSpeedAirLateral(float value) {
-        maxSpeedAirLateral = value;
-    }
-
-    @Override
-    public float getMaxSpeedAirVertical() {
-        return maxSpeedAirVertical;
-    }
-
-    @Override
-    public void setMaxSpeedAirVertical(float value) {
-        maxSpeedAirVertical = value;
-    }
-
     /**
      * Used in SoundUpdaterRollingStock
      */
@@ -955,11 +915,9 @@ public abstract class EntityRollingStock extends AbstractTrains {
     @Override
     public List<ItemStack> getItemsDropped() {
         List<ItemStack> items = new ArrayList<ItemStack>();
-        if (getSpec() != null) {
-            items.add(ItemRollingStock.setPersistentData(new ItemStack(getItem()), this, getUniqueTrainID(), trainCreator, trainOwner, getColor()));
-            return items;
-        }
-        return null;
+
+        items.add(ItemRollingStock.setPersistentData(new ItemStack(getItem()), this, getUniqueTrainID(), trainCreator, trainOwner, getColor()));
+        return items;
     }
 
 
@@ -975,11 +933,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
             seats.set(seatNumber, seat);
         }
     }
-
-    public boolean shouldRiderSit(int seat){ return shouldRiderSit(); }
-
-    @Override
-    public boolean shouldRiderSit(){ return true; }
 
     @Override
     public boolean isItemValidForSlot(int i, ItemStack itemstack) { return true; }

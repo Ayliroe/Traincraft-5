@@ -104,10 +104,10 @@ public class EntitySeat extends Entity implements IEntityAdditionalSpawnData {
     @Override
     public boolean shouldRiderSit(){
         if (parent != null) {
-            return parent.shouldRiderSit(seatNumber);
+            return parent.shouldRiderSit();
         } else if (getWorld().getEntityByID(this.parentId) != null && getWorld().getEntityByID(this.parentId) instanceof EntityRollingStock) {
             parent = (EntityRollingStock) getWorld().getEntityByID(this.parentId);
-            return parent.shouldRiderSit(seatNumber);
+            return parent.shouldRiderSit();
         } else {
             this.setDead();
             return false;

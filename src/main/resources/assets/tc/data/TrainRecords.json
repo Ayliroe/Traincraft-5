@@ -2,7 +2,7 @@
   {
     "entryName": "freightCartRed",
     "internalName": "Freight Cart Red",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCart2",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightCart2",
     "trainType": "freight",
     "MHP": 0,
@@ -18,12 +18,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.47,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCartYellow",
     "internalName": "Freight Cart Yellow",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCart",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartChest",
     "trainType": "freight",
     "MHP": 0,
@@ -39,12 +46,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.47,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightWood",
     "internalName": "Freight Flat Cart Log",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightWood",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartWood",
     "trainType": "freight",
     "MHP": 0,
@@ -60,12 +74,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only Logs",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.85,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightHopper",
     "internalName": "Freight Hopper Green",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightGrain",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartGrain",
     "trainType": "freight",
     "MHP": 0,
@@ -81,12 +102,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: wheat, seeds",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightKClassRailBox",
     "internalName": "Freight K Class Rail Box",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightKClassRailBox",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartKClassRailBox",
     "trainType": "freight",
     "MHP": 0,
@@ -105,12 +133,19 @@
     "colors": [
       "Yellow",
       "Orange"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.725,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightShortCoveredHopper",
     "internalName": "Freight Short Covered Hopper",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightShortCoveredHopper",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartShortCoveredHopper",
     "trainType": "freight",
     "MHP": 0,
@@ -133,12 +168,19 @@
       "Lime",
       "Blue",
       "Yellow"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightLongCoveredHopper",
     "internalName": "Freight Long Covered Hopper",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightLongCoveredHopper",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartLongCoveredHopper",
     "trainType": "freight",
     "MHP": 0,
@@ -162,12 +204,19 @@
       "Green",
       "Orange",
       "Lime"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.05,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightOpenWagon",
     "internalName": "Freight Open Wagon",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightOpenWagon",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartOpenWagon",
     "trainType": "freight",
     "MHP": 0,
@@ -183,12 +232,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: blocks, vanilla items//\"train_hopper\" for open wagon => weird",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightHopperUS",
     "internalName": "Freight Hopper US",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightHopperUS",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightHopperUS",
     "trainType": "freight",
     "MHP": 0,
@@ -218,12 +274,19 @@
       "Magenta",
       "Orange",
       "Lime"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freight100TonHopper",
     "internalName": "Freight 100 Ton Hopper",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreight100TonHopper",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreight100TonHopper",
     "trainType": "freight",
     "MHP": 0,
@@ -244,12 +307,19 @@
       "Black",
       "Blue",
       "Grey"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "flatCartWoodUS",
     "internalName": "Freight Flat Cart Wood US",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFlatCartWoodUS",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFlatCartWoodUS",
     "trainType": "freight",
     "MHP": 0,
@@ -265,12 +335,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: wood stuff",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.74,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "bulkheadFlatCartWood",
     "internalName": "Freight Bulkhead Flat Cart",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityBulkheadFlatCart",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartBulkheadFlatCart",
     "trainType": "freight",
     "MHP": 0,
@@ -290,12 +367,19 @@
       "Brown",
       "Yellow",
       "Green"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCartUS",
     "internalName": "Freight Cart US",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCartUS",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightCartUS",
     "trainType": "freight",
     "MHP": 0,
@@ -328,12 +412,19 @@
       "Purple",
       "Red",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.56,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightBoxCartUS",
     "internalName": "Freight Box Cart US",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityBoxCartUS",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartBoxCartUS",
     "trainType": "freight",
     "MHP": 0,
@@ -366,12 +457,19 @@
       "Purple",
       "Orange",
       "Grey"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.65,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightBoxCartPRR",
     "internalName": "Freight Box Cart PRR",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityBoxCartPRR",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartBoxCartPRR",
     "trainType": "freight",
     "MHP": 0,
@@ -387,12 +485,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.05,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCartSmall",
     "internalName": "Freight Cart Small",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCartSmall",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightCartSmall",
     "trainType": "freight",
     "MHP": 0,
@@ -408,12 +513,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.45,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightMinetrain",
     "internalName": "Freight Minecart Yellow",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightMinetrain",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartMineTrain",
     "trainType": "freight",
     "MHP": 0,
@@ -429,12 +541,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: opaque blocks",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightGTNG",
     "internalName": "Freight GTNG Ore Wagon",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightGTNG",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightGTNG",
     "trainType": "freight",
     "MHP": 0,
@@ -450,12 +569,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: opaque blocks",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.025,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "flatCartWoodLogs",
     "internalName": "Freight Flat Logs",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightWood2",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightWood2",
     "trainType": "freight",
     "MHP": 0,
@@ -471,12 +597,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only logs",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.4,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightClosedRedBrown",
     "internalName": "Freight Cart Closed RedBrown",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightClosed",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightClosed",
     "trainType": "freight",
     "MHP": 0,
@@ -492,12 +625,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.32,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightOpenRedBrown",
     "internalName": "Freight Open RedBrown",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightOpen2",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightOpen2",
     "trainType": "freight",
     "MHP": 0,
@@ -513,12 +653,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.32,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightWagen_DB",
     "internalName": "Freight Wagon DB",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightWagenDB",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightWagon_DB",
     "trainType": "freight",
     "MHP": 0,
@@ -539,12 +686,19 @@
       "Green",
       "Yellow",
       "Blue"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "flatCarRails_DB",
     "internalName": "Freight Flat Cart Rails DB",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFlatCarRails_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFlatCartRail_DB",
     "trainType": "freight",
     "MHP": 0,
@@ -563,12 +717,19 @@
     "colors": [
       "Red",
       "Green"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.84,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "ASTFAutorack",
     "internalName": "Freight ASTF Autorack",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightASTFAutorack",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartASTFAutorack",
     "trainType": "freight",
     "MHP": 0,
@@ -582,14 +743,21 @@
     "tankCapacity": 0,
     "cargoCapacity": 36,
     "guiRenderScale": 18,
-    "additionnalTooltip": "Cargo: any | Stack limit 1",
+    "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 4.35,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "flatCarLogs_DB",
     "internalName": "Freight Flat Cart Logs DB",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFlatCarLogs_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFlatCartLogs_DB",
     "trainType": "freight",
     "MHP": 0,
@@ -608,12 +776,19 @@
     "colors": [
       "Red",
       "Green"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.84,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "slateWagon",
     "internalName": "Freight Slate Wagon",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightSlateWagon",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartSlateWagon",
     "trainType": "freight",
     "MHP": 0,
@@ -629,12 +804,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only stone and ores",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.75,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "iceWagon",
     "internalName": "Freight Ice Wagon",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightIceWagon",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartIceWagon",
     "trainType": "freight",
     "MHP": 0,
@@ -650,12 +832,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only ice",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.75,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCartGS4",
     "internalName": "Freight Cart GS4 Baggage",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightGS4_Baggage",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartGS4_Baggage",
     "trainType": "freight",
     "MHP": 0,
@@ -683,12 +872,19 @@
       "LightGrey",
       "Black",
       "LightBlue"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightGondola_DB",
     "internalName": "Freight Gondola DB",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightGondola_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightGondola_DB",
     "trainType": "freight",
     "MHP": 0,
@@ -707,12 +903,19 @@
     "colors": [
       "Red",
       "Green"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.84,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCenterBeam_Empty",
     "internalName": "Freight Center Beam Empty",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCenterbeam_Empty",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightCenterBeam_Empty",
     "trainType": "freight",
     "MHP": 0,
@@ -731,12 +934,19 @@
     "colors": [
       "Grey",
       "LightGrey"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCenterBeam_Wood1",
     "internalName": "Freight Center Beam Wood1",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCenterbeam_Wood_1",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightCenterBeam_Wood_1",
     "trainType": "freight",
     "MHP": 0,
@@ -756,12 +966,19 @@
       "Brown",
       "Blue",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCenterBeam_Wood2",
     "internalName": "Freight Center Beam Wood2",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCenterbeam_Wood_2",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightCenterBeam_Wood_2",
     "trainType": "freight",
     "MHP": 0,
@@ -781,12 +998,19 @@
       "Brown",
       "Yellow",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightWellcar",
     "internalName": "Freight Well Car",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightWellcar",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightWellcar",
     "trainType": "freight",
     "MHP": 0,
@@ -819,12 +1043,19 @@
       "Purple",
       "White",
       "Yellow"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightTrailer",
     "internalName": "Freight Trailer",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightTrailer",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightTrailer",
     "trainType": "freight",
     "MHP": 0,
@@ -853,12 +1084,19 @@
       "Purple",
       "Lime",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightDenverRioGrange",
     "internalName": "Denver Rio Grande Baggage",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightDenverRioGrande",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartDenverRioGrandeBaggage",
     "trainType": "freight",
     "MHP": 0,
@@ -878,12 +1116,19 @@
       "Yellow",
       "Red",
       "Green"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.15,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightMILWBaggage",
     "internalName": "MILW Baggage",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightBaggageMILW",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartBaggageMILW",
     "trainType": "freight",
     "MHP": 0,
@@ -899,12 +1144,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.675,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightheavyweight",
     "internalName": "Heavyweight Freight Car",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightHeavyweight",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartHeavyweightMailcar",
     "trainType": "freight",
     "MHP": 0,
@@ -920,12 +1172,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCartBamboo",
     "internalName": "Bamboo Flatcar Freight",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightBamboo",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightBamboo",
     "trainType": "freight",
     "MHP": 0,
@@ -958,12 +1217,19 @@
       "Purple",
       "Orange",
       "Grey"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.55,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightGermanPost",
     "internalName": "Freight German Post",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightGermanPost",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightGermanPost",
     "trainType": "freight",
     "MHP": 0,
@@ -983,12 +1249,19 @@
       "Yellow",
       "Red",
       "Blue"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.955,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightDepressedFlatbed",
     "internalName": "Freight Depressed Flatcar",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightDepressedFlatbed",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightDepressedFlatbed",
     "trainType": "freight",
     "MHP": 0,
@@ -1009,12 +1282,19 @@
       "Grey",
       "LightGrey",
       "Yellow"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightCarL",
     "internalName": "Freight Car L",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightCartL",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartFreightL",
     "trainType": "freight",
     "MHP": 0,
@@ -1033,12 +1313,19 @@
     "colors": [
       "Red",
       "Blue"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.85,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "freightHeavyweight",
     "internalName": "Freight Heavyweight Baggage",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityFreightHeavyweightBaggage",
+    "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "item": "minecartHeavyweightFreight",
     "trainType": "freight",
     "MHP": 0,
@@ -1057,12 +1344,19 @@
     "colors": [
       "Red",
       "Grey"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "passengerCartBlue",
     "internalName": "Passenger Blue",
-    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar1",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerBlue",
     "trainType": "passenger",
     "MHP": 0,
@@ -1097,12 +1391,29 @@
       "Yellow",
       "Skin17",
       "Skin19"
+    ],
+    "country": "us",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0,
+    "hitboxSize": [
+      3.9375,
+      1.875,
+      1.375
+    ],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1,
+        0.5,
+        0.2
+      ]
     ]
   },
   {
     "entryName": "passengerCartBlackSmall",
     "internalName": "Passenger Small Black",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassenger2",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassenger2",
     "trainType": "passenger",
     "MHP": 0,
@@ -1118,12 +1429,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passengerLongGreen",
     "internalName": "Passenger Green Long",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassenger5",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassenger5",
     "trainType": "passenger",
     "MHP": 0,
@@ -1142,12 +1466,25 @@
     "colors": [
       "Green",
       "Yellow"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerShortGreen",
     "internalName": "Passenger Short Green",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassenger7",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassenger7",
     "trainType": "passenger",
     "MHP": 0,
@@ -1163,12 +1500,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.4,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passenger_1class_DB",
     "internalName": "Passenger 1Class DB",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassenger_1class_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassenger8_1class_DB",
     "trainType": "passenger",
     "MHP": 0,
@@ -1184,12 +1534,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passenger_2class_DB",
     "internalName": "Passenger 2Class DB",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassenger_2class_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassenger9_2class_DB",
     "trainType": "passenger",
     "MHP": 0,
@@ -1208,12 +1571,25 @@
     "colors": [
       "Green",
       "Grey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerHighSpeedZeroED",
     "internalName": "Passenger High Speed Zero ED",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerHighSpeedCarZeroED",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerHighSpeedCarZeroED",
     "trainType": "passenger",
     "MHP": 0,
@@ -1229,12 +1605,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.17,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        0,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passengerTramNY",
     "internalName": "Passenger Tram NY",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerTramNY",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerTramNY",
     "trainType": "passenger",
     "MHP": 0,
@@ -1250,12 +1639,30 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.9,
+        1.2,
+        0.3
+      ],
+      [
+        -0.7,
+        1.2,
+        -0.3
+      ]
+    ]
   },
   {
     "entryName": "passengerAdler",
     "internalName": "Passenger Adler",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerAdler",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerAdler",
     "trainType": "passenger",
     "MHP": 0,
@@ -1271,12 +1678,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.05,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.1,
+        0.9,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passengerDBOriental",
     "internalName": "Passenger DB oriental",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerDBOriental",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerDBOriental",
     "trainType": "passenger",
     "MHP": 0,
@@ -1299,12 +1719,35 @@
       "Green",
       "Purple",
       "Red"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.25,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ],
+      [
+        -1,
+        1.2,
+        0
+      ],
+      [
+        -1,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerIC4_DSB_FG",
     "internalName": "Passenger IC4 DSB FG",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.PassengerIC4_DSB_FG",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartIC4_DSB_FG",
     "trainType": "passenger",
     "MHP": 0,
@@ -1320,12 +1763,25 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "Unfinished, Creative Only",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.65,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passengerIC4_DSB_FH",
     "internalName": "Passenger IC4 DSB FH",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.PassengerIC4_DSB_FH",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartIC4_DSB_FH",
     "trainType": "passenger",
     "MHP": 0,
@@ -1341,12 +1797,25 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "Unfinished, Creative Only",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.65,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passengerICE1_Class1",
     "internalName": "Passenger ICE 1st Class",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerICE_1class",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartICE1_1stClass",
     "trainType": "passenger",
     "MHP": 0,
@@ -1365,12 +1834,25 @@
     "colors": [
       "White",
       "Blue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerICE1_Class2",
     "internalName": "Passenger ICE 2nd Class",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerICE_2class",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartICE1_2ndClass",
     "trainType": "passenger",
     "MHP": 0,
@@ -1389,12 +1871,25 @@
     "colors": [
       "White",
       "Blue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerICE1_Restaurant",
     "internalName": "ICE Restaurant",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerICE_Restaurant",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartICE1_Restaurant",
     "trainType": "passenger",
     "MHP": 0,
@@ -1413,12 +1908,25 @@
     "colors": [
       "White",
       "Blue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerGS4",
     "internalName": "Passenger GS4",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerGS4",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartGS4_Passenger",
     "trainType": "passenger",
     "MHP": 0,
@@ -1448,12 +1956,25 @@
       "Blue",
       "Black",
       "LightBlue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerGS4Observatory",
     "internalName": "Passenger GS4 Observatory",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerGS4_Observatory",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartGS4_Observatory",
     "trainType": "passenger",
     "MHP": 0,
@@ -1481,12 +2002,35 @@
       "LightGrey",
       "Black",
       "LightBlue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -0.2,
+        1.2,
+        -0.15
+      ],
+      [
+        -2.7,
+        1.2,
+        -0.3
+      ],
+      [
+        -2.7,
+        1.2,
+        -0.3
+      ]
     ]
   },
   {
     "entryName": "passengerGS4_Tail",
     "internalName": "Passenger GS4 Tail",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerGS4_Tail",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartGS4_Tail",
     "trainType": "passenger",
     "MHP": 0,
@@ -1514,12 +2058,35 @@
       "LightGrey",
       "Black",
       "LightBlue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -0.2,
+        1.2,
+        0.3
+      ],
+      [
+        0.9,
+        1.2,
+        -0.3
+      ],
+      [
+        0.9,
+        1.2,
+        -0.3
+      ]
     ]
   },
   {
     "entryName": "passengerDenverRioGrange",
     "internalName": "Passenger Denver Rio Grande",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerDenverRioGrande",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartDenverRioGrandePassenger",
     "trainType": "passenger",
     "MHP": 0,
@@ -1539,12 +2106,40 @@
       "Yellow",
       "Red",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.15,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.2,
+        1.5,
+        0
+      ],
+      [
+        -2.2,
+        1.5,
+        0
+      ],
+      [
+        -2.2,
+        1.5,
+        0
+      ],
+      [
+        -2.2,
+        1.5,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerDenverRioGrandeCombo",
     "internalName": "Passenger Denver Rio Grande Combo",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerDenverRioGrandeCombo",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartDenverRioGrandeCombo",
     "trainType": "passenger",
     "MHP": 0,
@@ -1564,12 +2159,40 @@
       "Yellow",
       "Red",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.15,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.6,
+        1.5,
+        0
+      ],
+      [
+        0.2,
+        1.4,
+        0
+      ],
+      [
+        0.2,
+        1.4,
+        0
+      ],
+      [
+        0.2,
+        1.4,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerRheingold",
     "internalName": "Passenger Rheingold",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerRheingold",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerRheingold",
     "trainType": "passenger",
     "MHP": 0,
@@ -1593,12 +2216,45 @@
       "Magenta",
       "Lime",
       "Brown"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.94,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.2,
+        1.2,
+        -0.1
+      ],
+      [
+        -1,
+        1.2,
+        -0.1
+      ],
+      [
+        -1,
+        1.2,
+        -0.1
+      ],
+      [
+        -1,
+        1.2,
+        -0.1
+      ],
+      [
+        -1,
+        1.2,
+        -0.1
+      ]
     ]
   },
   {
     "entryName": "passengerRheingoldDining1",
     "internalName": "Rheingold Dining",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerRheingoldDining1",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartPassengerRheingoldDining1",
     "trainType": "work",
     "MHP": 0,
@@ -1621,12 +2277,34 @@
       "LightBlue",
       "Magenta",
       "Lime"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0,
+    "hitboxSize": [
+      0.55,
+      2.1,
+      1
+    ],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        -0.5,
+        0
+      ],
+      [
+        3,
+        -0.5,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerRheingoldDining2",
     "internalName": "Rheingold Dining Alternate",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerRheingoldDining2",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartPassengerRheingoldDining2",
     "trainType": "work",
     "MHP": 0,
@@ -1649,12 +2327,25 @@
       "LightBlue",
       "Magenta",
       "Lime"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.87,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerRheingoldPanorama",
     "internalName": "Rheingold Panorama",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerRheingoldPanorama",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerRheingoldPanorama",
     "trainType": "passenger",
     "MHP": 0,
@@ -1673,12 +2364,40 @@
     "colors": [
       "Blue",
       "Red"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.95,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1,
+        0.4,
+        0
+      ],
+      [
+        -1,
+        0.4,
+        0
+      ],
+      [
+        -1,
+        0.4,
+        0
+      ],
+      [
+        -1,
+        0.4,
+        0
+      ]
     ]
   },
   {
     "entryName": "passengerMILW",
     "internalName": "Passenger MILW",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerMILW",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerMILW",
     "trainType": "passenger",
     "MHP": 0,
@@ -1694,12 +2413,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passengerMILWTail",
     "internalName": "Passenger MILW Tail",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerMILWTail",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerMILWTail",
     "trainType": "passenger",
     "MHP": 0,
@@ -1715,12 +2447,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "passengerBamboo",
     "internalName": "Bamboo Flatcar Passenger",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityPassengerBamboo",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartPassengerBamboo",
     "trainType": "passenger",
     "MHP": 0,
@@ -1753,12 +2498,30 @@
       "Purple",
       "Orange",
       "Grey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.55,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -0.5,
+        0.9,
+        0
+      ],
+      [
+        0.5,
+        0.9,
+        0
+      ]
     ]
   },
   {
     "entryName": "cabooseRed",
     "internalName": "Caboose Red",
-    "entityClass": "train.common.entity.rollingStockOld.caboose.EntityCaboose",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartCaboose",
     "trainType": "caboose",
     "MHP": 0,
@@ -1774,12 +2537,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "cabooseBlack",
     "internalName": "Caboose Black",
-    "entityClass": "train.common.entity.rollingStockOld.caboose.EntityCaboose3",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartCaboose3",
     "trainType": "caboose",
     "MHP": 0,
@@ -1795,12 +2571,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "GWRBrakeVan",
     "internalName": "GWR Toad Brake Van",
-    "entityClass": "train.common.entity.rollingStockOld.caboose.EntityGWRBrakeVan",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartGWRBrakeVan",
     "trainType": "work",
     "MHP": 0,
@@ -1816,12 +2605,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.4,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.6,
+        -0.2
+      ]
+    ]
   },
   {
     "entryName": "stockCar",
     "internalName": "Stock Cart",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityStockCar",
+    "entityClass": "train.common.entity.rollingStock.EntityStockCar",
     "item": "minecartStockCar",
     "trainType": "special",
     "MHP": 0,
@@ -1842,12 +2644,19 @@
       "Red",
       "Yellow",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.45,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "drwgStockCar",
     "internalName": "DRWG Stock Cart",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityStockCarDRWG",
+    "entityClass": "train.common.entity.rollingStock.EntityStockCar",
     "item": "minecartDRWGStockCar",
     "trainType": "special",
     "MHP": 0,
@@ -1863,12 +2672,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.65,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "workCart",
     "internalName": "Work Cart Yellow",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityWorkCart",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartWork",
     "trainType": "work",
     "MHP": 0,
@@ -1884,12 +2700,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        -0.15,
+        0
+      ]
+    ]
   },
   {
     "entryName": "flatCart",
     "internalName": "Flat Cart",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityFlatCart",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartFlatCart",
     "trainType": "flat",
     "MHP": 0,
@@ -1905,12 +2734,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.4,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "workCaboose",
     "internalName": "Work Caboose",
-    "entityClass": "train.common.entity.rollingStockOld.caboose.EntityCabooseWorkCart",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartCabooseWork",
     "trainType": "work",
     "MHP": 0,
@@ -1926,12 +2768,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.45,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "cabooseLogging",
     "internalName": "Caboose Logging",
-    "entityClass": "train.common.entity.rollingStockOld.caboose.EntityCabooseLogging",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartCabooseLogging",
     "trainType": "work",
     "MHP": 0,
@@ -1951,12 +2806,25 @@
       "Red",
       "Cyan",
       "Grey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "cabooseLoggingPRR",
     "internalName": "PRR Caboose Logging",
-    "entityClass": "train.common.entity.rollingStockOld.caboose.EntityCabooseLoggingPRR",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartCabooseLoggingPRR",
     "trainType": "work",
     "MHP": 0,
@@ -1976,12 +2844,25 @@
       "Red",
       "Blue",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "mailWagen_DB",
     "internalName": "Mail Wagon DB",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityMailWagen_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "item": "minecartMailWagon_DB",
     "trainType": "work",
     "MHP": 0,
@@ -1997,12 +2878,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.84,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "jukeBoxCart",
     "internalName": "JukeBox Cart",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityJukeBoxCart",
+    "entityClass": "train.common.entity.rollingStock.EntityJukeBox",
     "item": "minecartJukeBoxCart",
     "trainType": "special",
     "MHP": 0,
@@ -2018,12 +2912,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Supports MP3/OGG format M3U/PLS links, like Shoutcast",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.85,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "flatCartSU",
     "internalName": "Flat Cart SU",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityFlatCartSU",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartFlatCartSU",
     "trainType": "flat",
     "MHP": 0,
@@ -2039,12 +2940,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        0,
+        0
+      ]
+    ]
   },
   {
     "entryName": "flatCartUS",
     "internalName": "Flat Cart US",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityFlatCartUS",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartFlatCartUS",
     "trainType": "flat",
     "MHP": 0,
@@ -2060,12 +2974,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.74,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   },
   {
     "entryName": "tracksBuilder",
     "internalName": "Tracks Builder",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityTracksBuilder",
+    "entityClass": "train.common.entity.rollingStock.EntityTracksBuilder",
     "item": "minecartBuilder",
     "trainType": "special",
     "MHP": 0,
@@ -2081,12 +3008,19 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "flatCar_DB",
     "internalName": "Flat Cart DB",
-    "entityClass": "train.common.entity.rollingStockOld.passenger.EntityFlatCar_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "item": "minecartFlatCart_DB",
     "trainType": "flat",
     "MHP": 0,
@@ -2105,12 +3039,25 @@
     "colors": [
       "Red",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.84,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
     ]
   },
   {
     "entryName": "BUnitEMDF7",
     "internalName": "EMD F7 B Unit",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityBUnitEMDF7",
+    "entityClass": "train.common.entity.rollingStock.EntityBUnit",
     "item": "minecartLocoEMDF7B",
     "trainType": "b-unit",
     "MHP": 0,
@@ -2134,12 +3081,19 @@
       "Green",
       "Orange",
       "Yellow"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "BUnitEMDF3",
     "internalName": "EMD F3 B Unit",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityBUnitEMDF3",
+    "entityClass": "train.common.entity.rollingStock.EntityBUnit",
     "item": "minecartLocoEMDF3B",
     "trainType": "b-unit",
     "MHP": 0,
@@ -2163,12 +3117,19 @@
       "Brown",
       "Green",
       "Magenta"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "BUnitDD35",
     "internalName": "DD35 B Unit",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityBUnitDD35",
+    "entityClass": "train.common.entity.rollingStock.EntityBUnit",
     "item": "minecartLocoDD35B",
     "trainType": "b-unit",
     "MHP": 0,
@@ -2187,12 +3148,19 @@
     "colors": [
       "Orange",
       "Black"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "propagandaUs",
     "internalName": "Propaganda USA",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityPropagandaUS",
+    "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "item": "minecartPropagandaUs",
     "trainType": "decorative",
     "MHP": 0,
@@ -2212,12 +3180,19 @@
       "Blue",
       "White",
       "Red"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "propagandaUSSR",
     "internalName": "Propaganda USSR",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityPropagandaUSSR",
+    "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "item": "minecartPropagandaUSSR",
     "trainType": "decorative",
     "MHP": 0,
@@ -2237,12 +3212,19 @@
       "Blue",
       "White",
       "Red"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "propagandaJapan",
     "internalName": "Propaganda Japan",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityPropagandaJapan",
+    "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "item": "minecartPropagandaJapan",
     "trainType": "decorative",
     "MHP": 0,
@@ -2262,12 +3244,19 @@
       "Red",
       "White",
       "Yellow"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "propagandaBritain",
     "internalName": "Propaganda Britain",
-    "entityClass": "train.common.entity.rollingStockOld.special.EntityPropagandaBritain",
+    "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "item": "minecartPropagandaBritish",
     "trainType": "decorative",
     "MHP": 0,
@@ -2287,12 +3276,19 @@
       "Blue",
       "White",
       "Yellow"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 3.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tankWagon_DB",
     "internalName": "Tank Wagon DB",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityTankWagon_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "item": "minecartTankWagon_DB",
     "trainType": "tank",
     "MHP": 0,
@@ -2311,12 +3307,19 @@
     "colors": [
       "Blue",
       "Green"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.84,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tankThreeDome",
     "internalName": "Tank Wagon Three Dome",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityTankWagonThreeDome",
+    "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "item": "minecartTankWagonThreeDome",
     "trainType": "tank",
     "MHP": 0,
@@ -2335,12 +3338,19 @@
     "colors": [
       "Green",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tankWagonUS",
     "internalName": "Tank Wagon US",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityTankWagonUS",
+    "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "item": "minecartTankWagonUS",
     "trainType": "tank",
     "MHP": 0,
@@ -2367,12 +3377,19 @@
       "Purple",
       "Red",
       "Brown"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tankWagonGrey",
     "internalName": "Tank Wagon Grey",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityTankWagon2",
+    "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "item": "minecartTankWagon2",
     "trainType": "tank",
     "MHP": 0,
@@ -2388,12 +3405,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Capacity: 40000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.54,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tankCartLava",
     "internalName": "Tank Lava",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityTankLava",
+    "entityClass": "train.common.entity.rollingStock.EntityLavaTank",
     "item": "minecartWatertransp",
     "trainType": "tank",
     "MHP": 0,
@@ -2412,12 +3436,19 @@
     "colors": [
       "Empty",
       "Full"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.85,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tankWagonYellow",
     "internalName": "Tank Wagon Yellow",
-    "entityClass": "train.common.entity.rollingStockOld.freight.EntityTankWagon",
+    "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "item": "minecartTankWagon",
     "trainType": "tank",
     "MHP": 0,
@@ -2433,12 +3464,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Capacity: 40000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderSmall",
     "internalName": "Tender Small Black",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderSmall",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTender",
     "trainType": "tender",
     "MHP": 0,
@@ -2460,12 +3498,19 @@
       "Blue",
       "Green",
       "Yellow"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderHeavy",
     "internalName": "Tender Heavy",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderHeavy",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderHeavy",
     "trainType": "tender",
     "MHP": 0,
@@ -2484,12 +3529,19 @@
     "colors": [
       "Black",
       "Brown"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderGS4",
     "internalName": "Tender GS4",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderGS4",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartGS4_Tender",
     "trainType": "tender",
     "MHP": 0,
@@ -2508,12 +3560,19 @@
     "colors": [
       "Orange",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "Model4000GallonTender",
     "internalName": "4000GallonTender",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTender4000",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecart4000GallonTender",
     "trainType": "tender",
     "MHP": 0,
@@ -2534,12 +3593,19 @@
       "Blue",
       "Red",
       "Lime"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "ModelFowler4FTender",
     "internalName": "Fowler 4F Tender",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderFowler4F",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartFowler4FTender",
     "trainType": "tender",
     "MHP": 0,
@@ -2555,12 +3621,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 15000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "Model225Tender",
     "internalName": "1225 tender",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderBerk1225",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecarttenderBerk1225",
     "trainType": "tender",
     "MHP": 0,
@@ -2579,12 +3652,19 @@
     "colors": [
       "Black",
       "Grey"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.875,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tender4_4_0",
     "internalName": "Tender 4-4-0",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTender4_4_0",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartSteamRedTender",
     "trainType": "tender",
     "MHP": 0,
@@ -2608,12 +3688,19 @@
       "Green",
       "Red",
       "Purple"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.15,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderA4",
     "internalName": "Tender A4 Mallard",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderA4",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartLocoA4MallardTender",
     "trainType": "tender",
     "MHP": 0,
@@ -2635,12 +3722,19 @@
       "Black",
       "Green",
       "White"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderBR01",
     "internalName": "Tender BR01",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderBR01_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderBR01_DB",
     "trainType": "tender",
     "MHP": 0,
@@ -2656,12 +3750,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 20000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderCoranationClass",
     "internalName": "Tender Coranation Class",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderCoranationClass",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartLocoCoranationClassTender",
     "trainType": "tender",
     "MHP": 0,
@@ -2677,12 +3778,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 20000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderEr_Ussr",
     "internalName": "Tender ER_USSR",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderEr_Ussr",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderEr",
     "trainType": "tender",
     "MHP": 0,
@@ -2698,12 +3806,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.67,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderC62Class",
     "internalName": "Tender C62Class",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderC62Class",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderC62Class",
     "trainType": "tender",
     "MHP": 0,
@@ -2722,12 +3837,19 @@
     "colors": [
       "Black",
       "Red"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderD51",
     "internalName": "Tender D51",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderD51",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderD51",
     "trainType": "tender",
     "MHP": 0,
@@ -2743,12 +3865,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 12000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tenderAdler",
     "internalName": "Tender Adler",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderAdler",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderAdler",
     "trainType": "tender",
     "MHP": 0,
@@ -2764,12 +3893,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 4000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.55,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tender_C41",
     "internalName": "Tender C41",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTender_C41",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderC41",
     "trainType": "tender",
     "MHP": 0,
@@ -2785,12 +3921,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.75,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tender_Southern1102",
     "internalName": "Tender Southern1102",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTender_Southern1102",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartTenderSouthern1102",
     "trainType": "tender",
     "MHP": 0,
@@ -2806,12 +3949,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "tender_MILW",
     "internalName": "Tender MILW",
-    "entityClass": "train.common.entity.rollingStockOld.tender.EntityTenderMILW",
+    "entityClass": "train.common.entity.rollingStock.EntityTender",
     "item": "minecartMILWTender",
     "trainType": "tender",
     "MHP": 0,
@@ -2827,12 +3977,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "locoDieselKOF",
     "internalName": "Loco Diesel KOF DB",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselKof_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartKof_DB",
     "trainType": "diesel",
     "MHP": 750,
@@ -2854,12 +4011,25 @@
       "Yellow",
       "Black",
       "Blue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1,
+        0.95,
+        0.35
+      ]
     ]
   },
   {
     "entryName": "locoDieselGP40",
     "internalName": "Loco Diesel CD742",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselCD742",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartCD742",
     "trainType": "diesel",
     "MHP": 1184,
@@ -2881,12 +4051,25 @@
       "Blue",
       "Orange",
       "LightBlue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1,
+        1.4,
+        0
+      ]
     ]
   },
   {
     "entryName": "locoDieselChME3",
     "internalName": "Loco Diesel ChME3",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselChME3",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartChmE3",
     "trainType": "diesel",
     "MHP": 2383,
@@ -2902,12 +4085,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.2,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.65,
+        1.42,
+        0.35
+      ]
+    ]
   },
   {
     "entryName": "locoDieselGP7Red",
     "internalName": "Loco Diesel GP7",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselGP7Red",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartGP7Red",
     "trainType": "diesel",
     "MHP": 2464,
@@ -2941,12 +4137,25 @@
       "Orange",
       "Grey",
       "Skin16"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.14,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -0.5,
+        1.2,
+        0.25
+      ]
     ]
   },
   {
     "entryName": "locoDieselSD40",
     "internalName": "Loco Diesel SD40",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselSD40",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoSD40",
     "trainType": "diesel",
     "MHP": 3041,
@@ -2971,12 +4180,25 @@
       "Magenta",
       "Blue",
       "Pink"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -1,
+        1.4,
+        0.2
+      ]
     ]
   },
   {
     "entryName": "locoDieselSD70",
     "internalName": "Loco Diesel SD70",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselSD70",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoSD70",
     "trainType": "diesel",
     "MHP": 4055,
@@ -3000,12 +4222,25 @@
       "Magenta",
       "Black",
       "Pink"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.45,
+        0,
+        -0.15
+      ]
     ]
   },
   {
     "entryName": "locoDieselShunter",
     "internalName": "Loco Diesel Shunter",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselShunter",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartShunter",
     "trainType": "diesel",
     "MHP": 354,
@@ -3026,12 +4261,25 @@
       "Green",
       "Red",
       "Black"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.4,
+        1.45,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoDieselV60_DB",
     "internalName": "Loco Diesel V60 DB",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselV60_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartV60_DB",
     "trainType": "diesel",
     "MHP": 1058,
@@ -3052,12 +4300,25 @@
       "Green",
       "Yellow",
       "Cyan"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.3,
+        1.6,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoDieselIC4_DSB_MG",
     "internalName": "Loco Diesel IC4 DSB MG",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselIC4_DSB_MG",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartIC4_DSB_MG",
     "trainType": "diesel",
     "MHP": 760,
@@ -3076,12 +4337,40 @@
     "colors": [
       "White",
       "Red"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -3,
+        1.2,
+        0
+      ],
+      [
+        2,
+        1.2,
+        -0.25
+      ],
+      [
+        2,
+        1.2,
+        -0.25
+      ],
+      [
+        2,
+        1.2,
+        -0.25
+      ]
     ]
   },
   {
     "entryName": "locoDieselMILW_H1044",
     "internalName": "Loco Diesel MILW H10-44",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselMILW_H1044",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartMILW_H1044",
     "trainType": "diesel",
     "MHP": 1618,
@@ -3106,12 +4395,25 @@
       "Grey",
       "LightBlue",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.2,
+        1.25,
+        0.35
+      ]
     ]
   },
   {
     "entryName": "locoDieselEMDF7",
     "internalName": "Loco Diesel EMD F-7",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselEMDF7",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoEMDF7",
     "trainType": "diesel",
     "MHP": 1600,
@@ -3135,12 +4437,25 @@
       "Green",
       "Orange",
       "Yellow"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -0.8,
+        1.5,
+        0.25
+      ]
     ]
   },
   {
     "entryName": "locoDieselEMDF3",
     "internalName": "Loco Diesel EMD F-3",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselEMDF3",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoEMDF3",
     "trainType": "diesel",
     "MHP": 1500,
@@ -3164,12 +4479,25 @@
       "Brown",
       "Green",
       "Magenta"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -0.8,
+        1.5,
+        0.25
+      ]
     ]
   },
   {
     "entryName": "locoDieselEWSClass66",
     "internalName": "Loco Electric EWS Class 66",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselClass66",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoEWSClass66",
     "trainType": "diesel",
     "MHP": 3300,
@@ -3189,12 +4517,30 @@
       "Pink",
       "Green",
       "Red"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -3,
+        1.25,
+        0.2
+      ],
+      [
+        2.9,
+        1.25,
+        -0.15
+      ]
     ]
   },
   {
     "entryName": "locoDieselDeltic",
     "internalName": "Loco Diesel Deltic",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselDeltic",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoDeltic",
     "trainType": "diesel",
     "MHP": 3300,
@@ -3210,12 +4556,30 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.7,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.4,
+        1.7,
+        0
+      ],
+      [
+        2.4,
+        1.7,
+        0.2
+      ]
+    ]
   },
   {
     "entryName": "locoDieselDD35A",
     "internalName": "Loco Diesel DD35A",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselDD35A",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoDD35A",
     "trainType": "diesel",
     "MHP": 5070,
@@ -3234,12 +4598,25 @@
     "colors": [
       "Orange",
       "Black"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.8,
+        1.5,
+        -0.2
+      ]
     ]
   },
   {
     "entryName": "locoDiesel44TonSwitcher",
     "internalName": "GE 44-ton Diesel switcher",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDiesel44TonSwitcher",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLoco44TonSwitcher",
     "trainType": "diesel",
     "MHP": 400,
@@ -3258,12 +4635,30 @@
     "colors": [
       "Black",
       "Cyan"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.1,
+        1.6,
+        0.35
+      ],
+      [
+        0.1,
+        1.6,
+        -0.35
+      ]
     ]
   },
   {
     "entryName": "locoDieselBamboo",
     "internalName": "Bamboo Flatcar Engine",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselBamboo",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartTrainBamboo",
     "trainType": "diesel",
     "MHP": 30,
@@ -3296,12 +4691,25 @@
       "Purple",
       "Orange",
       "Grey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.8,
+        1.2,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoDieselWLs40",
     "internalName": "Loco WLs40",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselWLs40",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoWLs40",
     "trainType": "diesel",
     "MHP": 60,
@@ -3317,12 +4725,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.4,
+        1.4,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoDieselFOL_M1",
     "internalName": "Loco FOL M1",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselFOLM1",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartLocoFOLM1",
     "trainType": "diesel",
     "MHP": 5000,
@@ -3341,12 +4762,25 @@
     "colors": [
       "Grey",
       "Blue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.2,
+        1.4,
+        0
+      ]
     ]
   },
   {
     "entryName": "FOLM1B",
     "internalName": "FOL-M1B",
-    "entityClass": "train.common.entity.rollingStockOld.diesel.EntityLocoDieselFOLM1B",
+    "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "item": "minecartFOLM1B",
     "trainType": "diesel",
     "MHP": 5000,
@@ -3365,12 +4799,19 @@
     "colors": [
       "Grey",
       "Blue"
-    ]
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": []
   },
   {
     "entryName": "locoElectricVL10",
     "internalName": "Loco Electric VL10",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricVL10",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartVL10",
     "trainType": "electric",
     "MHP": 6250,
@@ -3386,12 +4827,25 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.3,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -1,
+        1.35,
+        0.2
+      ]
+    ]
   },
   {
     "entryName": "locoElectricBR_E69",
     "internalName": "Loco Electric BR_E69",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricBR_E69",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartBR_E69",
     "trainType": "electric",
     "MHP": 400,
@@ -3412,12 +4866,25 @@
       "Red",
       "Black",
       "Grey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.55,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.4,
+        0
+      ]
     ]
   },
   {
     "entryName": "locoElectricMineTrain",
     "internalName": "Loco Electric Minetrain",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricMinetrain",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartLocoMineTrain",
     "trainType": "electric",
     "MHP": 500,
@@ -3433,12 +4900,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.53,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.4,
+        1.225,
+        0
+      ]
+    ]
   },
   {
     "entryName": "locoElectricSpeedZeroED",
     "internalName": "Loco Electric High Speed ZeroED",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricHighSpeedZeroED",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartLocoHighSpeedZeroED",
     "trainType": "electric",
     "MHP": 700,
@@ -3454,12 +4934,25 @@
     "guiRenderScale": 13,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.56,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.3,
+        0,
+        -0.15
+      ]
+    ]
   },
   {
     "entryName": "locoElectricICE1",
     "internalName": "Loco Electric ICE 1",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricICE1",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartICE1_Loco",
     "trainType": "electric",
     "MHP": 869,
@@ -3478,12 +4971,25 @@
     "colors": [
       "White",
       "Blue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.56,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.4,
+        1.1,
+        -0.2
+      ]
     ]
   },
   {
     "entryName": "locoElectricTramYellow",
     "internalName": "Loco Electric Yellow Wood Tram",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricTramWood",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartTramWood",
     "trainType": "electric",
     "MHP": 300,
@@ -3499,12 +5005,35 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -1.25,
+        1.1,
+        0
+      ],
+      [
+        0.6,
+        1.1,
+        -0.3
+      ],
+      [
+        0.6,
+        1.1,
+        -0.3
+      ]
+    ]
   },
   {
     "entryName": "locoElectricTramNY",
     "internalName": "Loco Electric Tram NY",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricTramNY",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartNYTram",
     "trainType": "electric",
     "MHP": 1327,
@@ -3520,12 +5049,35 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -1.9,
+        1.2,
+        0.45
+      ],
+      [
+        -0.7,
+        1.2,
+        -0.3
+      ],
+      [
+        -0.7,
+        1.2,
+        -0.3
+      ]
+    ]
   },
   {
     "entryName": "locoElectricBR185",
     "internalName": "Loco Electric BR 185",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricBR185",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartLocoBR185",
     "trainType": "electric",
     "MHP": 2890,
@@ -3555,12 +5107,30 @@
       "White",
       "Yellow",
       "Black"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.1,
+        1.2,
+        -0.3
+      ],
+      [
+        2.1,
+        1.2,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoDieselE10lDB",
     "internalName": "Loco Electric E10 DB",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricE10_DB",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartE10_DB",
     "trainType": "electric",
     "MHP": 2473,
@@ -3582,12 +5152,30 @@
       "Grey",
       "Brown",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.1,
+        1.4,
+        -0.2
+      ],
+      [
+        2.2,
+        1.4,
+        0.2
+      ]
     ]
   },
   {
     "entryName": "locoDieselE103",
     "internalName": "Loco Electric E103",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricE103",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartE103",
     "trainType": "electric",
     "MHP": 2806,
@@ -3606,12 +5194,30 @@
     "colors": [
       "Red",
       "Blue"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.995,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.2,
+        1.2,
+        0.2
+      ],
+      [
+        -2.2,
+        1.2,
+        -0.2
+      ]
     ]
   },
   {
     "entryName": "locoElectricClass85",
     "internalName": "Loco Electric Class 85",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricClass85",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartLocoClass85",
     "trainType": "electric",
     "MHP": 2400,
@@ -3630,12 +5236,30 @@
     "colors": [
       "Blue",
       "Red"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.56,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.3,
+        1.3,
+        0
+      ],
+      [
+        2.3,
+        1.3,
+        0
+      ]
     ]
   },
   {
     "entryName": "locoElectricCD151",
     "internalName": "Loco Electric CD151",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricCD151",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartLocoCD151",
     "trainType": "electric",
     "MHP": 1133,
@@ -3661,12 +5285,30 @@
       "Orange",
       "Purple",
       "White"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.475,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -2.15,
+        1.4,
+        0.3
+      ],
+      [
+        2.15,
+        1.4,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoElectricBP4",
     "internalName": "Loco Electric BP4",
-    "entityClass": "train.common.entity.rollingStockOld.electric.EntityLocoElectricBP4",
+    "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "item": "minecartLocoBP4",
     "trainType": "electric",
     "MHP": 1520,
@@ -3685,12 +5327,25 @@
     "colors": [
       "Green",
       "Purple"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -1.7,
+        1.35,
+        0.25
+      ]
     ]
   },
   {
     "entryName": "locoSteamA4",
     "internalName": "Loco Steam A4 Mallard",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamMallardA4",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoA4Mallard",
     "trainType": "steam",
     "MHP": 1418,
@@ -3712,12 +5367,25 @@
       "Black",
       "Green",
       "White"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.65,
+        1.6,
+        0.425
+      ]
     ]
   },
   {
     "entryName": "locosteamHallClass",
     "internalName": "Loco Hall Class",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamHallClass",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoHallClass",
     "trainType": "steam",
     "MHP": 1091,
@@ -3737,12 +5405,25 @@
       "Green",
       "Red",
       "Lime"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.8,
+        1.5,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locosteamBerk1225",
     "internalName": "Loco Berkshire 1225",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamBerk1225",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoBerk1225",
     "trainType": "steam",
     "MHP": 2775,
@@ -3758,12 +5439,30 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.25,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.375,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        3.4,
+        1.5,
+        0.35
+      ],
+      [
+        3.4,
+        1.5,
+        -0.35
+      ]
+    ]
   },
   {
     "entryName": "locosteamBerk765",
     "internalName": "Loco Berkshire 765",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamBerk765",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoBerk765",
     "trainType": "steam",
     "MHP": 2563,
@@ -3779,12 +5478,30 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.25,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.375,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        3.4,
+        1.4,
+        0.35
+      ],
+      [
+        3.4,
+        1.4,
+        -0.35
+      ]
+    ]
   },
   {
     "entryName": "locosteamFowler",
     "internalName": "Loco Fowler",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamFowler",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoFowler",
     "trainType": "steam",
     "MHP": 980,
@@ -3800,12 +5517,25 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.25,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2,
+        1.4,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locosteamKingClass",
     "internalName": "Loco King Class",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamKingClass",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoKingClass",
     "trainType": "steam",
     "MHP": 1613,
@@ -3825,12 +5555,25 @@
       "Green",
       "Blue",
       "Lime"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.8,
+        1.45,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoSteamMILW",
     "internalName": "Loco Steam MILW Class A",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamMILWClassA",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoMILWClassA",
     "trainType": "steam",
     "MHP": 1228,
@@ -3846,12 +5589,25 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.8,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.8,
+        1.35,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamCherepanov",
     "internalName": "Loco Steam Cherepanov",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamCherepanov",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoCherepanov",
     "trainType": "steam",
     "MHP": 60,
@@ -3867,12 +5623,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.7,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.85,
+        1.35,
+        0.1
+      ]
+    ]
   },
   {
     "entryName": "locoSteamBR80",
     "internalName": "Loco Steam BR80",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamBR80_DB",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoBR80_DB",
     "trainType": "steam",
     "MHP": 575,
@@ -3891,12 +5660,25 @@
     "colors": [
       "Black",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.8,
+        1.5,
+        0.45
+      ]
     ]
   },
   {
     "entryName": "locoSteam4_4_0",
     "internalName": "Loco Steam 4-4-0",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteam4_4_0",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartPower",
     "trainType": "steam",
     "MHP": 400,
@@ -3920,12 +5702,25 @@
       "Green",
       "Black",
       "Purple"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1,
+        1.55,
+        0.2
+      ]
     ]
   },
   {
     "entryName": "locoSteamSmall",
     "internalName": "Loco Steam Small",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamSmall",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLoco3",
     "trainType": "steam",
     "MHP": 250,
@@ -3947,12 +5742,25 @@
       "Green",
       "Yellow",
       "Black"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1,
+        1.5,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoSteamLSSP7",
     "internalName": "Loco Steam LSSP7",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamLSSP7",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoLSSP7",
     "trainType": "steam",
     "MHP": 250,
@@ -3968,12 +5776,25 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.1,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.65,
+        1.25,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoHeavySteam",
     "internalName": "Loco Steam Heavy",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamHeavy",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartHeavySteam",
     "trainType": "steam",
     "MHP": 3000,
@@ -3992,12 +5813,25 @@
     "colors": [
       "Black",
       "Brown"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.2,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.5,
+        1.5,
+        0.25
+      ]
     ]
   },
   {
     "entryName": "locoSteamC62Class",
     "internalName": "Loco Steam C62Class",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamC62Class",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoC62Class",
     "trainType": "steam",
     "MHP": 1223,
@@ -4016,12 +5850,25 @@
     "colors": [
       "Black",
       "Red"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        3,
+        1.5,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoSteamD51Short",
     "internalName": "Loco Steam D51 Short Streamlining",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamD51",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoD51Short",
     "trainType": "steam",
     "MHP": 1658,
@@ -4040,12 +5887,25 @@
     "colors": [
       "Black",
       "Grey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.8,
+        1.67,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoSteamD51Long",
     "internalName": "Loco Steam D51 Long Streamlining",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamD51Long",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoD51Long",
     "trainType": "steam",
     "MHP": 1658,
@@ -4064,12 +5924,25 @@
     "colors": [
       "Black",
       "Grey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.8,
+        1.67,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoSteamBR01_DB",
     "internalName": "Loco Steam BR01",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamBR01_DB",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoBR01_DB",
     "trainType": "steam",
     "MHP": 2120,
@@ -4089,12 +5962,25 @@
       "Black",
       "Grey",
       "LightGrey"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.4,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2,
+        1.6,
+        0.3
+      ]
     ]
   },
   {
     "entryName": "locoSteamCoranationClass",
     "internalName": "Loco Steam Coranation Class",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamCoranationClass",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoCoranationClass",
     "trainType": "steam",
     "MHP": 1619,
@@ -4110,12 +5996,25 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -6,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        3.1,
+        1.5,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamGS4",
     "internalName": "Loco Steam GS4",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamGS4",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartGS4_Loco",
     "trainType": "steam",
     "MHP": 2653,
@@ -4134,12 +6033,25 @@
     "colors": [
       "Orange",
       "White"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.62,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        3.5,
+        1.8,
+        0.35
+      ]
     ]
   },
   {
     "entryName": "locoSteamEr_USSR",
     "internalName": "Loco Steam ER_USSR",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamEr_Ussr",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoEr",
     "trainType": "steam",
     "MHP": 800,
@@ -4155,12 +6067,25 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.7,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.53,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.8,
+        1.625,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamC41",
     "internalName": "Loco Steam C41",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamC41",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoC41",
     "trainType": "steam",
     "MHP": 1484,
@@ -4176,12 +6101,30 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        -0.2,
+        0.2,
+        -0.4
+      ],
+      [
+        -0.2,
+        0.2,
+        0.4
+      ]
+    ]
   },
   {
     "entryName": "locoSteamC41_080",
     "internalName": "Loco Steam C41 0-8-0",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamC41_080",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoC41_080",
     "trainType": "steam",
     "MHP": 1484,
@@ -4197,12 +6140,30 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.1,
+        1.5,
+        -0.3
+      ],
+      [
+        2.1,
+        1.5,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamAlcoSc4",
     "internalName": "Loco Steam Alco SC4",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamAlcoSC4",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoAlcoSC4",
     "trainType": "steam",
     "MHP": 800,
@@ -4218,12 +6179,30 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.1,
+        1.5,
+        -0.3
+      ],
+      [
+        2.1,
+        1.5,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamSouthern1102",
     "internalName": "Loco Steam Southern 1102",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamSouthern1102",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSouthern1102",
     "trainType": "steam",
     "MHP": 1236,
@@ -4239,12 +6218,30 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.65,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.1,
+        1.5,
+        -0.3
+      ],
+      [
+        2.1,
+        1.5,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamUSATCUS",
     "internalName": "Loco Steam USATCUS",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamUSATCUS",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoUSATCUS",
     "trainType": "steam",
     "MHP": 210,
@@ -4260,12 +6257,30 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.65,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.1,
+        1.2,
+        -0.25
+      ],
+      [
+        1.1,
+        1.2,
+        0.25
+      ]
+    ]
   },
   {
     "entryName": "locoSteamUSATCUK",
     "internalName": "Loco Steam USATCUK",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamUSATCUK",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoUSATCUK",
     "trainType": "steam",
     "MHP": 210,
@@ -4281,12 +6296,30 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.65,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.1,
+        1.2,
+        -0.25
+      ],
+      [
+        1.1,
+        1.2,
+        0.25
+      ]
+    ]
   },
   {
     "entryName": "locoSteamC41T",
     "internalName": "Loco Steam C41T",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamC41T",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoC41T",
     "trainType": "steam",
     "MHP": 1484,
@@ -4302,12 +6335,30 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        2.1,
+        1.5,
+        -0.3
+      ],
+      [
+        2.1,
+        1.5,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamForney",
     "internalName": "Loco Steam Forney",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamForneyRed",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoForneyRed",
     "trainType": "steam",
     "MHP": 600,
@@ -4330,12 +6381,25 @@
       "Brown",
       "Blue",
       "Green"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.4,
+        1.6,
+        0
+      ]
     ]
   },
   {
     "entryName": "locoSteamMogul",
     "internalName": "Loco Steam Mogul",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamMogulBlue",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocomogulBlue",
     "trainType": "steam",
     "MHP": 500,
@@ -4358,12 +6422,25 @@
       "Green",
       "Red",
       "White"
+    ],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.1,
+        1.6,
+        0.25
+      ]
     ]
   },
   {
     "entryName": "locoSteamShay",
     "internalName": "Loco Steam Shay",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamShay",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteamShay",
     "trainType": "steam",
     "MHP": 250,
@@ -4379,12 +6456,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0.5,
+        1.5,
+        0.1
+      ]
+    ]
   },
   {
     "entryName": "locoSteamVBShay",
     "internalName": "Loco Steam VB Shay",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamVBShay",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteamVBShay",
     "trainType": "steam",
     "MHP": 250,
@@ -4400,12 +6490,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -0.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 2.275,
+    "hitboxSize": [],
+    "shouldRiderSit": "FALSE",
+    "riderOffsets": [
+      [
+        0.5,
+        1.5,
+        0
+      ]
+    ]
   },
   {
     "entryName": "locoSteamClimax",
     "internalName": "Loco Steam Climax",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamClimax",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteamClimax",
     "trainType": "steam",
     "MHP": 250,
@@ -4421,12 +6524,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "FALSE",
+    "riderOffsets": [
+      [
+        1,
+        1.325,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamPannier",
     "internalName": "Loco Steam Pannier",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamPannier",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteamPannier",
     "trainType": "steam",
     "MHP": 903,
@@ -4442,12 +6558,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 1.3,
+    "hitboxSize": [],
+    "shouldRiderSit": "FALSE",
+    "riderOffsets": [
+      [
+        2.1,
+        1.7,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamAlice",
     "internalName": "Loco Steam Alice",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamAlice0_4_0",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteamAlice",
     "trainType": "steam",
     "MHP": 200,
@@ -4463,12 +6592,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "FALSE",
+    "riderOffsets": [
+      [
+        1.3,
+        1.35,
+        -0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamGLYN",
     "internalName": "Loco Steam glyn",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamGLYN042T",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteamGLYN",
     "trainType": "steam",
     "MHP": 600,
@@ -4484,12 +6626,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.9,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1.2,
+        1.3,
+        0.4
+      ]
+    ]
   },
   {
     "entryName": "locoSteam262T",
     "internalName": "Loco Steam 262T",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteam262T",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteam262T",
     "trainType": "steam",
     "MHP": 300,
@@ -4505,12 +6660,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.6,
+    "hitboxSize": [],
+    "shouldRiderSit": "FALSE",
+    "riderOffsets": [
+      [
+        1.7,
+        1.4,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteam040VB",
     "internalName": "Loco Steam 040VB",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteam040VB",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteam040vb",
     "trainType": "steam",
     "MHP": 200,
@@ -4526,12 +6694,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.1,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.75,
+    "hitboxSize": [],
+    "shouldRiderSit": "FALSE",
+    "riderOffsets": [
+      [
+        0.8,
+        1.4,
+        0.3
+      ]
+    ]
   },
   {
     "entryName": "locoSteamAdler",
     "internalName": "Loco Steam Adler",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamAdler",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "item": "minecartLocoSteamAdler",
     "trainType": "steam",
     "MHP": 200,
@@ -4547,12 +6728,25 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.5,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.5,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        1,
+        1.4,
+        0.2
+      ]
+    ]
   },
   {
     "entryName": "locoSteamSnowPlow",
     "internalName": "Loco Steam Snow Plow",
-    "entityClass": "train.common.entity.rollingStockOld.steam.EntityLocoSteamSnowPlow",
+    "entityClass": "train.common.entity.rollingStock.EntitySteamSnowPlow",
     "item": "minecartLocoSnowPlow",
     "trainType": "steam, snow plow",
     "MHP": 200,
@@ -4568,6 +6762,19 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.75,
-    "colors": []
+    "colors": [],
+    "country": "",
+    "year": "",
+    "fictional": "FALSE",
+    "optimalDistance": 0.7,
+    "hitboxSize": [],
+    "shouldRiderSit": "TRUE",
+    "riderOffsets": [
+      [
+        0,
+        1.2,
+        0
+      ]
+    ]
   }
 ]

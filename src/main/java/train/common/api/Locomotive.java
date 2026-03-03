@@ -12,13 +12,17 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import train.common.Traincraft;
 import train.common.api.components.MTC;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.network.PacketSlotsFilled;
 import train.common.enums.DataMemberName;
+import train.common.library.TrainRecord;
 
 import java.util.List;
 
@@ -81,14 +85,18 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
         // --- DEFAULTS ---
         setDefaultMass(0);
-        accelRate = getSpecAccel();
-        brakingRate = getSpecBrake();
-        fuelRate = getSpecFuelConsumption();
         if (this instanceof SteamTrain) isLocoTurnedOn = true;
-
-        initDataWatcher();
-
         entityCollisionReduction = 0.99F;
+
+        // --- DATA WATCHER ---
+        dataWatcher.addObject(2, 0);
+        dataWatcher.addObject(3, MTC.destination);
+        dataWatcher.addObject(20, 0f); // Heat
+        dataWatcher.addObject(23, ""); // State
+        dataWatcher.addObject(24, fuelTrain);
+        dataWatcher.addObject(25, 0); // Speed
+        dataWatcher.addObject(26, guiDetailsJSON());
+        dataWatcher.addObject(28, lightingDetailsJSONString());
 
         // --- UPDATE LINKS ---
         for(AbstractTrains t: consist){
@@ -100,6 +108,16 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         // --- MTC ---
         MTC.generateTrainID();
         MTC.attemptConnection(MTC.serverUUID);
+    }
+
+    @Override
+    public void init(TrainRecord spec) {
+        super.init(spec);
+
+        dataWatcher.updateObject(2, (int) getMaxSpeed());
+        accelRate = getAccel();
+        brakingRate = getBrake();
+        fuelRate = getFuelConsumption();
     }
 
     // Additional spawn data to check for
@@ -169,12 +187,12 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     public void updateDebuffs() {
         double massPulledFactor = currentMassPulled * 0.07457;
-        double totalMhp = getSpecMHP() > 0 ? getSpecMHP() : 100;    // Guarantee non-zero so we don't divide by zero
+        double totalMhp = getMHP() > 0 ? getMHP() : 100;    // Guarantee non-zero so we don't divide by zero
 
         // Append passive locos Mhp
         for (AbstractTrains stock : consist) {
             if (stock instanceof Locomotive && stock.uniqueID != uniqueID) {
-                totalMhp += ((Locomotive)stock).getSpecMHP();
+                totalMhp += ((Locomotive)stock).getMHP();
             }
         }
 
@@ -199,10 +217,10 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         }
 
         // Get the defaults, then scale them
-        setCurrentMaxSpeed((int)Math.max(       (getSpecMaxSpeed()           - currentSpeedSlowDown) * speedMult,0));        // Avoid Speed < 0
-        brakingRate = Math.min(                 getSpecBrake()               + currentBrakeSlowDown,0.998);                 // Avoid Brake > 1 (acceleration)
-        accelRate = Math.max(                   (getSpecAccel()              - currentAccelSlowDown) * accelMult,0);        // Avoid Accel < 0 (braking)
-        fuelRate =                              getSpecFuelConsumption()     - currentFuelConsumptionChange;
+        setCurrentMaxSpeed((int)Math.max(       (getMaxSpeed()           - currentSpeedSlowDown) * speedMult,0));        // Avoid Speed < 0
+        brakingRate = Math.min(                 getBrake()               + currentBrakeSlowDown,0.998);                 // Avoid Brake > 1 (acceleration)
+        accelRate = Math.max(                   (getAccel()              - currentAccelSlowDown) * accelMult,0);        // Avoid Accel < 0 (braking)
+        fuelRate =                              getFuelConsumption()     - currentFuelConsumptionChange;
     }
 
     /**
@@ -425,12 +443,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
      * =========================================== UTILS ===========================================
      **/
 
-    public float getSpecMaxSpeed() {        return getSpec() == null ? 50   : getSpec().getMaxSpeed(); }
-    public float getSpecMHP() {             return getSpec() == null ? 100  : getSpec().getMHP(); }
-    public double getSpecAccel() {          return getSpec() == null ? 0.4  : getSpec().getAccelerationRate(); }
-    public double getSpecBrake() {          return getSpec() == null ? 0.97 : getSpec().getBrakeRate(); }
-    public int getSpecFuelConsumption() {   return getSpec() == null ? 80   : getSpec().getFuelConsumption(); }
-
     @Override
     public boolean canBePushed() { return canBePulled; }
     public void setCanBePushed(boolean pushable) { canBePulled = pushable; }
@@ -464,18 +476,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     /*
      * =========================================== DATA WATCHER & PACKETS ===========================================
      **/
-
-    // NOTE: Should be an override of entityInit(), but that causes a ticking memory exception on placing a stock
-    public void initDataWatcher() {
-        dataWatcher.addObject(2, (int) getSpecMaxSpeed());
-        dataWatcher.addObject(3, MTC.destination);
-        dataWatcher.addObject(20, 0f); // Heat
-        dataWatcher.addObject(23, ""); // State
-        dataWatcher.addObject(24, fuelTrain);
-        dataWatcher.addObject(25, 0); // Speed
-        dataWatcher.addObject(26, guiDetailsJSON());
-        dataWatcher.addObject(28, lightingDetailsJSONString());
-    }
 
     public void updateDataWatcher() {
         dataWatcher.updateObject(3, MTC.destination);

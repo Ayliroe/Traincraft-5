@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 import train.client.render.CustomModelRenderer;
-import train.common.entity.rollingStockOld.steam.EntityLocoSteamShay;
+import train.common.api.Freight;
 
 public class ModelLocoSteamShay extends ModelBase {
 
@@ -682,7 +682,7 @@ public class ModelLocoSteamShay extends ModelBase {
 		roof_piston_lower.render(f5);
 		roof_piston_upper.render(f5);
 		
-		int cargo = ((EntityLocoSteamShay) entity).getAmmountOfCargo();
+		int cargo = ((Freight) entity).getAmmountOfCargo();
 		if (cargo != 0) {
 			GL11.glPushMatrix();
 			GL11.glTranslatef(0, -0.15f+cargo*0.016f, 0);

@@ -9,6 +9,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
 import train.common.api.LiquidManager.StandardTank;
 import train.common.core.handlers.FuelHandler;
+import train.common.library.TrainRecord;
 
 public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 
@@ -20,26 +21,20 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 
 	public SteamTrain(World world) {
 		super(world);
-		maxTank = getTankCapacity()[0];
-		theTank = LiquidManager.getInstance().new FilteredTank(maxTank, LiquidManager.WATER_FILTER);
-		tankArray[0] = theTank;
 		dataWatcher.addObject(4, 0);
 		dataWatcher.addObject(27, 0);
 	}
 
 	@Override
-	public int getSizeInventory() {
-		return 11+(getInventoryRows()*9);
+	public void init(TrainRecord spec) {
+		super.init(spec);
+		maxTank = getTankCapacity()[0];
+		theTank = LiquidManager.getInstance().new FilteredTank(maxTank, LiquidManager.WATER_FILTER);
+		tankArray[0] = theTank;
 	}
 
-	/**
-	 * returns the waterConsumption for each steam loco default is 200: rand.nextInt(200)==0
-	 * 
-	 * @return
-	 */
-	public int getWaterConsumption() {
-		return getSpec().getWaterConsumption();
-	}
+	@Override
+	public int getSizeInventory() { return 11; }
 
 	@Override
 	public void onUpdate() {

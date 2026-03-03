@@ -58,7 +58,7 @@ public class LinkHandler {
 
 
 				//System.out.println(d2);
-				if (MathHelper.sqrt_double((d * d) + (d1 * d1)) <= cart1.getOptimalDistance(cart1)) {
+				if (MathHelper.sqrt_double((d * d) + (d1 * d1)) <= cart1.getOptimalDistance()) {
 					/**
 					 * attach only if the link is free, each cart has two link obviously
 					 */
@@ -116,16 +116,5 @@ public class LinkHandler {
 					}
 				}
 			}
-	}
-
-	/**
-	 * getting the optimal distance for each cart
-	 * 
-	 * @param cart1
-	 * @param cart2
-	 * @return
-	 */
-	public static float getOptimalDistance(AbstractTrains cart1, AbstractTrains cart2) {
-		return cart1.getOptimalDistance(cart2)+cart2.getOptimalDistance(cart1);
 	}
 }

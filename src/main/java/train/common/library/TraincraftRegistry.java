@@ -25,7 +25,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -34,13 +33,11 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import train.client.core.ClientProxy;
-import train.client.render.RenderEnum;
 import train.common.Traincraft;
 import train.common.api.*;
 import train.common.api.blocks.BlockDynamic;
 import train.common.api.blocks.TileRenderFacing;
 import train.common.blocks.BlockTraincraftFluid;
-import train.common.core.managers.TierRecipeManager;
 import train.common.items.ItemRollingStock;
 
 import javax.annotation.Nullable;
@@ -51,13 +48,10 @@ import java.util.Map;
 
 public class TraincraftRegistry {
 
-    private Map<Item, TrainRecord> trainRecordsByItem = new HashMap<>();
-
-    private Map<String, TrainRenderRecord> trainRenderRecords = new HashMap<>();
-
+    private final Map<Item, TrainRecord> trainRecordsByItem = new HashMap<>();
+    private final Map<String, RenderRecord> trainRenderRecords = new HashMap<>();
     private static final List<TrackRecord> trackRecords = new ArrayList<>();
-
-    private static Map<Item, TrackRecord> trackRecordsByItem = new HashMap<>();
+    private static final Map<Item, TrackRecord> trackRecordsByItem = new HashMap<>();
 
 
     public TraincraftRegistry() {
@@ -76,7 +70,7 @@ public class TraincraftRegistry {
 
         Side side = FMLCommonHandler.instance().getEffectiveSide();
         if (side == Side.CLIENT) {
-            for (RenderEnum render : Traincraft.instance.renderRecords) {
+            for (RenderRecord render : Traincraft.instance.renderRecords) {
                 TraincraftRegistry.this.registerTrainRenderRecord(render);
             }
         }
@@ -84,21 +78,21 @@ public class TraincraftRegistry {
 
 
 
-    public TrainRecord getTrainRecord(Class<?> entityClass) {
-        if (entityClass == null) return null;
+    public TrainRecord getTrainRecord(String entryName) {
+        if (entryName.isEmpty()) return null;
 
         for (TrainRecord record : Traincraft.instance.trainRecords) {
-            if (entityClass.equals(record.getEntityClass())) {
+            if (entryName.equals(record.getName())) {
                 return record;
             }
         }
         return null;
     }
 
-    public TrainSoundRecord getTrainSoundRecord(String entryName) {
+    public SoundRecord getTrainSoundRecord(String entryName) {
         if (entryName.isEmpty()) return null;
 
-        for (TrainSoundRecord record : Traincraft.instance.soundRecords) {
+        for (SoundRecord record : Traincraft.instance.soundRecords) {
             if (entryName.equals(record.getEntryName())) {
                 return record;
             }
@@ -111,7 +105,7 @@ public class TraincraftRegistry {
         return trainRecordsByItem.get(item);
     }
 
-    public TrainRenderRecord getTrainRenderRecord(String entryName) {
+    public RenderRecord getTrainRenderRecord(String entryName) {
         return trainRenderRecords.get(entryName);
     }
 
@@ -119,10 +113,11 @@ public class TraincraftRegistry {
         trainRecordsByItem.put(record.getItem(), record);
     }
 
-    public void registerTrainRenderRecord(TrainRenderRecord record) {
+    public void registerTrainRenderRecord(RenderRecord record) {
         trainRenderRecords.put(record.getEntryName(), record);
-        if(getTrainRecord(record.getClass())!=null) {
-            for(String color:getTrainRecord(record.getClass()).getColors()){
+        //TODO: evil recursive loop
+        if(getTrainRecord(record.getEntryName())!=null) {
+            for(String color:getTrainRecord(record.getEntryName()).getColors()){
                 SkinRegistry.addSkin(record.getEntryName(),color);
             }
         }
@@ -172,6 +167,7 @@ public class TraincraftRegistry {
         }
     }
 
+    // Only used for ComputerCraft peripherals
     private static String typeDecor="decorative",typeDiesel="diesel", typeSteam="steam",typeElectric="electric",typePassenger="passenger",typeTender="tender", typeWork="work",typeFreight="freight",typeTank="tank";
     public static String findTrainType(AbstractTrains t){
         if(t instanceof SteamTrain){

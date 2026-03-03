@@ -43,6 +43,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 	public AbstractTrains entity=null;
 
+	//TODO: fix this mess, 32 calls each creating a train instance is stupid
 	private AbstractTrains getEntity(){
 		if(entity==null){
 			entity=Traincraft.instance.traincraftRegistry.findTrainRecordByItem(this).getEntity(null);
@@ -119,12 +120,12 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 		if(getEntity()!=null){
 			//year is the tell for if the TC4.5 API was used in favor of 4.3's.
-			if(getEntity().transportYear() != null && !getEntity().transportYear().equals("")) {
-				par3List.add(EnumChatFormatting.GRAY + t("menu.item.year") + ": " + getEntity().transportYear());
+			if(getEntity().getYear() != null && !getEntity().getYear().equals("")) {
+				par3List.add(EnumChatFormatting.GRAY + t("menu.item.year") + ": " + getEntity().getYear());
 			}
-			if(getEntity().transportcountry()!=null && getEntity().transportcountry().length()>1) {
+			if(getEntity().getCountry()!=null && getEntity().getCountry().length()>1) {
 				par3List.add(EnumChatFormatting.GRAY + t("menu.item.country") + ": " +
-						t("menu.item." + getEntity().transportcountry().toLowerCase()));
+						t("menu.item." + getEntity().getCountry().toLowerCase()));
 			}
 
 
@@ -136,7 +137,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 				if(getEntity().getRiderOffsets()!=null && getEntity().getRiderOffsets().length>0){
 					s.append(t("menu.item.passenger")+", ");
 				}
-				if(getEntity().getInventoryRows()>0){
+				if(getEntity().getSizeInventory()>0){
 					s.append(t("menu.item.freight")+", ");
 				}
 			} else {
@@ -167,15 +168,15 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 			par3List.add(EnumChatFormatting.GREEN + t("menu.item.weight") +": " + getEntity().weightKg() + "kg");
 			if (getEntity() instanceof Locomotive) {
-				if (((Locomotive)getEntity()).getSpecMaxSpeed() != 0) {
-					par3List.add(EnumChatFormatting.GREEN + t("menu.item.speed") + ": " + ((Locomotive)getEntity()).getSpecMaxSpeed() + " km/h");
+				if (((Locomotive)getEntity()).getMaxSpeed() != 0) {
+					par3List.add(EnumChatFormatting.GREEN + t("menu.item.speed") + ": " + ((Locomotive)getEntity()).getMaxSpeed() + " km/h");
 				}
-				if (((Locomotive)getEntity()).getSpecMHP() != 0) {
-					par3List.add(EnumChatFormatting.GREEN + t("menu.item.mhp") + ": " + ((Locomotive)getEntity()).getSpecMHP());
+				if (((Locomotive)getEntity()).getMHP() != 0) {
+					par3List.add(EnumChatFormatting.GREEN + t("menu.item.mhp") + ": " + ((Locomotive)getEntity()).getMHP());
 				}
 			}
-			if(getEntity().getInventoryRows()>0){
-				par3List.add(EnumChatFormatting.BLUE +t("menu.item.isizeof")+ ": " + (getEntity().getInventoryRows()*9) + " " + t("menu.item.slots"));
+			if(getEntity().getSizeInventory()>0){
+				par3List.add(EnumChatFormatting.BLUE +t("menu.item.isizeof")+ ": " + (getEntity().getSizeInventory()) + " " + t("menu.item.slots"));
 			}
 			if(getEntity().getRiderOffsets()!=null){
 				par3List.add(EnumChatFormatting.BLUE +t("menu.item.seats")+ ": " + getEntity().getRiderOffsets().length);
@@ -196,10 +197,6 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 	@Override
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.rare;
-	}
-
-	public String getTrainType() {
-		return Traincraft.instance.traincraftRegistry.findTrainRecordByItem(this).getTrainType();
 	}
 
 	@Override
@@ -332,24 +329,10 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 
 	public EntityMinecart placeCart(EntityPlayer player, ItemStack itemstack, World world, int i, int j, int k) {
-		AbstractTrains rollingStock = null;
-
-
-
-		try {
-			rollingStock=getEntity().getClass().getConstructor(World.class)
-					.newInstance(world);
-		} catch (Exception e){
-			if(DebugUtil.dev){
-				e.printStackTrace();
-			}
-			DebugUtil.log("Failed to cast : " + getEntity().toString() + "to a new generic transport entity");
-		}
-
-
+		AbstractTrains rollingStock = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(this).getEntity(world);
 		if (rollingStock != null) {
 			rollingStock.setPosition( i + 0.5D , j+ 0.3D, k + 0.5D);
-			if (SkinRegistry.get(rollingStock).size()>0) {
+			if (SkinRegistry.get(rollingStock.getName()).size()>0) {
 				rollingStock.setColor(rollingStock.getDefaultSkin());
 			}
 			if (!world.isRemote) {
@@ -587,9 +570,9 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 				if (player == null)
 					rollingStock.setInformation("", trainCreator, (itemstack.getItem()).getItemStackDisplayName(itemstack), uniID);
 
-				if (ConfigHandler.SHOW_POSSIBLE_COLORS && SkinRegistry.get(rollingStock).size()>0) {
+				if (ConfigHandler.SHOW_POSSIBLE_COLORS && SkinRegistry.get(rollingStock.getName()).size()>0) {
 					String concatColors = ": ";
-					for (String cols : SkinRegistry.get(rollingStock).keySet()) {
+					for (String cols : SkinRegistry.get(rollingStock.getName()).keySet()) {
 						if (!cols.equals("Empty") && !cols.equals("Full"))
 							concatColors+=cols+", ";
 					}

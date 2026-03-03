@@ -42,7 +42,7 @@ public class EntityHitbox {
             longest=Math.abs(depth);
 
             depth*=2;width*=2;
-            depth+=host.getOptimalDistance(null);
+            depth+=host.getOptimalDistance();
             interactionBoxes = new ArrayList<>();
             for (float f = 0; f < depth - (width * 0.25f); f += width) {
                 CollisionBox c = new CollisionBox((host));
@@ -61,7 +61,7 @@ public class EntityHitbox {
         }
         Vec3d part;
         for(int i=0; i<interactionBoxes.size();i++) {
-            part = CommonUtil.rotateDistance( -host.getOptimalDistance(null) +
+            part = CommonUtil.rotateDistance( -host.getOptimalDistance() +
                             ((host.getHitboxSize()[0] / interactionBoxes.size()) * (i + 0.5f)),
                     -pitch, yaw).addVector(x, y, z);
             interactionBoxes.get(i).setPosition(part.xCoord, part.yCoord, part.zCoord);

@@ -12,11 +12,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import train.common.Traincraft;
-import train.common.api.*;
+import train.common.api.AbstractTracksBuilder;
+import train.common.api.AbstractTrains;
+import train.common.api.EntityRollingStock;
+import train.common.api.Locomotive;
 import train.common.blocks.BlockTCRail;
 import train.common.blocks.BlockTCRailGag;
-import train.common.library.Info;
+import train.common.library.RenderRecord;
 import train.common.overlaytexture.OverlayTextureManager;
 
 import java.util.ArrayList;
@@ -147,7 +149,7 @@ public class RenderRollingStock extends Render {
 
 
         //GL11.glEnable(GL11.GL_LIGHTING);
-        TrainRenderRecord render = cart.getRender();
+        RenderRecord render = cart.getRender();
         if (render.hasSmoke()) {
             if(cart.render_cache.smokePosition==null) {
                 cart.render_cache.smokePosition = new ArrayList<double[]>();
@@ -281,7 +283,7 @@ public class RenderRollingStock extends Render {
         if(!entity.render_cache.color.equals(entity.getColor())){
             entity.render_cache.color=entity.getColor();
             entity.render_cache.rend=entity.getRender();
-            entity.render_cache.skin=SkinRegistry.get(entity).get(entity.render_cache.color);
+            entity.render_cache.skin=SkinRegistry.get(entity.getName()).get(entity.render_cache.color);
         }
 
         if (entity.render_cache.rend != null) {

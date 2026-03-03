@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import train.client.core.ClientProxy;
 import train.client.render.CustomModelRenderer;
-import train.common.entity.rollingStockOld.tender.EntityTenderBR01_DB;
+import train.common.api.Freight;
 import train.common.library.Info;
 
 public class ModelTenderBR01_DB extends ModelBase {
@@ -414,7 +414,7 @@ public class ModelTenderBR01_DB extends ModelBase {
 		box81.render(f5);
 		box9.render(f5);
 		
-		int cargo = ((EntityTenderBR01_DB) entity).getAmmountOfCargo();
+		int cargo = ((Freight) entity).getAmmountOfCargo();
 		if (cargo != 0) {
 			GL11.glPushMatrix();
 			GL11.glTranslatef(0, -0.66f+cargo*0.046f, 0);

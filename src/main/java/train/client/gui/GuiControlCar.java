@@ -285,7 +285,7 @@ public class GuiControlCar extends GuiContainer
             fontRendererObj.drawStringWithShadow("Fuel consumption: " + ((locomotiveUnderControl.fuelRate *0.2)+"").substring(0,Math.min(((locomotiveUnderControl.fuelRate *0.2)+"").length(),4))+ " mB/s", 1,
                     60, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("Fuel: " + locomotiveUnderControl.getFuel(), 1, 70, 0xFFFFFF);
-            fontRendererObj.drawStringWithShadow("Power: " + locomotiveUnderControl.getSpecMHP() + " Mhp", 1, 80, 0xFFFFFF);
+            fontRendererObj.drawStringWithShadow("Power: " + locomotiveUnderControl.getMHP() + " Mhp", 1, 80, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("State: " + locomotiveUnderControl.getState(), 1, 90, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("Heat level: " + locomotiveUnderControl.getHeat(), 1, 100, 0xFFFFFF);
             fontRendererObj.drawStringWithShadow("Maximum Speed: " + locomotiveUnderControl.getCurrentMaxSpeed() + " km/h", 1, 110, 0xFFFFFF);

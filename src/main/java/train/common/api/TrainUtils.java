@@ -52,9 +52,9 @@ public final class TrainUtils {
     
     public static boolean onClickWithDye(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
         if (itemstack.getItem() instanceof ItemDye) {
-            if (!SkinRegistry.get(train).isEmpty()) {
+            if (!SkinRegistry.get(train.getName()).isEmpty()) {
                 // If the color is valid for the cart, then change it and reduce itemstack size
-                for (TransportSkin s : SkinRegistry.get(train).values()) {
+                for (TransportSkin s : SkinRegistry.get(train.getName()).values()) {
                     if (itemstack.getItemDamage() == DepreciatedUtil.getColorFromString(s.addr)) {
                         train.setColor(s.addr);
                         itemstack.stackSize--;
@@ -66,14 +66,14 @@ public final class TrainUtils {
                 }
                 if (train.getWorld().isRemote && ConfigHandler.SHOW_POSSIBLE_COLORS) {
                     String concatColors = ": ";
-                    for (int t = 0; t < SkinRegistry.get(train).size(); t++) {
-                        concatColors = concatColors.concat(SkinRegistry.get(train).get(t) + ", ");
+                    for (int t = 0; t < SkinRegistry.get(train.getName()).size(); t++) {
+                        concatColors = concatColors.concat(SkinRegistry.get(train.getName()).get(t) + ", ");
                     }
                     playerEntity.addChatMessage(new ChatComponentText("Possible colors" + concatColors));
                     playerEntity.addChatMessage(new ChatComponentText("To paint, click me with the right dye"));
                     return true;
                 }
-            } else if (SkinRegistry.get(train) != null || SkinRegistry.get(train).isEmpty()) {
+            } else if (SkinRegistry.get(train.getName()) != null || SkinRegistry.get(train.getName()).isEmpty()) {
                 playerEntity.addChatMessage(new ChatComponentText("No other colors available"));
             }
         }
@@ -167,21 +167,21 @@ public final class TrainUtils {
 
     public static boolean onClickWithPaintbrush(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
         if (itemstack.getItem() instanceof ItemPaintbrushThing && playerEntity.isSneaking()) {
-            if (!SkinRegistry.get(train).isEmpty()) {
+            if (!SkinRegistry.get(train.getName()).isEmpty()) {
                 playerEntity.openGui(Traincraft.instance, GuiIDs.PAINTBRUSH, playerEntity.getEntityWorld(), train.getEntityId(), -1, (int) train.posZ);
             }
 
-            if (SkinRegistry.get(train).isEmpty()) {
+            if (SkinRegistry.get(train.getName()).isEmpty()) {
                 playerEntity.addChatMessage(new ChatComponentText("There are no other colors available."));
             }
             return true;
         } else if (itemstack.getItem() instanceof ItemPaintbrushThing) {
-            for (int i = 0; i < SkinRegistry.get(train).size(); i++) {
-                if (train.getColor().equals(SkinRegistry.get(train).get(i))) {
-                    if (SkinRegistry.get(train).size() > i+1) {
-                        train.setColor(SkinRegistry.get(train).get(i+1).addr);
+            for (int i = 0; i < SkinRegistry.get(train.getName()).size(); i++) {
+                if (train.getColor().equals(SkinRegistry.get(train.getName()).get(i))) {
+                    if (SkinRegistry.get(train.getName()).size() > i+1) {
+                        train.setColor(SkinRegistry.get(train.getName()).get(i+1).addr);
                     } else {
-                        train.setColor(SkinRegistry.get(train).get(0).addr);
+                        train.setColor(SkinRegistry.get(train.getName()).get(0).addr);
                     }
                     return true;
                 }
@@ -241,7 +241,7 @@ public final class TrainUtils {
             else if (train instanceof AbstractWorkCart)     { targetGUI = GuiIDs.CRAFTING_CART; }
             else if (train instanceof AbstractControlCar)   { targetGUI = GuiIDs.CONTROL_CAR; }
             // Generic - Seat
-            else if (train.seats != null && train.seats.size() > 1 && train.getInventoryRows() == 0 && train.riddenByEntity instanceof EntityPlayer) {
+            else if (train.seats != null && train.seats.size() > 1 && train.getSizeInventory() == 0 && train.riddenByEntity instanceof EntityPlayer) {
                 player = (EntityPlayer)train.riddenByEntity;
                 targetGUI = GuiIDs.SEAT_GUI;
             }

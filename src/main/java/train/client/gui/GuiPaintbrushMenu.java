@@ -109,12 +109,8 @@ public class GuiPaintbrushMenu extends GuiScreen {
         this.rollingStock = rollingStock;
         drawList = false;
         topVisSkin = 0;
-        try {
-            renderEntity = rollingStock.getClass().getConstructor(new Class[]{ World.class }).newInstance(rollingStock.getWorld());
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
-        for (String s : SkinRegistry.get(rollingStock).keySet()){
+        renderEntity = rollingStock.getEntity(rollingStock.getWorld());
+        for (String s : SkinRegistry.get(rollingStock.getName()).keySet()){
             skins.add(s);
         }
         totalOptions = skins.size();

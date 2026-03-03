@@ -1,19 +1,15 @@
 package train.common.api;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
-import train.common.adminbook.ServerLogger;
 import train.common.library.ItemIDs;
-
-import javax.annotation.Nullable;
+import train.common.library.TrainRecord;
 
 public abstract class LiquidTank extends EntityRollingStock implements ISidedInventory {
     private int capacity;
@@ -24,17 +20,18 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
 
 
 	public LiquidTank(World world) {
-		this(null, world);
-        cargoItems = new ItemStack[getSizeInventory()];
-	}
-
-    private LiquidTank(@Nullable FluidStack liquid, World world) {
         super(world);
-        this.capacity = getTankCapacity()[0];
-        this.theTank = new FluidTank(liquid, capacity);
+
         dataWatcher.addObject(4, 0);
         dataWatcher.addObject(22, "");
+	}
 
+    @Override
+    public void init(TrainRecord spec) {
+        super.init(spec);
+        this.capacity = getTankCapacity()[0];
+        this.theTank = new FluidTank(null, capacity);
+        cargoItems = new ItemStack[getSizeInventory()];
     }
 
     public int getAmount() {

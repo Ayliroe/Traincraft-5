@@ -4,10 +4,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -20,9 +18,8 @@ import train.common.Traincraft;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.network.PacketKeyPress;
 import train.common.enums.DataMemberName;
-import train.common.library.EnumSounds;
-import train.common.library.GuiIDs;
 import train.common.library.Info;
+import train.common.library.SoundRecord;
 
 import java.util.List;
 
@@ -49,8 +46,7 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
     public byte beaconCycleIndex = 0;
     public byte ditchLightMode = 0;
 
-    public AbstractControlCar(World world)
-    {
+    public AbstractControlCar(World world) {
         super(world);
         numCargoSlots = 3;
         numCargoSlots1 = 3;
@@ -66,11 +62,6 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
         {
             dataWatcher.addObject(29, connectedLocomotive.getEntityId());
         }
-    }
-
-    public AbstractControlCar(World world, double d, double d1, double d2)
-    {
-        super(world);
     }
 
     @Override
@@ -191,7 +182,7 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
 
     public void soundHorn()
     {
-        for (EnumSounds sounds : Traincraft.instance.soundRecords)
+        for (SoundRecord sounds : Traincraft.instance.soundRecords)
         {
             if (!sounds.getEntryName().isEmpty() && sounds.getEntryName().equals(getName()) && whistleDelay == 0)
             {

@@ -86,10 +86,6 @@ public class CollisionBox extends EntityDragonPart implements IInventory, IFluid
         return host != null && host.attackEntityFromPart(this, damageSource, p_70097_2_);
     }
 
-    public float getOptimalDistance(EntityMinecart cart) {
-        return host.getOptimalDistance(cart);
-    }
-
     @Override
     public int getSizeInventory() {
         return host.getSizeInventory();

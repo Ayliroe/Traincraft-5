@@ -18,7 +18,6 @@ import train.client.core.handlers.RecipeBookHandler;
 import train.common.blocks.TCBlocks;
 import train.common.core.managers.TierRecipe;
 import train.common.core.managers.TierRecipeManager;
-import train.common.entity.rollingStock.EntityPassengerCar1;
 import train.common.inventory.TrainCraftingManager;
 import train.common.items.ItemRecipeBook;
 import train.common.items.ItemRollingStock;
