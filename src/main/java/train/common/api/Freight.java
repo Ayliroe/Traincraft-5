@@ -6,7 +6,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 import train.common.api.blocks.EnumCargoTypes;
-import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 public abstract class Freight extends EntityRollingStock {
     public ItemStack[] cargoItems;
@@ -19,7 +19,7 @@ public abstract class Freight extends EntityRollingStock {
     }
 
     @Override
-    public void init(TrainRecord spec) {
+    public void init(TrainRegister spec) {
         super.init(spec);
         cargoItems = createCargoItems();
     }

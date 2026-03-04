@@ -1,21 +1,19 @@
 package train.common.library;
 
 import com.google.gson.Gson;
-import ebf.tim.api.SkinRegistry;
-import ebf.tim.api.TransportSkin;
 import net.minecraft.item.Item;
-import net.minecraft.world.World;
 import train.common.Traincraft;
 import train.common.api.AbstractTrains;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 class TrainRecordJson {
 
@@ -37,7 +35,7 @@ class TrainRecordJson {
     int guiRenderScale;
     String additionnalTooltip;
     double bogieLocoPositions;
-    String[] colors;
+    String[] skins;
     String country;
     String year;
     boolean fictional;
@@ -49,13 +47,13 @@ class TrainRecordJson {
 
 public final class TrainRecord {
 
-    public static List<TrainRecord> initTrainRecords() {
+    public static void put(Map<String, TrainRegister> trains, String path) {
 
-        InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream("assets/tc/data/TrainRecords.json");
+        int trainID = 32;
+
+        InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream(path);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
         TrainRecordJson[] recordsJson = new Gson().fromJson(reader, TrainRecordJson[].class);
-
-        List<TrainRecord> trainRecords = new ArrayList<>();
 
         for (TrainRecordJson recordJson : recordsJson) {
             Class<AbstractTrains> entityClass;
@@ -65,7 +63,10 @@ public final class TrainRecord {
                 throw new RuntimeException(e);
             }
 
-            trainRecords.add(new TrainRecord(
+            if (!trains.containsKey(recordJson.entryName))
+                trains.put(recordJson.entryName, new TrainRegister());
+
+            trains.get(recordJson.entryName).type = new TrainRecord(
                     recordJson.entryName,
                     recordJson.internalName,
                     entityClass,
@@ -84,16 +85,22 @@ public final class TrainRecord {
                     recordJson.guiRenderScale,
                     recordJson.additionnalTooltip,
                     recordJson.bogieLocoPositions,
-                    recordJson.colors,
+                    recordJson.skins,
                     recordJson.country,
                     recordJson.year,
                     recordJson.fictional,
                     recordJson.optimalDistance,
                     recordJson.hitboxSize,
                     recordJson.shouldRiderSit,
-                    recordJson.riderOffsets));
+                    recordJson.riderOffsets);
+
+            // Records being accessed from an unordered hashmap, it is best to assign the ID on reading the json to guarantee consistency
+            trains.get(recordJson.entryName).ID = trainID;
+            trainID++;
+            if(trainID== 112 || trainID==51){
+                trainID++;
+            }
         }
-        return trainRecords;
     }
 
     private final String entryName;
@@ -114,7 +121,7 @@ public final class TrainRecord {
     private final int guiRenderScale;
     private final String additionnalTooltip;
     private final double bogieLocoPositions;
-    private final String[] colors;
+    private final String[] skins;
     private final String country;
     private final String year;
     private final boolean fictional;
@@ -124,29 +131,28 @@ public final class TrainRecord {
     private final float[][] riderOffsets;
 
     /**
-     * @param entryName The stock's unique internal nname
-     * @param internalName DEPRECATED
+     * @param entryName The stock's unique internal name
+     * @param internalName @TODO TO BE DEPRECATED, only used to match with .lang files
      * @param entityClass The broad entity class (ex. 'EntitySteamLocomotive', 'EntityTender')
      * @param item The item linked to this stock
-     * @param trainType DEPRECATED, use TraincraftRegistry.findTrainType(this)
+     * @param trainType @TODO DEPRECATED, use TraincraftRegistry.findTrainType(this)
      * @param MHP Minecraft HorsePower, i.e. how much mass this stock can pull
      * @param maxSpeed The maximum speed under power (Locomotives)
      * @param mass The mass that is added to the whole train, slowing down pulling Locomotives
      * @param fuelConsumption How much fuel is consumed per tick (Locomotives)
      * @param waterConsumption How much water is consumed per tick (Steam Locomotives)
-     * @param heatingTime CURRENTLY UNUSED
+     * @param heatingTime @TODO CURRENTLY UNUSED
      * @param accelerationRate The maximum acceleration under power (Locomotives)
      * @param brakeRate The maximum break rate (Locomotives)
      * @param tankCapacity How much liquid is stored, where 1000 = 1 cubic meter (Tanks, Tenders, Non-electric Locomotives)
      * @param cargoCapacity How many freight slots are available (Freight)
-     * @param guiRenderScale DEPRECATED?
+     * @param guiRenderScale @TODO DEPRECATED?
      * @param additionnalTooltip Optional information (Item tooltip)
      * @param bogieLocoPositions The spacing between the stock's bogies
-     * @param colors The available skins for this stock
      * @param country Country of origin (Item tooltip)
      * @param year Year of origin (Item tooltip)
      * @param fictional Is this stock fictional (Item tooltip)
-     * @param optimalDistance TO BE DEPRECATED, use hitboxSize instead (Spacing when linked to another cart)
+     * @param optimalDistance @TODO TO BE DEPRECATED, use hitboxSize instead (Spacing when linked to another cart)
      * @param hitboxSize The size of this stock's proxies
      * @param shouldRiderSit Should the rider be in a sitting position
      * @param riderOffsets Position of the rider for each seat relative to the stock's center, the first being the driver
@@ -170,7 +176,7 @@ public final class TrainRecord {
             int guiRenderScale,
             String additionnalTooltip,
             double bogieLocoPositions,
-            String[] colors,
+            String[] skins,
             String country,
             String year,
             boolean fictional,
@@ -196,7 +202,7 @@ public final class TrainRecord {
         this.guiRenderScale = guiRenderScale;
         this.additionnalTooltip = additionnalTooltip;
         this.bogieLocoPositions = bogieLocoPositions;
-        this.colors = colors;
+        this.skins = skins;
         this.country = country;
         this.year = year;
         this.fictional = fictional;
@@ -224,13 +230,13 @@ public final class TrainRecord {
     public int getGuiRenderScale() { return guiRenderScale; }
     public String getAdditionnalTooltip() { return additionnalTooltip; }
     public double getBogieLocoPosition() { return bogieLocoPositions; }
-    public List<String> getColors() {
-        if (colors == null || colors.length==0) {
+    public List<String> getSkins() {
+        if (skins == null || skins.length==0) {
             return new ArrayList<>();
         } else {
             //this isnt redundant, Arrays.asList overrides and breaks the List.Add method,
             // so we have to dump content to a proper instance.
-            return new ArrayList<String>(Arrays.asList(colors));
+            return new ArrayList<String>(Arrays.asList(skins));
         }
     }
     public String getCountry() { return country; }
@@ -240,25 +246,4 @@ public final class TrainRecord {
     public float[] getHitboxSize() { return hitboxSize; }
     public boolean getShouldRiderSit() { return shouldRiderSit; }
     public float[][] getRiderOffsets() { return riderOffsets; }
-
-
-    public List<TransportSkin> getLiveries() {
-        if (!SkinRegistry.liveryMap.containsKey(getName())) {
-            for(String color:getColors()){
-                SkinRegistry.addSkin(getName(),color);
-            }
-        }
-        return (List<TransportSkin>) SkinRegistry.get(getName()).values();
-    }
-
-    public AbstractTrains getEntity(World world) {
-        try {
-            AbstractTrains train = (AbstractTrains) entityClass.getConstructor(World.class).newInstance(world);
-            train.init(this);
-            return train;
-        } catch (IllegalArgumentException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

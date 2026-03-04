@@ -42,14 +42,10 @@ import train.common.generation.ComponentVillageTrainstation;
 import train.common.generation.WorldGenWorld;
 import train.common.items.TCItems;
 import train.common.library.Info;
-import train.common.library.RenderRecord;
-import train.common.library.SoundRecord;
-import train.common.library.TrainRecord;
 import train.common.library.TraincraftRegistry;
 import train.common.recipes.AssemblyTableRecipes;
 
 import java.io.File;
-import java.util.List;
 
 @Mod(modid = Info.modID, name = Info.modName, version = Info.modVersion)
 public class Traincraft {
@@ -103,12 +99,7 @@ public class Traincraft {
     public static final SimpleNetworkWrapper gsfsChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsChannel");
     public static final SimpleNetworkWrapper gsfsrChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsReturnChannel");
 
-    public List<TrainRecord> trainRecords;
-    public List<RenderRecord> renderRecords;
-    public List<SoundRecord> soundRecords;
-    public List<TrainRecord> trainstationRecords;
-    public final TraincraftRegistry traincraftRegistry = new TraincraftRegistry();
-
+    private final TraincraftRegistry traincraftRegistry = new TraincraftRegistry();
 
     public static File configDirectory;
 
@@ -225,13 +216,8 @@ public class Traincraft {
         EntityRegistry.registerModEntity(EntityBogie.class, "Entity Front Bogie", EntityIds.LOCOMOTIVE_BOGIE, Traincraft.instance, 512, 3, true);//front bogie
         EntityRegistry.registerModEntity(EntityZeppelinOneBalloon.class, "zeppelin big", EntityIds.ZEPPELIN_BIG, Traincraft.instance, 512, 1, true);//zepplin big
         EntityRegistry.registerModEntity(EntitySeat.class, "Seat", 16, Traincraft.instance,512,3,true);//seat
-        trainRecords = TrainRecord.initTrainRecords();
-        renderRecords = RenderRecord.initRenderRecords();
-        soundRecords = SoundRecord.initSoundRecords();
-        for(TrainRecord trains : trainRecords){
-            TraincraftRegistry.registerTransport(trains);
-        }
-        trainstationRecords = ComponentVillageTrainstation.initTrainstationRecords();
+
+        TraincraftRegistry.registerTrains();
 
         /* Liquid FX */
         proxy.registerTextureFX();
@@ -253,10 +239,6 @@ public class Traincraft {
         /* Networking and Packet initialisation, apparently this needs to be in init to prevent conflicts */
         PacketHandler.init();
         proxy.registerRenderInformation();
-
-
-
-        traincraftRegistry.init();
 
         tcLog.info("Finished Initialization");
     }

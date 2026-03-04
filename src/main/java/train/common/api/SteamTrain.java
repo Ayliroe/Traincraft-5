@@ -9,7 +9,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
 import train.common.api.LiquidManager.StandardTank;
 import train.common.core.handlers.FuelHandler;
-import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 
@@ -25,7 +25,7 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 	}
 
 	@Override
-	public void init(TrainRecord spec) {
+	public void init(TrainRegister spec) {
 		super.init(spec);
 		theTank = createTank();
 	}

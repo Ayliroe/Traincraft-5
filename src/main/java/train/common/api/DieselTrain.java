@@ -11,7 +11,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import train.common.api.LiquidManager.StandardTank;
-import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 
@@ -26,7 +26,7 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 	}
 
 	@Override
-	public void init(TrainRecord spec) {
+	public void init(TrainRegister spec) {
 		super.init(spec);
 		theTank = createTank();
 	}

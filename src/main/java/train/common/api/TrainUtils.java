@@ -2,8 +2,6 @@ package train.common.api;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
-import ebf.tim.api.SkinRegistry;
-import ebf.tim.api.TransportSkin;
 import ebf.tim.entities.EntitySeat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -22,6 +20,9 @@ import train.common.items.ItemPaintbrushThing;
 import train.common.items.ItemWrench;
 import train.common.library.GuiIDs;
 import train.common.library.ItemIDs;
+import train.common.library.RenderRecord;
+
+import java.util.List;
 
 public final class TrainUtils {
 
@@ -52,30 +53,19 @@ public final class TrainUtils {
     
     public static boolean onClickWithDye(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
         if (itemstack.getItem() instanceof ItemDye) {
-            if (!SkinRegistry.get(train.getName()).isEmpty()) {
-                // If the color is valid for the cart, then change it and reduce itemstack size
-                for (TransportSkin s : SkinRegistry.get(train.getName()).values()) {
-                    if (itemstack.getItemDamage() == DepreciatedUtil.getColorFromString(s.addr)) {
-                        train.setColor(s.addr);
+
+            // If the dye matches an existing skin, then change it and reduce itemstack size
+            for (String skin : train.getSkins()) {
+                if (itemstack.getItemDamage() == DepreciatedUtil.getColorFromString(skin)) {
+                    if (train.setSkin(skin)) {
                         itemstack.stackSize--;
-
-                        //if (!getWorld().isRemote)PacketHandler.sendPacketToClients(PacketHandler.sendStatsToServer(10,uniqueID,trainName ,trainType, trainOwner, getColorAsString(itemstack.getItemDamage()), (int)posX, (int)posY, (int)posZ),getWorld(), (int)posX,(int)posY,(int)posZ, 12.0D);
-
                         return true;
                     }
                 }
-                if (train.getWorld().isRemote && ConfigHandler.SHOW_POSSIBLE_COLORS) {
-                    String concatColors = ": ";
-                    for (int t = 0; t < SkinRegistry.get(train.getName()).size(); t++) {
-                        concatColors = concatColors.concat(SkinRegistry.get(train.getName()).get(t) + ", ");
-                    }
-                    playerEntity.addChatMessage(new ChatComponentText("Possible colors" + concatColors));
-                    playerEntity.addChatMessage(new ChatComponentText("To paint, click me with the right dye"));
-                    return true;
-                }
-            } else if (SkinRegistry.get(train.getName()) != null || SkinRegistry.get(train.getName()).isEmpty()) {
-                playerEntity.addChatMessage(new ChatComponentText("No other colors available"));
             }
+            // Else print the known skins
+            printPossibleSkins(train, playerEntity);
+            return true;
         }
         return false;
     }
@@ -166,27 +156,25 @@ public final class TrainUtils {
     }
 
     public static boolean onClickWithPaintbrush(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
-        if (itemstack.getItem() instanceof ItemPaintbrushThing && playerEntity.isSneaking()) {
-            if (!SkinRegistry.get(train.getName()).isEmpty()) {
-                playerEntity.openGui(Traincraft.instance, GuiIDs.PAINTBRUSH, playerEntity.getEntityWorld(), train.getEntityId(), -1, (int) train.posZ);
-            }
-
-            if (SkinRegistry.get(train.getName()).isEmpty()) {
-                playerEntity.addChatMessage(new ChatComponentText("There are no other colors available."));
-            }
-            return true;
-        } else if (itemstack.getItem() instanceof ItemPaintbrushThing) {
-            for (int i = 0; i < SkinRegistry.get(train.getName()).size(); i++) {
-                if (train.getColor().equals(SkinRegistry.get(train.getName()).get(i))) {
-                    if (SkinRegistry.get(train.getName()).size() > i+1) {
-                        train.setColor(SkinRegistry.get(train.getName()).get(i+1).addr);
-                    } else {
-                        train.setColor(SkinRegistry.get(train.getName()).get(0).addr);
-                    }
+        if (itemstack.getItem() instanceof ItemPaintbrushThing) {
+            List<String> skins = train.getSkins();
+            if (!skins.isEmpty()) {
+                if (playerEntity.isSneaking()) {
+                    playerEntity.openGui(Traincraft.instance, GuiIDs.PAINTBRUSH, playerEntity.getEntityWorld(), train.getEntityId(), -1, (int) train.posZ);
                     return true;
                 }
+                else {
+                    int currentSkinIndex = skins.indexOf(train.getSkin());
+                    return train.setSkin(currentSkinIndex < skins.size() - 1 ? skins.get(currentSkinIndex + 1) : skins.get(0));
+                }
             }
-        } else if (playerEntity.isSneaking() && itemstack.getItem() instanceof ItemPadlock) {
+            else printPossibleSkins(train, playerEntity);
+        }
+        return false;
+    }
+
+    public static boolean onClickWithPadlock(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
+        if (itemstack.getItem() instanceof ItemPadlock && playerEntity.isSneaking()) {
             if (train.getTrainOwner().equalsIgnoreCase(playerEntity.getDisplayName())) {
                 playerEntity.openGui(Traincraft.instance, GuiIDs.LOCK_MENU, playerEntity.getEntityWorld(), train.getEntityId(), -1, (int) train.posZ);
                 return true;
@@ -330,5 +318,21 @@ public final class TrainUtils {
             else return true;
         }
         return false;
+    }
+
+    public static void printPossibleSkins(AbstractTrains train, EntityPlayer player) {
+        if (ConfigHandler.SHOW_POSSIBLE_COLORS) {
+            if (!train.getSkins().isEmpty()) {
+                String concatColors = ": ";
+                for (String skin : train.getSkins()) {
+                    if (!skin.equals("Empty") && !skin.equals("Full"))
+                        concatColors += skin + ", ";
+                }
+
+                player.addChatMessage(new ChatComponentText("Possible skins" + concatColors));
+                player.addChatMessage(new ChatComponentText("To paint, click me with the right dye"));
+            }
+            else player.addChatMessage(new ChatComponentText("No other skins available."));
+        }
     }
 }

@@ -2,6 +2,7 @@ package train.common.library;
 
 import com.google.gson.Gson;
 import train.common.Traincraft;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -9,6 +10,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 class SoundRecordJson {
 
@@ -26,16 +28,15 @@ class SoundRecordJson {
 
 public final class SoundRecord {
 
-    public static List<SoundRecord> initSoundRecords() {
+    public static void put(Map<String, TrainRegister> trains, String path) {
 
-        InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream("assets/tc/data/SoundRecords.json");
+        InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream(path);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
         SoundRecordJson[] recordsJson = new Gson().fromJson(reader, SoundRecordJson[].class);
 
-        List<SoundRecord> soundRecords = new ArrayList<>();
-
         for (SoundRecordJson recordJson : recordsJson) {
-            soundRecords.add(new SoundRecord(
+
+            trains.get(recordJson.entryName).sounds = new SoundRecord(
                     recordJson.entryName,
                     recordJson.horn,
                     recordJson.hornVolume,
@@ -45,9 +46,8 @@ public final class SoundRecord {
                     recordJson.idle,
                     recordJson.idleVolume,
                     recordJson.idleSoundLength,
-                    recordJson.soundChangeWithSpeed));
+                    recordJson.soundChangeWithSpeed);
         }
-        return soundRecords;
     }
 
     private final String entryName;

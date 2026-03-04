@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
 import train.common.library.ItemIDs;
-import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 public abstract class LiquidTank extends EntityRollingStock implements ISidedInventory {
     protected ItemStack[] cargoItems;
@@ -26,7 +26,7 @@ public abstract class LiquidTank extends EntityRollingStock implements ISidedInv
 	}
 
     @Override
-    public void init(TrainRecord spec) {
+    public void init(TrainRegister spec) {
         super.init(spec);
         theTank = createTank();
         cargoItems = createCargoItems();

@@ -4,9 +4,6 @@ import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.XmlBuilder;
-import ebf.tim.api.SkinRegistry;
-import ebf.tim.api.TransportSkin;
 import ebf.tim.entities.EntitySeat;
 import fexcraft.tmt.slim.ModelBase;
 import io.netty.buffer.ByteBuf;
@@ -21,7 +18,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeChunkManager;
@@ -37,11 +36,14 @@ import train.client.render.TransportRenderCache;
 import train.common.Traincraft;
 import train.common.adminbook.ItemAdminBook;
 import train.common.core.handlers.ConfigHandler;
-import train.common.core.util.DepreciatedUtil;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemRollingStock;
 import train.common.items.ItemWrench;
-import train.common.library.*;
+import train.common.library.Info;
+import train.common.library.RenderRecord;
+import train.common.library.SoundRecord;
+import train.common.library.TraincraftRegistry;
+import train.common.library.TraincraftRegistry.TrainRegister;
 import train.common.overlaytexture.OverlayTextureManager;
 
 import java.util.*;
@@ -63,7 +65,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public boolean shouldChunkLoad = true;
     protected boolean itemdropped = false;
 
-    public XmlBuilder entity_data = new XmlBuilder();
     public TransportRenderCache render_cache = new TransportRenderCache();
 
     public EntityBogie bogieFront=null;
@@ -87,15 +88,15 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     private OverlayTextureManager overlayTextureContainer;
     private boolean acceptsOverlayTextures = false;
 
-    private TrainRecord spec = null;
-    private RenderRecord render = null;
+    private TrainRegister register = null;
 
     public AbstractTrains(World world) {
         super(world);
 
         renderDistanceWeight = 2.0D;
 
-        dataWatcher.addObject(30, (String)"");
+        // TODO: merge stuff into json
+        dataWatcher.addObject(30, "");
         dataWatcher.addObject(7, trainOwner);
         // 8 is unused
         dataWatcher.addObject(9, trainName);
@@ -104,7 +105,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         dataWatcher.addObject(13, trainCreator);
         shouldChunkLoad = ConfigHandler.CHUNK_LOADING;
         setShouldChunkLoad(shouldChunkLoad);
-        entity_data.putString("color", ""); // Crashes on NBT save if there isn't a default "color" string
     }
 
     /**
@@ -114,13 +114,12 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * It is called once inside TrainRecord.getEntity() for the server, and below in readSpawnData() for the client
      * DO NOT PUT FUNCTIONS IN THE CONSTRUCTOR THAT RELY ON SUCH VALUES; as they won't be available yet. Put such functions inside init() instead.
      */
-    public void init(TrainRecord spec) {
-        this.spec = spec;
+    public void init(TrainRegister register) {
+        this.register = register;
         setDefaultMass(weightKg()*0.1);
         setSize(0.98f, 1.98f);
         setMinecartName(getName());
-        entity_data.putString("color", getDefaultSkin());
-        dataWatcher.updateObject(30, entity_data.toXMLString());
+        dataWatcher.updateObject(30, getDefaultSkin());
     }
 
     /**
@@ -131,7 +130,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      */
     @Override
     public void readSpawnData(ByteBuf additionalData) {
-        init(Traincraft.instance.traincraftRegistry.getTrainRecord(ByteBufUtils.readUTF8String(additionalData)));
+        init(TraincraftRegistry.trains.get(ByteBufUtils.readUTF8String(additionalData)));
         setTrainLockedFromPacket(additionalData.readBoolean());
     }
 
@@ -143,7 +142,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      */
     @Override
     public void writeSpawnData(ByteBuf buffer) {
-        ByteBufUtils.writeUTF8String(buffer, spec.getName());
+        ByteBufUtils.writeUTF8String(buffer, register.type.getName());
         buffer.writeBoolean(getTrainLockedFromPacket());
     }
 
@@ -151,41 +150,37 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public String getTrainName()        { return dataWatcher.getWatchableObjectString(9); }
     public String getTrainCreator()     { return dataWatcher.getWatchableObjectString(13); }
 
-    private TrainRecord getSpec()       { return spec; }
-    public String getName()             { return getSpec().getName(); }
-    public Item getItem()               { return getSpec().getItem(); }
+    public RenderRecord getRender()     { return register.render; }
+    public SoundRecord getSounds()      { return register.sounds; }
+    public String getName()             { return register.type.getName(); }
+    public Item getItem()               { return register.type.getItem(); }
     public String getTrainType()        { return TraincraftRegistry.findTrainType(this); }
-    public float getMHP()               { return getSpec().getMHP(); }
-    public float getMaxSpeed()          { return getSpec().getMaxSpeed(); }
-    public float weightKg()             { return getSpec().getMass()*10f; }
-    public int getFuelConsumption()     { return getSpec().getFuelConsumption(); }
-    public int getWaterConsumption()    { return getSpec().getWaterConsumption(); }
-    public int getHeatingTime()         { return getSpec().getHeatingTime(); }
-    public double getAccel()            { return getSpec().getAccelerationRate(); }
-    public double getBrake()            { return getSpec().getBrakeRate(); }
-    public int[] getTankCapacity()      { return new int[]{getSpec().getTankCapacity()}; }
+    public float getMHP()               { return register.type.getMHP(); }
+    public float getMaxSpeed()          { return register.type.getMaxSpeed(); }
+    public float weightKg()             { return register.type.getMass()*10f; }
+    public int getFuelConsumption()     { return register.type.getFuelConsumption(); }
+    public int getWaterConsumption()    { return register.type.getWaterConsumption(); }
+    public int getHeatingTime()         { return register.type.getHeatingTime(); }
+    public double getAccel()            { return register.type.getAccelerationRate(); }
+    public double getBrake()            { return register.type.getBrakeRate(); }
+    public int[] getTankCapacity()      { return new int[]{register.type.getTankCapacity()}; }
     @Override
-    public int getSizeInventory()       { return getSpec().getCargoCapacity(); }
-    public String getDefaultSkin(){
-        if(!getSpec().getColors().isEmpty()){
-            return SkinRegistry.get(getSpec().getName()).get(getSpec().getColors().get(0)).addr;
-        }
-        return !getSpec().getColors().isEmpty() ? getSpec().getColors().get(0) : "";
-    }
-    public float getOptimalDistance()   { return getSpec().getOptimalDistance() != 0 ? getSpec().getOptimalDistance() : getHitboxSize()[0]*0.5f; }
+    public int getSizeInventory()       { return register.type.getCargoCapacity(); }
+    public String getDefaultSkin()      { return !getSkins().isEmpty() ? getSkins().get(0) : ""; }
+    public float getOptimalDistance()   { return register.type.getOptimalDistance() != 0 ? register.type.getOptimalDistance() : getHitboxSize()[0]*0.5f; }
     public float[] getHitboxSize(){
-        if(getSpec().getHitboxSize().length != 0) {
-            return getSpec().getHitboxSize();
+        if(register.type.getHitboxSize().length != 0) {
+            return register.type.getHitboxSize();
         }
-        if(getSpec().getBogieLocoPosition() != 0) {
-            return new float[]{(float)Math.abs(getSpec().getBogieLocoPosition())+(Math.abs(getOptimalDistance()*2f)),2f,1f};
+        if(register.type.getBogieLocoPosition() != 0) {
+            return new float[]{(float)Math.abs(register.type.getBogieLocoPosition())+(Math.abs(getOptimalDistance()*2f)),2f,1f};
         }
         return new float[]{Math.abs((getOptimalDistance()*2)),2f,1f};
     }
     @Override
-    public boolean shouldRiderSit()     { return getSpec().getShouldRiderSit(); }
-    public float[][] getRiderOffsets()  { return getSpec().getRiderOffsets(); }
-    public AbstractTrains getEntity(World world) { return getSpec().getEntity(world); }
+    public boolean shouldRiderSit()     { return register.type.getShouldRiderSit(); }
+    public float[][] getRiderOffsets()  { return register.type.getRiderOffsets(); }
+    public AbstractTrains getEntity(World world) { return register.getEntity(world); }
 
     /**defines the points that the entity uses for path-finding and rotation, with 0 being the entity center.
      * Usually the point where the front and back bogies would connect to the transport.
@@ -195,18 +190,10 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * return new float{2f, -1f};
      * may not return null*/
     public float[] rotationPoints() {
-        if(getSpec().getBogieLocoPosition() == 0){
+        if(register.type.getBogieLocoPosition() == 0){
             return new float[]{getHitboxSize()[0]*0.5f,-getHitboxSize()[0]*0.5f};
         }
-        return new float[]{0,-(float)Math.abs(getSpec().getBogieLocoPosition())};
-    }
-
-    @SideOnly(Side.CLIENT)
-    public RenderRecord getRender() {
-        if (render == null) {
-            render = Traincraft.instance.traincraftRegistry.getTrainRenderRecord(getName());
-        }
-        return render;
+        return new float[]{0,-(float)Math.abs(register.type.getBogieLocoPosition())};
     }
 
     @Override
@@ -238,7 +225,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         super.setDead();
     }
 
-    public int setNewUniqueID(int numberOfTrains) {
+    public void setNewUniqueID(int numberOfTrains) {
 
         if (numberOfTrains <= 0) {
             numberOfTrains = uniqueIDs++;
@@ -247,60 +234,26 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         }
         uniqueID = numberOfTrains;
         getEntityData().setInteger("uniqueID", numberOfTrains);
-        return numberOfTrains;
     }
 
     public void setShouldChunkLoad(boolean chunkLoadState) { setFlag(7, chunkLoadState); }
     public boolean getShouldChunkLoad() { return getFlag(7); }
 
-    /**
-     * set the color of the rollingstock
-     *
-     * @param color
-     * @see ItemRollingStock
-     */
-    public void setColor(int color) {
-        if (!getSpec().getLiveries().isEmpty()) {
-            if (color == -1 || !getSpec().getLiveries().contains(DepreciatedUtil.getColorAsString(color))) {
-                color = color+1>getSpec().getLiveries().size()-1?0:color+1;
-            }
-            entity_data.putString("color", getSpec().getLiveries().get(color).addr);
+    public boolean setSkin(String skin) {
+        if (getSkins().contains(skin) && !getSkin().equals(skin)) {
+            dataWatcher.updateObject(30, skin);
+            return true;
         }
-        dataWatcher.updateObject(30, entity_data.toXMLString());
-        getEntityData().setString("xml", entity_data.toXMLString());
+        return false;
     }
 
-    public void setColor(String color) {
-        if (SkinRegistry.get(getSpec().getName()) != null && SkinRegistry.get(getSpec().getName()).size()>0) {
-            if (color.equals("-1") || !SkinRegistry.get(getSpec().getName()).containsKey(color)) {
-                List<TransportSkin> skins = new ArrayList<>();
-                skins.addAll(SkinRegistry.get(getSpec().getName()).values());
-                color = (skins.get(skins.indexOf(color)+1>skins.size()-1?0:skins.indexOf(color)+1).addr);
-            }
-        }
-
-        entity_data.putString("color", SkinRegistry.get(getSpec().getName()).get(color).addr);
-        dataWatcher.updateObject(30, entity_data.toXMLString());
-        getEntityData().setString("xml", entity_data.toXMLString());
-    }
-
-    public String getColor() {
-        if (getWorld() != null) {
-            entity_data.updateData(dataWatcher.getWatchableObjectString(30));
-            if (entity_data.hasString("color")) {
-                return entity_data.getString("color");
-            }
-        }
-        return SkinRegistry.get(getSpec().getName()).get(0).addr;
-    }
+    public String getSkin() { return dataWatcher.getWatchableObjectString(30); }
+    public List<String> getSkins() { return register.type.getSkins(); }
 
     @Override
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
-        //super.writeEntityToNBT(nbttagcompound);
-        nbttagcompound.setString("spec", getSpec().getName());
-        if (!getColor().isEmpty()) {
-            nbttagcompound.setString("colorstr", getColor());
-        }
+        nbttagcompound.setString("register", register.type.getName());
+        nbttagcompound.setString("skin", getSkin());
         nbttagcompound.setBoolean("chunkLoadingState", getFlag(7));
         nbttagcompound.setDouble("trainDistanceTraveled", trainDistanceTraveled);
         nbttagcompound.setString("theOwner", trainOwner);
@@ -313,8 +266,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
         nbttagcompound.setInteger("numberOfTrains", AbstractTrains.numberOfTrains);
         nbttagcompound.setBoolean("isAttached", isAttached);
-        //nbttagcompound.setDouble("motionX", motionX);
-        //nbttagcompound.setDouble("motionZ", motionZ);
         nbttagcompound.setTag("Motion", newDoubleNBTList(motionX, motionY, motionZ));
         nbttagcompound.setDouble("Link1", Link1);
         nbttagcompound.setDouble("Link2", Link2);
@@ -332,13 +283,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
-        //super.readEntityFromNBT(nbttagcompound);
-        spec = Traincraft.instance.traincraftRegistry.getTrainRecord(nbttagcompound.getString("spec"));
-        if (nbttagcompound.hasKey("color")) {
-            setColor(nbttagcompound.getInteger("color"));
-        } else if (nbttagcompound.hasKey("colorstr")) {
-            setColor(nbttagcompound.getString("colorstr"));
-        }
+        register = TraincraftRegistry.trains.get(nbttagcompound.getString("register"));
+        setSkin(nbttagcompound.getString("skin"));
         setShouldChunkLoad(nbttagcompound.getBoolean("chunkLoadingState"));
         trainDistanceTraveled = nbttagcompound.getDouble("trainDistanceTraveled");
         trainOwner = nbttagcompound.getString("theOwner");
@@ -353,8 +299,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
         numberOfTrains = nbttagcompound.getInteger("numberOfTrains");
         isAttached = nbttagcompound.getBoolean("isAttached");
-        //motionX = nbttagcompound.getDouble("motionX");
-        //motionZ = nbttagcompound.getDouble("motionZ");
         NBTTagList nbttaglist1 = nbttagcompound.getTagList("Motion", 6);            motionX = nbttaglist1.func_150309_d(0);
         motionX = nbttaglist1.func_150309_d(0);
         motionZ = nbttaglist1.func_150309_d(2);
@@ -403,7 +347,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
             itemdropped = true;
             for (ItemStack item : getItemsDropped()) {
                 if (item.getItem() instanceof ItemRollingStock) {
-                    ItemStack stack = ItemRollingStock.setPersistentData(item, this, getUniqueTrainID(), trainCreator, trainOwner, getColor());
+                    ItemStack stack = ItemRollingStock.setPersistentData(item, this, getUniqueTrainID(), trainCreator, trainOwner, getSkin());
                     entityDropItem(stack != null ? stack : item, 0);
                 } else {
                     setUniqueIDToItem(item);
@@ -422,7 +366,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         if (uniqueID != -1) stack.getTagCompound().setInteger("uniqueID", uniqueID);
         if (trainCreator != null && !trainCreator.isEmpty()) stack.getTagCompound().setString("trainCreator", trainCreator);
         exportTrustedListToNBT(stack.getTagCompound());
-        stack.getTagCompound().setString("trainColor", getColor());
+        stack.getTagCompound().setString("trainColor", getSkin());
         // Only save the overlay configuration to NBT if it exists. No need to store an empty configuration in NBT as it will be initialized as the default when the entity spawns in.
         if (acceptsOverlayTextures && getOverlayTextureContainer().getType() != OverlayTextureManager.Type.NONE) {
             stack.getTagCompound().setTag("overlayTextureConfigTag", getOverlayTextureContainer().getOverlayConfigTag());
@@ -781,7 +725,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
 
     /**defines the scale to render the model at. Default is 0.0625*/
-    public float[][] getRenderScale(){return new float[][]{getRender().getScale()};}
+    public float[][] getRenderScale(){return new float[][]{register.render.getScale()};}
 
     /**defines the scale to render the model at. Default is 1*/
     public float getPlayerScale(){return 1f;}
@@ -791,7 +735,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * return new float[][]{{x1,y1,z1},{x2,y2,z2}, etc...};
      * may return null.*/
     @SideOnly(Side.CLIENT)
-    public float[][] modelOffsets(){return new float[][]{getRender().getTrans()};}
+    public float[][] modelOffsets(){return new float[][]{register.render.getTrans()};}
 
 
     /**returns the x/y/z rotation each model should render at in degrees, in order with getModels
@@ -799,7 +743,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * return new float[][]{{x1,y1,z1},{x2,y2,z2}, etc...};
      * may return null.*/
     @SideOnly(Side.CLIENT)
-    public float[][] modelRotations(){return new float[][]{getRender().getRotate()};}
+    public float[][] modelRotations(){return new float[][]{register.render.getRotate()};}
 
 
 
@@ -809,8 +753,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * return new MyModel();
      * may return null. */
     @SideOnly(Side.CLIENT)
-    public ModelBase[] getModel(){return new ModelBase[]{getRender().getModel()};}
-
+    public ModelBase[] getModel(){return new ModelBase[]{register.render.getModel()};}
 
     public ArrayList<double[]> getSmokePosition() {return null;}
 
@@ -822,9 +765,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public TrainSound getHorn(){
-        SoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
-        if(sound != null && !sound.getHornString().isEmpty()){
-            return new TrainSound(sound.getHornString(),sound.getHornVolume(),1f, 0);
+        if(getSounds() != null && !getSounds().getHornString().isEmpty()){
+            return new TrainSound(getSounds().getHornString(),getSounds().getHornVolume(),1f, 0);
         }
         return null;
     }
@@ -834,22 +776,19 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     }
 
     public TrainSound getRunningSound(){
-        SoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
-        if(sound != null && !sound.getRunString().isEmpty()){
-            if(sound.getSoundChangeWithSpeed()){
-                return new TrainSound(sound.getRunString(), sound.getRunVolume(), 0.4f, sound.getRunSoundLength()).enableRunningPitch();
-            } else {
-                return new TrainSound(sound.getRunString(), sound.getRunVolume(), 0.4f, sound.getRunSoundLength());
+        if(getSounds() != null && !getSounds().getRunString().isEmpty()){
+            TrainSound sound = new TrainSound(getSounds().getRunString(), getSounds().getRunVolume(), 0.4f, getSounds().getRunSoundLength());
+            if(getSounds().getSoundChangeWithSpeed()){
+                sound.enableRunningPitch();
             }
+            return sound;
         }
         return null;
     }
 
-
     public TrainSound getIdleSound(){
-        SoundRecord sound = Traincraft.instance.traincraftRegistry.getTrainSoundRecord(getName());
-        if(sound != null && !sound.getIdleString().isEmpty()){
-            return new TrainSound(sound.getIdleString(),sound.getIdleVolume(),0.001F, sound.getIdleSoundLength());
+        if(getSounds() != null && !getSounds().getIdleString().isEmpty()){
+            return new TrainSound(getSounds().getIdleString(),getSounds().getIdleVolume(),0.001F, getSounds().getIdleSoundLength());
         }
         return null;
     }

@@ -135,12 +135,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
                 collisionHandler.interactionBoxes.toArray(new Entity[]{});
     }
 
-    /**
-     * <p>This method is called on the client side when an entity is being loaded in. The additionalData buffer is sent from the server
-     * and is populated by the server using the writeSpawnData method.</p>
-     * <br></br><p>"this is basically NBT for entity spawn, to keep data between client and server in sync because some data is not automatically shared."</p>
-     * @param additionalData The packet data stream
-     */
     @Override
     public void readSpawnData(ByteBuf additionalData) {
         super.readSpawnData(additionalData);
@@ -153,12 +147,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         }
     }
 
-    /**
-     * <p>This method is called on the server side when a connected client is loading the entity. Data written
-     * to the ByteBuffer will be synced with the client and available to the client through the readSpawnData method.</p>
-     * <br></br><p>"this is basically NBT for entity spawn, to keep data between client and server in sync because some data is not automatically shared."</p>
-     * @param buffer The packet data stream
-     */
     @Override
     public void writeSpawnData(ByteBuf buffer) {
         super.writeSpawnData(buffer);
@@ -824,6 +812,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
             if (TrainUtils.onClickWithDye(this, itemstack, entityplayer))         { return true; }
             if (TrainUtils.onClickWithStake(this, itemstack, entityplayer))       { return true; }
             if (TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer))  { return true; }
+            if (TrainUtils.onClickWithPadlock(this, itemstack, entityplayer))     { return true; }
         }
 
         // --- ENTERING SEAT ---
@@ -916,7 +905,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
     public List<ItemStack> getItemsDropped() {
         List<ItemStack> items = new ArrayList<ItemStack>();
 
-        items.add(ItemRollingStock.setPersistentData(new ItemStack(getItem()), this, getUniqueTrainID(), trainCreator, trainOwner, getColor()));
+        items.add(ItemRollingStock.setPersistentData(new ItemStack(getItem()), this, getUniqueTrainID(), trainCreator, trainOwner, getSkin()));
         return items;
     }
 

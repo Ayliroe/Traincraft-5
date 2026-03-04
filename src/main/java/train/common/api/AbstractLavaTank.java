@@ -15,7 +15,7 @@ public abstract class AbstractLavaTank extends LiquidTank {
     public void onUpdate() {
         super.onUpdate();
         if (!getWorld().isRemote) {
-            setColor(getAmount() > 0 ? "Full" : "Empty");
+            setSkin(getAmount() > 0 ? "Full" : "Empty");
         }
     }
 

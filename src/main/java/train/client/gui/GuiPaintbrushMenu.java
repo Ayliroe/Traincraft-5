@@ -2,9 +2,6 @@ package train.client.gui;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.tim.api.SkinRegistry;
-import ebf.tim.api.TransportSkin;
-import ebf.tim.utility.DebugUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -13,7 +10,6 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import train.client.render.RenderRollingStock;
@@ -27,7 +23,6 @@ import train.common.library.GuiIDs;
 import train.common.library.Info;
 import train.common.overlaytexture.OverlayTextureManager;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -110,17 +105,10 @@ public class GuiPaintbrushMenu extends GuiScreen {
         drawList = false;
         topVisSkin = 0;
         renderEntity = rollingStock.getEntity(rollingStock.getWorld());
-        for (String s : SkinRegistry.get(rollingStock.getName()).keySet()){
-            skins.add(s);
-        }
+        skins = rollingStock.getSkins();
         totalOptions = skins.size();
 
-        for (int i = 0; i < totalOptions; i++) { // Set page to the page with the currently selected texture.
-            if (skins.get(i).equals(rollingStock.getColor())) {
-                currentDisplayTexture = i;
-                break;
-            }
-        }
+        currentDisplayTexture = skins.indexOf(rollingStock.getSkin()); // Set page to the page with the currently selected texture.
         doAnimation = true;
         renderModels = !ConfigHandler.PAINTBRUSH_DEFAULT_LOW_PERFORMANCE_MODE;
         updateSelectedTextureProperties();
@@ -323,7 +311,7 @@ public class GuiPaintbrushMenu extends GuiScreen {
                     loopRenderColor = skins.get(0);
                 }
                 //DebugUtil.println(loopRenderColor);
-                renderEntity.setColor(loopRenderColor);
+                renderEntity.setSkin(loopRenderColor);
                 GL11.glColor4f(1, 1, 1, 1);
                 GL11.glPushMatrix();
                 GL11.glTranslated(offsetX + 205 + (i * 95), offsetY + 82, 400);

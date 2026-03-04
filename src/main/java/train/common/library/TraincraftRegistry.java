@@ -7,7 +7,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.tim.api.SkinRegistry;
 import ebf.tim.render.CustomItemModel;
 import ebf.tim.utility.DebugUtil;
 import ebf.tim.utility.OreGen;
@@ -26,6 +25,7 @@ import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.fluids.Fluid;
@@ -38,165 +38,89 @@ import train.common.api.*;
 import train.common.api.blocks.BlockDynamic;
 import train.common.api.blocks.TileRenderFacing;
 import train.common.blocks.BlockTraincraftFluid;
+import train.common.generation.ComponentVillageTrainstation;
 import train.common.items.ItemRollingStock;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 
 public class TraincraftRegistry {
 
-    private final Map<Item, TrainRecord> trainRecordsByItem = new HashMap<>();
-    private final Map<String, RenderRecord> trainRenderRecords = new HashMap<>();
-    private static final List<TrackRecord> trackRecords = new ArrayList<>();
-    private static final Map<Item, TrackRecord> trackRecordsByItem = new HashMap<>();
+    public static class TrainRegister {
+        public int ID;
+        public TrainRecord type;
+        public RenderRecord render;
+        public SoundRecord sounds;
 
-
-    public TraincraftRegistry() {
-    }
-
-    public void init() {
-        for (TrainRecord train : Traincraft.instance.trainRecords) {
-            TraincraftRegistry.this.registerTrainRecordByItem(train);
-        }
-
-        for (TrackRecord track : EnumTracks.values()){
-            TraincraftRegistry.this.registerTrackRecord(track);
-
-        }
-
-
-        Side side = FMLCommonHandler.instance().getEffectiveSide();
-        if (side == Side.CLIENT) {
-            for (RenderRecord render : Traincraft.instance.renderRecords) {
-                TraincraftRegistry.this.registerTrainRenderRecord(render);
+        public AbstractTrains getEntity(World world) {
+            try {
+                AbstractTrains train = (AbstractTrains) type.getEntityClass().getConstructor(World.class).newInstance(world);
+                train.init(this);
+                return train;
+            } catch (IllegalArgumentException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException |
+                     InvocationTargetException e) {
+                e.printStackTrace();
             }
+            return null;
         }
     }
 
+    public static final Map<String,TrainRegister> trains = new HashMap<>();
+    public static final Map<Item,TrainRegister> trainsByItem = new HashMap<>(); //TODO: nuke this (the item should know its own register)
+    public static final List<TrainRegister> stationTrains = new ArrayList<>();
+    public static final Map<String,TrackRecord> tracks = new HashMap<>();
 
+    public TraincraftRegistry() {}
 
-    public TrainRecord getTrainRecord(String entryName) {
-        if (entryName.isEmpty()) return null;
-
-        for (TrainRecord record : Traincraft.instance.trainRecords) {
-            if (entryName.equals(record.getName())) {
-                return record;
-            }
+    public static void registerTrains() {
+        TrainRecord.put(trains, "assets/tc/data/TrainRecords.json");
+        for (TrainRegister train : trains.values()) {
+            trainsByItem.put(train.type.getItem(), train);
         }
-        return null;
-    }
-
-    public SoundRecord getTrainSoundRecord(String entryName) {
-        if (entryName.isEmpty()) return null;
-
-        for (SoundRecord record : Traincraft.instance.soundRecords) {
-            if (entryName.equals(record.getEntryName())) {
-                return record;
-            }
+        if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
+            RenderRecord.put(trains, "assets/tc/data/RenderRecords.json");
+            SoundRecord.put(trains, "assets/tc/data/SoundRecords.json");
         }
-        return null;
-    }
+        ComponentVillageTrainstation.put(stationTrains, "assets/tc/data/TrainstationRecords.json");
 
+        for (TrackRecord track : EnumTracks.values()) {
+            tracks.put(track.getLabel(), track);
+        }
 
-    public TrainRecord findTrainRecordByItem(Item item) {
-        return trainRecordsByItem.get(item);
-    }
-
-    public RenderRecord getTrainRenderRecord(String entryName) {
-        return trainRenderRecords.get(entryName);
-    }
-
-    public void registerTrainRecordByItem(TrainRecord record) {
-        trainRecordsByItem.put(record.getItem(), record);
-    }
-
-    public void registerTrainRenderRecord(RenderRecord record) {
-        trainRenderRecords.put(record.getEntryName(), record);
-        //TODO: evil recursive loop
-        if(getTrainRecord(record.getEntryName())!=null) {
-            for(String color:getTrainRecord(record.getEntryName()).getColors()){
-                SkinRegistry.addSkin(record.getEntryName(),color);
-            }
+        for(TrainRegister train : trains.values()){
+            EntityRegistry.registerModEntity(train.type.getEntityClass(), train.type.getInternalName(), train.ID, Traincraft.instance, 512, 1, true);
         }
     }
 
-    public void addLivery(String entryName, String liveryName){
-        for (TrainRecord record : Traincraft.instance.trainRecords) {
-            if (entryName.equals(record.getName())) {
-                SkinRegistry.addSkin(entryName,liveryName);
-            }
-        }
-    }
-
-    /**Tracks */
-
-    public void registerTrackRecord(TrackRecord record) {
-        trackRecords.add(record);
-        trackRecordsByItem.put(record.getItem().getItem(), record);
-    }
-
-
-
-    public static TrackRecord findTrackRecordByName(String label){
-        for (TrackRecord track : trackRecords){
-            if (track.getLabel().equals(label)){
-                return track;
-            }
-        }
-        return null;
-    }
-
-    public static TrackRecord findTrackRecordByItem(Item item){
-        return trackRecordsByItem.get(item);
-    }
-
-
-
-    public static int trainID= 32;
-    public static void registerTransport(TrainRecord record){
-        EntityRegistry.registerModEntity(record.getEntityClass(), record.getInternalName(), trainID, Traincraft.instance, 512, 1, true);
-        for(String c: record.getColors()){
-            SkinRegistry.addSkin(record.getName(),c);
-        }
-        trainID++;
-        if(trainID== 112 || trainID==51){
-            trainID++;
-        }
-    }
-
-    // Only used for ComputerCraft peripherals
-    private static String typeDecor="decorative",typeDiesel="diesel", typeSteam="steam",typeElectric="electric",typePassenger="passenger",typeTender="tender", typeWork="work",typeFreight="freight",typeTank="tank";
+    // Only used for ComputerCraft peripherals, TODO refactor
     public static String findTrainType(AbstractTrains t){
         if(t instanceof SteamTrain){
-            return typeSteam;
+            return "steam";
         }
         if(t instanceof DieselTrain){
-            return typeDiesel;
+            return "diesel";
         }
         if(t instanceof ElectricTrain){
-            return typeElectric;
+            return "electric";
         }
         if(t instanceof Tender){
-            return typeTender;
+            return "tender";
         }
         if(t instanceof AbstractWorkCart){
-            return typeWork;
+            return "work";
         }
         if(t instanceof Freight){
-            return typeFreight;
+            return "freight";
         }
         if(t instanceof IPassenger){
-            return typePassenger;
+            return "passenger";
         }
         if(t instanceof LiquidTank){
-            return typeTank;
+            return "tank";
         }
-        return typeDecor;
+        return "decorative";
     }
-
 
     //todo:purge redundancy checks on postinit
     private static List<String> usedNames = new ArrayList<>();

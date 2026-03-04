@@ -36,7 +36,7 @@ public class PacketPaintbrushColor implements IMessage {
         public IMessage onMessage(PacketPaintbrushColor message, MessageContext context) {
             Entity rollingStockEntity = context.getServerHandler().playerEntity.worldObj.getEntityByID(message.entityID);
             if (rollingStockEntity instanceof EntityRollingStock) {
-                ((EntityRollingStock) rollingStockEntity).setColor(message.paintbrushColor);
+                ((EntityRollingStock) rollingStockEntity).setSkin(message.paintbrushColor);
             }
             return null;
         }

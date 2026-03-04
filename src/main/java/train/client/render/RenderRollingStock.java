@@ -2,7 +2,6 @@ package train.client.render;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.tim.api.SkinRegistry;
 import ebf.tim.utility.CommonUtil;
 import ebf.tim.utility.DebugUtil;
 import fexcraft.tmt.slim.Tessellator;
@@ -139,8 +138,8 @@ public class RenderRollingStock extends Render {
         if(cart.render_cache.bogies!=null && cart.render_cache.bogies.length>0){
             DebugUtil.println(cart.render_cache.bogies.length);
             for (m=0;m<cart.render_cache.bogies.length;m++){
-                if(cart.render_cache.skin.bogieSkins.size()>m) {
-                    Tessellator.bindTexture(new ResourceLocation(cart.render_cache.skin.bogieSkins.get(m)));
+                if(cart.render_cache.bogieSkins.length>m) {
+                    Tessellator.bindTexture(new ResourceLocation(cart.render_cache.bogieSkins[m]));
                 }
                 cart.render_cache.bogies[m].render(cart);
             }
@@ -280,10 +279,9 @@ public class RenderRollingStock extends Render {
     }
 
     public static ResourceLocation getTexture(AbstractTrains entity) {
-        if(!entity.render_cache.color.equals(entity.getColor())){
-            entity.render_cache.color=entity.getColor();
+        if(!entity.render_cache.color.equals(entity.getSkin())){
+            entity.render_cache.color=entity.getSkin();
             entity.render_cache.rend=entity.getRender();
-            entity.render_cache.skin=SkinRegistry.get(entity.getName()).get(entity.render_cache.color);
         }
 
         if (entity.render_cache.rend != null) {

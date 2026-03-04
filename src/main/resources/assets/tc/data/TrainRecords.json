@@ -18,7 +18,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -46,7 +46,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -74,7 +74,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only Logs",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -102,7 +102,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: wheat, seeds",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -130,7 +130,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Fictional. Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Yellow",
       "Orange"
     ],
@@ -161,7 +161,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Grey",
       "Orange",
       "LightBlue",
@@ -196,7 +196,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "LightGrey",
       "Grey",
       "Pink",
@@ -232,7 +232,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: blocks, vanilla items//\"train_hopper\" for open wagon => weird",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -260,7 +260,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: blocks",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Brown",
       "Grey",
       "LightGrey",
@@ -302,7 +302,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: blocks",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Black",
       "Blue",
@@ -335,7 +335,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: wood stuff",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -363,7 +363,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only planks",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Brown",
       "Yellow",
       "Green"
@@ -395,7 +395,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: blocks, vanilla items",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Brown",
       "Yellow",
       "Black",
@@ -440,7 +440,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Brown",
       "Red",
       "Blue",
@@ -485,7 +485,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -513,7 +513,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -541,7 +541,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: opaque blocks",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -569,7 +569,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: opaque blocks",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -597,7 +597,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only logs",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -625,7 +625,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -653,7 +653,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -681,7 +681,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Green",
       "Yellow",
@@ -714,7 +714,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only rails",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Green"
     ],
@@ -745,7 +745,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -773,7 +773,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only logs",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Green"
     ],
@@ -804,7 +804,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only stone and ores",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -832,7 +832,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: only ice",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -860,7 +860,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Orange",
       "White",
       "Yellow",
@@ -900,7 +900,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: blocks, vanilla items",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Green"
     ],
@@ -931,7 +931,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Grey",
       "LightGrey"
     ],
@@ -962,7 +962,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: wood stuff",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Brown",
       "Blue",
       "White"
@@ -994,7 +994,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: wood stuff",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Brown",
       "Yellow",
       "White"
@@ -1026,7 +1026,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Green",
@@ -1071,7 +1071,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Yellow",
       "LightBlue",
@@ -1112,7 +1112,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Yellow",
       "Red",
       "Green"
@@ -1144,7 +1144,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1172,7 +1172,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1200,7 +1200,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Blue",
       "Black",
@@ -1245,7 +1245,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: non-blocks",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Yellow",
       "Red",
       "Blue"
@@ -1277,7 +1277,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "Grey",
       "LightGrey",
@@ -1310,7 +1310,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Blue"
     ],
@@ -1341,7 +1341,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Cargo: any",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Grey"
     ],
@@ -1372,7 +1372,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Green",
@@ -1429,7 +1429,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1463,7 +1463,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Green",
       "Yellow"
     ],
@@ -1500,7 +1500,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1534,7 +1534,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1568,7 +1568,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Green",
       "Grey"
     ],
@@ -1605,7 +1605,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1639,7 +1639,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1678,7 +1678,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1712,7 +1712,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Yellow",
       "Blue",
       "White",
@@ -1763,7 +1763,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "Unfinished, Creative Only",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1797,7 +1797,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "Unfinished, Creative Only",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -1831,7 +1831,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "White",
       "Blue"
     ],
@@ -1868,7 +1868,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "White",
       "Blue"
     ],
@@ -1905,7 +1905,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "White",
       "Blue"
     ],
@@ -1942,7 +1942,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Orange",
       "White",
       "Yellow",
@@ -1990,7 +1990,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Orange",
       "White",
       "Yellow",
@@ -2046,7 +2046,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Orange",
       "White",
       "Yellow",
@@ -2102,7 +2102,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Yellow",
       "Red",
       "Green"
@@ -2155,7 +2155,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Yellow",
       "Red",
       "Green"
@@ -2208,7 +2208,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Green",
@@ -2270,7 +2270,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Green",
@@ -2320,7 +2320,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Green",
@@ -2361,7 +2361,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Red"
     ],
@@ -2413,7 +2413,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2447,7 +2447,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2481,7 +2481,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Blue",
       "Black",
@@ -2537,7 +2537,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2571,7 +2571,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2605,7 +2605,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2639,7 +2639,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Yellow",
@@ -2672,7 +2672,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2700,7 +2700,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2734,7 +2734,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2768,7 +2768,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2802,7 +2802,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Cyan",
       "Grey"
@@ -2840,7 +2840,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Blue",
       "Green"
@@ -2878,7 +2878,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2912,7 +2912,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Supports MP3/OGG format M3U/PLS links, like Shoutcast",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2940,7 +2940,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -2974,7 +2974,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3008,7 +3008,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3036,7 +3036,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "Green"
     ],
@@ -3073,7 +3073,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Reduces weight carried by 50 tons when fueled",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "Lime",
       "Red",
@@ -3109,7 +3109,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Reduces weight carried by 50 tons when fueled",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Yellow",
       "Black",
       "Orange",
@@ -3145,7 +3145,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Reduces weight carried by 80 tons when fueled",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Orange",
       "Black"
     ],
@@ -3176,7 +3176,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "White",
       "Red"
@@ -3208,7 +3208,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "White",
       "Red"
@@ -3240,7 +3240,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Red",
       "White",
       "Yellow"
@@ -3272,7 +3272,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "White",
       "Yellow"
@@ -3304,7 +3304,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Capacity: 50000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Green"
     ],
@@ -3335,7 +3335,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Capacity: 90000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Green",
       "White"
     ],
@@ -3366,7 +3366,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Capacity: 70000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "Pink",
       "Grey",
@@ -3405,7 +3405,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Capacity: 40000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3433,7 +3433,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Lava Capacity: 30000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Empty",
       "Full"
     ],
@@ -3464,7 +3464,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Capacity: 40000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3492,7 +3492,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 5000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "Red",
       "Blue",
@@ -3526,7 +3526,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 14000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "Brown"
     ],
@@ -3557,7 +3557,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 18000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Orange",
       "White"
     ],
@@ -3588,7 +3588,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 15000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Green",
       "Blue",
       "Red",
@@ -3621,7 +3621,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 15000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3649,7 +3649,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 15000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "Grey"
     ],
@@ -3680,7 +3680,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 8000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "White",
       "Brown",
@@ -3716,7 +3716,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 6000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Blue",
       "Lime",
       "Black",
@@ -3750,7 +3750,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 20000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3778,7 +3778,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 20000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3806,7 +3806,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3834,7 +3834,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 14000mb",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Black",
       "Red"
     ],
@@ -3865,7 +3865,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 12000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3893,7 +3893,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 4000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3921,7 +3921,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3949,7 +3949,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -3977,7 +3977,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Water capacity: 16000mb",
     "bogieLocoPositions": 0,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -4005,7 +4005,7 @@
     "guiRenderScale": 17,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.6,
-    "colors": [
+    "skins": [
       "Red",
       "Green",
       "Yellow",
@@ -4045,7 +4045,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.5,
-    "colors": [
+    "skins": [
       "Yellow",
       "White",
       "Blue",
@@ -4085,7 +4085,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.2,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -4119,7 +4119,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.4,
-    "colors": [
+    "skins": [
       "Red",
       "Blue",
       "Black",
@@ -4171,7 +4171,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.3,
-    "colors": [
+    "skins": [
       "Red",
       "Yellow",
       "Black",
@@ -4214,7 +4214,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.3,
-    "colors": [
+    "skins": [
       "Orange",
       "Yellow",
       "Red",
@@ -4256,7 +4256,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.58,
-    "colors": [
+    "skins": [
       "Blue",
       "Green",
       "Red",
@@ -4295,7 +4295,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.5,
-    "colors": [
+    "skins": [
       "Red",
       "Green",
       "Yellow",
@@ -4334,7 +4334,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "Unfinished, Creative Only",
     "bogieLocoPositions": -6,
-    "colors": [
+    "skins": [
       "White",
       "Red"
     ],
@@ -4386,7 +4386,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.4,
-    "colors": [
+    "skins": [
       "Orange",
       "Yellow",
       "Black",
@@ -4429,7 +4429,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.4,
-    "colors": [
+    "skins": [
       "Black",
       "Lime",
       "Red",
@@ -4471,7 +4471,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.25,
-    "colors": [
+    "skins": [
       "Yellow",
       "Black",
       "Orange",
@@ -4513,7 +4513,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5.5,
-    "colors": [
+    "skins": [
       "Pink",
       "Green",
       "Red"
@@ -4556,7 +4556,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.7,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -4595,7 +4595,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.75,
-    "colors": [
+    "skins": [
       "Orange",
       "Black"
     ],
@@ -4632,7 +4632,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.75,
-    "colors": [
+    "skins": [
       "Black",
       "Cyan"
     ],
@@ -4674,7 +4674,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2,
-    "colors": [
+    "skins": [
       "Red",
       "Blue",
       "Black",
@@ -4725,7 +4725,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -4759,7 +4759,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Fictional loco from Factorio",
     "bogieLocoPositions": -3.9,
-    "colors": [
+    "skins": [
       "Grey",
       "Blue"
     ],
@@ -4796,7 +4796,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "Fictional B unit for the Fictional loco from Factorio",
     "bogieLocoPositions": -3.8,
-    "colors": [
+    "skins": [
       "Grey",
       "Blue"
     ],
@@ -4827,7 +4827,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.3,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -4861,7 +4861,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": 0,
-    "colors": [
+    "skins": [
       "Green",
       "Red",
       "Black",
@@ -4900,7 +4900,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -4934,7 +4934,7 @@
     "guiRenderScale": 13,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -4968,7 +4968,7 @@
     "guiRenderScale": 13,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5,
-    "colors": [
+    "skins": [
       "White",
       "Blue"
     ],
@@ -5005,7 +5005,7 @@
     "guiRenderScale": 14,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5049,7 +5049,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5093,7 +5093,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5,
-    "colors": [
+    "skins": [
       "Red",
       "Blue",
       "Magenta",
@@ -5146,7 +5146,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.8,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Grey",
@@ -5191,7 +5191,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.6,
-    "colors": [
+    "skins": [
       "Red",
       "Blue"
     ],
@@ -5233,7 +5233,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5,
-    "colors": [
+    "skins": [
       "Blue",
       "Red"
     ],
@@ -5275,7 +5275,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4,
-    "colors": [
+    "skins": [
       "Blue",
       "Yellow",
       "Red",
@@ -5324,7 +5324,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.25,
-    "colors": [
+    "skins": [
       "Green",
       "Purple"
     ],
@@ -5361,7 +5361,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5,
-    "colors": [
+    "skins": [
       "Blue",
       "Lime",
       "Black",
@@ -5401,7 +5401,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.95,
-    "colors": [
+    "skins": [
       "Green",
       "Red",
       "Lime"
@@ -5439,7 +5439,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.25,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5478,7 +5478,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.25,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5517,7 +5517,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.25,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5551,7 +5551,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5.35,
-    "colors": [
+    "skins": [
       "Green",
       "Blue",
       "Lime"
@@ -5589,7 +5589,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5623,7 +5623,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.7,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5657,7 +5657,7 @@
     "guiRenderScale": 16,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.1,
-    "colors": [
+    "skins": [
       "Black",
       "Green"
     ],
@@ -5694,7 +5694,7 @@
     "guiRenderScale": 16,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2,
-    "colors": [
+    "skins": [
       "Red",
       "White",
       "Blue",
@@ -5736,7 +5736,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.7,
-    "colors": [
+    "skins": [
       "Blue",
       "Red",
       "Green",
@@ -5776,7 +5776,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.1,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -5810,7 +5810,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3,
-    "colors": [
+    "skins": [
       "Black",
       "Brown"
     ],
@@ -5847,7 +5847,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5.66,
-    "colors": [
+    "skins": [
       "Black",
       "Red"
     ],
@@ -5884,7 +5884,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5.66,
-    "colors": [
+    "skins": [
       "Black",
       "Grey"
     ],
@@ -5921,7 +5921,7 @@
     "guiRenderScale": 7,
     "additionnalTooltip": "",
     "bogieLocoPositions": -5.66,
-    "colors": [
+    "skins": [
       "Black",
       "Grey"
     ],
@@ -5958,7 +5958,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.7,
-    "colors": [
+    "skins": [
       "Black",
       "Grey",
       "LightGrey"
@@ -5996,7 +5996,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -6,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6030,7 +6030,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -6,
-    "colors": [
+    "skins": [
       "Orange",
       "White"
     ],
@@ -6067,7 +6067,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.7,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6101,7 +6101,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6140,7 +6140,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6179,7 +6179,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6218,7 +6218,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6257,7 +6257,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6296,7 +6296,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6335,7 +6335,7 @@
     "guiRenderScale": 10,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.4,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6374,7 +6374,7 @@
     "guiRenderScale": 17,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.8,
-    "colors": [
+    "skins": [
       "Red",
       "Grey",
       "Yellow",
@@ -6415,7 +6415,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.2,
-    "colors": [
+    "skins": [
       "Blue",
       "Black",
       "Brown",
@@ -6456,7 +6456,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6490,7 +6490,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -0.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6524,7 +6524,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6558,7 +6558,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6592,7 +6592,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6626,7 +6626,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -2.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6660,7 +6660,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -3,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6694,7 +6694,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.1,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6728,7 +6728,7 @@
     "guiRenderScale": 15,
     "additionnalTooltip": "",
     "bogieLocoPositions": -1.5,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",
@@ -6762,7 +6762,7 @@
     "guiRenderScale": 18,
     "additionnalTooltip": "",
     "bogieLocoPositions": -4.75,
-    "colors": [],
+    "skins": [],
     "country": "",
     "year": "",
     "fictional": "FALSE",

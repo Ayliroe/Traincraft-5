@@ -14,7 +14,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
-import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 public abstract class AbstractWorkCart extends EntityRollingStock{
 	protected ItemStack[] furnaceItemStacks;
@@ -27,7 +27,7 @@ public abstract class AbstractWorkCart extends EntityRollingStock{
 	}
 
 	@Override
-	public void init(TrainRecord spec) {
+	public void init(TrainRegister spec) {
 		super.init(spec);
 		furnaceItemStacks = createFurnaceItemStacks();
 	}

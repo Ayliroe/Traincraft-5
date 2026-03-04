@@ -21,6 +21,7 @@ import train.common.Traincraft;
 import train.common.api.AbstractTrains;
 import train.common.api.blocks.TileRenderFacing;
 import train.common.items.ItemRollingStock;
+import train.common.library.TraincraftRegistry;
 
 import java.util.HashMap;
 
@@ -115,7 +116,7 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
                 return;
             }
 
-            AbstractTrains entity = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(item.getItem()).getEntity(null);
+            AbstractTrains entity = TraincraftRegistry.trainsByItem.get(item.getItem()).getEntity(null);
             scale = entity.getHitboxSize()[0];
             if(scale!=0){
                 scale = 1.3f/(scale /1.3f);

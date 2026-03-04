@@ -1,6 +1,5 @@
 package train.client.render;
 
-import ebf.tim.api.TransportSkin;
 import fexcraft.tmt.slim.ModelBase;
 import train.common.library.RenderRecord;
 
@@ -13,5 +12,5 @@ public class TransportRenderCache {
     public boolean needs_model_update = true;
     public String color="";
     public RenderRecord rend;
-    public TransportSkin skin;
+    public String[] bogieSkins;
 }

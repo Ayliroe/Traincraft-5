@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
 import train.common.api.LiquidManager.StandardTank;
-import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 public abstract class Tender extends Freight implements IFluidHandler {
 
@@ -23,7 +23,7 @@ public abstract class Tender extends Freight implements IFluidHandler {
     }
 
     @Override
-    public void init(TrainRecord spec) {
+    public void init(TrainRegister spec) {
         super.init(spec);
         theTank = createTank();
         //FluidStack fluid = new FluidStack(FluidRegistry.WATER, 0);

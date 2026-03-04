@@ -176,16 +176,14 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
         }
     }
 
-    public void soundHorn()
-    {
-        for (SoundRecord sounds : Traincraft.instance.soundRecords)
+    public void soundHorn() {
+
+        if (getSounds() != null && whistleDelay == 0)
         {
-            if (!sounds.getEntryName().isEmpty() && sounds.getEntryName().equals(getName()) && whistleDelay == 0)
-            {
-                getWorld().playSoundAtEntity(this, Info.resourceLocation + ":" + sounds.getHornString(), sounds.getHornVolume(), 1.0F);
-                whistleDelay = 65;
-            }
+            getWorld().playSoundAtEntity(this, Info.resourceLocation + ":" + getSounds().getHornString(), getSounds().getHornVolume(), 1.0F);
+            whistleDelay = 65;
         }
+
         List entities = getWorld().getEntitiesWithinAABB(EntityAnimal.class, AxisAlignedBB.getBoundingBox(
                 this.posX-20,this.posY-5,this.posZ-20,
                 this.posX+20,this.posY+5,this.posZ+20));

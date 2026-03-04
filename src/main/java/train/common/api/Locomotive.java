@@ -22,7 +22,7 @@ import train.common.api.components.MTC;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.network.PacketSlotsFilled;
 import train.common.enums.DataMemberName;
-import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.util.List;
 
@@ -111,7 +111,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     }
 
     @Override
-    public void init(TrainRecord spec) {
+    public void init(TrainRegister spec) {
         super.init(spec);
 
         dataWatcher.updateObject(2, (int) getMaxSpeed());

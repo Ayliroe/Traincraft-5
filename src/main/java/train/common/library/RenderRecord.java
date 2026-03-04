@@ -5,13 +5,16 @@ import fexcraft.fvtm.BEOModelLoader;
 import fexcraft.tmt.slim.ModelBase;
 import net.minecraft.util.ResourceLocation;
 import train.common.Traincraft;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 class RenderRecordJson {
 
@@ -29,17 +32,16 @@ class RenderRecordJson {
     ArrayList<double[]> explosionFX;
     int explosionFXIterations;
     boolean hasSmokeOnSlopes;
+    String[] bogies;
 }
 
 public final class RenderRecord {
 
-    public static List<RenderRecord> initRenderRecords() {
+    public static void put(Map<String, TrainRegister> trains, String path) {
 
-        InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream("assets/tc/data/RenderRecords.json");
+        InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream(path);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
         RenderRecordJson[] recordsJson = new Gson().fromJson(reader, RenderRecordJson[].class);
-
-        List<RenderRecord> renderRecords = new ArrayList<>();
 
         for (RenderRecordJson recordJson : recordsJson) {
             ModelBase model;
@@ -47,13 +49,11 @@ public final class RenderRecord {
                 model = ((Class<ModelBase>) Class.forName(recordJson.model)).newInstance();
             } catch (ClassNotFoundException e) {
                 model = BEOModelLoader.load(recordJson.model);
-            } catch (InstantiationException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
+            } catch (InstantiationException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
 
-            renderRecords.add(new RenderRecord(
+            trains.get(recordJson.entryName).render = new RenderRecord(
                     recordJson.entryName,
                     model,
                     recordJson.texture,
@@ -67,10 +67,9 @@ public final class RenderRecord {
                     recordJson.explosionType,
                     !recordJson.explosionFX.isEmpty() ? recordJson.explosionFX : null,
                     recordJson.explosionFXIterations,
-                    recordJson.hasSmokeOnSlopes)
-                    );
+                    recordJson.hasSmokeOnSlopes,
+                    recordJson.bogies);
         }
-        return renderRecords;
     }
 
     private final String entryName;
@@ -87,8 +86,9 @@ public final class RenderRecord {
     private final ArrayList<double[]> explosionFX;
     private final int explosionFXIterations;
     private final boolean hasSmokeOnSlopes;
+    private final String[] bogies;
 
-    private RenderRecord(String entryName, ModelBase model, String texture, boolean multiTexture, float[] trans, float[] rotate, float[] scale, String smokeType, int smokeIterations, ArrayList<double[]> smokeFX, String explosionType, ArrayList<double[]> explosionFX, int explosionFXIterations, boolean hasSmokeOnSlopes) {
+    private RenderRecord(String entryName, ModelBase model, String texture, boolean multiTexture, float[] trans, float[] rotate, float[] scale, String smokeType, int smokeIterations, ArrayList<double[]> smokeFX, String explosionType, ArrayList<double[]> explosionFX, int explosionFXIterations, boolean hasSmokeOnSlopes, String[] bogies) {
         this.entryName = entryName;
         this.model = model;
         this.texture = texture;
@@ -103,6 +103,7 @@ public final class RenderRecord {
         this.explosionFX = explosionFX;
         this.explosionFXIterations = explosionFXIterations;
         this.hasSmokeOnSlopes = hasSmokeOnSlopes;
+        this.bogies = bogies;
     }
 
     public String getEntryName() { return entryName; }
@@ -122,8 +123,9 @@ public final class RenderRecord {
     public ArrayList<double[]> getExplosionFX() { return explosionFX; }
     public int getExplosionFXIterations() { return explosionFXIterations; }
     public boolean hasSmokeOnSlopes() { return hasSmokeOnSlopes; }
+    public String[] getBogies() { return bogies; }
+
 
     public boolean hasSmoke() { return !smokeType.isEmpty(); }
     public boolean hasExplosion() { return !explosionType.isEmpty(); }
 }
-

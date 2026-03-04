@@ -3,9 +3,7 @@ package train.common.items;
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.tim.api.SkinRegistry;
 import ebf.tim.utility.CommonUtil;
-import ebf.tim.utility.DebugUtil;
 import mods.railcraft.api.carts.IMinecart;
 import mods.railcraft.api.core.items.IMinecartItem;
 import net.minecraft.block.BlockRailBase;
@@ -30,6 +28,7 @@ import train.common.core.util.TraincraftUtil;
 import train.common.library.BlockIDs;
 import train.common.library.EnumTracks;
 import train.common.library.TrainRecord;
+import train.common.library.TraincraftRegistry;
 import train.common.tile.TileTCRail;
 import train.common.tile.TileTCRailGag;
 
@@ -54,15 +53,15 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 		}
 	}
 
-	public ResourceLocation getIconResource() {
-		return itemTexture;
-	}
-
 	public ItemRollingStock(String iconName, CreativeTabs tab) {
 		super(1);
 		this.iconName = iconName;
 		maxStackSize = 1;
 		setCreativeTab(tab);
+	}
+
+	public ResourceLocation getIconResource() {
+		return itemTexture;
 	}
 
 	public int setNewUniqueID(ItemStack stack, EntityPlayer player, int numberOfTrains) {
@@ -97,7 +96,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 		}
 
-		TrainRecord spec = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(this);
+		TrainRecord spec = TraincraftRegistry.trainsByItem.get(this).type;
 		Class<AbstractTrains> specClass = spec.getEntityClass();
 
 		//year is the tell for if the TC4.5 API was used in favor of 4.3's.
@@ -321,12 +320,9 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 
 	public EntityMinecart placeCart(EntityPlayer player, ItemStack itemstack, World world, int i, int j, int k) {
-		AbstractTrains rollingStock = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(this).getEntity(world);
+		AbstractTrains rollingStock = TraincraftRegistry.trainsByItem.get(this).getEntity(world);
 		if (rollingStock != null) {
 			rollingStock.setPosition( i + 0.5D , j+ 0.3D, k + 0.5D);
-			if (SkinRegistry.get(rollingStock.getName()).size()>0) {
-				rollingStock.setColor(rollingStock.getDefaultSkin());
-			}
 			if (!world.isRemote) {
 
 				if ((rollingStock instanceof SteamTrain && !ConfigHandler.ENABLE_STEAM) || (rollingStock instanceof ElectricTrain && !ConfigHandler.ENABLE_ELECTRIC) || (rollingStock instanceof DieselTrain && !ConfigHandler.ENABLE_DIESEL) || (rollingStock instanceof AbstractTracksBuilder && !ConfigHandler.ENABLE_BUILDER) || (rollingStock instanceof Tender && !ConfigHandler.ENABLE_TENDER)) {
@@ -551,7 +547,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 						rollingStock.getEntityData().setInteger("uniqueID", uniID);
 					trainCreator = var5.getString("trainCreator");
 					if (var5.hasKey("train_Color"))
-						rollingStock.setColor(var5.getString("train_Color"));
+						rollingStock.setSkin(var5.getString("train_Color"));
 					rollingStock.trainCreator = trainCreator;
 					if (var5.hasKey("overlayTextureConfigTag")) // Import overlay configuration from NBT and apply it to the entity.
 						rollingStock.getOverlayTextureContainer().importFromConfigTag(var5.getCompoundTag("overlayTextureConfigTag"));
@@ -562,19 +558,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 				if (player == null)
 					rollingStock.setInformation("", trainCreator, (itemstack.getItem()).getItemStackDisplayName(itemstack), uniID);
 
-				if (ConfigHandler.SHOW_POSSIBLE_COLORS && SkinRegistry.get(rollingStock.getName()).size()>0) {
-					String concatColors = ": ";
-					for (String cols : SkinRegistry.get(rollingStock.getName()).keySet()) {
-						if (!cols.equals("Empty") && !cols.equals("Full"))
-							concatColors+=cols+", ";
-					}
-					if (concatColors.length() > 4) {
-						if (player != null) {
-							player.addChatMessage(new ChatComponentText("Possible colors" + concatColors));
-							player.addChatMessage(new ChatComponentText("To paint, click me with the right (vanilla) dye"));
-						}
-					}
-				}
+				TrainUtils.printPossibleSkins(rollingStock, player);
 				world.spawnEntityInWorld(rollingStock);
 			}
 		}

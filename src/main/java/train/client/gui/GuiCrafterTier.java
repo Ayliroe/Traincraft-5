@@ -19,6 +19,7 @@ import train.common.core.managers.TierRecipe;
 import train.common.core.managers.TierRecipeManager;
 import train.common.library.Info;
 import train.common.library.ItemIDs;
+import train.common.library.TraincraftRegistry;
 
 import java.util.List;
 
@@ -120,14 +121,14 @@ public class GuiCrafterTier extends GuiTraincraft {
                 GL11.glTranslatef(guiLeft - 70, this.guiTop + 170, 100);
 
                 RenderHelper.enableGUIStandardItemLighting();
-                TrainRecord train = Traincraft.instance.traincraftRegistry.findTrainRecordByItem(currentKnownItem);
+                TraincraftRegistry.TrainRegister train = TraincraftRegistry.trainsByItem.get(currentKnownItem);
                 renderEntity = train.getEntity(mc.theWorld);
 
                 if (renderEntity != null && !Item.itemRegistry.getNameForObject(currentKnownItem).equals(Item.itemRegistry.getNameForObject(previousItem))) {
                     previousItem = currentKnownItem;
                 }
 
-                if (!train.getLiveries().isEmpty()) {
+                if (!train.type.getSkins().isEmpty()) {
                     if (color < 0) {
                         color = 0;
                     }
@@ -136,12 +137,12 @@ public class GuiCrafterTier extends GuiTraincraft {
                         color++;
                     }
 
-                    if (color > train.getColors().size() - 1) {
+                    if (color > train.type.getSkins().size() - 1) {
                         color = 0;
                     }
 
                     if (renderEntity != null) {
-                        renderEntity.setColor(train.getLiveries().get(color).addr);
+                        renderEntity.setSkin(train.type.getSkins().get(color));
                     }
                 }
                 float scale = renderEntity.getHitboxSize()[0];

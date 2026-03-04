@@ -144,9 +144,8 @@ public class TileTCRail extends TileEntity {
 	}
 
 	public TrackRecord getTrackFromName(){
-		return TraincraftRegistry.findTrackRecordByName(this.getType());
+		return TraincraftRegistry.tracks.get(this.getType());
 	}
-
 
 	public EnumTracks getTrackType(){
 		if (renderType == null){

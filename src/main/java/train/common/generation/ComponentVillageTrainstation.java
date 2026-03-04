@@ -1,8 +1,6 @@
 package train.common.generation;
 
 import com.google.gson.Gson;
-import ebf.tim.api.SkinRegistry;
-import ebf.tim.api.TransportSkin;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
@@ -10,8 +8,9 @@ import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureVillagePieces;
 import train.common.Traincraft;
 import train.common.api.EntityRollingStock;
-import train.common.library.TrainRecord;
 import train.common.blocks.TCBlocks;
+import train.common.library.TraincraftRegistry;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -47,28 +46,23 @@ public class ComponentVillageTrainstation extends StructureVillagePieces.Village
 	 * This catches at game start that the strings are valid, but also that the entity will readily instantiate, so players don't encounter a crash on a village generating
 	 * (Probably overkill, but at least it's there)
 	 **/
-	public static List<TrainRecord> initTrainstationRecords() {
+	public static void put(List<TrainRegister> trains, String path) {
 
-		InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream("assets/tc/data/TrainstationRecords.json");
+		InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream(path);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
 		TrainstationRecordJson[] recordsJson = new Gson().fromJson(reader, TrainstationRecordJson[].class);
 
-		List<TrainRecord> validRecords = new ArrayList<>();
-
-		for (TrainRecord record : Traincraft.instance.trainRecords) {
-			//TODO: nested loops = BAD
-			for (TrainstationRecordJson recordJson : recordsJson){
-				if (record.getName().equals(recordJson.entryName)) {
-					// Attempt to instantiate the stock. This should also cause a stack trace if it fails.
-					if ((EntityRollingStock) record.getEntity((World) null) != null) {
-						validRecords.add(record);
-					} else {
-						tcLog.warn("Invalid trainstation stock: " + record.getName());
-					}
+		for (TrainstationRecordJson recordJson : recordsJson) {
+			TrainRegister record = TraincraftRegistry.trains.get(recordJson.entryName);
+			if (record != null) {
+				// Attempt to instantiate the stock. This should also cause a stack trace if it fails.
+				if ((EntityRollingStock) record.getEntity((World) null) != null) {
+					trains.add(record);
+				} else {
+					tcLog.warn("Invalid trainstation stock: " + record.type.getName());
 				}
 			}
 		}
-		return validRecords;
 	}
 
 	@Override
@@ -204,16 +198,16 @@ public class ComponentVillageTrainstation extends StructureVillagePieces.Village
 	}
 
 	private void spawnTrainstationCart(World world, Random random, StructureBoundingBox structureboundingbox, int j, int k, int l) {
-		if (structureboundingbox.isVecInside(j, k, l) && !Traincraft.instance.trainstationRecords.isEmpty()) {
-			TrainRecord record = Traincraft.instance.trainstationRecords.get(random.nextInt(Traincraft.instance.trainstationRecords.size()-1));
+		if (structureboundingbox.isVecInside(j, k, l) && !TraincraftRegistry.stationTrains.isEmpty()) {
+			TrainRegister record = TraincraftRegistry.stationTrains.get(random.nextInt(TraincraftRegistry.stationTrains.size()-1));
 			EntityRollingStock cart = (EntityRollingStock)record.getEntity(world);
 
 			if (cart != null) {
 				cart.setLocationAndAngles(j + 0.5D, k, l + 0.5D, 90.0F, 0.0F);
 				cart.shouldChunkLoad = false;
-				List<TransportSkin> skins = new LinkedList<>(SkinRegistry.get(cart.getName()).values());
-				if (skins != null && !skins.isEmpty()) {
-					cart.setColor(skins.get(new Random().nextInt((skins.size() - 1))).addr);
+				List<String> skins = record.type.getSkins();
+				if (!skins.isEmpty()) {
+					cart.setSkin(skins.get(new Random().nextInt((skins.size() - 1))));
 				}
 				world.spawnEntityInWorld(cart);
 				cart.setInformation("VillagerJoe", "VillagerJoe", cart.getCartItem().getItem().getItemStackDisplayName(cart.getCartItem()), -1);

@@ -17,7 +17,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerLongGreen",
@@ -37,7 +38,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerShortGreen",
@@ -61,7 +63,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passenger_1class_DB",
@@ -81,7 +84,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passenger_2class_DB",
@@ -101,7 +105,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerHighSpeedZeroED",
@@ -121,7 +126,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerTramNY",
@@ -141,7 +147,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerAdler",
@@ -165,7 +172,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerDBOriental",
@@ -193,7 +201,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerICE1_Class1",
@@ -221,7 +230,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerICE1_Class2",
@@ -249,7 +259,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerICE1_Restaurant",
@@ -277,7 +288,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerGS4",
@@ -305,7 +317,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerGS4_Tail",
@@ -333,7 +346,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerGS4Observatory",
@@ -361,7 +375,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerRheingold",
@@ -389,7 +404,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerRheingoldDining1",
@@ -417,7 +433,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerRheingoldDining2",
@@ -445,7 +462,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerRheingoldPanorama",
@@ -473,7 +491,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerDenverRioGrange",
@@ -501,7 +520,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerDenverRioGrandeCombo",
@@ -529,7 +549,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerMILW",
@@ -557,7 +578,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerMILWTail",
@@ -585,7 +607,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerBamboo",
@@ -609,7 +632,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "cabooseBlack",
@@ -633,7 +657,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "cabooseRed",
@@ -653,7 +678,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "cabooseLogging",
@@ -673,7 +699,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "cabooseLoggingPRR",
@@ -697,7 +724,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "GWRBrakeVan",
@@ -721,7 +749,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "stockCar",
@@ -745,7 +774,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "drwgStockCar",
@@ -769,7 +799,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "workCart",
@@ -789,7 +820,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCart",
@@ -809,7 +841,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "workCaboose",
@@ -829,7 +862,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "jukeBoxCart",
@@ -849,7 +883,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCartSU",
@@ -869,7 +904,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCartUS",
@@ -889,7 +925,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tracksBuilder",
@@ -915,7 +952,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "freightCartRed",
@@ -935,7 +973,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCartYellow",
@@ -955,7 +994,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightWood",
@@ -975,7 +1015,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightHopper",
@@ -995,7 +1036,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightOpenWagon",
@@ -1015,7 +1057,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightHopperUS",
@@ -1035,7 +1078,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCartWoodUS",
@@ -1055,7 +1099,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCartUS",
@@ -1075,7 +1120,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightBoxCartUS",
@@ -1095,7 +1141,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightBoxCartPRR",
@@ -1119,7 +1166,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightGTNG",
@@ -1147,7 +1195,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCartSmall",
@@ -1167,7 +1216,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightMinetrain",
@@ -1187,7 +1237,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCartWoodLogs",
@@ -1211,7 +1262,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightClosedRedBrown",
@@ -1235,7 +1287,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightOpenRedBrown",
@@ -1259,7 +1312,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "mailWagen_DB",
@@ -1279,7 +1333,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightWagen_DB",
@@ -1299,7 +1354,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCarRails_DB",
@@ -1319,7 +1375,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCar_DB",
@@ -1339,7 +1396,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "flatCarLogs_DB",
@@ -1359,7 +1417,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightGondola_DB",
@@ -1379,7 +1438,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCenterBeam_Empty",
@@ -1403,7 +1463,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCenterBeam_Wood1",
@@ -1427,7 +1488,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCenterBeam_Wood2",
@@ -1451,7 +1513,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightWellcar",
@@ -1475,7 +1538,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightTrailer",
@@ -1499,7 +1563,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCartGS4",
@@ -1527,7 +1592,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "slateWagon",
@@ -1555,7 +1621,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "iceWagon",
@@ -1583,7 +1650,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freight100TonHopper",
@@ -1611,7 +1679,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "bulkheadFlatCartWood",
@@ -1639,7 +1708,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightDenverRioGrange",
@@ -1667,7 +1737,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightMILWBaggage",
@@ -1695,7 +1766,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightheavyweight",
@@ -1723,7 +1795,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCartBamboo",
@@ -1747,7 +1820,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightGermanPost",
@@ -1775,7 +1849,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightDepressedFlatbed",
@@ -1799,7 +1874,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightCarL",
@@ -1823,7 +1899,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightKClassRailBox",
@@ -1847,7 +1924,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightShortCoveredHopper",
@@ -1871,7 +1949,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightLongCoveredHopper",
@@ -1895,7 +1974,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "freightHeavyweight",
@@ -1919,7 +1999,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "ASTFAutorack",
@@ -1943,7 +2024,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tankWagon_DB",
@@ -1963,7 +2045,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tankWagonUS",
@@ -1983,7 +2066,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tankWagonGrey",
@@ -2003,7 +2087,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tankCartLava",
@@ -2023,7 +2108,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tankWagonYellow",
@@ -2043,7 +2129,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tankThreeDome",
@@ -2067,7 +2154,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderSmall",
@@ -2095,7 +2183,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderHeavy",
@@ -2119,7 +2208,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tender4_4_0",
@@ -2143,7 +2233,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderBR01",
@@ -2163,7 +2254,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderEr_Ussr",
@@ -2187,7 +2279,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderC62Class",
@@ -2207,7 +2300,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderD51",
@@ -2231,7 +2325,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderAdler",
@@ -2255,7 +2350,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderGS4",
@@ -2283,7 +2379,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "Model4000GallonTender",
@@ -2307,7 +2404,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "ModelFowler4FTender",
@@ -2331,7 +2429,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tenderCoranationClass",
@@ -2355,7 +2454,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "Model225Tender",
@@ -2379,7 +2479,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tender_C41",
@@ -2403,7 +2504,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tender_Southern1102",
@@ -2427,7 +2529,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "tender_MILW",
@@ -2455,7 +2558,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselKOF",
@@ -2481,7 +2585,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselGP40",
@@ -2515,7 +2620,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselChME3",
@@ -2541,7 +2647,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselGP7Red",
@@ -2576,7 +2683,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDiesel44TonSwitcher",
@@ -2611,7 +2719,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselSD40",
@@ -2645,7 +2754,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselSD70",
@@ -2675,7 +2785,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselShunter",
@@ -2706,7 +2817,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselWLs40",
@@ -2736,7 +2848,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselV60_DB",
@@ -2762,7 +2875,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselMILW_H1044",
@@ -2796,7 +2910,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselEMDF7",
@@ -2835,7 +2950,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselEMDF3",
@@ -2874,7 +2990,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "BUnitEMDF7",
@@ -2902,7 +3019,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "BUnitEMDF3",
@@ -2930,7 +3048,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "BUnitDD35",
@@ -2958,7 +3077,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselDD35A",
@@ -2997,7 +3117,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselBamboo",
@@ -3027,7 +3148,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselE10lDB",
@@ -3055,7 +3177,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricCD151",
@@ -3083,7 +3206,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselE103",
@@ -3111,7 +3235,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricVL10",
@@ -3131,7 +3256,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricBR_E69",
@@ -3151,7 +3277,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricMineTrain",
@@ -3171,7 +3298,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricSpeedZeroED",
@@ -3191,7 +3319,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricICE1",
@@ -3219,7 +3348,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricTramYellow",
@@ -3243,7 +3373,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricTramNY",
@@ -3263,7 +3394,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerIC4_DSB_FG",
@@ -3283,7 +3415,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerIC4_DSB_FH",
@@ -3303,7 +3436,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselIC4_DSB_MG",
@@ -3323,7 +3457,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricBR185",
@@ -3347,7 +3482,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricClass85",
@@ -3371,7 +3507,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoElectricBP4",
@@ -3395,7 +3532,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselDeltic",
@@ -3425,7 +3563,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselEWSClass66",
@@ -3455,7 +3594,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoDieselFOL_M1",
@@ -3485,7 +3625,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "FOLM1B",
@@ -3515,7 +3656,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamCherepanov",
@@ -3551,7 +3693,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamPannier",
@@ -3591,7 +3734,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamC41",
@@ -3627,7 +3771,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamC41_080",
@@ -3663,7 +3808,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamAlcoSc4",
@@ -3699,7 +3845,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamC41T",
@@ -3735,7 +3882,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamSouthern1102",
@@ -3775,7 +3923,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamUSATCUS",
@@ -3815,7 +3964,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamUSATCUK",
@@ -3855,7 +4005,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamCoranationClass",
@@ -3891,7 +4042,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamBR80",
@@ -3923,7 +4075,8 @@
       ]
     ],
     "explosionFXIterations": 4,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteam4_4_0",
@@ -3959,7 +4112,8 @@
       ]
     ],
     "explosionFXIterations": 4,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamSmall",
@@ -3999,7 +4153,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamLSSP7",
@@ -4044,7 +4199,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoHeavySteam",
@@ -4076,7 +4232,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamC62Class",
@@ -4108,7 +4265,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamD51Short",
@@ -4140,7 +4298,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamD51Long",
@@ -4172,7 +4331,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamBR01_DB",
@@ -4204,7 +4364,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamGS4",
@@ -4244,7 +4405,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamEr_USSR",
@@ -4276,7 +4438,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamForney",
@@ -4312,7 +4475,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamMogul",
@@ -4348,7 +4512,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamShay",
@@ -4384,7 +4549,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamVBShay",
@@ -4424,7 +4590,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamClimax",
@@ -4464,7 +4631,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamAdler",
@@ -4504,7 +4672,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamAlice",
@@ -4544,7 +4713,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteam040VB",
@@ -4584,7 +4754,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamGLYN",
@@ -4624,7 +4795,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteam262T",
@@ -4664,7 +4836,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamA4",
@@ -4704,7 +4877,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locosteamHallClass",
@@ -4744,7 +4918,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locosteamKingClass",
@@ -4784,7 +4959,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locosteamBerk1225",
@@ -4824,7 +5000,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locosteamBerk765",
@@ -4864,7 +5041,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamMILW",
@@ -4904,7 +5082,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "locosteamFowler",
@@ -4944,7 +5123,8 @@
       ]
     ],
     "explosionFXIterations": 2,
-    "hasSmokeOnSlopes": "TRUE"
+    "hasSmokeOnSlopes": "TRUE",
+    "bogies": []
   },
   {
     "entryName": "tenderA4",
@@ -4968,7 +5148,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "propagandaUs",
@@ -4992,7 +5173,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "propagandaJapan",
@@ -5016,7 +5198,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "propagandaUSSR",
@@ -5040,7 +5223,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "propagandaBritain",
@@ -5064,7 +5248,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "locoSteamSnowPlow",
@@ -5094,7 +5279,8 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   },
   {
     "entryName": "passengerCartBlue",
@@ -5118,6 +5304,7 @@
     "explosionType": "",
     "explosionFX": [],
     "explosionFXIterations": 0,
-    "hasSmokeOnSlopes": "FALSE"
+    "hasSmokeOnSlopes": "FALSE",
+    "bogies": []
   }
 ]
