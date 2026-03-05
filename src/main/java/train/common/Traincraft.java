@@ -41,9 +41,9 @@ import train.common.generation.ComponentVillageTrainstation;
 import train.common.generation.WorldGenWorld;
 import train.common.items.TCItems;
 import train.common.library.AchievementRecord;
+import train.common.library.AssemblyRecord;
 import train.common.library.Info;
 import train.common.library.TraincraftRegistry;
-import train.common.recipes.AssemblyTableRecipes;
 
 import java.io.File;
 
@@ -209,7 +209,7 @@ public class Traincraft {
         RecipeHandler.initBlockRecipes();
         RecipeHandler.initItemRecipes();
         RecipeHandler.initSmeltingRecipes();
-        AssemblyTableRecipes.recipes();
+        AssemblyRecord.init();
 
         EntityRegistry.registerModEntity(EntityZeppelinTwoBalloons.class, "zeppelin", EntityIds.ZEPPELIN, Traincraft.instance, 512, 1, true);//zepplin
         EntityRegistry.registerModEntity(EntityBogie.class, "Entity Front Bogie", EntityIds.LOCOMOTIVE_BOGIE, Traincraft.instance, 512, 3, true);//front bogie

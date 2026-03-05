@@ -1,0 +1,6644 @@
+[
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [
+      "stick",
+      1
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoCherepanov",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "crafting_table",
+      1
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "furnace",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartWork",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartTender",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "ingotIron",
+      6
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "lava_bucket",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartWatertransp",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "water_bucket",
+      1
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartLocoBR80_DB",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoSteamShay",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      1
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartSlateWagon",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoAlcoSC4",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoC41",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      6
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoC41_080",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoC41T",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "ingotIron",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartTenderC41",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoSouthern1102",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [
+      "dyeGray",
+      1
+    ],
+    "output": [
+      "minecartLocoUSATCUS",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [
+      "dyeGray",
+      1
+    ],
+    "output": [
+      "minecartLocoUSATCUK",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "ingotIron",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartTenderSouthern1102",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      1
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "snowball",
+      9
+    ],
+    "dye": [],
+    "output": [
+      "minecartIceWagon",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartSteamRedTender",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartLocoForneyRed",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartPower",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      4
+    ],
+    "coupler": [],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoSnowPlow",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "torch",
+      1
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartLoco3",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoLSSP7",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "logWood",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartWood",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      8
+    ],
+    "wheels": [
+      "woodenBogie",
+      3
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [],
+    "boiler": [
+      "ironBoiler",
+      1
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [
+      "gold_ingot",
+      2
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartLocoSteamAdler",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "ingotIron",
+      2
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [
+      "ingotIron",
+      1
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartTenderAdler",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "ingotIron",
+      1
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      1
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartPassengerAdler",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartPassenger2",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartCaboose",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightCartSmall",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      3
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartFlatCart",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartChest",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightCart2",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "hopper",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightCartUS",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      4
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      4
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightClosed",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "hopper",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightOpen2",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartCaboose3",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartPassenger7",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      4
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [
+      "ingotIron",
+      1
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      1
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartTramWood",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      3
+    ],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "ingotIron",
+      1
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "crafting_table",
+      1
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartCabooseLogging",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "crafting_table",
+      1
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [
+      "plankWood",
+      8
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "furnace",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartGWRBrakeVan",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      1
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [
+      "plankWood",
+      4
+    ],
+    "output": [
+      "minecartLocoSteamVBShay",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [],
+    "boiler": [
+      "boiler",
+      1
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoSteamAlice",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      4
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [],
+    "boiler": [
+      "boiler",
+      1
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoSteam040vb",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "painting",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartPropagandaUs",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "painting",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartPropagandaUSSR",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "painting",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartPropagandaBritish",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "plankWood",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "painting",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartPropagandaJapan",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      1
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoSteamGLYN",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      4
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "ironCab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      1
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoSteam262T",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "ironFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [
+      "ironChimney",
+      1
+    ],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      1
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoSteamClimax",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartPassengerBamboo",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightBamboo",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "woodenBogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [
+      "dieselengine",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartTrainBamboo",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "chest",
+      4
+    ],
+    "wheels": [
+      "ironBogie",
+      4
+    ],
+    "frame": [
+      "woodenFrame",
+      3
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      3
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartDenverRioGrandeBaggage",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "chest",
+      4
+    ],
+    "wheels": [
+      "ironBogie",
+      4
+    ],
+    "frame": [
+      "woodenFrame",
+      3
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      3
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartDenverRioGrandeCombo",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      4
+    ],
+    "frame": [
+      "woodenFrame",
+      3
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      3
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartDenverRioGrandePassenger",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "ingotIron",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      1
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      1
+    ],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartMineTrain",
+      1
+    ]
+  },
+  {
+    "tier": 1,
+    "planks": [
+      "ingotIron",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      1
+    ],
+    "coupler": [
+      "ingotIron",
+      1
+    ],
+    "chimney": [],
+    "cab": [
+      "controls",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      1
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      1
+    ],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartLocoMineTrain",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "water_bucket",
+      1
+    ],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartTankWagon",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      2
+    ],
+    "firebox": [
+      "firebox",
+      2
+    ],
+    "additional": [],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartLocoHallClass",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      2
+    ],
+    "additional": [],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartLocoKingClass",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      2
+    ],
+    "firebox": [
+      "dieselengine",
+      2
+    ],
+    "additional": [
+      "generator",
+      2
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartChmE3",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "wheat",
+      3
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartGrain",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartPassenger9_2class_DB",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartPassenger5",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      4
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "water_bucket",
+      1
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartTankWagonThreeDome",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      2
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartLocoSteamPannier",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transmition",
+      1
+    ],
+    "firebox": [
+      "dieselengine",
+      3
+    ],
+    "additional": [],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartShunter",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      2
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartLocomogulBlue",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      2
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartLocoEWSClass66",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      2
+    ],
+    "boiler": [
+      "electmotor",
+      3
+    ],
+    "firebox": [
+      "dieselengine",
+      3
+    ],
+    "additional": [
+      "generator",
+      2
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartLocoCD151",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      3
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartLocoDeltic",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      2
+    ],
+    "boiler": [
+      "transmition",
+      1
+    ],
+    "firebox": [
+      "dieselengine",
+      2
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLoco44TonSwitcher",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transmition",
+      1
+    ],
+    "firebox": [
+      "dieselengine",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoWLs40",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      2
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartCD742",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      3
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartGP7Red",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartTenderBR01_DB",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      2
+    ],
+    "additional": [],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartLocoCoranationClass",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      4
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      3
+    ],
+    "additional": [],
+    "dye": [
+      "dyeBlack",
+      1
+    ],
+    "output": [
+      "minecartLocoBerk1225",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      4
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      3
+    ],
+    "additional": [],
+    "dye": [
+      "dyeBlack",
+      1
+    ],
+    "output": [
+      "minecartLocoBerk765",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      4
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      3
+    ],
+    "additional": [],
+    "dye": [
+      "dyeBlack",
+      1
+    ],
+    "output": [
+      "minecartLocoFowler",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      4
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      2
+    ],
+    "dye": [
+      "dyeBlack",
+      1
+    ],
+    "output": [
+      "minecarttenderBerk1225",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      2
+    ],
+    "dye": [
+      "dyeBlack",
+      1
+    ],
+    "output": [
+      "minecartFowler4FTender",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      3
+    ],
+    "dye": [],
+    "output": [
+      "minecartMILW_H1044",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      2
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoBR01_DB",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      5
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoC62Class",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      5
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      2
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoD51Short",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      5
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      2
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoD51Long",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartTenderD51",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      2
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartHeavySteam",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [],
+    "boiler": [
+      "boiler",
+      1
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [
+      "rail",
+      16
+    ],
+    "dye": [],
+    "output": [
+      "minecartBuilder",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartFlatCartSU",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "water_bucket",
+      1
+    ],
+    "dye": [
+      "dyeGray",
+      1
+    ],
+    "output": [
+      "minecartTankWagon2",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartBoxCartUS",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartBoxCartPRR",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightL",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "wheat",
+      3
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightHopperUS",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "dyeWhite",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartShortCoveredHopper",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "dyeWhite",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLongCoveredHopper",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "dyeYellow",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartKClassRailBox",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "hopper",
+      3
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreight100TonHopper",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "water_bucket",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartTankWagonUS",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartTenderC62Class",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeBrown",
+      1
+    ],
+    "output": [
+      "minecartPassenger8_1class_DB",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightWagon_DB",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "crafting_table",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartMailWagon_DB",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      2
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoEr",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartTenderEr",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoCoranationClassTender",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecart4000GallonTender",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      4
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartTenderHeavy",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "controls",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      2
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartNYTram",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartPassengerTramNY",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "ingotIron",
+      2
+    ],
+    "wheels": [
+      "ironBogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "ironBoiler",
+      2
+    ],
+    "firebox": [
+      "ironFirebox",
+      1
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartLocoA4Mallard",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [],
+    "wheels": [
+      "ironBogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "iron_ingot",
+      1
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "coal",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoA4MallardTender",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      3
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "ironFrame",
+      1
+    ],
+    "coupler": [
+      "ingotIron",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "logWood",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightWood2",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "plankWood",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightCenterBeam_Wood_1",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartFlatCartWoodUS",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "plankWood",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightCenterBeam_Wood_2",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "plankWood",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightCenterBeam_Empty",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "crafting_table",
+      1
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartCabooseWork",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "woodenFrame",
+      2
+    ],
+    "coupler": [
+      "stick",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "woodenCab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartPassengerDBOriental",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "leather",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartStockCar",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "leather",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartDRWGStockCar",
+      1
+    ]
+  },
+  {
+    "tier": 2,
+    "planks": [
+      "plankWood",
+      3
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartFlatCartUS",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transmition",
+      1
+    ],
+    "firebox": [
+      "dieselengine",
+      2
+    ],
+    "additional": [],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartKof_DB",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transmition",
+      1
+    ],
+    "firebox": [
+      "dieselengine",
+      3
+    ],
+    "additional": [],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartV60_DB",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      6
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      6
+    ],
+    "firebox": [
+      "dieselengine",
+      6
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartLocoSD40",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartFreightWellcar",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      2
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      4
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartLocoBR185",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "crafting_table",
+      1
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartCabooseLoggingPRR",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartHeavyweightMailcar",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [
+      "dyeRed",
+      1
+    ],
+    "output": [
+      "minecartHeavyweightFreight",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      2
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoHighSpeedZeroED",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [
+      "seats",
+      5
+    ],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartPassengerHighSpeedCarZeroED",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeLightBlue",
+      1
+    ],
+    "output": [
+      "minecartGS4_Passenger",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartGS4_Passenger",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeLightBlue",
+      1
+    ],
+    "output": [
+      "minecartGS4_Tail",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartGS4_Tail",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "glass",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartGS4_Observatory",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "coal",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartGS4_Tender",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartGS4_Baggage",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      4
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartGS4_Loco",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartPassengerMILW",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartPassengerMILWTail",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "coal",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartMILWTender",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      2
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartBaggageMILW",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      4
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "boiler",
+      3
+    ],
+    "firebox": [
+      "firebox",
+      1
+    ],
+    "additional": [],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartLocoMILWClassA",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      8
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      8
+    ],
+    "firebox": [
+      "dieselengine",
+      11
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartLocoDD35B",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      8
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      8
+    ],
+    "firebox": [
+      "dieselengine",
+      11
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartLocoDD35A",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      4
+    ],
+    "firebox": [
+      "electmotor",
+      4
+    ],
+    "additional": [
+      "redstone",
+      4
+    ],
+    "dye": [
+      "dyeWhite",
+      1
+    ],
+    "output": [
+      "minecartICE1_Loco",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeWhite",
+      1
+    ],
+    "output": [
+      "minecartICE1_1stClass",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeWhite",
+      1
+    ],
+    "output": [
+      "minecartICE1_2ndClass",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeWhite",
+      1
+    ],
+    "output": [
+      "minecartICE1_Restaurant",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      6
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoEMDF7",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      6
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoEMDF3",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      6
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoEMDF7B",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      6
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoEMDF3B",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      8
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      2
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartLocoFOLM1",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      8
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [
+      "electmotor",
+      2
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [],
+    "output": [
+      "minecartFOLM1B",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      2
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      2
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartVL10",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      2
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      2
+    ],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartBR_E69",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      6
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      4
+    ],
+    "firebox": [
+      "dieselengine",
+      4
+    ],
+    "additional": [
+      "generator",
+      4
+    ],
+    "dye": [
+      "dyeOrange",
+      1
+    ],
+    "output": [
+      "minecartLocoSD70",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      2
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [],
+    "dye": [
+      "dyeGreen",
+      1
+    ],
+    "output": [
+      "minecartLocoBP4",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "hopper",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartOpenWagon",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      6
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "hopper",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightGTNG",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "jukebox",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartJukeBoxCart",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      2
+    ],
+    "boiler": [
+      "electmotor",
+      2
+    ],
+    "firebox": [
+      "transformer",
+      2
+    ],
+    "additional": [],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartE103",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [
+      "steelchimney",
+      2
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "electmotor",
+      1
+    ],
+    "firebox": [
+      "transformer",
+      2
+    ],
+    "additional": [],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartE10_DB",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartPassengerRheingold",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "glass",
+      1
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "seats",
+      1
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartPassengerRheingoldPanorama",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "crafting_table",
+      1
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartPassengerRheingoldDining1",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "crafting_table",
+      1
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartPassengerRheingoldDining2",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [
+      "seats",
+      1
+    ],
+    "additional": [],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartPassengerBlue",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "water_bucket",
+      1
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartTankWagon_DB",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "controls",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      3
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      1
+    ],
+    "chimney": [
+      "steelchimney",
+      1
+    ],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [
+      "transformer",
+      2
+    ],
+    "firebox": [
+      "electmotor",
+      2
+    ],
+    "additional": [
+      "redstone",
+      2
+    ],
+    "dye": [
+      "dyeBlue",
+      1
+    ],
+    "output": [
+      "minecartLocoClass85",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      1
+    ],
+    "coupler": [],
+    "chimney": [],
+    "cab": [
+      "steelcab",
+      1
+    ],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      1
+    ],
+    "dye": [
+      "dyeYellow",
+      1
+    ],
+    "output": [
+      "minecartFreightGermanPost",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "rail",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFlatCartRail_DB",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartFlatCart_DB",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      4
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartBulkheadFlatCart",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      2
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      3
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartFreightDepressedFlatbed",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "hopper",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFreightGondola_DB",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      4
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      6
+    ],
+    "coupler": [
+      "ingotSteel",
+      4
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [],
+    "dye": [],
+    "output": [
+      "minecartASTFAutorack",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "chest",
+      1
+    ],
+    "dye": [
+      "dyeLightGray",
+      1
+    ],
+    "output": [
+      "minecartFreightTrailer",
+      1
+    ]
+  },
+  {
+    "tier": 3,
+    "planks": [
+      "ingotSteel",
+      5
+    ],
+    "wheels": [
+      "bogie",
+      2
+    ],
+    "frame": [
+      "steelframe",
+      2
+    ],
+    "coupler": [
+      "ingotSteel",
+      2
+    ],
+    "chimney": [],
+    "cab": [],
+    "boiler": [],
+    "firebox": [],
+    "additional": [
+      "logWood",
+      1
+    ],
+    "dye": [],
+    "output": [
+      "minecartFlatCartLogs_DB",
+      1
+    ]
+  }
+]

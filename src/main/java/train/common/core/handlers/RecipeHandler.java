@@ -13,6 +13,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import train.common.blocks.TCBlocks;
@@ -24,8 +26,6 @@ import train.common.recipes.RecipesArmorDyes;
 import java.util.ArrayList;
 import java.util.List;
 
-import static train.common.recipes.AssemblyTableRecipes.waterContainers;
-
 public class RecipeHandler {
 
     private static ArrayList<ItemStack> multiNameOreDict(String... names) {
@@ -35,6 +35,16 @@ public class RecipeHandler {
 
         }
         return entries;
+    }
+
+    public static ArrayList<ItemStack> waterContainers(){
+        ArrayList<ItemStack> containers = new ArrayList<ItemStack>();
+        for (FluidContainerRegistry.FluidContainerData data : FluidContainerRegistry.getRegisteredFluidContainerData()){
+            if(data.fluid.fluid == FluidRegistry.WATER){
+                containers.add(data.filledContainer);
+            }
+        }
+        return containers;
     }
 
     public static void initBlockRecipes() {

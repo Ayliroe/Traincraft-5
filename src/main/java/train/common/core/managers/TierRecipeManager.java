@@ -34,21 +34,8 @@ public class TierRecipeManager implements ITierCraftingManager {
                           ItemStack cab, ItemStack boiler, ItemStack firebox,
                           ItemStack additional, ItemStack dye, ItemStack output,
                           int outputSize) {
-        if ((tier > 0 && tier < 4) && outputSize > 0 && outputSize < 65) {
-            addRecipeFinal(tier, planks, wheels, frame, coupler, chimney, cab,
-                    boiler, firebox, additional, dye, output, outputSize);
-        } else {
-            addRecipeFinal(1, planks, wheels, frame, coupler, chimney, cab,
-                    boiler, firebox, additional, dye, output, 1);
-        }
-    }
 
-    public void addRecipeFinal(int tier, ItemStack planks, ItemStack wheels,
-                               ItemStack frame, ItemStack coupler, ItemStack chimney,
-                               ItemStack cab, ItemStack boiler, ItemStack firebox,
-                               ItemStack additional, ItemStack dye, ItemStack output,
-                               int outputSize) {
-        recipeList.add(new TierRecipe(tier, planks, wheels, frame, coupler,
+        recipeList.add(new TierRecipe(Math.max(1,(Math.min(3,tier))), planks, wheels, frame, coupler,
                 chimney, cab, boiler, firebox, additional, dye, output,
                 outputSize));
     }
