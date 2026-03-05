@@ -530,10 +530,10 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     // 28 Lighting details
     public String getLightingDetails() {        return dataWatcher.getWatchableObjectString(28); }
-    public boolean isLightsEnabled() {          return AsJsonObject(dataWatcher.getWatchableObjectString(28)).get(DataMemberName.isLightsEnabled.AsString()).getAsBoolean(); }
-    public boolean isBeaconEnabled() {          return AsJsonObject(dataWatcher.getWatchableObjectString(28)).get(DataMemberName.isBeaconEnabled.AsString()).getAsBoolean(); }
-    public byte getBeaconCycleIndex() {         return AsJsonObject(dataWatcher.getWatchableObjectString(28)).get(DataMemberName.beaconCycleIndex.AsString()).getAsByte(); }
-    public boolean isDitchLightsEnabled() {     return AsJsonObject(dataWatcher.getWatchableObjectString(28)).get(DataMemberName.ditchLightMode.AsString()).getAsByte() > 0; }
+    public boolean isLightsEnabled() {          return AsJsonObject(getLightingDetails()).get(DataMemberName.isLightsEnabled.AsString()).getAsBoolean(); }
+    public boolean isBeaconEnabled() {          return AsJsonObject(getLightingDetails()).get(DataMemberName.isBeaconEnabled.AsString()).getAsBoolean(); }
+    public byte getBeaconCycleIndex() {         return AsJsonObject(getLightingDetails()).get(DataMemberName.beaconCycleIndex.AsString()).getAsByte(); }
+    public boolean isDitchLightsEnabled() {     return AsJsonObject(getLightingDetails()).get(DataMemberName.ditchLightMode.AsString()).getAsByte() > 0; }
     public void setPacketLights(boolean isLocoLightsOn) { isLightsEnabled = isLocoLightsOn; }
     public void setPacketBeacon(boolean isLocoBeaconEnabled) { isBeaconEnabled = isLocoBeaconEnabled; }
     public void setPacketDitchLightsMode(byte ditchLightMode) { this.ditchLightMode = ditchLightMode; }

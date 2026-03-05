@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.oredict.OreDictionary;
 import train.common.inventory.TrainCraftingManager;
-import train.common.library.AchievementIDs;
+import train.common.library.AchievementRecord;
 
 public class SlotOpenHearthFurnace extends Slot {
 	private EntityPlayer thePlayer;
@@ -30,8 +30,8 @@ public class SlotOpenHearthFurnace extends Slot {
 	 */
 	@Override
 	public ItemStack decrStackSize(int par1) {
-		if (this.getHasStack()) {
-			this.amount += Math.min(par1, this.getStack().stackSize);
+		if (getHasStack()) {
+			amount += Math.min(par1, getStack().stackSize);
 		}
 
 		return super.decrStackSize(par1);
@@ -39,7 +39,7 @@ public class SlotOpenHearthFurnace extends Slot {
 
 	@Override
 	public void onPickupFromSlot(EntityPlayer par1EntityPlayer, ItemStack itemstack) {
-		this.onCrafting(itemstack);
+		onCrafting(itemstack);
 		super.onPickupFromSlot(par1EntityPlayer, itemstack);
 	}
 
@@ -48,8 +48,8 @@ public class SlotOpenHearthFurnace extends Slot {
 	 */
 	@Override
 	protected void onCrafting(ItemStack itemstack, int par2) {
-		this.amount += par2;
-		this.onCrafting(itemstack);
+		amount += par2;
+		onCrafting(itemstack);
 	}
 
 	/**
@@ -57,17 +57,18 @@ public class SlotOpenHearthFurnace extends Slot {
 	 */
 	@Override
 	protected void onCrafting(ItemStack itemstack) {
-		itemstack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.amount);
+		itemstack.onCrafting(thePlayer.worldObj, thePlayer, amount);
 		
 		FMLCommonHandler.instance().firePlayerSmeltedEvent(thePlayer, itemstack);
 		for (ItemStack stack : OreDictionary.getOres("ingotSteel")) {
 			if (stack.getItem() ==itemstack.getItem() && stack.getItemDamage() == itemstack.getItemDamage()) {
-				thePlayer.addStat(AchievementIDs.steel.achievement, 1);
+				//TODO: hardcoded name = bad
+				thePlayer.addStat(AchievementRecord.achievements.get("steel").getAchievement(), 1);
 			}
 		}
 
-		if (!this.thePlayer.worldObj.isRemote) {
-			int var2 = this.amount;
+		if (!thePlayer.worldObj.isRemote) {
+			int var2 = amount;
 			float var3 = TrainCraftingManager.instance.getHearthFurnaceRecipeExperience(itemstack);
 			int var4;
 
@@ -87,11 +88,11 @@ public class SlotOpenHearthFurnace extends Slot {
 			while (var2 > 0) {
 				var4 = EntityXPOrb.getXPSplit(var2);
 				var2 -= var4;
-				this.thePlayer.worldObj.spawnEntityInWorld(new EntityXPOrb(this.thePlayer.worldObj, this.thePlayer.posX, this.thePlayer.posY + 0.5D, this.thePlayer.posZ + 0.5D, var4));
+				thePlayer.worldObj.spawnEntityInWorld(new EntityXPOrb(thePlayer.worldObj, thePlayer.posX, thePlayer.posY + 0.5D, thePlayer.posZ + 0.5D, var4));
 			}
 		}
 
-		this.amount = 0;
+		amount = 0;
 
 	}
 }

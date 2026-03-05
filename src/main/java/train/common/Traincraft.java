@@ -23,7 +23,6 @@ import fexcraft.tmt.slim.TextureManager;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
-import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
@@ -41,6 +40,7 @@ import train.common.entity.zeppelin.EntityZeppelinTwoBalloons;
 import train.common.generation.ComponentVillageTrainstation;
 import train.common.generation.WorldGenWorld;
 import train.common.items.TCItems;
+import train.common.library.AchievementRecord;
 import train.common.library.Info;
 import train.common.library.TraincraftRegistry;
 import train.common.recipes.AssemblyTableRecipes;
@@ -184,8 +184,7 @@ public class Traincraft {
         proxy.setHook(); // Moved file needed to run JLayer, we need to set a hook in order to retrieve it
 
         GameRegistry.registerFuelHandler(new FuelHandler());
-        AchievementHandler.load();
-        AchievementPage.registerAchievementPage(AchievementHandler.tmPage);
+        AchievementRecord.init();
         GameRegistry.registerWorldGenerator(worldGen = new WorldGenWorld(), 5);
 
         //Retrogen Handling
