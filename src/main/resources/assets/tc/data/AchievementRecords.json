@@ -3,459 +3,459 @@
     "name": "assemblyTable",
     "column": 6,
     "row": 0,
-    "stack": "assemblyTableI",
+    "stack": "tc:assemblyTableI",
     "parent": "",
     "special": "FALSE",
     "items": [
-      "assemblyTableI",
-      "assemblyTableII",
-      "assemblyTableIII"
+      "tc:assemblyTableI",
+      "tc:assemblyTableII",
+      "tc:assemblyTableIII"
     ]
   },
   {
     "name": "distilationTower",
     "column": -10,
     "row": 0,
-    "stack": "distilActive",
+    "stack": "tc:distilActive",
     "parent": "",
     "special": "FALSE",
     "items": [
-      "distilIdle"
+      "tc:distilIdle"
     ]
   },
   {
     "name": "openHearth",
     "column": -4,
     "row": 0,
-    "stack": "openFurnaceActive",
+    "stack": "tc:openFurnaceActive",
     "parent": "",
     "special": "FALSE",
     "items": [
-      "openFurnaceIdle"
+      "tc:openFurnaceIdle"
     ]
   },
   {
     "name": "trainWB",
     "column": 0,
     "row": 0,
-    "stack": "trainWorkbench",
+    "stack": "tc:trainWorkbench",
     "parent": "",
     "special": "FALSE",
     "items": [
-      "trainWorkbench"
+      "tc:trainWorkbench"
     ]
   },
   {
     "name": "builder",
     "column": 7,
     "row": 6,
-    "stack": "minecartBuilder",
+    "stack": "tc:minecartBuilder",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartBuilder"
+      "tc:minecartBuilder"
     ]
   },
   {
     "name": "cherepanov",
     "column": 5,
     "row": 10,
-    "stack": "minecartLocoCherepanov",
+    "stack": "tc:minecartLocoCherepanov",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartLocoCherepanov"
+      "tc:minecartLocoCherepanov"
     ]
   },
   {
     "name": "dieselLoco",
     "column": -6,
     "row": 6,
-    "stack": "minecartCD742",
+    "stack": "tc:minecartCD742",
     "parent": "dieselEngine",
     "special": "FALSE",
     "items": [
-      "minecartGP7Red",
-      "minecartShunter",
-      "minecartChmE3",
-      "minecartCD742",
-      "minecartKof_DB",
-      "minecartLocoSD70",
-      "minecartV60_DB"
+      "tc:minecartGP7Red",
+      "tc:minecartShunter",
+      "tc:minecartChmE3",
+      "tc:minecartCD742",
+      "tc:minecartKof_DB",
+      "tc:minecartLocoSD70",
+      "tc:minecartV60_DB"
     ]
   },
   {
     "name": "dieselEngine",
     "column": -6,
     "row": 4,
-    "stack": "dieselengine",
+    "stack": "tc:dieselengine",
     "parent": "steel",
     "special": "FALSE",
     "items": [
-      "dieselengine"
+      "tc:dieselengine"
     ]
   },
   {
     "name": "dieselFuel",
     "column": -8,
     "row": 2,
-    "stack": "diesel",
+    "stack": "tc:diesel",
     "parent": "distilationTower",
     "special": "FALSE",
     "items": [
-      "diesel"
+      "tc:diesel"
     ]
   },
   {
     "name": "electMotor",
     "column": -10,
     "row": 8,
-    "stack": "electmotor",
+    "stack": "tc:electmotor",
     "parent": "electronicCircuit",
     "special": "FALSE",
     "items": [
-      "electmotor"
+      "tc:electmotor"
     ]
   },
   {
     "name": "electronicCircuit",
     "column": -12,
     "row": 6,
-    "stack": "electronicCircuit",
+    "stack": "tc:electronicCircuit",
     "parent": "fineCopperWire",
     "special": "FALSE",
     "items": [
-      "electronicCircuit"
+      "tc:electronicCircuit"
     ]
   },
   {
     "name": "engineer",
     "column": -2,
     "row": -2,
-    "stack": "overalls",
+    "stack": "tc:overalls",
     "parent": "",
     "special": "FALSE",
     "items": [
-      "overalls",
-      "hat",
-      "jacket"
+      "tc:overalls",
+      "tc:hat",
+      "tc:jacket"
     ]
   },
   {
     "name": "fast",
     "column": -8,
     "row": 10,
-    "stack": "minecartVL10",
+    "stack": "tc:minecartVL10",
     "parent": "electMotor",
     "special": "FALSE",
     "items": [
-      "minecartVL10",
-      "minecartBR_E69"
+      "tc:minecartVL10",
+      "tc:minecartBR_E69"
     ]
   },
   {
     "name": "fineCopperWire",
     "column": -12,
     "row": 4,
-    "stack": "copperWireFine",
+    "stack": "tc:copperWireFine",
     "parent": "plastic",
     "special": "FALSE",
     "items": [
-      "copperWireFine"
+      "tc:copperWireFine"
     ]
   },
   {
     "name": "firebox",
     "column": 0,
     "row": 4,
-    "stack": "firebox",
+    "stack": "tc:firebox",
     "parent": "ironParts",
     "special": "FALSE",
     "items": [
-      "firebox",
-      "ironFirebox"
+      "tc:firebox",
+      "tc:ironFirebox"
     ]
   },
   {
     "name": "flatCart",
     "column": 5,
     "row": 14,
-    "stack": "minecartFlatCartRail_DB",
+    "stack": "tc:minecartFlatCartRail_DB",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartFlatCart",
-      "minecartFlatCart_DB",
-      "minecartFlatCartLogs_DB",
-      "minecartFlatCartRail_DB",
-      "minecartFlatCartSU",
-      "minecartFlatCartUS",
-      "minecartFlatCartWoodUS"
+      "tc:minecartFlatCart",
+      "tc:minecartFlatCart_DB",
+      "tc:minecartFlatCartLogs_DB",
+      "tc:minecartFlatCartRail_DB",
+      "tc:minecartFlatCartSU",
+      "tc:minecartFlatCartUS",
+      "tc:minecartFlatCartWoodUS"
     ]
   },
   {
     "name": "freight",
     "column": 7,
     "row": 2,
-    "stack": "minecartChest",
+    "stack": "tc:minecartChest",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartChest",
-      "minecartGrain",
-      "minecartWood",
-      "minecartFreightCart2",
-      "minecartOpenWagon",
-      "minecartBoxCartUS",
-      "minecartFreightCartSmall",
-      "minecartFreightCartUS",
-      "minecartFreightCenterBeam_Empty",
-      "minecartFreightCenterBeam_Wood_1",
-      "minecartFreightCenterBeam_Wood_2",
-      "minecartFreightClosed",
-      "minecartFreightClosed",
-      "minecartFreightGondola_DB",
-      "minecartFreightHopperUS",
-      "minecartFreightOpen2",
-      "minecartFreightTrailer",
-      "minecartFreightWagon_DB",
-      "minecartFreightWellcar",
-      "minecartFreightWood2",
-      "minecartOpenWagon"
+      "tc:minecartChest",
+      "tc:minecartGrain",
+      "tc:minecartWood",
+      "tc:minecartFreightCart2",
+      "tc:minecartOpenWagon",
+      "tc:minecartBoxCartUS",
+      "tc:minecartFreightCartSmall",
+      "tc:minecartFreightCartUS",
+      "tc:minecartFreightCenterBeam_Empty",
+      "tc:minecartFreightCenterBeam_Wood_1",
+      "tc:minecartFreightCenterBeam_Wood_2",
+      "tc:minecartFreightClosed",
+      "tc:minecartFreightClosed",
+      "tc:minecartFreightGondola_DB",
+      "tc:minecartFreightHopperUS",
+      "tc:minecartFreightOpen2",
+      "tc:minecartFreightTrailer",
+      "tc:minecartFreightWagon_DB",
+      "tc:minecartFreightWellcar",
+      "tc:minecartFreightWood2",
+      "tc:minecartOpenWagon"
     ]
   },
   {
     "name": "generator",
     "column": -14,
     "row": 8,
-    "stack": "generator",
+    "stack": "tc:generator",
     "parent": "electronicCircuit",
     "special": "FALSE",
     "items": [
-      "generator"
+      "tc:generator"
     ]
   },
   {
     "name": "ironParts",
     "column": 0,
     "row": 2,
-    "stack": "ironBogie",
+    "stack": "tc:ironBogie",
     "parent": "trainWB",
     "special": "FALSE",
     "items": [
-      "ironBogie",
-      "ironBoiler",
-      "ironCab",
-      "ironChimney",
-      "ironFirebox",
-      "ironFrame"
+      "tc:ironBogie",
+      "tc:ironBoiler",
+      "tc:ironCab",
+      "tc:ironChimney",
+      "tc:ironFirebox",
+      "tc:ironFrame"
     ]
   },
   {
     "name": "liquid",
     "column": 5,
     "row": 4,
-    "stack": "minecartWatertransp",
+    "stack": "tc:minecartWatertransp",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartWatertransp",
-      "minecartTankWagon",
-      "minecartTankWagon2",
-      "minecartTankWagon_DB",
-      "minecartTankWagonUS"
+      "tc:minecartWatertransp",
+      "tc:minecartTankWagon",
+      "tc:minecartTankWagon2",
+      "tc:minecartTankWagon_DB",
+      "tc:minecartTankWagonUS"
     ]
   },
   {
     "name": "mail",
     "column": 7,
     "row": 10,
-    "stack": "minecartMailWagon_DB",
+    "stack": "tc:minecartMailWagon_DB",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartMailWagon_DB"
+      "tc:minecartMailWagon_DB"
     ]
   },
   {
     "name": "minetrain",
     "column": 7,
     "row": 8,
-    "stack": "minecartMineTrain",
+    "stack": "tc:minecartMineTrain",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartLocoMineTrain"
+      "tc:minecartLocoMineTrain"
     ]
   },
   {
     "name": "normalSteam",
     "column": 0,
     "row": 6,
-    "stack": "minecartPower",
+    "stack": "tc:minecartPower",
     "parent": "firebox",
     "special": "FALSE",
     "items": [
-      "minecartPower",
-      "minecartLocoBR01_DB",
-      "minecartLocoBR80_DB",
-      "minecartLocoEr",
-      "minecartLocoForneyRed",
-      "minecartLocomogulBlue"
+      "tc:minecartPower",
+      "tc:minecartLocoBR01_DB",
+      "tc:minecartLocoBR80_DB",
+      "tc:minecartLocoEr",
+      "tc:minecartLocoForneyRed",
+      "tc:minecartLocomogulBlue"
     ]
   },
   {
     "name": "passenger",
     "column": 5,
     "row": 2,
-    "stack": "minecartPassenger2",
+    "stack": "tc:minecartPassenger2",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartPassenger5",
-      "minecartPassengerBlue",
-      "minecartPassenger2",
-      "minecartCaboose",
-      "minecartCaboose3",
-      "minecartPassenger7",
-      "minecartPassenger8_1class_DB",
-      "minecartPassenger9_2class_DB"
+      "tc:minecartPassenger5",
+      "tc:minecartPassengerBlue",
+      "tc:minecartPassenger2",
+      "tc:minecartCaboose",
+      "tc:minecartCaboose3",
+      "tc:minecartPassenger7",
+      "tc:minecartPassenger8_1class_DB",
+      "tc:minecartPassenger9_2class_DB"
     ]
   },
   {
     "name": "plastic",
     "column": -12,
     "row": 2,
-    "stack": "rawPlastic",
+    "stack": "tc:rawPlastic",
     "parent": "distilationTower",
     "special": "FALSE",
     "items": [
-      "rawPlastic"
+      "tc:rawPlastic"
     ]
   },
   {
     "name": "smallSteam",
     "column": -2,
     "row": 6,
-    "stack": "minecartLoco3",
+    "stack": "tc:minecartLoco3",
     "parent": "firebox",
     "special": "FALSE",
     "items": [
-      "minecartLoco3"
+      "tc:minecartLoco3"
     ]
   },
   {
     "name": "stake",
     "column": -4,
     "row": 4,
-    "stack": "stake",
+    "stack": "tc:stake",
     "parent": "steel",
     "special": "FALSE",
     "items": [
-      "stake"
+      "tc:stake"
     ]
   },
   {
     "name": "steel",
     "column": -4,
     "row": 2,
-    "stack": "steel",
+    "stack": "tc:steel",
     "parent": "openHearth",
     "special": "FALSE",
     "items": [
-      "steel"
+      "tc:steel"
     ]
   },
   {
     "name": "steelParts",
     "column": 2,
     "row": 2,
-    "stack": "bogie",
+    "stack": "tc:bogie",
     "parent": "trainWB",
     "special": "FALSE",
     "items": [
-      "bogie",
-      "steelcab",
-      "steelchimney",
-      "steelframe",
-      "boiler",
-      "firebox"
+      "tc:bogie",
+      "tc:steelcab",
+      "tc:steelchimney",
+      "tc:steelframe",
+      "tc:boiler",
+      "tc:firebox"
     ]
   },
   {
     "name": "stockcar",
     "column": 5,
     "row": 12,
-    "stack": "minecartStockCar",
+    "stack": "tc:minecartStockCar",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartStockCar",
-      "minecartDRWGStockCar"
+      "tc:minecartStockCar",
+      "tc:minecartDRWGStockCar"
     ]
   },
   {
     "name": "tender",
     "column": 7,
     "row": 4,
-    "stack": "minecartTender",
+    "stack": "tc:minecartTender",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "minecartTender",
-      "minecartTenderBR01_DB",
-      "minecartTenderEr",
-      "minecartSteamRedTender"
+      "tc:minecartTender",
+      "tc:minecartTenderBR01_DB",
+      "tc:minecartTenderEr",
+      "tc:minecartSteamRedTender"
     ]
   },
   {
     "name": "tram",
     "column": -12,
     "row": 10,
-    "stack": "minecartTramWood",
+    "stack": "tc:minecartTramWood",
     "parent": "electMotor",
     "special": "FALSE",
     "items": [
-      "minecartTramWood",
-      "minecartTramWood"
+      "tc:minecartTramWood",
+      "tc:minecartTramWood"
     ]
   },
   {
     "name": "woodenParts",
     "column": -2,
     "row": 2,
-    "stack": "woodenBogie",
+    "stack": "tc:woodenBogie",
     "parent": "trainWB",
     "special": "FALSE",
     "items": [
-      "woodenBogie",
-      "woodenCab",
-      "woodenFrame",
-      "seats"
+      "tc:woodenBogie",
+      "tc:woodenCab",
+      "tc:woodenFrame",
+      "tc:seats"
     ]
   },
   {
     "name": "workCart",
     "column": 5,
     "row": 6,
-    "stack": "minecartWork",
+    "stack": "tc:minecartWork",
     "parent": "assemblyTable",
     "special": "TRUE",
     "items": [
-      "minecartWork",
-      "minecartCabooseWork"
+      "tc:minecartWork",
+      "tc:minecartCabooseWork"
     ]
   },
   {
     "name": "zeppelin",
     "column": 2,
     "row": 4,
-    "stack": "airship",
+    "stack": "tc:airship",
     "parent": "firebox",
     "special": "FALSE",
     "items": [
-      "zeppelin",
-      "airship"
+      "tc:zeppelin",
+      "tc:airship"
     ]
   }
 ]

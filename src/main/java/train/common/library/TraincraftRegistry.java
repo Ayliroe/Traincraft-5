@@ -148,28 +148,9 @@ public class TraincraftRegistry {
             return registerBlock(block, tab, MODID, unlocalizedName, oreDictionaryName, render, null, unlocalizedName);
         }
     }
-    public static Block registerBlock(Block block, CreativeTabs tab, String MODID, String unlocalizedName, @Nullable String oreDictionaryName, @Nullable Object render, String textureName) {
-        if (render instanceof ModelBase) {
-            return registerBlock(block, tab, MODID, unlocalizedName, oreDictionaryName, Traincraft.proxy.getTESR(), (ModelBase) render, textureName);
-        } else {
-            return registerBlock(block, tab, MODID, unlocalizedName, oreDictionaryName, render, null, textureName);
-        }
-    }
 
     public static Block registerBlock(Block block, CreativeTabs tab, String modid, String unlocalizedName) {
         return registerBlock(block, tab, modid, unlocalizedName, null, Traincraft.proxy.getTESR());
-    }
-
-    public static Block registerBlock(Block block, CreativeTabs tab, String modid, String unlocalizedName, @Nullable String oreDictionaryName) {
-        return registerBlock(block, tab, modid, unlocalizedName, oreDictionaryName, Traincraft.proxy.getTESR());
-    }
-
-    public static Block registerBlock(Block block, CreativeTabs tab, String unlocalizedName, @Nullable String oreDictionaryName, @Nullable Object render) {
-        return registerBlock(block, tab, null, unlocalizedName, oreDictionaryName, render);
-    }
-
-    public static Block registerBlock(Block block, CreativeTabs tab, String MODID, String unlocalizedName, @Nullable String oreDictionaryName, @Nullable Object TESR, @Nullable ModelBase model) {
-        return registerBlock(block, tab, MODID, unlocalizedName, oreDictionaryName, TESR, model, unlocalizedName);
     }
 
     public static Block registerBlock(Block block, CreativeTabs tab, String MODID, String unlocalizedName, @Nullable String oreDictionaryName, @Nullable Object TESR, @Nullable ModelBase model, String textureName) {
@@ -229,10 +210,6 @@ public class TraincraftRegistry {
 
     public static Item RegisterItem(Item itm, String MODID, String unlocalizedName, CreativeTabs tab) {
         return RegisterItem(itm, MODID, unlocalizedName, null, tab, null, null);
-    }
-
-    public static Item RegisterItem(Item itm, String MODID, String unlocalizedName, CreativeTabs tab, String textureName) {
-        return RegisterItem(itm, MODID, unlocalizedName, null, tab, null, null, textureName);
     }
 
     public static Item RegisterItem(Item itm, String MODID, String unlocalizedName, @Nullable String oreDictionaryName, @Nullable CreativeTabs tab, @Nullable Item container, @Nullable Object itemRender) {

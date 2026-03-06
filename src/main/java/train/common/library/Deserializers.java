@@ -14,6 +14,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import train.common.api.AbstractTrains;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.List;
 
 class TrainDeserializer implements JsonDeserializer<Class<AbstractTrains>> {
@@ -43,64 +44,83 @@ class ModelDeserializer implements JsonDeserializer<ModelBase> {
 class ItemDeserializer implements JsonDeserializer<Item> {
     @Override
     public Item deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        try {
-            return ItemIDs.valueOf(json.getAsString()).item;
-        } catch (IllegalArgumentException e) {
-            Item item = Item.getItemFromBlock(GameRegistry.findBlock(Info.modID, json.getAsString()));
-            if (item != null)
-                return item;
+        return DeserializingUtils.stackForString(json.getAsString(), 1).getItem();
+    }
+}
+
+/**
+ * Universal ItemStack deserializer that can handle stacks as a direct string ("namespace:item" or "namespace:item:damage"), or as an item-size pair (["namespace:item:damage", size])
+ **/
+class ItemStackDeserializer implements JsonDeserializer<ItemStack> {
+    @Override
+    public ItemStack deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        // If not an array, it's a simple stack
+        if(!json.isJsonArray()) {
+            if (!json.getAsString().isEmpty())
+                return DeserializingUtils.stackForString(json.getAsString(), 1);
+
+            // Empty strings return null (for empty slots in vanilla/workbench recipes)
             else
-                throw new RuntimeException(e);
+                return null;
+        }
+
+        // If an array, the second element is the size
+        else {
+            if (json.getAsJsonArray().size() != 0)
+                return DeserializingUtils.stackForString(json.getAsJsonArray().get(0).getAsString(), json.getAsJsonArray().get(1).getAsInt());
+
+            // Empty arrays return null (for empty slots in assembly recipes)
+            else
+                return null;
         }
     }
 }
 
-class ItemStackDeserializer implements JsonDeserializer<ItemStack> {
-    @Override
-    public ItemStack deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        // If a single element, check for items and blocks for TC (used for achievements stack icon)
-        if(!json.isJsonArray()) {
+class DeserializingUtils {
+
+    /**
+     * Util for converting a serialized ItemStack string into a stack of the matching mod/ore item, stack size and stack damage
+     * Currently supports tc, minecraft and oreDict entries; can be extended later.
+     **/
+    public static ItemStack stackForString(String string, int size) {
+        List<String> strings = Arrays.asList(string.split(":"));
+
+        // Stacks are serialized as "namespace:item:damage", with damage being optional (often defines item variants, for example dye color, steel/copper ingot...)
+        String namespace = strings.get(0);
+        String item = strings.get(1);
+        int damage = strings.size() > 2 ? Integer.parseInt(strings.get(2)) : 0;
+
+        ItemStack stack;
+
+        if (namespace.equals(Info.modID)) {
             try {
-                return new ItemStack(ItemIDs.valueOf(json.getAsString()).item);
+                stack = new ItemStack(BlockIDs.valueOf(item).block, size, damage);  // Check BlockIDs first, because some blocks are double-registered as ItemIDs with null items
             } catch (IllegalArgumentException e) {
-                ItemStack stack = new ItemStack(GameRegistry.findBlock(Info.modID, json.getAsString()));
-                if (stack.getItem() != null)
-                    return stack;
-                else
-                    throw new RuntimeException(e);
-            }
-        }
-        // If an array, check if for oreDict entries, TC items, vanilla items, and vanilla blocks (used for assembly records)
-        // The second element is expected to be the stack size as int
-        else {
-            if (json.getAsJsonArray().size() != 0) {
-                String element = json.getAsJsonArray().get(0).getAsString();
-                int size = json.getAsJsonArray().get(1).getAsInt();
-
-                List<ItemStack> oreStack = OreDictionary.getOres(element);
-                if (!oreStack.isEmpty()) {
-                    int itemDamage = (element.equals("logWood") || element.equals("plankWood")) ? OreDictionary.WILDCARD_VALUE : oreStack.get(0).getItemDamage();
-
-                    // getItemDamage() is important for items like dyes and ingots where it defines the variant (dye color, steel/copper...)
-                    return new ItemStack(oreStack.get(0).getItem(), size, itemDamage);
-                } else try {
-                    return new ItemStack(ItemIDs.valueOf(element).item, size);   // TC items
-                } catch (IllegalArgumentException e) {
-                    ItemStack stack = new ItemStack((Item) Item.itemRegistry.getObject(element), size);  // Vanilla items
-                    if (stack.getItem() != null)
-                        return stack;
-                    else {
-                        stack = new ItemStack((Block) Block.blockRegistry.getObject(element), size); // Vanilla blocks
-
-                        if (stack.getItem() != null)
-                            return stack;
-                        else
-                            throw new RuntimeException(e);
-                    }
+                try {
+                    stack = new ItemStack(ItemIDs.valueOf(item).item, size, damage);
+                } catch (IllegalArgumentException f) {
+                    stack = new ItemStack(GameRegistry.findBlock(Info.modID, item), size, damage); // Because some TCBlocks are not registered as enum
                 }
             }
-            else
-                return null;    // Arrays are used for assembly recipes, where an empty array equals an empty slot (so we don't throw there)
         }
+        else if(namespace.equals("ore")) {
+            ItemStack ore = OreDictionary.getOres(item).get(0);
+
+            // Use the item damage from the found ore
+            stack = new ItemStack(ore.getItem(), size, ore.getItemDamage());
+        }
+        else if (namespace.equals("minecraft")) {
+            stack = new ItemStack((Item) Item.itemRegistry.getObject(item), size, damage);
+            if (stack.getItem() == null) {
+                stack = new ItemStack((Block) Block.blockRegistry.getObject(item), size, damage);
+            }
+        }
+        else
+            throw new NullPointerException("Namespace could not be found for: " + string);
+
+        if (stack.getItem() != null)
+            return stack;
+        else
+            throw new NullPointerException("Item could not be found for: " + string);
     }
 }

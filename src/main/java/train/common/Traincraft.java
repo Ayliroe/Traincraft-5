@@ -40,10 +40,7 @@ import train.common.entity.zeppelin.EntityZeppelinTwoBalloons;
 import train.common.generation.ComponentVillageTrainstation;
 import train.common.generation.WorldGenWorld;
 import train.common.items.TCItems;
-import train.common.library.AchievementRecord;
-import train.common.library.AssemblyRecord;
-import train.common.library.Info;
-import train.common.library.TraincraftRegistry;
+import train.common.library.*;
 
 import java.io.File;
 
@@ -207,7 +204,7 @@ public class Traincraft {
         /* Recipes */
         tcLog.info("Initialize Recipes");
         RecipeHandler.initBlockRecipes();
-        RecipeHandler.initItemRecipes();
+        RecipeRecord.init();
         RecipeHandler.initSmeltingRecipes();
         AssemblyRecord.init();
 

@@ -1,0 +1,4769 @@
+[
+  {
+    "output": [
+      "tc:airship",
+      1
+    ],
+    "inputs": [
+      "tc:balloon",
+      "",
+      "tc:balloon",
+      "ore:stickWood",
+      "tc:steamengine",
+      "ore:stickWood",
+      "tc:propeller",
+      "minecraft:boat",
+      "tc:propeller"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "entity",
+    "config": "zeppelin"
+  },
+  {
+    "output": [
+      "tc:americanstopper",
+      1
+    ],
+    "inputs": [
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:stickWood",
+      "",
+      "ore:stickWood",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "rail stopper",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:asphaltSlab",
+      6
+    ],
+    "inputs": [
+      "tc:asphalt",
+      "tc:asphalt",
+      "tc:asphalt",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:asphaltStairs",
+      4
+    ],
+    "inputs": [
+      "tc:asphalt",
+      "",
+      "",
+      "tc:asphalt",
+      "tc:asphalt",
+      "",
+      "tc:asphalt",
+      "tc:asphalt",
+      "tc:asphalt"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ballastSlab:0",
+      6
+    ],
+    "inputs": [
+      "tc:oreTC:3",
+      "tc:oreTC:3",
+      "tc:oreTC:3",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ballastStairs",
+      4
+    ],
+    "inputs": [
+      "tc:oreTC:3",
+      "",
+      "",
+      "tc:oreTC:3",
+      "tc:oreTC:3",
+      "",
+      "tc:oreTC:3",
+      "tc:oreTC:3",
+      "tc:oreTC:3"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:balloon",
+      1
+    ],
+    "inputs": [
+      "ore:blockCloth",
+      "ore:blockCloth",
+      "ore:blockCloth",
+      "ore:blockCloth",
+      "",
+      "ore:blockCloth",
+      "ore:blockCloth",
+      "ore:blockCloth",
+      "ore:blockCloth"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": "zeppelin"
+  },
+  {
+    "output": [
+      "tc:bogie",
+      4
+    ],
+    "inputs": [
+      "",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "ore:ingotIron",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:boiler",
+      2
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:bolt",
+      16
+    ],
+    "inputs": [
+      "",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "",
+      "",
+      "ore:ingotIron",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "ingredient",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:boots_suit_paintable",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:gemDiamond",
+      "",
+      "tc:reinforcedPlates",
+      "",
+      "tc:reinforcedPlates",
+      "tc:reinforcedPlates",
+      "minecraft:feather",
+      "tc:reinforcedPlates"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:camshaft",
+      3
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:chunkLoaderActivator",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "minecraft:ender_pearl",
+      "",
+      "minecraft:blaze_rod",
+      "",
+      "minecraft:blaze_rod",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "tool",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:coaldust",
+      4
+    ],
+    "inputs": [
+      "ore:coal",
+      "ore:coal",
+      "ore:coal",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "ingredient",
+    "config": "hardMode"
+  },
+  {
+    "output": [
+      "tc:composite_wrench",
+      1
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "",
+      "tc:reinforcedPlastic",
+      "",
+      "",
+      "tc:reinforcedPlastic",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "tool",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:controls",
+      1
+    ],
+    "inputs": [
+      "minecraft:lever",
+      "minecraft:stone_button",
+      "minecraft:lever",
+      "minecraft:lever",
+      "tc:electronicCircuit",
+      "minecraft:lever",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:copperWireFine",
+      6
+    ],
+    "inputs": [
+      "ore:ingotCopper",
+      "ore:ingotCopper",
+      "ore:ingotCopper",
+      "ore:ingotCopper",
+      "ore:dustPlastic",
+      "ore:ingotCopper",
+      "ore:ingotCopper",
+      "ore:ingotCopper",
+      "ore:ingotCopper"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "ingredient",
+    "config": "ingotCopper"
+  },
+  {
+    "output": [
+      "tc:cylinder",
+      3
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:dieselengine",
+      2
+    ],
+    "inputs": [
+      "tc:piston",
+      "tc:piston",
+      "tc:piston",
+      "tc:cylinder",
+      "tc:cylinder",
+      "tc:cylinder",
+      "tc:camshaft",
+      "tc:camshaft",
+      "tc:camshaft"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:dirtierBallastSlab",
+      6
+    ],
+    "inputs": [
+      "tc:dirtierBallast",
+      "tc:dirtierBallast",
+      "tc:dirtierBallast",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:dirtierBallastStairs",
+      4
+    ],
+    "inputs": [
+      "tc:dirtierBallast",
+      "",
+      "",
+      "tc:dirtierBallast",
+      "tc:dirtierBallast",
+      "",
+      "tc:dirtierBallast",
+      "tc:dirtierBallast",
+      "tc:dirtierBallast"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:dirtyBallastSlab",
+      6
+    ],
+    "inputs": [
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:dirtyBallastStairs",
+      4
+    ],
+    "inputs": [
+      "tc:dirtyBallast",
+      "",
+      "",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:electmotor",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "tc:copperWireFine",
+      "ore:ingotIron",
+      "tc:copperWireFine",
+      "tc:electronicCircuit",
+      "tc:copperWireFine",
+      "ore:ingotIron",
+      "tc:copperWireFine",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:electronicCircuit",
+      1
+    ],
+    "inputs": [
+      "tc:copperWireFine",
+      "tc:copperWireFine",
+      "tc:copperWireFine",
+      "ore:dustRedstone",
+      "ore:dustPlastic",
+      "ore:dustRedstone",
+      "tc:copperWireFine",
+      "tc:copperWireFine",
+      "tc:copperWireFine"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:embeddedStopper",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "rail stopper",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:emptyCanister",
+      4
+    ],
+    "inputs": [
+      "ore:dustPlastic",
+      "ore:dustPlastic",
+      "ore:dustPlastic",
+      "ore:dustPlastic",
+      "",
+      "ore:dustPlastic",
+      "ore:dustPlastic",
+      "ore:dustPlastic",
+      "ore:dustPlastic"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "tool",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:firebox",
+      2
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "minecraft:flint_and_steel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:flint_and_steel",
+      2
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "",
+      "",
+      "",
+      "ore:itemFlint",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "tool",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:generator",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:copperWireFine",
+      "tc:copperWireFine",
+      "tc:electronicCircuit",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "",
+      "tc:copperWireFine",
+      "tc:copperWireFine"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:generatorDiesel",
+      1
+    ],
+    "inputs": [
+      "tc:steelchimney",
+      "",
+      "",
+      "tc:dieselengine",
+      "tc:electronicCircuit",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "machine",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:graphite",
+      2
+    ],
+    "inputs": [
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "minecraft:clay_ball",
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "ore:dustCoal"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "ingredient",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:hat",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:dyeBlue",
+      "",
+      "ore:dyeBlue",
+      "minecraft:leather_helmet",
+      "ore:dyeBlue",
+      "minecraft:string",
+      "ore:dyeBlue",
+      "minecraft:string"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:hat",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:dyeBlue",
+      "",
+      "ore:dyeBlue",
+      "minecraft:leather_helmet",
+      "ore:dyeBlue",
+      "minecraft:string",
+      "ore:dyeBlue",
+      "minecraft:string"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:hat_driver_paintable",
+      1
+    ],
+    "inputs": [
+      "minecraft:string",
+      "ore:dyeBlue",
+      "minecraft:string",
+      "minecraft:string",
+      "",
+      "minecraft:string",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:hat_driver_paintable",
+      1
+    ],
+    "inputs": [
+      "minecraft:string",
+      "ore:dyeBlue",
+      "minecraft:string",
+      "minecraft:string",
+      "",
+      "minecraft:string",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:hat_ticketMan_paintable",
+      1
+    ],
+    "inputs": [
+      "minecraft:string",
+      "ore:dyeBlack",
+      "minecraft:string",
+      "minecraft:string",
+      "",
+      "minecraft:string",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:hat_ticketMan_paintable",
+      1
+    ],
+    "inputs": [
+      "minecraft:string",
+      "ore:dyeBlack",
+      "minecraft:string",
+      "minecraft:string",
+      "",
+      "minecraft:string",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:helmet_suit_paintable",
+      1
+    ],
+    "inputs": [
+      "tc:reinforcedPlates",
+      "ore:gemDiamond",
+      "tc:reinforcedPlates",
+      "tc:reinforcedPlates",
+      "",
+      "tc:reinforcedPlates",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:highSpeedBallastSlab",
+      6
+    ],
+    "inputs": [
+      "tc:highSpeedBallast",
+      "tc:highSpeedBallast",
+      "tc:highSpeedBallast",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:highSpeedBallastStairs",
+      4
+    ],
+    "inputs": [
+      "tc:highSpeedBallast",
+      "",
+      "",
+      "tc:highSpeedBallast",
+      "tc:highSpeedBallast",
+      "",
+      "tc:highSpeedBallast",
+      "tc:highSpeedBallast",
+      "tc:highSpeedBallast"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ironBogie",
+      4
+    ],
+    "inputs": [
+      "",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "ore:plankWood",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ironBoiler",
+      2
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ironCab",
+      2
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ironChimney",
+      2
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ironFirebox",
+      2
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "minecraft:flint_and_steel",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:ironFrame",
+      2
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "",
+      "ore:plankWood",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:jacket",
+      1
+    ],
+    "inputs": [
+      "ore:dyeOrange",
+      "",
+      "ore:dyeOrange",
+      "ore:dyeOrange",
+      "minecraft:leather_chestplate",
+      "ore:dyeOrange",
+      "ore:dyeOrange",
+      "minecraft:string",
+      "ore:dyeOrange"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:jacket_driver_paintable",
+      1
+    ],
+    "inputs": [
+      "ore:dyeBlue",
+      "",
+      "ore:dyeBlue",
+      "ore:dyeBlue",
+      "ore:dyeRed",
+      "ore:dyeBlue",
+      "ore:dyeBlue",
+      "minecraft:leather_chestplate",
+      "ore:dyeBlue"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:jacket_suit_paintable",
+      1
+    ],
+    "inputs": [
+      "tc:reinforcedPlates",
+      "",
+      "tc:reinforcedPlates",
+      "tc:reinforcedPlates",
+      "ore:gemDiamond",
+      "tc:reinforcedPlates",
+      "tc:reinforcedPlates",
+      "minecraft:golden_apple",
+      "tc:reinforcedPlates"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:jacket_ticketMan_paintable",
+      1
+    ],
+    "inputs": [
+      "minecraft:string",
+      "",
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:leather_chestplate",
+      "minecraft:string",
+      "minecraft:string",
+      "ore:dyeBlue",
+      "minecraft:string"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:kSignal",
+      1
+    ],
+    "inputs": [
+      "ore:dustRedstone",
+      "ore:ingotIron",
+      "ore:dustRedstone",
+      "",
+      "ore:ingotIron",
+      "",
+      "",
+      "minecraft:redstone_lamp",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:metroMadridPole",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "",
+      "ore:ingotCopper",
+      "",
+      "ore:ingotCopper"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:mtcATOStopTransmitter",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:ingotIron",
+      "",
+      "ore:dustRedstone",
+      "tc:electronicCircuit",
+      "ore:ingotIron",
+      "",
+      "ore:dustRedstone",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "mtc",
+    "config": "ComputerCraft"
+  },
+  {
+    "output": [
+      "tc:mtcReceiverDestination",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:dustRedstone",
+      "ore:ingotIron",
+      "ore:dustRedstone",
+      "minecraft:sign",
+      "ore:dustRedstone",
+      "ore:ingotIron",
+      "ore:dustRedstone",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "mtc",
+    "config": "ComputerCraft"
+  },
+  {
+    "output": [
+      "tc:mtcReceiverMTC",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "minecraft:torch",
+      "ore:ingotIron",
+      "",
+      "ore:dustRedstone",
+      "",
+      "ore:ingotIron",
+      "minecraft:repeater",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "mtc",
+    "config": "ComputerCraft"
+  },
+  {
+    "output": [
+      "tc:mtcTransmitterMTC",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "minecraft:repeater",
+      "ore:ingotIron",
+      "",
+      "ore:dustRedstone",
+      "",
+      "ore:ingotIron",
+      "minecraft:torch",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "mtc",
+    "config": "ComputerCraft"
+  },
+  {
+    "output": [
+      "tc:mtcTransmitterSpeed",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:dustRedstone",
+      "ore:ingotIron",
+      "ore:dustRedstone",
+      "minecraft:stone_pressure_plate",
+      "ore:dustRedstone",
+      "ore:ingotIron",
+      "ore:dustRedstone",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "mtc",
+    "config": "ComputerCraft"
+  },
+  {
+    "output": [
+      "tc:overalls",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:dyeRed",
+      "",
+      "ore:dyeBlue",
+      "minecraft:leather_leggings",
+      "ore:dyeBlue",
+      "ore:dyeBlue",
+      "",
+      "ore:dyeBlue"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:overheadWire",
+      16
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:ingotCopper",
+      "",
+      "ore:ingotIron",
+      "",
+      "",
+      "ore:ingotIron",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": "ingotCopper"
+  },
+  {
+    "output": [
+      "tc:overheadWireDouble",
+      16
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:ingotCopper",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotCopper",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": "ingotCopper"
+  },
+  {
+    "output": [
+      "tc:paintbrushThing",
+      1
+    ],
+    "inputs": [
+      "ore:dyeGreen",
+      "ore:dyeBlue",
+      "",
+      "ore:dyeRed",
+      "ore:ingotIron",
+      "minecraft:string",
+      "",
+      "minecraft:string",
+      "ore:stickWood"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "tool",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:pants_driver_paintable",
+      1
+    ],
+    "inputs": [
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:leather_leggings",
+      "minecraft:string",
+      "minecraft:string",
+      "ore:dyeBlue",
+      "minecraft:string"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:pants_suit_paintable",
+      1
+    ],
+    "inputs": [
+      "tc:reinforcedPlates",
+      "ore:gemDiamond",
+      "tc:reinforcedPlates",
+      "tc:reinforcedPlates",
+      "minecraft:fire_charge",
+      "tc:reinforcedPlates",
+      "tc:reinforcedPlates",
+      "",
+      "tc:reinforcedPlates"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:pants_ticketMan_paintable",
+      1
+    ],
+    "inputs": [
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:leather_leggings",
+      "minecraft:string",
+      "minecraft:string",
+      "ore:dyeGray",
+      "minecraft:string"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "cloth",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:piston",
+      3
+    ],
+    "inputs": [
+      "",
+      "ore:ingotSteel",
+      "",
+      "",
+      "ore:stickWood",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:propeller",
+      2
+    ],
+    "inputs": [
+      "",
+      "ore:plankWood",
+      "",
+      "ore:plankWood",
+      "ore:ingotIron",
+      "ore:plankWood",
+      "",
+      "ore:plankWood",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallRoadCrossing",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallRoadCrossing1",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallRoadCrossing2",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallRoadCrossing",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallRoadCrossing1",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "minecraft:rail",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallRoadCrossing2",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:recipeBook",
+      1
+    ],
+    "inputs": [
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:book",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "tool",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:reinforcedPlastic",
+      16
+    ],
+    "inputs": [
+      "ore:dustPlastic",
+      "tc:graphite",
+      "ore:dustPlastic",
+      "tc:graphite",
+      "ore:dustPlastic",
+      "tc:graphite",
+      "ore:paneGlass",
+      "tc:graphite",
+      "ore:paneGlass"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "ingredient",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:reinforcedPlates",
+      1
+    ],
+    "inputs": [
+      "tc:reinforcedPlastic",
+      "tc:reinforcedPlastic",
+      "tc:reinforcedPlastic",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "minecraft:clay_ball",
+      "minecraft:clay_ball",
+      "minecraft:clay_ball"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "ingredient",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:seats",
+      1
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "",
+      "",
+      "ore:plankWood",
+      "ore:plankWood",
+      "",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:signalSpanish",
+      1
+    ],
+    "inputs": [
+      "",
+      "minecraft:redstone_lamp",
+      "",
+      "",
+      "ore:ingotIron",
+      "",
+      "ore:dustRedstone",
+      "ore:ingotIron",
+      "ore:dustRedstone"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:snowGravelSlab",
+      6
+    ],
+    "inputs": [
+      "tc:snowGravel",
+      "tc:snowGravel",
+      "tc:snowGravel",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:snowGravelStairs",
+      4
+    ],
+    "inputs": [
+      "tc:snowGravel",
+      "",
+      "",
+      "tc:snowGravel",
+      "tc:snowGravel",
+      "",
+      "tc:snowGravel",
+      "tc:snowGravel",
+      "tc:snowGravel"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:stake",
+      1
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "ore:ingotIron",
+      "ore:ingotSteel",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:steamengine",
+      1
+    ],
+    "inputs": [
+      "tc:steelchimney",
+      "",
+      "",
+      "tc:boiler",
+      "tc:firebox",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": "zeppelin"
+  },
+  {
+    "output": [
+      "tc:steelcab",
+      2
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:steelchimney",
+      2
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:steelframe",
+      2
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:stopper",
+      1
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "rail stopper",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:stopper",
+      1
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "minecraft:rail",
+      "minecraft:rail",
+      "minecraft:rail"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "rail stopper",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:assemblyTableI",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "minecraft:piston",
+      "ore:ingotIron",
+      "ore:stone",
+      "",
+      "ore:stone",
+      "ore:stone",
+      "minecraft:piston",
+      "ore:stone"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "machine",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:assemblyTableII",
+      1
+    ],
+    "inputs": [
+      "ore:ingotGold",
+      "minecraft:piston",
+      "ore:ingotGold",
+      "ore:blockObsidian",
+      "",
+      "ore:blockObsidian",
+      "ore:blockObsidian",
+      "minecraft:piston",
+      "ore:blockObsidian"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "machine",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:assemblyTableIII",
+      1
+    ],
+    "inputs": [
+      "ore:ingotGold",
+      "minecraft:piston",
+      "ore:ingotGold",
+      "ore:gemDiamond",
+      "ore:glowstone",
+      "ore:gemDiamond",
+      "ore:blockObsidian",
+      "minecraft:piston",
+      "ore:blockObsidian"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "machine",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:autoSwtichStand",
+      1
+    ],
+    "inputs": [
+      "tc:electronicCircuit",
+      "",
+      "",
+      "ore:blockIron",
+      "ore:ingotIron",
+      "ore:plankWood",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:bridgePillar",
+      8
+    ],
+    "inputs": [
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:logWood",
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:stickWood"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:circleSwitchStand",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:dyeRed",
+      "",
+      "",
+      "ore:stickWood",
+      "",
+      "",
+      "ore:ingotIron",
+      "ore:plankWood"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:distilIdle",
+      1
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "tc:firebox",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "machine",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:lantern",
+      4
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:paneGlass",
+      "minecraft:torch",
+      "ore:paneGlass",
+      "ore:ingotIron",
+      "ore:ingotIron",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:MFPBWigWag",
+      1
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "minecraft:lever",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "",
+      "",
+      "ore:ingotIron",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:MFPBWigWag",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:dyeRed",
+      "ore:dyeWhite",
+      "minecraft:iron_bars",
+      "ore:dyeWhite",
+      "ore:dyeRed",
+      "ore:stickWood",
+      "ore:stickWood",
+      "ore:stickWood"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:openFurnaceIdle",
+      1
+    ],
+    "inputs": [
+      "minecraft:nether_brick",
+      "minecraft:lava_bucket",
+      "minecraft:nether_brick",
+      "minecraft:nether_brick",
+      "minecraft:bucket",
+      "minecraft:nether_brick",
+      "minecraft:nether_brick",
+      "ore:blockIron",
+      "minecraft:nether_brick"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "machine",
+    "config": "hardMode"
+  },
+  {
+    "output": [
+      "tc:owoSwitchStand",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:dyeOrange",
+      "",
+      "",
+      "ore:stickWood",
+      "",
+      "",
+      "ore:ingotIron",
+      "ore:plankWood"
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:owoYardSwitchStand",
+      1
+    ],
+    "inputs": [
+      "ore:dyeOrange",
+      "ore:stickWood",
+      "",
+      "ore:ingotIron",
+      "ore:plankWood",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRail1X1Turn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRail20x2SCurve",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallParallelCurve",
+      "",
+      "",
+      "",
+      "tc:tcRailMediumStraight",
+      "",
+      "",
+      "",
+      "tc:tcRailSmallParallelCurve"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRail29X29Turn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSuperLargeTurn",
+      "tc:tcRailSuperLargeTurn",
+      "",
+      "tc:tcRailSuperLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRail32X32Turn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRail29X29Turn",
+      "tc:tcRail29X29Turn",
+      "",
+      "tc:tcRail29X29Turn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailDiagonalTwoWaysCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailDiamondCrossing",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailDiamondCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailDoubleDiamondCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbedded1X1Turn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbedded20x2SCurve",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallParallelCurve",
+      "",
+      "",
+      "",
+      "tc:tcRailEmbeddedMediumStraight",
+      "",
+      "",
+      "",
+      "tc:tcRailEmbeddedSmallParallelCurve"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbedded29X29Turn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSuperLargeTurn",
+      "tc:tcRailEmbeddedSuperLargeTurn",
+      "",
+      "tc:tcRailEmbeddedSuperLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbedded32X32Turn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbedded29X29Turn",
+      "tc:tcRailEmbedded29X29Turn",
+      "",
+      "tc:tcRailEmbedded29X29Turn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedDiagonalTwoWaysCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedDiamondCrossing",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedDiamondCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedDoubleDiamondCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedFourWaysCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLarge45DegreeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedLarge45DegreeTurn",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLargeCurvedSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedLargeTurn",
+      "",
+      "",
+      "tc:tcRailEmbeddedSlopeDynamic",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLargeParallelCurve",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedMediumParallelCurve",
+      "",
+      "tc:tcRailEmbeddedMediumParallelCurve",
+      "tc:tcRailEmbeddedMediumParallelCurve",
+      "",
+      "tc:tcRailEmbeddedMediumParallelCurve",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLargeParallelSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedLongStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedLongStraight",
+      "tc:tcRailEmbeddedLargeTurn",
+      "tc:tcRailEmbeddedLargeTurn",
+      "tc:tcRailEmbeddedLongStraight",
+      "tc:tcRailEmbeddedLargeTurn",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLargeSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailEmbeddedSlopeDynamic",
+      "",
+      "tc:tcRailEmbeddedSlopeDynamic",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLargeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedMediumStraight",
+      "tc:tcRailEmbeddedLargeTurn",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLargeTurn",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLongDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedMediumDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedMediumDiagonalStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLongStraight",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedMediumStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedMediumStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMedium45DegreeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedMedium45DegreeTurn",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMediumDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMediumParallelCurve",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedSmallParallelCurve",
+      "",
+      "tc:tcRailEmbeddedSmallParallelCurve",
+      "tc:tcRailEmbeddedSmallParallelCurve",
+      "",
+      "tc:tcRailEmbeddedSmallParallelCurve",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMediumParallelSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedMediumStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedMediumStraight",
+      "tc:tcRailEmbeddedMediumTurn",
+      "tc:tcRailEmbeddedMediumTurn",
+      "tc:tcRailEmbeddedMediumStraight",
+      "tc:tcRailEmbeddedMediumTurn",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMediumStraight",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMediumSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedMediumTurn",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMediumTurn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbedded1X1Turn",
+      "tc:tcRailEmbedded1X1Turn",
+      "",
+      "tc:tcRailEmbedded1X1Turn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedMediumStraight",
+      "ore:dyeRed",
+      "tc:tcRailEmbeddedMediumStraight",
+      "ore:dyeRed",
+      "ore:dyeRed",
+      "ore:dyeRed",
+      "ore:dyeRed",
+      "ore:dyeRed"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedSmallDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedSmallParallelCurve",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedSmallStraight",
+      16
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "tc:bolt",
+      "",
+      "tc:bolt",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedSuperLargeCurvedSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedSuperLargeTurn",
+      "",
+      "",
+      "tc:tcRailEmbeddedVeryLargeSlopeDynamic",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedSuperLargeTurn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedVeryLargeTurn",
+      "tc:tcRailEmbeddedVeryLargeTurn",
+      "",
+      "tc:tcRailEmbeddedVeryLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedTwoWaysCrossing",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedSmallStraight",
+      "",
+      "tc:tcRailEmbeddedSmallStraight",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedVeryLargeCurvedSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedVeryLargeTurn",
+      "",
+      "",
+      "tc:tcRailEmbeddedLargeSlopeDynamic",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedVeryLargeSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailEmbeddedSlopeDynamic",
+      "",
+      "tc:tcRailEmbeddedSlopeDynamic",
+      "",
+      "tc:tcRailEmbeddedSlopeDynamic",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedVeryLargeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedMediumStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedMediumStraight",
+      "tc:tcRailEmbeddedLargeTurn",
+      "tc:tcRailEmbeddedSmallStraight",
+      "tc:tcRailEmbeddedMediumStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedVeryLargeTurn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedLargeTurn",
+      "tc:tcRailEmbeddedLargeTurn",
+      "",
+      "tc:tcRailEmbeddedLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedVeryLongDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailEmbeddedLongDiagonalStraight",
+      "",
+      "tc:tcRailEmbeddedLongDiagonalStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedVeryLongStraight",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedLongStraight",
+      "",
+      "",
+      "tc:tcRailEmbeddedLongStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailFourWaysCrossing",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallDiagonalStraight"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLarge45DegreeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailLarge45DegreeTurn",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeCurvedSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailLargeTurn",
+      "",
+      "",
+      "tc:tcRailSlopeDynamic",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeParallelCurve",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailMediumParallelCurve",
+      "",
+      "tc:tcRailMediumParallelCurve",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeParallelSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailLongStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailLongStraight",
+      "tc:tcRailLargeTurn",
+      "tc:tcRailLargeTurn",
+      "tc:tcRailLongStraight",
+      "tc:tcRailLargeTurn",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeSlopeBallast",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSlopeBallast",
+      "",
+      "tc:tcRailSlopeBallast",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSlopeDynamic",
+      "",
+      "tc:tcRailSlopeDynamic",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeSlopeGravel",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSlopeGravel",
+      "",
+      "tc:tcRailSlopeGravel",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeSlopeSnowGravel",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSlopeSnowGravel",
+      "",
+      "tc:tcRailSlopeSnowGravel",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeSlopeWood",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSlopeWood",
+      "",
+      "tc:tcRailSlopeWood",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "tc:tcRailMediumStraight",
+      "tc:tcRailLargeTurn",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLargeTurn",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLongDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailMediumDiagonalStraight",
+      "",
+      "tc:tcRailMediumDiagonalStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLongStraight",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailMediumStraight",
+      "",
+      "",
+      "tc:tcRailMediumStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMedium45DegreeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailMedium45DegreeTurn",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMediumDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      "tc:tcRailSmallDiagonalStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMediumParallelCurve",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSmallParallelCurve",
+      "",
+      "tc:tcRailSmallParallelCurve",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMediumParallelSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailMediumStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailMediumStraight",
+      "tc:tcRailMediumTurn",
+      "tc:tcRailMediumTurn",
+      "tc:tcRailMediumStraight",
+      "tc:tcRailMediumTurn",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMediumStraight",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMediumSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailMediumTurn",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMediumTurn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRail1X1Turn",
+      "tc:tcRail1X1Turn",
+      "",
+      "tc:tcRail1X1Turn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSlopeBallast",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailMediumStraight",
+      "tc:oreTC:3",
+      "tc:tcRailMediumStraight",
+      "tc:oreTC:3",
+      "tc:oreTC:3",
+      "tc:oreTC:3",
+      "tc:oreTC:3",
+      "tc:oreTC:3"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailMediumStraight",
+      "ore:dyeRed",
+      "tc:tcRailMediumStraight",
+      "ore:dyeRed",
+      "ore:dyeRed",
+      "ore:dyeRed",
+      "ore:dyeRed",
+      "ore:dyeRed"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSlopeGravel",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailMediumStraight",
+      "ore:gravel",
+      "tc:tcRailMediumStraight",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSlopeSnowGravel",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailMediumStraight",
+      "tc:snowGravel",
+      "tc:tcRailMediumStraight",
+      "tc:snowGravel",
+      "tc:snowGravel",
+      "tc:snowGravel",
+      "tc:snowGravel",
+      "tc:snowGravel"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSlopeWood",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailMediumStraight",
+      "ore:plankWood",
+      "tc:tcRailMediumStraight",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallParallelCurve",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallRoadCrossing",
+      1
+    ],
+    "inputs": [
+      "minecraft:stained_hardened_clay:15",
+      "minecraft:rail",
+      "minecraft:stained_hardened_clay:15",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallRoadCrossing1",
+      1
+    ],
+    "inputs": [
+      "minecraft:stained_hardened_clay:7",
+      "minecraft:rail",
+      "minecraft:stained_hardened_clay:7",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallRoadCrossing2",
+      1
+    ],
+    "inputs": [
+      "minecraft:stained_hardened_clay:3",
+      "minecraft:rail",
+      "minecraft:stained_hardened_clay:3",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallRoadCrossingDynamic",
+      1
+    ],
+    "inputs": [
+      "ore:blockCloth",
+      "minecraft:rail",
+      "ore:blockCloth",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "minecraft:rail",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail conversion",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSmallStraight",
+      16
+    ],
+    "inputs": [
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron",
+      "tc:bolt",
+      "ore:plankWood",
+      "tc:bolt",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSuperLargeCurvedSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSuperLargeTurn",
+      "",
+      "",
+      "tc:tcRailVeryLargeSlopeDynamic",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSuperLargeTurn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailVeryLargeTurn",
+      "tc:tcRailVeryLargeTurn",
+      "",
+      "tc:tcRailVeryLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailTwoWaysCrossing",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailSmallStraight",
+      "",
+      "tc:tcRailSmallStraight",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail crossing",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeCurvedSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailVeryLargeTurn",
+      "",
+      "",
+      "tc:tcRailLargeSlopeDynamic",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeSlopeBallast",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailSlopeBallast",
+      "",
+      "tc:tcRailSlopeBallast",
+      "",
+      "tc:tcRailSlopeBallast",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeSlopeDynamic",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailSlopeDynamic",
+      "",
+      "tc:tcRailSlopeDynamic",
+      "",
+      "tc:tcRailSlopeDynamic",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeSlopeGravel",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailSlopeGravel",
+      "",
+      "tc:tcRailSlopeGravel",
+      "",
+      "tc:tcRailSlopeGravel",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeSlopeSnowGravel",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailSlopeSnowGravel",
+      "",
+      "tc:tcRailSlopeSnowGravel",
+      "",
+      "tc:tcRailSlopeSnowGravel",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeSlopeWood",
+      1
+    ],
+    "inputs": [
+      "",
+      "",
+      "tc:tcRailSlopeWood",
+      "",
+      "tc:tcRailSlopeWood",
+      "",
+      "tc:tcRailSlopeWood",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail slope",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeSwitch",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailMediumStraight",
+      "",
+      "",
+      "tc:tcRailMediumStraight",
+      "tc:tcRailVeryLargeTurn",
+      "tc:tcRailSmallStraight",
+      "tc:tcRailMediumStraight",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail switch",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLargeTurn",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailLargeTurn",
+      "tc:tcRailLargeTurn",
+      "",
+      "tc:tcRailLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLongDiagonalStraight",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:tcRailLongDiagonalStraight",
+      "",
+      "tc:tcRailLongDiagonalStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail diagonal",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLongStraight",
+      1
+    ],
+    "inputs": [
+      "tc:tcRailLongStraight",
+      "",
+      "",
+      "tc:tcRailLongStraight",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "rail straight",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:speedSign",
+      8
+    ],
+    "inputs": [
+      "",
+      "ore:dyeRed",
+      "",
+      "",
+      "ore:ingotIron",
+      "",
+      "",
+      "ore:ingotIron",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "vanilla",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:switchStand",
+      1
+    ],
+    "inputs": [
+      "",
+      "minecraft:lever",
+      "",
+      "",
+      "ore:ingotIron",
+      "",
+      "",
+      "ore:stickWood",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "decoration",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:trainWorkbench",
+      1
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:ingotIron",
+      "minecraft:furnace",
+      "ore:ingotIron",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood"
+    ],
+    "shape": "shaped",
+    "crafter": "any",
+    "type": "machine",
+    "config": "workbench"
+  },
+  {
+    "output": [
+      "tc:transformer",
+      1
+    ],
+    "inputs": [
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "ore:dustRedstone",
+      "tc:electronicCircuit",
+      "ore:dustRedstone",
+      "ore:ingotSteel",
+      "ore:ingotSteel",
+      "ore:ingotSteel"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:transmition",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      "tc:diesel",
+      "ore:ingotSteel",
+      "",
+      "ore:ingotSteel",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:waterWheel",
+      1
+    ],
+    "inputs": [
+      "",
+      "ore:logWood",
+      "",
+      "ore:logWood",
+      "tc:generator",
+      "ore:logWood",
+      "",
+      "ore:logWood",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "machine",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:windMill",
+      1
+    ],
+    "inputs": [
+      "",
+      "tc:propeller",
+      "",
+      "",
+      "tc:generator",
+      "",
+      "ore:ingotIron",
+      "",
+      "ore:ingotIron"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "machine",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:woodenBogie",
+      4
+    ],
+    "inputs": [
+      "",
+      "ore:plankWood",
+      "",
+      "ore:plankWood",
+      "ore:logWood",
+      "ore:plankWood",
+      "",
+      "ore:plankWood",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:woodenCab",
+      2
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:woodenFrame",
+      2
+    ],
+    "inputs": [
+      "ore:plankWood",
+      "",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "ore:plankWood",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "part",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:zeppelin",
+      1
+    ],
+    "inputs": [
+      "tc:balloon",
+      "tc:balloon",
+      "tc:balloon",
+      "tc:propeller",
+      "tc:controls",
+      "tc:propeller",
+      "tc:electmotor",
+      "tc:seats",
+      "tc:electmotor"
+    ],
+    "shape": "shaped",
+    "crafter": "workbench",
+    "type": "entity",
+    "config": "zeppelin"
+  },
+  {
+    "output": [
+      "tc:asphalt",
+      8
+    ],
+    "inputs": [
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "ore:dustCoal",
+      "ore:cobblestone",
+      "ore:cobblestone",
+      "ore:cobblestone",
+      "ore:cobblestone",
+      "ore:cobblestone"
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:dirtierBallast",
+      16
+    ],
+    "inputs": [
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "tc:dirtyBallast",
+      "minecraft:dirt"
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:dirtyBallast",
+      16
+    ],
+    "inputs": [
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "minecraft:dirt"
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:highSpeedBallast",
+      16
+    ],
+    "inputs": [
+      "ore:gemQuartz",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "minecraft:clay"
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:oreTC:3",
+      4
+    ],
+    "inputs": [
+      "ore:gravel",
+      "ore:gravel",
+      "minecraft:clay_ball",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:oreTC:3",
+      16
+    ],
+    "inputs": [
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "minecraft:clay"
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:poweredGravel",
+      1
+    ],
+    "inputs": [
+      "ore:dustRedstone",
+      "ore:gravel",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:snowGravel",
+      1
+    ],
+    "inputs": [
+      "minecraft:snowball",
+      "ore:gravel",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:snowGravel",
+      4
+    ],
+    "inputs": [
+      "minecraft:snow",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "ore:gravel",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "vanilla",
+    "type": "block",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRail45DegreeTurn10x22",
+      2
+    ],
+    "inputs": [
+      "tc:tcRail32X32Turn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRail45DegreeTurn9x20",
+      2
+    ],
+    "inputs": [
+      "tc:tcRail29X29Turn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbedded45DegreeTurn10x22",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailEmbedded32X32Turn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbedded45DegreeTurn9x20",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailEmbedded29X29Turn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedLarge45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedMedium45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedMediumTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedSuperLarge45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedSuperLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailEmbeddedVeryLarge45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailEmbeddedVeryLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailLarge45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailMedium45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailMediumTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailSuperLarge45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailSuperLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  },
+  {
+    "output": [
+      "tc:tcRailVeryLarge45DegreeTurn",
+      2
+    ],
+    "inputs": [
+      "tc:tcRailVeryLargeTurn",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "shape": "shapeless",
+    "crafter": "any",
+    "type": "rail turn",
+    "config": ""
+  }
+]
