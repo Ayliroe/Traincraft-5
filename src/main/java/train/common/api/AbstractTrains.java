@@ -458,7 +458,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
     @Override
     public String getCommandSenderName() {
-        return StatCollector.translateToLocal("entity.tc." + register.type.getInternalName() + ".name");
+        return StatCollector.translateToLocal("item.tc:" + register.type.getName() + ".name");
     }
 
     public void setTicket(Ticket ticket) {

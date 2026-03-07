@@ -1,7 +1,6 @@
 [
   {
     "entryName": "BUnitDD35",
-    "internalName": "DD35 B Unit",
     "entityClass": "train.common.entity.rollingStock.EntityBUnit",
     "icon": "train_dd35b",
     "emeralds": 10,
@@ -31,7 +30,6 @@
   },
   {
     "entryName": "BUnitEMDF3",
-    "internalName": "EMD F3 B Unit",
     "entityClass": "train.common.entity.rollingStock.EntityBUnit",
     "icon": "train_emdf3b",
     "emeralds": 10,
@@ -66,7 +64,6 @@
   },
   {
     "entryName": "BUnitEMDF7",
-    "internalName": "EMD F7 B Unit",
     "entityClass": "train.common.entity.rollingStock.EntityBUnit",
     "icon": "train_emdf7b",
     "emeralds": 10,
@@ -101,7 +98,6 @@
   },
   {
     "entryName": "propagandaBritain",
-    "internalName": "Propaganda Britain",
     "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "icon": "propaganda_british",
     "emeralds": 2,
@@ -132,7 +128,6 @@
   },
   {
     "entryName": "propagandaJapan",
-    "internalName": "Propaganda Japan",
     "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "icon": "propaganda_japan",
     "emeralds": 2,
@@ -163,7 +158,6 @@
   },
   {
     "entryName": "propagandaUs",
-    "internalName": "Propaganda USA",
     "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "icon": "propaganda_us",
     "emeralds": 2,
@@ -194,7 +188,6 @@
   },
   {
     "entryName": "propagandaUSSR",
-    "internalName": "Propaganda USSR",
     "entityClass": "train.common.entity.rollingStock.EntityDefaultStock",
     "icon": "propaganda_ussr",
     "emeralds": 2,
@@ -225,7 +218,6 @@
   },
   {
     "entryName": "FOLM1B",
-    "internalName": "FOL-M1B",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "folm1b",
     "emeralds": 4,
@@ -255,7 +247,6 @@
   },
   {
     "entryName": "locoDiesel44TonSwitcher",
-    "internalName": "GE 44-ton Diesel switcher",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_44tonner",
     "emeralds": 10,
@@ -296,7 +287,6 @@
   },
   {
     "entryName": "locoDieselBamboo",
-    "internalName": "Bamboo Flatcar Engine",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_train_bamboo",
     "emeralds": 3,
@@ -346,7 +336,6 @@
   },
   {
     "entryName": "locoDieselChME3",
-    "internalName": "Loco Diesel ChME3",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_chme3",
     "emeralds": 8,
@@ -379,7 +368,6 @@
   },
   {
     "entryName": "locoDieselDD35A",
-    "internalName": "Loco Diesel DD35A",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_dd35a",
     "emeralds": 3,
@@ -415,7 +403,6 @@
   },
   {
     "entryName": "locoDieselDeltic",
-    "internalName": "Loco Diesel Deltic",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_deltic",
     "emeralds": 3,
@@ -453,7 +440,6 @@
   },
   {
     "entryName": "locoDieselEMDF3",
-    "internalName": "Loco Diesel EMD F-3",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_emdf3",
     "emeralds": 10,
@@ -494,7 +480,6 @@
   },
   {
     "entryName": "locoDieselEMDF7",
-    "internalName": "Loco Diesel EMD F-7",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_emdf7",
     "emeralds": 10,
@@ -535,7 +520,6 @@
   },
   {
     "entryName": "locoDieselEWSClass66",
-    "internalName": "Loco Electric EWS Class 66",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_ewsclass66",
     "emeralds": 3,
@@ -577,7 +561,6 @@
   },
   {
     "entryName": "locoDieselFOL_M1",
-    "internalName": "Loco FOL M1",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_fol_m1",
     "emeralds": 10,
@@ -613,7 +596,6 @@
   },
   {
     "entryName": "locoDieselGP40",
-    "internalName": "Loco Diesel CD742",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_cd742",
     "emeralds": 10,
@@ -652,7 +634,6 @@
   },
   {
     "entryName": "locoDieselGP7Red",
-    "internalName": "Loco Diesel GP7",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_gp7",
     "emeralds": 10,
@@ -703,7 +684,6 @@
   },
   {
     "entryName": "locoDieselIC4_DSB_MG",
-    "internalName": "Loco Diesel IC4 DSB MG",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_ic4_dsb_mg",
     "emeralds": 10,
@@ -754,7 +734,6 @@
   },
   {
     "entryName": "locoDieselKOF",
-    "internalName": "Loco Diesel KOF DB",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_kof",
     "emeralds": 10,
@@ -793,7 +772,6 @@
   },
   {
     "entryName": "locoDieselMILW_H1044",
-    "internalName": "Loco Diesel MILW H10-44",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "MILW_H1044",
     "emeralds": 10,
@@ -835,7 +813,6 @@
   },
   {
     "entryName": "locoDieselSD40",
-    "internalName": "Loco Diesel SD40",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_sd40",
     "emeralds": 10,
@@ -877,7 +854,6 @@
   },
   {
     "entryName": "locoDieselSD70",
-    "internalName": "Loco Diesel SD70",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_sd70",
     "emeralds": 10,
@@ -918,7 +894,6 @@
   },
   {
     "entryName": "locoDieselShunter",
-    "internalName": "Loco Diesel Shunter",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_shunter",
     "emeralds": 10,
@@ -956,7 +931,6 @@
   },
   {
     "entryName": "locoDieselV60_DB",
-    "internalName": "Loco Diesel V60 DB",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_v60",
     "emeralds": 10,
@@ -994,7 +968,6 @@
   },
   {
     "entryName": "locoDieselWLs40",
-    "internalName": "Loco WLs40",
     "entityClass": "train.common.entity.rollingStock.EntityDieselTrain",
     "icon": "train_wls40",
     "emeralds": 10,
@@ -1027,7 +1000,6 @@
   },
   {
     "entryName": "locoDieselE103",
-    "internalName": "Loco Electric E103",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_e103",
     "emeralds": 10,
@@ -1068,7 +1040,6 @@
   },
   {
     "entryName": "locoDieselE10lDB",
-    "internalName": "Loco Electric E10 DB",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_e10db",
     "emeralds": 10,
@@ -1112,7 +1083,6 @@
   },
   {
     "entryName": "locoElectricBP4",
-    "internalName": "Loco Electric BP4",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_bp4",
     "emeralds": 10,
@@ -1148,7 +1118,6 @@
   },
   {
     "entryName": "locoElectricBR_E69",
-    "internalName": "Loco Electric BR_E69",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_bre69",
     "emeralds": 10,
@@ -1186,7 +1155,6 @@
   },
   {
     "entryName": "locoElectricBR185",
-    "internalName": "Loco Electric BR 185",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_br101",
     "emeralds": 3,
@@ -1238,7 +1206,6 @@
   },
   {
     "entryName": "locoElectricCD151",
-    "internalName": "Loco Electric CD151",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_CD151",
     "emeralds": 3,
@@ -1286,7 +1253,6 @@
   },
   {
     "entryName": "locoElectricClass85",
-    "internalName": "Loco Electric Class 85",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_class85",
     "emeralds": 3,
@@ -1327,7 +1293,6 @@
   },
   {
     "entryName": "locoElectricICE1",
-    "internalName": "Loco Electric ICE 1",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_ice1",
     "emeralds": 10,
@@ -1363,7 +1328,6 @@
   },
   {
     "entryName": "locoElectricMineTrain",
-    "internalName": "Loco Electric Minetrain",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_mine_train",
     "emeralds": 2,
@@ -1396,7 +1360,6 @@
   },
   {
     "entryName": "locoElectricSpeedZeroED",
-    "internalName": "Loco Electric High Speed ZeroED",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_high_speed_loco_zeroed",
     "emeralds": 17,
@@ -1429,7 +1392,6 @@
   },
   {
     "entryName": "locoElectricTramNY",
-    "internalName": "Loco Electric Tram NY",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_tram_ny",
     "emeralds": 7,
@@ -1472,7 +1434,6 @@
   },
   {
     "entryName": "locoElectricTramYellow",
-    "internalName": "Loco Electric Yellow Wood Tram",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_tram",
     "emeralds": 7,
@@ -1515,7 +1476,6 @@
   },
   {
     "entryName": "locoElectricVL10",
-    "internalName": "Loco Electric VL10",
     "entityClass": "train.common.entity.rollingStock.EntityElectricTrain",
     "icon": "train_vl10",
     "emeralds": 10,
@@ -1548,7 +1508,6 @@
   },
   {
     "entryName": "ASTFAutorack",
-    "internalName": "Freight ASTF Autorack",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_autorack",
     "emeralds": 5,
@@ -1575,7 +1534,6 @@
   },
   {
     "entryName": "bulkheadFlatCartWood",
-    "internalName": "Freight Bulkhead Flat Cart",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_bulkheadflat_wood",
     "emeralds": 3,
@@ -1606,7 +1564,6 @@
   },
   {
     "entryName": "flatCarLogs_DB",
-    "internalName": "Freight Flat Cart Logs DB",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_transport_wood_3",
     "emeralds": 2,
@@ -1636,7 +1593,6 @@
   },
   {
     "entryName": "flatCarRails_DB",
-    "internalName": "Freight Flat Cart Rails DB",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_transport_rail",
     "emeralds": 6,
@@ -1666,7 +1622,6 @@
   },
   {
     "entryName": "flatCartWoodLogs",
-    "internalName": "Freight Flat Logs",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_transport_wood_2",
     "emeralds": 6,
@@ -1693,7 +1648,6 @@
   },
   {
     "entryName": "flatCartWoodUS",
-    "internalName": "Freight Flat Cart Wood US",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_flat_wood",
     "emeralds": 3,
@@ -1720,7 +1674,6 @@
   },
   {
     "entryName": "freight100TonHopper",
-    "internalName": "Freight 100 Ton Hopper",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_100_ton_hopper",
     "emeralds": 8,
@@ -1752,7 +1705,6 @@
   },
   {
     "entryName": "freightBoxCartPRR",
-    "internalName": "Freight Box Cart PRR",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_box_prr",
     "emeralds": 4,
@@ -1779,7 +1731,6 @@
   },
   {
     "entryName": "freightBoxCartUS",
-    "internalName": "Freight Box Cart US",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_box_us",
     "emeralds": 4,
@@ -1823,7 +1774,6 @@
   },
   {
     "entryName": "freightCarL",
-    "internalName": "Freight Car L",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_l",
     "emeralds": 3,
@@ -1853,7 +1803,6 @@
   },
   {
     "entryName": "freightCartBamboo",
-    "internalName": "Bamboo Flatcar Freight",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_bamboo",
     "emeralds": 2,
@@ -1897,7 +1846,6 @@
   },
   {
     "entryName": "freightCartGS4",
-    "internalName": "Freight Cart GS4 Baggage",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "GS4_baggage",
     "emeralds": 10,
@@ -1936,7 +1884,6 @@
   },
   {
     "entryName": "freightCartRed",
-    "internalName": "Freight Cart Red",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_2",
     "emeralds": 2,
@@ -1963,7 +1910,6 @@
   },
   {
     "entryName": "freightCartSmall",
-    "internalName": "Freight Cart Small",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_4",
     "emeralds": 2,
@@ -1990,7 +1936,6 @@
   },
   {
     "entryName": "freightCartUS",
-    "internalName": "Freight Cart US",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_3",
     "emeralds": 4,
@@ -2034,7 +1979,6 @@
   },
   {
     "entryName": "freightCartYellow",
-    "internalName": "Freight Cart Yellow",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_1",
     "emeralds": 4,
@@ -2061,7 +2005,6 @@
   },
   {
     "entryName": "freightCenterBeam_Empty",
-    "internalName": "Freight Center Beam Empty",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_empty",
     "emeralds": 2,
@@ -2091,7 +2034,6 @@
   },
   {
     "entryName": "freightCenterBeam_Wood1",
-    "internalName": "Freight Center Beam Wood1",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_wood_1",
     "emeralds": 3,
@@ -2122,7 +2064,6 @@
   },
   {
     "entryName": "freightCenterBeam_Wood2",
-    "internalName": "Freight Center Beam Wood2",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_wood_2",
     "emeralds": 3,
@@ -2153,7 +2094,6 @@
   },
   {
     "entryName": "freightClosedRedBrown",
-    "internalName": "Freight Cart Closed RedBrown",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_closed",
     "emeralds": 5,
@@ -2180,7 +2120,6 @@
   },
   {
     "entryName": "freightDenverRioGrange",
-    "internalName": "Denver Rio Grande Baggage",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "denverriogrande_baggage",
     "emeralds": 10,
@@ -2211,7 +2150,6 @@
   },
   {
     "entryName": "freightDepressedFlatbed",
-    "internalName": "Freight Depressed Flatcar",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_depressed_flatbed",
     "emeralds": 2,
@@ -2243,7 +2181,6 @@
   },
   {
     "entryName": "freightGermanPost",
-    "internalName": "Freight German Post",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_german_post",
     "emeralds": 2,
@@ -2274,7 +2211,6 @@
   },
   {
     "entryName": "freightGondola_DB",
-    "internalName": "Freight Gondola DB",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_gondola",
     "emeralds": 3,
@@ -2304,7 +2240,6 @@
   },
   {
     "entryName": "freightGTNG",
-    "internalName": "Freight GTNG Ore Wagon",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "freight_gtng",
     "emeralds": 5,
@@ -2331,7 +2266,6 @@
   },
   {
     "entryName": "freightheavyweight",
-    "internalName": "Heavyweight Freight Car",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "heavyweight_mailcar",
     "emeralds": 5,
@@ -2358,7 +2292,6 @@
   },
   {
     "entryName": "freightHeavyweight",
-    "internalName": "Freight Heavyweight Baggage",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_heavyweight_freight",
     "emeralds": 10,
@@ -2388,7 +2321,6 @@
   },
   {
     "entryName": "freightHopper",
-    "internalName": "Freight Hopper Green",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_hopper_grain",
     "emeralds": 6,
@@ -2415,7 +2347,6 @@
   },
   {
     "entryName": "freightHopperUS",
-    "internalName": "Freight Hopper US",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_hopper_us",
     "emeralds": 6,
@@ -2456,7 +2387,6 @@
   },
   {
     "entryName": "freightKClassRailBox",
-    "internalName": "Freight K Class Rail Box",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_k_class_railbox",
     "emeralds": 2,
@@ -2487,7 +2417,6 @@
   },
   {
     "entryName": "freightLongCoveredHopper",
-    "internalName": "Freight Long Covered Hopper",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_longcoveredhopper",
     "emeralds": 3,
@@ -2522,7 +2451,6 @@
   },
   {
     "entryName": "freightMILWBaggage",
-    "internalName": "MILW Baggage",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_baggage_milw",
     "emeralds": 5,
@@ -2549,7 +2477,6 @@
   },
   {
     "entryName": "freightMinetrain",
-    "internalName": "Freight Minecart Yellow",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_mine_cart",
     "emeralds": 1,
@@ -2576,7 +2503,6 @@
   },
   {
     "entryName": "freightOpenRedBrown",
-    "internalName": "Freight Open RedBrown",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_open",
     "emeralds": 6,
@@ -2603,7 +2529,6 @@
   },
   {
     "entryName": "freightOpenWagon",
-    "internalName": "Freight Open Wagon",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_hopper",
     "emeralds": 3,
@@ -2630,7 +2555,6 @@
   },
   {
     "entryName": "freightShortCoveredHopper",
-    "internalName": "Freight Short Covered Hopper",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_shortcoveredhopper",
     "emeralds": 2,
@@ -2664,7 +2588,6 @@
   },
   {
     "entryName": "freightTrailer",
-    "internalName": "Freight Trailer",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_trailer",
     "emeralds": 5,
@@ -2704,7 +2627,6 @@
   },
   {
     "entryName": "freightWagen_DB",
-    "internalName": "Freight Wagon DB",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_db",
     "emeralds": 3,
@@ -2736,7 +2658,6 @@
   },
   {
     "entryName": "freightWellcar",
-    "internalName": "Freight Well Car",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_freight_wellcar",
     "emeralds": 5,
@@ -2780,7 +2701,6 @@
   },
   {
     "entryName": "freightWood",
-    "internalName": "Freight Flat Cart Log",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "train_transport_wood",
     "emeralds": 3,
@@ -2807,7 +2727,6 @@
   },
   {
     "entryName": "iceWagon",
-    "internalName": "Freight Ice Wagon",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "icewagon",
     "emeralds": 10,
@@ -2834,7 +2753,6 @@
   },
   {
     "entryName": "slateWagon",
-    "internalName": "Freight Slate Wagon",
     "entityClass": "train.common.entity.rollingStock.EntityFreight",
     "icon": "slatewagon",
     "emeralds": 10,
@@ -2861,7 +2779,6 @@
   },
   {
     "entryName": "jukeBoxCart",
-    "internalName": "JukeBox Cart",
     "entityClass": "train.common.entity.rollingStock.EntityJukeBox",
     "icon": "train_jukebox",
     "emeralds": 10,
@@ -2888,7 +2805,6 @@
   },
   {
     "entryName": "tankCartLava",
-    "internalName": "Tank Lava",
     "entityClass": "train.common.entity.rollingStock.EntityLavaTank",
     "icon": "train_tank_lava",
     "emeralds": 7,
@@ -2918,7 +2834,6 @@
   },
   {
     "entryName": "tankThreeDome",
-    "internalName": "Tank Wagon Three Dome",
     "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "icon": "train_tank_three_dome",
     "emeralds": 7,
@@ -2948,7 +2863,6 @@
   },
   {
     "entryName": "tankWagon_DB",
-    "internalName": "Tank Wagon DB",
     "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "icon": "train_tank_db",
     "emeralds": 6,
@@ -2978,7 +2892,6 @@
   },
   {
     "entryName": "tankWagonGrey",
-    "internalName": "Tank Wagon Grey",
     "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "icon": "train_tank_blue",
     "emeralds": 5,
@@ -3005,7 +2918,6 @@
   },
   {
     "entryName": "tankWagonUS",
-    "internalName": "Tank Wagon US",
     "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "icon": "train_tank_us_2",
     "emeralds": 8,
@@ -3043,7 +2955,6 @@
   },
   {
     "entryName": "tankWagonYellow",
-    "internalName": "Tank Wagon Yellow",
     "entityClass": "train.common.entity.rollingStock.EntityLiquidTank",
     "icon": "train_tank_us",
     "emeralds": 5,
@@ -3070,7 +2981,6 @@
   },
   {
     "entryName": "cabooseBlack",
-    "internalName": "Caboose Black",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_caboose_2",
     "emeralds": 3,
@@ -3103,7 +3013,6 @@
   },
   {
     "entryName": "cabooseRed",
-    "internalName": "Caboose Red",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_caboose",
     "emeralds": 6,
@@ -3136,7 +3045,6 @@
   },
   {
     "entryName": "flatCar_DB",
-    "internalName": "Flat Cart DB",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_flat_db",
     "emeralds": 1,
@@ -3172,7 +3080,6 @@
   },
   {
     "entryName": "flatCart",
-    "internalName": "Flat Cart",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_flat",
     "emeralds": 1,
@@ -3205,7 +3112,6 @@
   },
   {
     "entryName": "flatCartSU",
-    "internalName": "Flat Cart SU",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_flat_su",
     "emeralds": 1,
@@ -3238,7 +3144,6 @@
   },
   {
     "entryName": "flatCartUS",
-    "internalName": "Flat Cart US",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_flat_us",
     "emeralds": 1,
@@ -3271,7 +3176,6 @@
   },
   {
     "entryName": "passenger_1class_DB",
-    "internalName": "Passenger 1Class DB",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_5",
     "emeralds": 6,
@@ -3304,7 +3208,6 @@
   },
   {
     "entryName": "passenger_2class_DB",
-    "internalName": "Passenger 2Class DB",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_6",
     "emeralds": 5,
@@ -3340,7 +3243,6 @@
   },
   {
     "entryName": "passengerAdler",
-    "internalName": "Passenger Adler",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_adler",
     "emeralds": 2,
@@ -3373,7 +3275,6 @@
   },
   {
     "entryName": "passengerBamboo",
-    "internalName": "Bamboo Flatcar Passenger",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_bamboo",
     "emeralds": 1,
@@ -3428,7 +3329,6 @@
   },
   {
     "entryName": "passengerCartBlackSmall",
-    "internalName": "Passenger Small Black",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_1",
     "emeralds": 2,
@@ -3461,7 +3361,6 @@
   },
   {
     "entryName": "passengerCartBlue",
-    "internalName": "Passenger Blue",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "Passenger_Car_1",
     "emeralds": 2,
@@ -3516,7 +3415,6 @@
   },
   {
     "entryName": "passengerDBOriental",
-    "internalName": "Passenger DB oriental",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_orient",
     "emeralds": 2,
@@ -3566,7 +3464,6 @@
   },
   {
     "entryName": "passengerDenverRioGrandeCombo",
-    "internalName": "Passenger Denver Rio Grande Combo",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "denverriogrande_combo",
     "emeralds": 10,
@@ -3618,7 +3515,6 @@
   },
   {
     "entryName": "passengerDenverRioGrange",
-    "internalName": "Passenger Denver Rio Grande",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "denverriogrande_passenger",
     "emeralds": 10,
@@ -3670,7 +3566,6 @@
   },
   {
     "entryName": "passengerGS4",
-    "internalName": "Passenger GS4",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "GS4_passenger",
     "emeralds": 10,
@@ -3717,7 +3612,6 @@
   },
   {
     "entryName": "passengerGS4_Tail",
-    "internalName": "Passenger GS4 Tail",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "GS4_tail",
     "emeralds": 10,
@@ -3772,7 +3666,6 @@
   },
   {
     "entryName": "passengerGS4Observatory",
-    "internalName": "Passenger GS4 Observatory",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "GS4_observatory",
     "emeralds": 10,
@@ -3827,7 +3720,6 @@
   },
   {
     "entryName": "passengerHighSpeedZeroED",
-    "internalName": "Passenger High Speed Zero ED",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_high_speed_cart_zeroed",
     "emeralds": 14,
@@ -3860,7 +3752,6 @@
   },
   {
     "entryName": "passengerIC4_DSB_FG",
-    "internalName": "Passenger IC4 DSB FG",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_ic4_dsb_fg",
     "emeralds": 10,
@@ -3893,7 +3784,6 @@
   },
   {
     "entryName": "passengerIC4_DSB_FH",
-    "internalName": "Passenger IC4 DSB FH",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_ic4_dsb_fh",
     "emeralds": 10,
@@ -3926,7 +3816,6 @@
   },
   {
     "entryName": "passengerICE1_Class1",
-    "internalName": "Passenger ICE 1st Class",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_ice1_passenger",
     "emeralds": 10,
@@ -3962,7 +3851,6 @@
   },
   {
     "entryName": "passengerICE1_Class2",
-    "internalName": "Passenger ICE 2nd Class",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_ice1_passenger",
     "emeralds": 10,
@@ -3998,7 +3886,6 @@
   },
   {
     "entryName": "passengerICE1_Restaurant",
-    "internalName": "ICE Restaurant",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_ice1_restaurant",
     "emeralds": 10,
@@ -4034,7 +3921,6 @@
   },
   {
     "entryName": "passengerLongGreen",
-    "internalName": "Passenger Green Long",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_2",
     "emeralds": 2,
@@ -4070,7 +3956,6 @@
   },
   {
     "entryName": "passengerMILW",
-    "internalName": "Passenger MILW",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_milw",
     "emeralds": 5,
@@ -4103,7 +3988,6 @@
   },
   {
     "entryName": "passengerMILWTail",
-    "internalName": "Passenger MILW Tail",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_milw_tail",
     "emeralds": 5,
@@ -4136,7 +4020,6 @@
   },
   {
     "entryName": "passengerRheingold",
-    "internalName": "Passenger Rheingold",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_rheingold",
     "emeralds": 5,
@@ -4197,7 +4080,6 @@
   },
   {
     "entryName": "passengerRheingoldPanorama",
-    "internalName": "Rheingold Panorama",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_rheingoldpanorama",
     "emeralds": 5,
@@ -4248,7 +4130,6 @@
   },
   {
     "entryName": "passengerShortGreen",
-    "internalName": "Passenger Short Green",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_passenger_4",
     "emeralds": 2,
@@ -4281,7 +4162,6 @@
   },
   {
     "entryName": "passengerTramNY",
-    "internalName": "Passenger Tram NY",
     "entityClass": "train.common.entity.rollingStock.EntityPassengerCar",
     "icon": "train_tram_ny",
     "emeralds": 3,
@@ -4319,7 +4199,6 @@
   },
   {
     "entryName": "locoSteamSnowPlow",
-    "internalName": "Loco Steam Snow Plow",
     "entityClass": "train.common.entity.rollingStock.EntitySteamSnowPlow",
     "icon": "train_snowplow",
     "emeralds": 3,
@@ -4352,7 +4231,6 @@
   },
   {
     "entryName": "locoHeavySteam",
-    "internalName": "Loco Steam Heavy",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_steam_heavy",
     "emeralds": 7,
@@ -4388,7 +4266,6 @@
   },
   {
     "entryName": "locoSteam040VB",
-    "internalName": "Loco Steam 040VB",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_040VB",
     "emeralds": 3,
@@ -4421,7 +4298,6 @@
   },
   {
     "entryName": "locoSteam262T",
-    "internalName": "Loco Steam 262T",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_262t",
     "emeralds": 3,
@@ -4454,7 +4330,6 @@
   },
   {
     "entryName": "locoSteam4_4_0",
-    "internalName": "Loco Steam 4-4-0",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_steam_normal",
     "emeralds": 10,
@@ -4495,7 +4370,6 @@
   },
   {
     "entryName": "locoSteamA4",
-    "internalName": "Loco Steam A4 Mallard",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_loco_a4_mallard",
     "emeralds": 14,
@@ -4534,7 +4408,6 @@
   },
   {
     "entryName": "locoSteamAdler",
-    "internalName": "Loco Steam Adler",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_adler",
     "emeralds": 3,
@@ -4567,7 +4440,6 @@
   },
   {
     "entryName": "locoSteamAlcoSc4",
-    "internalName": "Loco Steam Alco SC4",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_alcosc4",
     "emeralds": 6,
@@ -4605,7 +4477,6 @@
   },
   {
     "entryName": "locoSteamAlice",
-    "internalName": "Loco Steam Alice",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_alice",
     "emeralds": 3,
@@ -4638,7 +4509,6 @@
   },
   {
     "entryName": "locosteamBerk1225",
-    "internalName": "Loco Berkshire 1225",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "Berkshire1225",
     "emeralds": 3,
@@ -4676,7 +4546,6 @@
   },
   {
     "entryName": "locosteamBerk765",
-    "internalName": "Loco Berkshire 765",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "Berkshire765",
     "emeralds": 3,
@@ -4714,7 +4583,6 @@
   },
   {
     "entryName": "locoSteamBR01_DB",
-    "internalName": "Loco Steam BR01",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_br01",
     "emeralds": 15,
@@ -4751,7 +4619,6 @@
   },
   {
     "entryName": "locoSteamBR80",
-    "internalName": "Loco Steam BR80",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_br80",
     "emeralds": 10,
@@ -4787,7 +4654,6 @@
   },
   {
     "entryName": "locoSteamC41",
-    "internalName": "Loco Steam C41",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_c41",
     "emeralds": 6,
@@ -4825,7 +4691,6 @@
   },
   {
     "entryName": "locoSteamC41_080",
-    "internalName": "Loco Steam C41 0-8-0",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_c41_080",
     "emeralds": 6,
@@ -4863,7 +4728,6 @@
   },
   {
     "entryName": "locoSteamC41T",
-    "internalName": "Loco Steam C41T",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_c41t",
     "emeralds": 6,
@@ -4901,7 +4765,6 @@
   },
   {
     "entryName": "locoSteamC62Class",
-    "internalName": "Loco Steam C62Class",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_loco_c62_class",
     "emeralds": 14,
@@ -4937,7 +4800,6 @@
   },
   {
     "entryName": "locoSteamCherepanov",
-    "internalName": "Loco Steam Cherepanov",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_cherpanov",
     "emeralds": 4,
@@ -4970,7 +4832,6 @@
   },
   {
     "entryName": "locoSteamClimax",
-    "internalName": "Loco Steam Climax",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_climax",
     "emeralds": 4,
@@ -5003,7 +4864,6 @@
   },
   {
     "entryName": "locoSteamCoranationClass",
-    "internalName": "Loco Steam Coranation Class",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_coronationclass",
     "emeralds": 15,
@@ -5036,7 +4896,6 @@
   },
   {
     "entryName": "locoSteamD51Long",
-    "internalName": "Loco Steam D51 Long Streamlining",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_loco_d51",
     "emeralds": 14,
@@ -5072,7 +4931,6 @@
   },
   {
     "entryName": "locoSteamD51Short",
-    "internalName": "Loco Steam D51 Short Streamlining",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_loco_d51s",
     "emeralds": 14,
@@ -5108,7 +4966,6 @@
   },
   {
     "entryName": "locoSteamEr_USSR",
-    "internalName": "Loco Steam ER_USSR",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_ussr",
     "emeralds": 10,
@@ -5141,7 +4998,6 @@
   },
   {
     "entryName": "locoSteamForney",
-    "internalName": "Loco Steam Forney",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_forney",
     "emeralds": 10,
@@ -5181,7 +5037,6 @@
   },
   {
     "entryName": "locosteamFowler",
-    "internalName": "Loco Fowler",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "Fowler 4F",
     "emeralds": 3,
@@ -5214,7 +5069,6 @@
   },
   {
     "entryName": "locoSteamGLYN",
-    "internalName": "Loco Steam glyn",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_glyn",
     "emeralds": 3,
@@ -5247,7 +5101,6 @@
   },
   {
     "entryName": "locoSteamGS4",
-    "internalName": "Loco Steam GS4",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "GS4_engine",
     "emeralds": 10,
@@ -5283,7 +5136,6 @@
   },
   {
     "entryName": "locosteamHallClass",
-    "internalName": "Loco Hall Class",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "HallClass",
     "emeralds": 3,
@@ -5320,7 +5172,6 @@
   },
   {
     "entryName": "locosteamKingClass",
-    "internalName": "Loco King Class",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "KingClass",
     "emeralds": 3,
@@ -5357,7 +5208,6 @@
   },
   {
     "entryName": "locoSteamLSSP7",
-    "internalName": "Loco Steam LSSP7",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_lssp7",
     "emeralds": 4,
@@ -5390,7 +5240,6 @@
   },
   {
     "entryName": "locoSteamMILW",
-    "internalName": "Loco Steam MILW Class A",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_milw_class_a",
     "emeralds": 7,
@@ -5423,7 +5272,6 @@
   },
   {
     "entryName": "locoSteamMogul",
-    "internalName": "Loco Steam Mogul",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_mogul",
     "emeralds": 10,
@@ -5463,7 +5311,6 @@
   },
   {
     "entryName": "locoSteamPannier",
-    "internalName": "Loco Steam Pannier",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_pannier",
     "emeralds": 4,
@@ -5496,7 +5343,6 @@
   },
   {
     "entryName": "locoSteamShay",
-    "internalName": "Loco Steam Shay",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_shay",
     "emeralds": 4,
@@ -5529,7 +5375,6 @@
   },
   {
     "entryName": "locoSteamSmall",
-    "internalName": "Loco Steam Small",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_steam_small",
     "emeralds": 7,
@@ -5568,7 +5413,6 @@
   },
   {
     "entryName": "locoSteamSouthern1102",
-    "internalName": "Loco Steam Southern 1102",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_southern1102",
     "emeralds": 6,
@@ -5606,7 +5450,6 @@
   },
   {
     "entryName": "locoSteamUSATCUK",
-    "internalName": "Loco Steam USATCUK",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_S100UK",
     "emeralds": 6,
@@ -5644,7 +5487,6 @@
   },
   {
     "entryName": "locoSteamUSATCUS",
-    "internalName": "Loco Steam USATCUS",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_S100US",
     "emeralds": 6,
@@ -5682,7 +5524,6 @@
   },
   {
     "entryName": "locoSteamVBShay",
-    "internalName": "Loco Steam VB Shay",
     "entityClass": "train.common.entity.rollingStock.EntitySteamTrain",
     "icon": "train_vbshay",
     "emeralds": 4,
@@ -5715,7 +5556,6 @@
   },
   {
     "entryName": "drwgStockCar",
-    "internalName": "DRWG Stock Cart",
     "entityClass": "train.common.entity.rollingStock.EntityStockCar",
     "icon": "drwg_stockcar",
     "emeralds": 10,
@@ -5742,7 +5582,6 @@
   },
   {
     "entryName": "stockCar",
-    "internalName": "Stock Cart",
     "entityClass": "train.common.entity.rollingStock.EntityStockCar",
     "icon": "train_stock",
     "emeralds": 10,
@@ -5774,7 +5613,6 @@
   },
   {
     "entryName": "Model225Tender",
-    "internalName": "1225 tender",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "BerkshireTender",
     "emeralds": 10,
@@ -5804,7 +5642,6 @@
   },
   {
     "entryName": "Model4000GallonTender",
-    "internalName": "4000GallonTender",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "4000GallonTender",
     "emeralds": 10,
@@ -5836,7 +5673,6 @@
   },
   {
     "entryName": "ModelFowler4FTender",
-    "internalName": "Fowler 4F Tender",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "Fowler 4F Tender",
     "emeralds": 3,
@@ -5863,7 +5699,6 @@
   },
   {
     "entryName": "tender_C41",
-    "internalName": "Tender C41",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_c41",
     "emeralds": 4,
@@ -5890,7 +5725,6 @@
   },
   {
     "entryName": "tender_MILW",
-    "internalName": "Tender MILW",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_milw_tender",
     "emeralds": 5,
@@ -5917,7 +5751,6 @@
   },
   {
     "entryName": "tender_Southern1102",
-    "internalName": "Tender Southern1102",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_southern1102tender",
     "emeralds": 3,
@@ -5944,7 +5777,6 @@
   },
   {
     "entryName": "tender4_4_0",
-    "internalName": "Tender 4-4-0",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_steam",
     "emeralds": 4,
@@ -5979,7 +5811,6 @@
   },
   {
     "entryName": "tenderA4",
-    "internalName": "Tender A4 Mallard",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_loco_a4_mallard_tender",
     "emeralds": 5,
@@ -6012,7 +5843,6 @@
   },
   {
     "entryName": "tenderAdler",
-    "internalName": "Tender Adler",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_adler",
     "emeralds": 1,
@@ -6039,7 +5869,6 @@
   },
   {
     "entryName": "tenderBR01",
-    "internalName": "Tender BR01",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_br01",
     "emeralds": 15,
@@ -6066,7 +5895,6 @@
   },
   {
     "entryName": "tenderC62Class",
-    "internalName": "Tender C62Class",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_c62_class",
     "emeralds": 5,
@@ -6096,7 +5924,6 @@
   },
   {
     "entryName": "tenderCoranationClass",
-    "internalName": "Tender Coranation Class",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_coronationclasstender",
     "emeralds": 15,
@@ -6123,7 +5950,6 @@
   },
   {
     "entryName": "tenderD51",
-    "internalName": "Tender D51",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_d51",
     "emeralds": 5,
@@ -6150,7 +5976,6 @@
   },
   {
     "entryName": "tenderEr_Ussr",
-    "internalName": "Tender ER_USSR",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_ussr",
     "emeralds": 4,
@@ -6177,7 +6002,6 @@
   },
   {
     "entryName": "tenderGS4",
-    "internalName": "Tender GS4",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "GS4_tender",
     "emeralds": 10,
@@ -6207,7 +6031,6 @@
   },
   {
     "entryName": "tenderHeavy",
-    "internalName": "Tender Heavy",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender_heavy",
     "emeralds": 5,
@@ -6237,7 +6060,6 @@
   },
   {
     "entryName": "tenderSmall",
-    "internalName": "Tender Small Black",
     "entityClass": "train.common.entity.rollingStock.EntityTender",
     "icon": "train_tender",
     "emeralds": 4,
@@ -6270,7 +6092,6 @@
   },
   {
     "entryName": "tracksBuilder",
-    "internalName": "Tracks Builder",
     "entityClass": "train.common.entity.rollingStock.EntityTracksBuilder",
     "icon": "train_builder",
     "emeralds": 20,
@@ -6297,7 +6118,6 @@
   },
   {
     "entryName": "cabooseLogging",
-    "internalName": "Caboose Logging",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_logging_caboose",
     "emeralds": 1,
@@ -6334,7 +6154,6 @@
   },
   {
     "entryName": "cabooseLoggingPRR",
-    "internalName": "PRR Caboose Logging",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_prr_caboose",
     "emeralds": 1,
@@ -6371,7 +6190,6 @@
   },
   {
     "entryName": "GWRBrakeVan",
-    "internalName": "GWR Toad Brake Van",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_gwr_brakevan",
     "emeralds": 3,
@@ -6404,7 +6222,6 @@
   },
   {
     "entryName": "mailWagen_DB",
-    "internalName": "Mail Wagon DB",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_mail",
     "emeralds": 4,
@@ -6437,7 +6254,6 @@
   },
   {
     "entryName": "passengerRheingoldDining1",
-    "internalName": "Rheingold Dining",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_passenger_rheingolddining1",
     "emeralds": 5,
@@ -6486,7 +6302,6 @@
   },
   {
     "entryName": "passengerRheingoldDining2",
-    "internalName": "Rheingold Dining Alternate",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_passenger_rheingolddining2",
     "emeralds": 5,
@@ -6526,7 +6341,6 @@
   },
   {
     "entryName": "workCaboose",
-    "internalName": "Work Caboose",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_caboose_work",
     "emeralds": 3,
@@ -6559,7 +6373,6 @@
   },
   {
     "entryName": "workCart",
-    "internalName": "Work Cart Yellow",
     "entityClass": "train.common.entity.rollingStock.EntityWorkCart",
     "icon": "train_work",
     "emeralds": 4,

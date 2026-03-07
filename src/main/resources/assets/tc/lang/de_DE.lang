@@ -80,101 +80,101 @@ item.tc:electronicCircuit.name=Elektronische Schaltung
 item.tc:chunkLoaderActivator.name=Chunk Aktivierer
 item.tc:emptyCanister.name=(Leerer) Kraftstoffkanister
 item.tc:recipeBook.name=Traincraft Handbuch
-item.tc:minecartWork.name=Arbeitswagen
-item.tc:minecartTender.name=Tender
-item.tc:minecartChest.name=Güterwagen
-item.tc:minecartPower.name=Dampflokomotive
-item.tc:minecartLoco3.name=Kleine Dampflokomotive
-item.tc:minecartBuilder.name=Gleisbaumaschine
-item.tc:minecartCaboose.name=Caboose
-item.tc:minecartGrain.name=Schüttgutwagen
-item.tc:minecartWatertransp.name=Schlackewagen
-item.tc:minecartWood.name=Holzwagen
-item.tc:minecartPassenger2.name=Personenwagen
-item.tc:minecartBR_E69.name=BR E69
-item.tc:minecartShunter.name=Shunter (UK)
-item.tc:minecartVL10.name=VL10 (SU)
-item.tc:minecartTramWood.name=Straßenbahn
-item.tc:minecartChmE3.name=ChME3 (SU)
-item.tc:minecartTenderHeavy.name=Schwerer Tender
-item.tc:minecartFlatCart.name=Flachwagen
-item.tc:minecartFreightCart2.name=Güterwagen
-item.tc:minecartOpenWagon.name=Hochbordwagen
-item.tc:minecartTankWagon.name=Kesselwagen (SU)
-item.tc:minecartJukeBoxCart.name=Musikwagen
-item.tc:minecartStockCar.name=Viehwagen
-item.tc:minecartCabooseWork.name=Arbeitscaboose
-item.tc:minecartPassenger5.name=Personenwagen
-item.tc:minecartTankWagon2.name=Kesselwagen
-item.tc:minecartPassengerBlue.name=Personenwagen
-item.tc:minecartGP7Red.name=GP-7 (US)
+item.tc:workCart.name=Arbeitswagen
+item.tc:tenderSmall.name=Tender
+item.tc:freightCartYellow.name=Güterwagen
+item.tc:locoSteam4_4_0.name=Dampflokomotive
+item.tc:locoSteamSmall.name=Kleine Dampflokomotive
+item.tc:tracksBuilder.name=Gleisbaumaschine
+item.tc:cabooseRed.name=Caboose
+item.tc:freightHopper.name=Schüttgutwagen
+item.tc:tankCartLava.name=Schlackewagen
+item.tc:freightWood.name=Holzwagen
+item.tc:passengerCartBlackSmall.name=Personenwagen
+item.tc:locoElectricBR_E69.name=BR E69
+item.tc:locoDieselShunter.name=Shunter (UK)
+item.tc:locoElectricVL10.name=VL10 (SU)
+item.tc:locoElectricTramYellow.name=Straßenbahn
+item.tc:locoDieselChME3.name=ChME3 (SU)
+item.tc:tenderHeavy.name=Schwerer Tender
+item.tc:flatCart.name=Flachwagen
+item.tc:freightCartRed.name=Güterwagen
+item.tc:freightOpenWagon.name=Hochbordwagen
+item.tc:tankWagonYellow.name=Kesselwagen (SU)
+item.tc:jukeBoxCart.name=Musikwagen
+item.tc:stockCar.name=Viehwagen
+item.tc:workCaboose.name=Arbeitscaboose
+item.tc:passengerLongGreen.name=Personenwagen
+item.tc:tankWagonGrey.name=Kesselwagen
+item.tc:passengerCartBlue.name=Personenwagen
+item.tc:locoDieselGP7Red.name=GP-7 (US)
 item.tc:minecartGP40alaska.name=GP-40 (US)
-item.tc:minecartFlatCartSU.name=Flachwagen (SU)
-item.tc:minecartFlatCartUS.name=Flachwagen (US)
-item.tc:minecartBoxCartUS.name=Box Car (US)
-item.tc:minecartFreightHopperUS.name=Trichterwagen (US)
-item.tc:minecartTankWagonUS.name=Kesselwagen (US)
-item.tc:minecartFlatCartWoodUS.name=Holzflachwagen (US)
-item.tc:minecartFreightCartUS.name=Güterwagen (US)
-item.tc:minecartFreightCartSmall.name=Kleiner Güterwagen
-item.tc:minecartLocoCherepanov.name=Cherepanov (SU)
-item.tc:minecartMineTrain.name=Minenlore
-item.tc:minecartLocoMineTrain.name=Minenlokomotive
-item.tc:minecartSteamRedTender.name=Tender
-item.tc:minecartFreightWood2.name=Holzwagen
-item.tc:minecartCaboose3.name=Caboose
-item.tc:minecartPassenger7.name=Personenwagen
-item.tc:minecartFreightClosed.name=Geschlossener Güterwagen
-item.tc:minecartFreightOpen2.name=Güterwagen
-item.tc:minecartLocomogulBlue.name=Mogul (US)
-item.tc:minecartLocoForneyRed.name=Forney (US)
-item.tc:minecartLocoBR01_DB.name=BR 01 (DB)
-item.tc:minecartMailWagon_DB.name=Postwagen (DB)
-item.tc:minecartFreightWagon_DB.name=Güterwagen
-item.tc:minecartPassenger8_1class_DB.name=Personenwagen - I Klasse (DB)
-item.tc:minecartPassenger9_2class_DB.name=Personenwagen - II Klasse (DB)
-item.tc:minecartLocoBR80_DB.name=BR 80 (DB)
-item.tc:minecartTenderBR01_DB.name=BR 01 Tender (DB)
-item.tc:minecartFlatCartRail_DB.name=Gleiswagen (DB)
-item.tc:minecartFlatCart_DB.name=Flachwagen (DB)
-item.tc:minecartFlatCartLogs_DB.name=Holzwagen (DB)
-item.tc:minecartFreightGondola_DB.name=Niederbordwagen (DB)
-item.tc:minecartTankWagon_DB.name=Kesselwagen (DB)
-item.tc:minecartLocoSD70.name=SD-70M (US)
-item.tc:minecartLocoEr.name=USSR 0-5-0
-item.tc:minecartTenderEr.name=USSR 0-5-0 Tender
-item.tc:minecartFreightCenterBeam_Empty.name=Güterwagen
-item.tc:minecartFreightCenterBeam_Wood_1.name=Holz Transportwagen
-item.tc:minecartFreightCenterBeam_Wood_2.name=Holz Transportwagen
-item.tc:minecartFreightTrailer.name=Containerwagen
-item.tc:minecartFreightWellcar.name=Frachtwagen
-item.tc:minecartKof_DB.name=Köf II (DB)
-item.tc:minecartV60_DB.name=BR V60 (DB)
-item.tc:hat_ticketMan_paintable.name=Schaffnermütze (Färbbar) 
-item.tc:pants_ticketMan_paintable.name=Schaffnershose (Färbbar) 
-item.tc:jacket_ticketMan_paintable.name=Schaffnersjacke (Färbbar) 
-item.tc:hat_driver_paintable.name=Lokfüherskappe (Färbbar) 
-item.tc:pants_driver_paintable.name=Lockführershose (Färbbar) 
-item.tc:jacket_driver_paintable.name=LokfüherersJacke (Färbbar) 
-item.tc:helmet_suit_paintable.name=Bauanzug Helm (Färbbar) 
-item.tc:pants_suit_paintable.name=Bauanzug Hose (Färbbar) 
-item.tc:boots_suit_paintable.name=Bauanzug Stiefel (Färbbar) 
-item.tc:jacket_suit_paintable.name=Bauanzug Weste (Färbbar) 
+item.tc:flatCartSU.name=Flachwagen (SU)
+item.tc:flatCartUS.name=Flachwagen (US)
+item.tc:freightBoxCartUS.name=Box Car (US)
+item.tc:freightHopperUS.name=Trichterwagen (US)
+item.tc:tankWagonUS.name=Kesselwagen (US)
+item.tc:flatCartWoodUS.name=Holzflachwagen (US)
+item.tc:freightCartUS.name=Güterwagen (US)
+item.tc:freightCartSmall.name=Kleiner Güterwagen
+item.tc:locoSteamCherepanov.name=Cherepanov (SU)
+item.tc:freightMinetrain.name=Minenlore
+item.tc:locoElectricMineTrain.name=Minenlokomotive
+item.tc:tender4_4_0.name=Tender
+item.tc:flatCartWoodLogs.name=Holzwagen
+item.tc:cabooseBlack.name=Caboose
+item.tc:passengerShortGreen.name=Personenwagen
+item.tc:freightClosedRedBrown.name=Geschlossener Güterwagen
+item.tc:freightOpenRedBrown.name=Güterwagen
+item.tc:locoSteamMogul.name=Mogul (US)
+item.tc:locoSteamForney.name=Forney (US)
+item.tc:locoSteamBR01_DB.name=BR 01 (DB)
+item.tc:mailWagen_DB.name=Postwagen (DB)
+item.tc:freightWagen_DB.name=Güterwagen
+item.tc:passenger_1class_DB.name=Personenwagen - I Klasse (DB)
+item.tc:passenger_2class_DB.name=Personenwagen - II Klasse (DB)
+item.tc:locoSteamBR80.name=BR 80 (DB)
+item.tc:tenderBR01.name=BR 01 Tender (DB)
+item.tc:flatCarRails_DB.name=Gleiswagen (DB)
+item.tc:flatCar_DB.name=Flachwagen (DB)
+item.tc:flatCarLogs_DB.name=Holzwagen (DB)
+item.tc:freightGondola_DB.name=Niederbordwagen (DB)
+item.tc:tankWagon_DB.name=Kesselwagen (DB)
+item.tc:locoDieselSD70.name=SD-70M (US)
+item.tc:locoSteamEr_USSR.name=USSR 0-5-0
+item.tc:tenderEr_Ussr.name=USSR 0-5-0 Tender
+item.tc:freightCenterBeam_Empty.name=Güterwagen
+item.tc:freightCenterBeam_Wood1.name=Holz Transportwagen
+item.tc:freightCenterBeam_Wood2.name=Holz Transportwagen
+item.tc:freightTrailer.name=Containerwagen
+item.tc:freightWellcar.name=Frachtwagen
+item.tc:locoDieselKOF.name=Köf II (DB)
+item.tc:locoDieselV60_DB.name=BR V60 (DB)
+item.tc:hat_ticketMan_paintable.name=Schaffnermütze (Färbbar)
+item.tc:pants_ticketMan_paintable.name=Schaffnershose (Färbbar)
+item.tc:jacket_ticketMan_paintable.name=Schaffnersjacke (Färbbar)
+item.tc:hat_driver_paintable.name=Lokfüherskappe (Färbbar)
+item.tc:pants_driver_paintable.name=Lockführershose (Färbbar)
+item.tc:jacket_driver_paintable.name=LokfüherersJacke (Färbbar)
+item.tc:helmet_suit_paintable.name=Bauanzug Helm (Färbbar)
+item.tc:pants_suit_paintable.name=Bauanzug Hose (Färbbar)
+item.tc:boots_suit_paintable.name=Bauanzug Stiefel (Färbbar)
+item.tc:jacket_suit_paintable.name=Bauanzug Weste (Färbbar)
 item.tc:reinforcedPlastic.name=Glasfaserverstärkter Kunststoff
 item.tc:reinforcedPlates.name=Verstärkte Platte
 item.tc:composite_wrench.name=Schraubenschlüssel
-item.tc:minecartPassengerHighSpeedCarZeroED.name=Hochgeschwindigkeitswagen
-item.tc:minecartNYTram.name=N.Y. U-Bahn
-item.tc:minecartLocoHighSpeedZeroED.name=Hochgeschwindigkeits Triebkopf
-item.tc:minecartLocoC62Class.name=C62 Class [JNR]
-item.tc:minecartTenderC62Class.name=C62 Tender [JNR]
-item.tc:minecartLocoSteamShay.name=Shay (US)
-item.tc:minecartLocoSteamAdler.name=Adler
-item.tc:minecartTenderAdler.name=Adler Tender
-item.tc:minecartPassengerAdler.name=Adler Personenwagen
-item.tc:minecartCabooseLogging.name=Holzcaboose
-item.tc:minecartPassengerTramNY.name=N.Y. U-Bahn (Personenwagen)
-item.tc:minecartLocoSD40.name=SD40-2 (U.S.)
+item.tc:passengerHighSpeedZeroED.name=Hochgeschwindigkeitswagen
+item.tc:locoElectricTramNY.name=N
+item.tc:locoElectricSpeedZeroED.name=Hochgeschwindigkeits Triebkopf
+item.tc:locoSteamC62Class.name=C62 Class [JNR]
+item.tc:tenderC62Class.name=C62 Tender [JNR]
+item.tc:locoSteamShay.name=Shay (US)
+item.tc:locoSteamAdler.name=Adler
+item.tc:tenderAdler.name=Adler Tender
+item.tc:passengerAdler.name=Adler Personenwagen
+item.tc:cabooseLogging.name=Holzcaboose
+item.tc:passengerTramNY.name=N
+item.tc:locoDieselSD40.name=SD40-2 (U
 item.tc:zeppelin.name=Zeppelin
 item.tc:copperRail.name=Kupferschiene
 item.tc:steelRail.name=Stahlschine
@@ -294,88 +294,88 @@ train.unlocked.name=Offen
 entity.tc.Entity Front Bogie.name=Radsatz
 entity.tc.zeppelin big.name=Zeppelin ein Balloon
 entity.tc.zeppelin.name=Zeppelin zwei Balloons
-entity.tc.Loco Steam BR01.name=BR 01 (DB)
-entity.tc.Loco Steam Cherepanov.name=Cherepanov (SU)
-entity.tc.Loco Steam BR80.name=BR 80 (DB)
-entity.tc.Loco Steam 4-4-0.name=4-4-0 (US)
-entity.tc.Loco Steam Small.name=Kleine Dampflokomotive
-entity.tc.Loco Steam C62Class.name=C62 Class (JNR)
-entity.tc.Loco Steam ER_USSR.name=USSR 0-5-0 (SU)
-entity.tc.Loco Steam Forney.name=Forney (US)
-entity.tc.Loco Steam Mogul.name=Mogul (US)
-entity.tc.Loco Steam Shay.name=Shay (US)
-entity.tc.Loco Steam Adler.name=Adler
-entity.tc.Loco Electric Tram NY.name=Straßenbahn NY (US)
-entity.tc.Loco Electric Yellow Wood Tram.name=Holzstraßenbahn
-entity.tc.Loco Electric High Speed ZeroED.name=Hochgeschwindigkeit ZeroED
-entity.tc.Loco Electric Minetrain.name=Mienenlokomotive
-entity.tc.Loco Electric BR_E69.name=BR E69
-entity.tc.Loco Electric VL10.name=VL10 (SU)
-entity.tc.Loco Diesel V60 DB.name=BR V60 (DB)
-entity.tc.Loco Diesel Shunter.name=Shunter (UK)
-entity.tc.Loco Diesel SD70.name=SD70M (US)
-entity.tc.Loco Diesel SD40.name=SD40-2 (US)
-entity.tc.Loco Diesel GP7.name=GP7 (US)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 entity.tc.Loco Diesel CME3.name=CHME3 (SU)
-entity.tc.Loco Diesel CD742.name=CD 742
-entity.tc.Loco Diesel KOF DB.name=Köf (DB)
-entity.tc.Tender C62Class.name=Tender C62 Class (JNR)
-entity.tc.Tender ER_USSR.name=Tender USSR 0-5-0 (SU)
-entity.tc.Tender BR01.name=Tender BR 01 (DB)
+
+
+
+
+
 entity.tc.Tender 4-4-0 Red.name=Tender 4-4-0 (US)
-entity.tc.Tender Heavy.name=Schwerer Tender
-entity.tc.Tender Small Black.name=Kleiner Tender
-entity.tc.Tender Adler.name=Adler Tender
-entity.tc.Tank Wagon Yellow.name=Kesselwagen
-entity.tc.Tank Lava.name=Schlackewagen
-entity.tc.Tank Wagon Grey.name=Kesselwagen
-entity.tc.Tank Wagon US.name=Kesselwagen (US)
-entity.tc.Tank Wagon DB.name=Kesselwagen (DB)
-entity.tc.Freight Trailer.name=Containerwagen
-entity.tc.Freight Well Car.name=Frachtwagen
-entity.tc.Freight Center Beam Wood2.name=Holz Transportwagen
-entity.tc.Freight Center Beam Wood1.name=Holz Transportwagen
-entity.tc.Freight Center Beam Empty.name=Güterwagen
-entity.tc.Freight Gondola DB.name=Hochbordwagen (DB)
-entity.tc.Freight Flat Cart Logs DB.name=Niederbordwagen (DB)
-entity.tc.Freight Flat Cart Rails DB.name=Gleiswagen (DB)
-entity.tc.Freight Wagon DB.name=Freight Wagon (DB)
-entity.tc.Freight Open RedBrown.name=Offener Güterwagen
-entity.tc.Freight Cart Closed RedBrown.name=Geschlossener Güterwagen
-entity.tc.Freight Flat Logs.name=Holz Transportwagen
-entity.tc.Freight Minecart Yellow.name=Minenlore
-entity.tc.Freight Cart Small.name=Kleine Güterwagen
-entity.tc.Freight Box Cart US.name=Box Cart (US)
-entity.tc.Freight Cart US.name=Frachtwagen (US)
-entity.tc.Freight Flat Cart Wood US.name=Holz Transportwagen (US)
-entity.tc.Freight Hopper US.name=Schüttgutwagen (US)
-entity.tc.Freight Open Wagon.name=Hochbord wagen
-entity.tc.Freight Hopper Green.name=Schüttgutwagen
-entity.tc.Freight Flat Cart Log.name=Holz Transportwagen
-entity.tc.Freight Cart Yellow.name=Frachtwagen
-entity.tc.Freight Cart Red.name=Frachtwagen
-entity.tc.Flat Cart DB.name=Niederbordwagen (DB)
-entity.tc.Tracks Builder.name=Gleisbaumaschine
-entity.tc.Flat Cart US.name=Flachwagen (US)
-entity.tc.Flat Cart SU.name=Niederbord (SU)
-entity.tc.JukeBox Cart.name=Musikwagen
-entity.tc.Mail Wagon DB.name=Postwagen (DB)
-entity.tc.Caboose Logging.name=Holz-Caboose
-entity.tc.Work Caboose.name=Arbeits-Caboose
-entity.tc.Flat Cart.name=Flachwagen
-entity.tc.Work Cart Yellow.name=Arbeitswagen
-entity.tc.Stock Cart.name=Güterwagen
-entity.tc.Caboose Black.name=Caboose
-entity.tc.Caboose Red.name=Caboose
-entity.tc.Passenger Tram NY.name=U-Bahn NY Personenwagen (US)
-entity.tc.Passenger High Speed Zero ED.name=Hochgeschwindigkeitspersonenwagen Zero ED
-entity.tc.Passenger 2Class DB.name=Personenwagen 2.Klasse (DB)
-entity.tc.Passenger 1Class DB.name=Personenwagen 1.Klasse (DB)
-entity.tc.Passenger Short Green.name=Personenwagen
-entity.tc.Passenger Green Long.name=Personenwagen
-entity.tc.Passenger Small Black.name=Personenwagen
-entity.tc.Passenger Blue.name=Personenwagen
-entity.tc.Passenger Adler.name=Adler Personenwagen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 description.villager.profession.tc.station_chief=Stationschef
 
@@ -386,4 +386,3 @@ key.traincraft.up=Hoch
 key.traincraft.down=Runter
 key.traincraft.idle=abschalten
 key.traincraft.furnace=Ofen
-

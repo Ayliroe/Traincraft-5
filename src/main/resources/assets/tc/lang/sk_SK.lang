@@ -108,83 +108,83 @@ item.tc:chunkLoaderActivator.name=Aktivátor načítavania "Chunkov"
 item.tc:emptyCanister.name=Kanister (Prázdny)
 item.tc:recipeBook.name=Príručka TRAINCRAFT
 item.tc:adminBook.name=Administrátorská kniha TRAINCRAFT
-item.tc:minecartWork.name=Pracovný vlak
-item.tc:minecartTender.name=Malý tender
-item.tc:minecartChest.name=Nákladný vagón
-item.tc:minecartPower.name=4-4-0 (US)
-item.tc:minecartLoco3.name=2-4-0
-item.tc:minecartBuilder.name=Údržbársky vlak
-item.tc:minecartCaboose.name=Brzdiaci vagón
-item.tc:minecartGrain.name=Násypník na poľnohospodárske plodiny
-item.tc:minecartWatertransp.name=Cisterna na lávu
-item.tc:minecartWood.name=Vagón na drevo
-item.tc:minecartPassenger2.name=Osobný vagón
-item.tc:minecartBR_E69.name=BR E69
-item.tc:minecartShunter.name=Class 08 (UK)
-item.tc:minecartVL10.name=VL10 (SU)
-item.tc:minecartTramWood.name=Električka
-item.tc:minecartChmE3.name=ČME3 (SU) / T 458 (721) "Veľký Hektor" (ČR)
-item.tc:minecartTenderHeavy.name=Ťažký tender
-item.tc:minecartFlatCart.name=Plošinový vagón
-item.tc:minecartFreightCart2.name=Nákladný vagón
-item.tc:minecartOpenWagon.name=Násypník (otvorený)
-item.tc:minecartTankWagon.name=Cisterna (SU)
-item.tc:minecartJukeBoxCart.name=Hudobný automat na vagóne
-item.tc:minecartStockCar.name=Dobytčák
-item.tc:minecartCabooseWork.name=Brzdiaci vagón (pracovný)
-item.tc:minecartPassenger5.name=Osobný vagón
-item.tc:minecartTankWagon2.name=Cisterna
-item.tc:minecartPassengerBlue.name=Osobný vagón (moderný)
-item.tc:minecartPassengerDBOriental.name=Osobný vagón (Orient Express)
-item.tc:minecartGP7Red.name=EMD GP7 (US)
-item.tc:minecartCD742.name=T 466.2 (742) "Kocúr" (ČR)
-item.tc:minecartFlatCartSU.name=Plošinový vagón (SU)
-item.tc:minecartFlatCartUS.name=Plošinový vagón (US)
-item.tc:minecartBoxCartUS.name=Uzavretý vagón (US)
-item.tc:minecartFreightHopperUS.name=Násypník (US)
-item.tc:minecartTankWagonUS.name=Cisterna (US)
-item.tc:minecartFlatCartWoodUS.name=Plošinový vagón na drevo (US)
-item.tc:minecartFreightCartUS.name=Otvorený nákladný vagón (US)
-item.tc:minecartFreightCartSmall.name=Nákladný vagón (Malý)
-item.tc:minecartLocoCherepanov.name=Cherepanov (SU)
-item.tc:minecartMineTrain.name=Banský vozík
-item.tc:minecartLocoMineTrain.name=Banská lokomotíva
-item.tc:minecartSteamRedTender.name=4-4-0 Tender (US)
-item.tc:minecartFreightWood2.name=Vagón na drevo
-item.tc:minecartCaboose3.name=Brzdiaci vagón
-item.tc:minecartPassenger7.name=Osobný vagón
-item.tc:minecartFreightClosed.name=Uzavretý nákladný vagón
-item.tc:minecartFreightOpen2.name=Nákladný vagón
-item.tc:minecartLocomogulBlue.name=Mogul (US)
-item.tc:minecartLocoForneyRed.name=Forney (US)
-item.tc:minecartLocoBR01_DB.name=DRG rada 01 (DB)
-item.tc:minecartMailWagon_DB.name=Poštový vagón (DB)
-item.tc:minecartFreightWagon_DB.name=Nákladný vagón (DB)
-item.tc:minecartPassenger8_1class_DB.name=Osobný vagón 1. triedy (DB)
-item.tc:minecartPassenger9_2class_DB.name=Osobný vagón 2. triedy (DB)
-item.tc:minecartLocoBR80_DB.name=DRG rada 80 (DB)
-item.tc:minecartTenderBR01_DB.name=Tender rady 01 (DB)
-item.tc:minecartFlatCartRail_DB.name=Prepravník koľají (DB)
-item.tc:minecartFlatCart_DB.name=Plošinový vagón (DB)
-item.tc:minecartFlatCartLogs_DB.name=Vagón na drevo (DB)
-item.tc:minecartFreightGondola_DB.name=Gondola na štrk (DB)
-item.tc:minecartTankWagon_DB.name=Cisterna (DB)
-item.tc:minecartLocoSD70.name=EMD SD70M (US)
-item.tc:minecartLocoEr.name=0-5-0 (SU)
-item.tc:minecartTenderEr.name=0-5-0 Tender (SU)
-item.tc:minecartFreightCenterBeam_Empty.name=Vagón so stredným nosníkom
-item.tc:minecartFreightCenterBeam_Wood_1.name=Vagón so stredným nosníkom (drevo)
-item.tc:minecartFreightCenterBeam_Wood_2.name=Vagón so stredným nosníkom (drevo)
-item.tc:minecartFreightTrailer.name=Vagón na návesy
-item.tc:minecartFreightWellcar.name=TTX HuskyLine - Vagón na kontainery
-item.tc:minecartKof_DB.name=Köf (DB)
-item.tc:minecartV60_DB.name=V60 (DB)
+item.tc:workCart.name=Pracovný vlak
+item.tc:tenderSmall.name=Malý tender
+item.tc:freightCartYellow.name=Nákladný vagón
+item.tc:locoSteam4_4_0.name=4-4-0 (US)
+item.tc:locoSteamSmall.name=2-4-0
+item.tc:tracksBuilder.name=Údržbársky vlak
+item.tc:cabooseRed.name=Brzdiaci vagón
+item.tc:freightHopper.name=Násypník na poľnohospodárske plodiny
+item.tc:tankCartLava.name=Cisterna na lávu
+item.tc:freightWood.name=Vagón na drevo
+item.tc:passengerCartBlackSmall.name=Osobný vagón
+item.tc:locoElectricBR_E69.name=BR E69
+item.tc:locoDieselShunter.name=Class 08 (UK)
+item.tc:locoElectricVL10.name=VL10 (SU)
+item.tc:locoElectricTramYellow.name=Električka
+item.tc:locoDieselChME3.name=ČME3 (SU) / T 458 (721) "Veľký Hektor" (ČR)
+item.tc:tenderHeavy.name=Ťažký tender
+item.tc:flatCart.name=Plošinový vagón
+item.tc:freightCartRed.name=Nákladný vagón
+item.tc:freightOpenWagon.name=Násypník (otvorený)
+item.tc:tankWagonYellow.name=Cisterna (SU)
+item.tc:jukeBoxCart.name=Hudobný automat na vagóne
+item.tc:stockCar.name=Dobytčák
+item.tc:workCaboose.name=Brzdiaci vagón (pracovný)
+item.tc:passengerLongGreen.name=Osobný vagón
+item.tc:tankWagonGrey.name=Cisterna
+item.tc:passengerCartBlue.name=Osobný vagón (moderný)
+item.tc:passengerDBOriental.name=Osobný vagón (Orient Express)
+item.tc:locoDieselGP7Red.name=EMD GP7 (US)
+item.tc:locoDieselGP40.name=T 466
+item.tc:flatCartSU.name=Plošinový vagón (SU)
+item.tc:flatCartUS.name=Plošinový vagón (US)
+item.tc:freightBoxCartUS.name=Uzavretý vagón (US)
+item.tc:freightHopperUS.name=Násypník (US)
+item.tc:tankWagonUS.name=Cisterna (US)
+item.tc:flatCartWoodUS.name=Plošinový vagón na drevo (US)
+item.tc:freightCartUS.name=Otvorený nákladný vagón (US)
+item.tc:freightCartSmall.name=Nákladný vagón (Malý)
+item.tc:locoSteamCherepanov.name=Cherepanov (SU)
+item.tc:freightMinetrain.name=Banský vozík
+item.tc:locoElectricMineTrain.name=Banská lokomotíva
+item.tc:tender4_4_0.name=4-4-0 Tender (US)
+item.tc:flatCartWoodLogs.name=Vagón na drevo
+item.tc:cabooseBlack.name=Brzdiaci vagón
+item.tc:passengerShortGreen.name=Osobný vagón
+item.tc:freightClosedRedBrown.name=Uzavretý nákladný vagón
+item.tc:freightOpenRedBrown.name=Nákladný vagón
+item.tc:locoSteamMogul.name=Mogul (US)
+item.tc:locoSteamForney.name=Forney (US)
+item.tc:locoSteamBR01_DB.name=DRG rada 01 (DB)
+item.tc:mailWagen_DB.name=Poštový vagón (DB)
+item.tc:freightWagen_DB.name=Nákladný vagón (DB)
+item.tc:passenger_1class_DB.name=Osobný vagón 1
+item.tc:passenger_2class_DB.name=Osobný vagón 2
+item.tc:locoSteamBR80.name=DRG rada 80 (DB)
+item.tc:tenderBR01.name=Tender rady 01 (DB)
+item.tc:flatCarRails_DB.name=Prepravník koľají (DB)
+item.tc:flatCar_DB.name=Plošinový vagón (DB)
+item.tc:flatCarLogs_DB.name=Vagón na drevo (DB)
+item.tc:freightGondola_DB.name=Gondola na štrk (DB)
+item.tc:tankWagon_DB.name=Cisterna (DB)
+item.tc:locoDieselSD70.name=EMD SD70M (US)
+item.tc:locoSteamEr_USSR.name=0-5-0 (SU)
+item.tc:tenderEr_Ussr.name=0-5-0 Tender (SU)
+item.tc:freightCenterBeam_Empty.name=Vagón so stredným nosníkom
+item.tc:freightCenterBeam_Wood1.name=Vagón so stredným nosníkom (drevo)
+item.tc:freightCenterBeam_Wood2.name=Vagón so stredným nosníkom (drevo)
+item.tc:freightTrailer.name=Vagón na návesy
+item.tc:freightWellcar.name=TTX HuskyLine - Vagón na kontainery
+item.tc:locoDieselKOF.name=Köf (DB)
+item.tc:locoDieselV60_DB.name=V60 (DB)
 item.tc:hat_ticketMan_paintable.name=Čiapka - Predavač lístkov
 item.tc:pants_ticketMan_paintable.name=Nohavice - Predavač lístkov
 item.tc:jacket_ticketMan_paintable.name=Bunda - Predavač lístkov
 item.tc:hat_driver_paintable.name=Čiapka - Strojvedúci
 item.tc:pants_driver_paintable.name=Nohavice - Strojvedúci
-item.tc:jacket_driver_paintable.name=Bunda - Strojvedúci 
+item.tc:jacket_driver_paintable.name=Bunda - Strojvedúci
 item.tc:helmet_suit_paintable.name=Helma z kompozitového materiálu
 item.tc:pants_suit_paintable.name=Nohavice z kompozitového materiálu
 item.tc:boots_suit_paintable.name=Topánky z kompozitového materiálu
@@ -192,21 +192,21 @@ item.tc:jacket_suit_paintable.name=Vesta z kompozitového materiálu
 item.tc:reinforcedPlastic.name=Vláknami vystužený plast
 item.tc:reinforcedPlates.name=Vystužené pláty
 item.tc:composite_wrench.name=Opravársky kľúč z kompozitového materiálu
-item.tc:minecartPassengerHighSpeedCarZeroED.name=Vysokorýchlostný osobný vagón
-item.tc:minecartNYTram.name=New Yorské metro (US)
-item.tc:minecartLocoHighSpeedZeroED.name=Vysokorýchlostný vlak
-item.tc:minecartLocoC62Class.name=C62 [JNR]
-item.tc:minecartTenderC62Class.name=C62 [JNR]
-item.tc:minecartTenderD51.name=D51 Tender [JNR]
-item.tc:minecartLocoD51Short.name=D51 [JNR] (krátke zefektívnenie)
-item.tc:minecartLocoD51Long.name=D51 [JNR] (dlhé zefektívnenie)
-item.tc:minecartLocoSteamShay.name=Shay (US)
-item.tc:minecartLocoSteamAdler.name=Adler
-item.tc:minecartTenderAdler.name=Adlerov tender
-item.tc:minecartPassengerAdler.name=Adlerov osobný vagón (3. tr.)
-item.tc:minecartCabooseLogging.name=Brzdiaci vagón
-item.tc:minecartPassengerTramNY.name=Osobný vagón New Yorského metra (US)
-item.tc:minecartLocoSD40.name=SD40-2 (US)
+item.tc:passengerHighSpeedZeroED.name=Vysokorýchlostný osobný vagón
+item.tc:locoElectricTramNY.name=New Yorské metro (US)
+item.tc:locoElectricSpeedZeroED.name=Vysokorýchlostný vlak
+item.tc:locoSteamC62Class.name=C62 [JNR]
+item.tc:tenderC62Class.name=C62 [JNR]
+item.tc:tenderD51.name=D51 Tender [JNR]
+item.tc:locoSteamD51Short.name=D51 [JNR] (krátke zefektívnenie)
+item.tc:locoSteamD51Long.name=D51 [JNR] (dlhé zefektívnenie)
+item.tc:locoSteamShay.name=Shay (US)
+item.tc:locoSteamAdler.name=Adler
+item.tc:tenderAdler.name=Adlerov tender
+item.tc:passengerAdler.name=Adlerov osobný vagón (3
+item.tc:cabooseLogging.name=Brzdiaci vagón
+item.tc:passengerTramNY.name=Osobný vagón New Yorského metra (US)
+item.tc:locoDieselSD40.name=SD40-2 (US)
 item.tc:zeppelin.name=Vzducholoď
 item.tc:copperRail.name=Medená koľaj
 item.tc:steelRail.name=Oceľová koľaj
@@ -232,111 +232,111 @@ item.tc:tcRailVeryLargeSlopeBallast.name=Stúpanie (Koľajové lôžko 18)
 item.tc:tcRailSmallRoadCrossing.name=Železničné priecestie (Čierny asfalt)
 item.tc:tcRailSmallRoadCrossing1.name=Železničné priecestie (Čistý asfalt)
 item.tc:tcRailSmallRoadCrossing2.name=Železničné priecestie (Sivý asfalt)
-item.tc:minecartLocoA4Mallard.name=LNER A4 (UK)
-item.tc:minecartLocoA4MallardTender.name=LNER A4 Tender (UK)
-item.tc:minecartIC4_DSB_MG.name=IC4 DSB MG
-item.tc:minecartIC4_DSB_FH.name=IC4 DSB FH
-item.tc:minecartIC4_DSB_FG.name=IC4 DSB FG
-item.tc:minecartDRWGStockCar.name=D&RGW Dobytčák (US)
-item.tc:minecartBoxCartPRR.name=Uzavretý nákladný vagón X31 (US)
-item.tc:minecartCabooseLoggingPRR.name=Brzdiaci vagón N5c (US)
-item.tc:minecartLocoSteamAlice.name=0-4-0 Alice
-item.tc:minecartLocoSteamGLYN.name=0-4-2 GLYN
-item.tc:minecartLocoSteamVBShay.name=Shay (Vertikálny kotol)
-item.tc:minecartLocoSteam262T.name=2-6-2T
-item.tc:minecartFreightGTNG.name=Násypník (GTNG)
-item.tc:minecartLocoSteamClimax.name=4-0-4 Climax
-item.tc:minecartLocoSteam040vb.name=0-4-0 Vertikálny kotol
-item.tc:minecartGS4_Passenger.name=GS4 Daylight Osobný
-item.tc:minecartGS4_Observatory.name=GS4 Daylight Reštauračný
-item.tc:minecartSlateWagon.name=Plátový vagónik
-item.tc:minecartICE1_Restaurant.name=ICB Reštauračný
-item.tc:minecartICE1_Loco.name=ICB Lokomotíva
-item.tc:minecartMILW_H1044.name=MILW H10-44
-item.tc:minecartICE1_2ndClass.name=ICB Osobný 2. tr.
-item.tc:minecartGS4_Baggage.name=GS4 Daylight Kombinovaný
-item.tc:minecartGS4_Tender.name=GS4 Daylight Tender
-item.tc:minecartGS4_Loco.name=GS4 Daylight Lokomotíva
-item.tc:minecartICE1_1stClass.name=ICB Osobný 1. tr.
-item.tc:minecartGS4_Tail.name=GS4 Daylight Koncový
-item.tc:minecartLocoEMDF7.name=EMD F7
-item.tc:minecartLocoEMDF3.name=EMD F3
-item.tc:minecartLocoEMDF7B.name=EMD F7 B
-item.tc:minecartLocoEMDF3B.name=EMD F3 B
-item.tc:minecartLocoBR185.name=TRAXX
-item.tc:minecartLocoClass85.name=Rada 85 (UK)
-item.tc:minecartLocoEWSClass66.name=Rada 66 (UK)
-item.tc:minecartLocoDeltic.name=Rada 55 "Deltic" (UK)
-item.tc:minecartLocoCoranationClass.name=Coronation Class (UK)
-item.tc:minecartLocoCoranationClassTender.name=Coronation Class Tender (UK)
-item.tc:minecartFreight100TonHopper.name=Násypník 100t
+item.tc:locoSteamA4.name=LNER A4 (UK)
+item.tc:tenderA4.name=LNER A4 Tender (UK)
+item.tc:locoDieselIC4_DSB_MG.name=IC4 DSB MG
+item.tc:passengerIC4_DSB_FH.name=IC4 DSB FH
+item.tc:passengerIC4_DSB_FG.name=IC4 DSB FG
+item.tc:drwgStockCar.name=D&RGW Dobytčák (US)
+item.tc:freightBoxCartPRR.name=Uzavretý nákladný vagón X31 (US)
+item.tc:cabooseLoggingPRR.name=Brzdiaci vagón N5c (US)
+item.tc:locoSteamAlice.name=0-4-0 Alice
+item.tc:locoSteamGLYN.name=0-4-2 GLYN
+item.tc:locoSteamVBShay.name=Shay (Vertikálny kotol)
+item.tc:locoSteam262T.name=2-6-2T
+item.tc:freightGTNG.name=Násypník (GTNG)
+item.tc:locoSteamClimax.name=4-0-4 Climax
+item.tc:locoSteam040VB.name=0-4-0 Vertikálny kotol
+item.tc:passengerGS4.name=GS4 Daylight Osobný
+item.tc:passengerGS4Observatory.name=GS4 Daylight Reštauračný
+item.tc:slateWagon.name=Plátový vagónik
+item.tc:passengerICE1_Restaurant.name=ICB Reštauračný
+item.tc:locoElectricICE1.name=ICB Lokomotíva
+item.tc:locoDieselMILW_H1044.name=MILW H10-44
+item.tc:passengerICE1_Class2.name=ICB Osobný 2
+item.tc:freightCartGS4.name=GS4 Daylight Kombinovaný
+item.tc:tenderGS4.name=GS4 Daylight Tender
+item.tc:locoSteamGS4.name=GS4 Daylight Lokomotíva
+item.tc:passengerICE1_Class1.name=ICB Osobný 1
+item.tc:passengerGS4_Tail.name=GS4 Daylight Koncový
+item.tc:locoDieselEMDF7.name=EMD F7
+item.tc:locoDieselEMDF3.name=EMD F3
+item.tc:BUnitEMDF7.name=EMD F7 B
+item.tc:BUnitEMDF3.name=EMD F3 B
+item.tc:locoElectricBR185.name=TRAXX
+item.tc:locoElectricClass85.name=Rada 85 (UK)
+item.tc:locoDieselEWSClass66.name=Rada 66 (UK)
+item.tc:locoDieselDeltic.name=Rada 55 "Deltic" (UK)
+item.tc:locoSteamCoranationClass.name=Coronation Class (UK)
+item.tc:tenderCoranationClass.name=Coronation Class Tender (UK)
+item.tc:freight100TonHopper.name=Násypník 100t
 item.tc:minecartFreightRhBWood.name= RhB Drevo
 item.tc:minecartRhB_De.name=RhB De
 item.tc:minecartRhB_Te.name=RhB Te
-item.tc:minecartIceWagon.name=Plátový vagón na ľad
-item.tc:minecartLocoDD35A.name=DD35
-item.tc:minecartLocoDD35B.name=DD35 B
-item.tc:minecartPropagandaUs.name=Propagačný vagón (US)
-item.tc:minecartPropagandaUSSR.name=Propagačný vagón (SU)
-item.tc:minecartPropagandaBritish.name=Propagačný vagón (UK)
-item.tc:minecartPropagandaJapan.name=Propagačný vagón (JP)
-item.tc:minecartLocoSnowPlow.name=Rotačný snehový pluh
-item.tc:minecartLocoC41.name=C41
-item.tc:minecartLocoC41T.name=C41T
-item.tc:minecartTenderC41.name=C41 Tender
-item.tc:minecartTankWagonThreeDome.name=Trojkomorová cisterna
-item.tc:minecartGWRBrakeVan.name=Brzdiaci vagón GWR Toad (UK)
-item.tc:minecartDenverRioGrandePassenger.name=DRGW osobný (US)
-item.tc:minecartDenverRioGrandeCombo.name=DRGW Kombinovaný (US)
-item.tc:minecartDenverRioGrandeBaggage.name=DRGW Batožinový (US)
-item.tc:minecartLoco44TonSwitcher.name=GE 44-Ton
-item.tc:minecartPassengerRheingoldDining1.name=Rheingold Reštauračný
-item.tc:minecartPassengerRheingoldDining2.name=Rheingold Reštauračný (s pantografom)
-item.tc:minecartPassengerRheingold.name=Rheingold Osobný
-item.tc:minecartPassengerRheingoldPanorama.name=Rheingold Panoramatický
-item.tc:minecartBulkheadFlatCart.name=Plošinový vagón so stenami vpredu a vzadu
-item.tc:minecartLocoSouthern1102.name=Baldwin 4-6-0
-item.tc:minecartTenderSouthern1102.name=Baldwin 4-6-0 Tender
-item.tc:minecartE10_DB.name=E10 (DB)
-item.tc:minecartPassengerMILW.name=Hiawatha 1935 MILW Osobný
-item.tc:minecartPassengerMILWTail.name=Hiawatha 1935 MILW Koncový
-item.tc:minecartBaggageMILW.name=Hiawatha 1935 MILW Batožinový
-item.tc:minecartLocoMILWClassA.name=Hiawatha 1935 rada A MILW
-item.tc:minecartMILWTender.name=Hiawatha 1935 MILW Tender
-item.tc:minecartHeavyweightMailcar.name=Poštový vagón
-item.tc:minecartLocoSteamPannier.name=GWR 0-6-0 (UK)
-item.tc:minecartE103.name=E103 (DB)
-item.tc:minecartLocoCD151.name=151 "Banán" (ČR)
-item.tc:minecartFreightBamboo.name=Bambus nákladný
-item.tc:minecartTrainBamboo.name=Bambus plošinový
-item.tc:minecartPassengerBamboo.name=Bambus osobný
-item.tc:minecartFreightDepressedFlatbed.name=Plošinový vagón
-item.tc:minecartFreightGermanPost.name=Poštový vagón (nemecký)
-item.tc:minecartLocoLSSP7.name=LSSP 7
-item.tc:minecartShortCoveredHopper.name=Krátky násypník, uzavretý
-item.tc:minecartKClassRailBox.name=Železničná krabica rady K
-item.tc:minecartLongCoveredHopper.name=Dlhý násypník, uzavretý
-item.tc:minecartLocoFOLM1.name=FOL M1
-item.tc:minecartHeavyweightFreight.name=Batožinový vagón
-item.tc:minecartLocoBP4.name=BP4
-item.tc:minecartASTFAutorack.name=ASTF ft-41 vagón na prepravu áut
+item.tc:iceWagon.name=Plátový vagón na ľad
+item.tc:locoDieselDD35A.name=DD35
+item.tc:BUnitDD35.name=DD35 B
+item.tc:propagandaUs.name=Propagačný vagón (US)
+item.tc:propagandaUSSR.name=Propagačný vagón (SU)
+item.tc:propagandaBritain.name=Propagačný vagón (UK)
+item.tc:propagandaJapan.name=Propagačný vagón (JP)
+item.tc:locoSteamSnowPlow.name=Rotačný snehový pluh
+item.tc:locoSteamC41.name=C41
+item.tc:locoSteamC41T.name=C41T
+item.tc:tender_C41.name=C41 Tender
+item.tc:tankThreeDome.name=Trojkomorová cisterna
+item.tc:GWRBrakeVan.name=Brzdiaci vagón GWR Toad (UK)
+item.tc:passengerDenverRioGrange.name=DRGW osobný (US)
+item.tc:passengerDenverRioGrandeCombo.name=DRGW Kombinovaný (US)
+item.tc:freightDenverRioGrange.name=DRGW Batožinový (US)
+item.tc:locoDiesel44TonSwitcher.name=GE 44-Ton
+item.tc:passengerRheingoldDining1.name=Rheingold Reštauračný
+item.tc:passengerRheingoldDining2.name=Rheingold Reštauračný (s pantografom)
+item.tc:passengerRheingold.name=Rheingold Osobný
+item.tc:passengerRheingoldPanorama.name=Rheingold Panoramatický
+item.tc:bulkheadFlatCartWood.name=Plošinový vagón so stenami vpredu a vzadu
+item.tc:locoSteamSouthern1102.name=Baldwin 4-6-0
+item.tc:tender_Southern1102.name=Baldwin 4-6-0 Tender
+item.tc:locoDieselE10lDB.name=E10 (DB)
+item.tc:passengerMILW.name=Hiawatha 1935 MILW Osobný
+item.tc:passengerMILWTail.name=Hiawatha 1935 MILW Koncový
+item.tc:freightMILWBaggage.name=Hiawatha 1935 MILW Batožinový
+item.tc:locoSteamMILW.name=Hiawatha 1935 rada A MILW
+item.tc:tender_MILW.name=Hiawatha 1935 MILW Tender
+item.tc:freightheavyweight.name=Poštový vagón
+item.tc:locoSteamPannier.name=GWR 0-6-0 (UK)
+item.tc:locoDieselE103.name=E103 (DB)
+item.tc:locoElectricCD151.name=151 "Banán" (ČR)
+item.tc:freightCartBamboo.name=Bambus nákladný
+item.tc:locoDieselBamboo.name=Bambus plošinový
+item.tc:passengerBamboo.name=Bambus osobný
+item.tc:freightDepressedFlatbed.name=Plošinový vagón
+item.tc:freightGermanPost.name=Poštový vagón (nemecký)
+item.tc:locoSteamLSSP7.name=LSSP 7
+item.tc:freightShortCoveredHopper.name=Krátky násypník, uzavretý
+item.tc:freightKClassRailBox.name=Železničná krabica rady K
+item.tc:freightLongCoveredHopper.name=Dlhý násypník, uzavretý
+item.tc:locoDieselFOL_M1.name=FOL M1
+item.tc:freightHeavyweight.name=Batožinový vagón
+item.tc:locoElectricBP4.name=BP4
+item.tc:ASTFAutorack.name=ASTF ft-41 vagón na prepravu áut
 
 
-item.tc:minecart4000GallonTender.name=15000l tender
-item.tc:minecartLocoHallClass.name=GWR Hall (UK)
-item.tc:minecartLocoKingClass.name=GWR King (UK)
-item.tc:minecartLocoWLs40.name=WLs40 (PL)
+item.tc:Model4000GallonTender.name=15000l tender
+item.tc:locosteamHallClass.name=GWR Hall (UK)
+item.tc:locosteamKingClass.name=GWR King (UK)
+item.tc:locoDieselWLs40.name=WLs40 (PL)
 item.tc:train_freight_l.name=Nákladný vagón L
-item.tc:minecartLocoUSATCUS.name=S100 (US)
-item.tc:minecartLocoUSATCUK.name=S100 (UK)
-item.tc:minecartLocoBerk1225.name=Berkshire 1225
-item.tc:minecartLocoBerk765.name=Berkshire 765
-item.tc:minecarttenderBerk1225.name=Berkshire Tender
-item.tc:minecartLocoFowler.name=Fowler 4F
-item.tc:minecartFowler4FTender.name=Fowler 4F Tender
-item.tc:minecartLocoC41_080.name=C41 0-8-0
-item.tc:minecartLocoAlcoSC4.name=Alco SC4
-item.tc:minecartFreightL.name=Nákladný vagón L
+item.tc:locoSteamUSATCUS.name=S100 (US)
+item.tc:locoSteamUSATCUK.name=S100 (UK)
+item.tc:locosteamBerk1225.name=Berkshire 1225
+item.tc:locosteamBerk765.name=Berkshire 765
+item.tc:Model225Tender.name=Berkshire Tender
+item.tc:locosteamFowler.name=Fowler 4F
+item.tc:ModelFowler4FTender.name=Fowler 4F Tender
+item.tc:locoSteamC41_080.name=C41 0-8-0
+item.tc:locoSteamAlcoSc4.name=Alco SC4
+item.tc:freightCarL.name=Nákladný vagón L
 
 
 <!-- ## Achievements ## -->
@@ -431,184 +431,184 @@ train.unlocked.name=Odomknuté
 entity.tc.Entity Front Bogie.name=Náprava
 entity.tc.zeppelin big.name=Vzducholoď (1 balón)
 entity.tc.zeppelin.name=Vzducholoď (2 balóny)
-entity.tc.Loco Steam BR01.name=DRG rada 01(DB)
-entity.tc.Loco Steam Cherepanov.name=Cherepanov (SU)
-entity.tc.Loco Steam BR80.name=DRG rada 80 (DB)
-entity.tc.Loco Steam 4-4-0.name=4-4-0
-entity.tc.Loco Steam Small.name=2-4-0
-entity.tc.Loco Steam C62Class.name=C62 (JNR)
-entity.tc.Loco Steam D51 Short Streamlining.name=D51[K] (JNR)
-entity.tc.Loco Steam D51 Long Streamlining.name=D51[D] (JNR)
-entity.tc.Loco Steam ER_USSR.name=0-5-0
-entity.tc.Loco Steam Forney.name=Forney
-entity.tc.Loco Steam Mogul.name=Mogul
-entity.tc.Loco Steam Shay.name=Shay
-entity.tc.Loco Steam Adler.name=Adler
-entity.tc.Loco Electric Tram NY.name=New Yorské metro (US)
-entity.tc.Loco Electric Yellow Wood Tram.name=Električka
-entity.tc.Loco Electric High Speed ZeroED.name=Vysokorýchlostný vlak
-entity.tc.Loco Electric Minetrain.name=Banská lokomotíva
-entity.tc.Loco Electric BR_E69.name=E69 (DB)
-entity.tc.Loco Electric VL10.name=VL10 (SU)
-entity.tc.Loco Diesel V60 DB.name=V60 (DB)
-entity.tc.Loco Diesel Shunter.name=Class 08
-entity.tc.Loco Diesel SD70.name=EMD SD70M (US)
-entity.tc.Loco Diesel SD40.name=EMD SD40-2 (US)
-entity.tc.Loco Diesel GP7.name=EMD GP7 (US)
-entity.tc.Loco Diesel ChME3.name=ČME3 / T 458 (SU/ČR)
-entity.tc.Loco Diesel CD742.name=T 466 (ČR)
-entity.tc.Loco Diesel KOF DB.name=Kof (DB)
-entity.tc.Tender C62Class.name=C62 Tender (JNR)
-entity.tc.Tender D51.name=D51 Tender (JNR)
-entity.tc.Tender ER_USSR.name=0-5-0 Tender (SU)
-entity.tc.Tender BR01.name=DRG rada 01 Tender (DB)
-entity.tc.Tender 4-4-0.name=4-4-0 Tender (US)
-entity.tc.Tender Heavy.name=Veľký tender
-entity.tc.Tender Small Black.name=Malý Tender
-entity.tc.Tender Adler.name=Adlerov Tender
-entity.tc.Tank Wagon Yellow.name=Cisterna (SU)
-entity.tc.Tank Lava.name=Cisterna na lávu
-entity.tc.Tank Wagon Grey.name=Cisterna
-entity.tc.Tank Wagon US.name=Cisterna (US)
-entity.tc.Tank Wagon DB.name=Cisterna (DB)
-entity.tc.Freight Trailer.name=Vagón na návesy
-entity.tc.Freight Well Car.name=TTX HuskyLine
-entity.tc.Freight Center Beam Wood2.name=Vagón so stredovým nosníkom na drevo
-entity.tc.Freight Center Beam Wood1.name=Vagón so stredovým nosníkom na drevo
-entity.tc.Freight Center Beam Empty.name=Vagón so stredovým nosníkom
-entity.tc.Freight Gondola DB.name=Gondola
-entity.tc.Freight Flat Cart Logs DB.name=Vagón na drevo (DB)
-entity.tc.Freight Flat Cart Rails DB.name=Prepravník koľají (DB)
-entity.tc.Freight Wagon DB.name=Nákladný vagón (DB)
-entity.tc.Freight Open RedBrown.name=Nákladný vagón, otvorený
-entity.tc.Freight Cart Closed RedBrown.name=Nákladný vagón, uzavretý
-entity.tc.Freight Flat Logs.name=Vagón na drevo
-entity.tc.Freight Minecart Yellow.name=Banský vagón
-entity.tc.Freight Cart Small.name=Nákladný vagón, malý
-entity.tc.Freight Box Cart US.name=Box Car (US)
-entity.tc.Freight Cart US.name=Nákladný vagón (US)
-entity.tc.Freight Flat Cart Wood US.name=Plošinový vagón na drevo (US)
-entity.tc.Freight Hopper US.name=Násypník (US)
-entity.tc.Freight Open Wagon.name=Otvorený násypník
-entity.tc.Freight Hopper Green.name=Násypník
-entity.tc.Freight Flat Cart Log.name=Nákladný vagón na drevo
-entity.tc.Freight Cart Yellow.name=Nákladný vagón
-entity.tc.Freight Cart Red.name=Nákladný vagón
-entity.tc.Flat Cart DB.name=Plošinový vagón (DB)
-entity.tc.Tracks Builder.name=Údržbársky vlak
-entity.tc.Flat Cart US.name=Plošinový vagón (US)
-entity.tc.Flat Cart SU.name=Plošinový vagón (SU)
-entity.tc.JukeBox Cart.name=Pártyvlak
-entity.tc.Mail Wagon DB.name=Poštový vagón (DB)
-entity.tc.Caboose Logging.name=Brzdiaci vagón
-entity.tc.Work Caboose.name=Brzdiaci vagón - pracovný
-entity.tc.Flat Cart.name=Plošinový vagón
-entity.tc.Work Cart Yellow.name=Pracovný vlak
-entity.tc.Stock Cart.name=Dobytčák
-entity.tc.Caboose Black.name=Brzdiaci vagón
-entity.tc.Caboose Red.name=Brzdiaci vagón
-entity.tc.Passenger Tram NY.name=New Yorské metro osobný (US)
-entity.tc.Passenger High Speed Zero ED.name=Vysokorýchlostný vlak
-entity.tc.Passenger 2Class DB.name=Osobný vagón 2. tr. (DB)
-entity.tc.Passenger 1Class DB.name=Osobný vagón 1. tr. (DB)
-entity.tc.Passenger Short Green.name=Osobný vagón
-entity.tc.Passenger Green Long.name=Osobný vagón
-entity.tc.Passenger Small Black.name=Osobný vagón
-entity.tc.Passenger Blue.name=Osobný vagón
-entity.tc.Passenger Adler.name=Adlerov osobný vagón
-entity.tc.Passenger DB Oriental.name=Osobný vagón Orient Express
-entity.tc.Loco Steam A4 Mallard.name=LNER A4
-entity.tc.Tender A4 Mallard.name=LNER A4 Tender
-entity.tc.Passenger IC4 DSB FH.name=IC4 DSB FH
-entity.tc.Passenger IC4 DSB FG.name=IC4 DSB FG
-entity.tc.Loco Diesel IC4 DSB MG.name=IC4 DSB MG
-entity.tc.DRWG Stock Cart.name=DRGW Dobytčák
-entity.tc.Freight Box Cart PRR.name=Nákladný vagón X31
-entity.tc.PRR Caboose Logging.name=Brzdiaci vagón N5c
-entity.tc.Loco Steam Alice.name=0-4-0 Alice
-entity.tc.Loco Steam glyn.name=0-4-2 GLYN
-entity.tc.Loco Steam VB Shay.name=Shay rada A
-entity.tc.Loco Steam 262T.name=2-6-2T
-entity.tc.Freight GTNG Ore Wagon.name=GNTG Otvorený vagón
-entity.tc.Loco Steam Climax.name=4-0-4 Rada B
-entity.tc.Loco Steam 040VB.name=0-4-0 Vertikálny kotol
-entity.tc.Passenger GS4.name=GS4 Daylight Osobný
-entity.tc.Passenger GS4 Observatory.name=GS4 Daylight Reštauračný
-entity.tc.Freight Slate Wagon.name=Plátový vagón
-entity.tc.ICE Restaurant.name=ICB Reštauračný
-entity.tc.Loco Electric ICE 1.name=ICB Lokomotíva
-entity.tc.Loco Diesel MILW H10-44.name=MILW H10-44
-entity.tc.Passenger ICE 2nd Class.name=ICB 2nd Class Osobný
-entity.tc.Freight Cart GS4 Baggage.name=GS4 Daylight Kombinovaný
-entity.tc.Tender GS4.name=GS4 Daylight Tender
-entity.tc.Loco Steam GS4.name=GS4 Daylight
-entity.tc.Passenger ICE 1st Class.name=ICB 1st Class Osobný
-entity.tc.Passenger GS4 Tail.name=GS4 Daylight Koncový
-entity.tc.Loco Diesel EMD F-7.name=EMD F7
-entity.tc.Loco Diesel EMD F-3.name=EMD F3
-entity.tc.EMD F7 B Unit.name=EMD F7 B
-entity.tc.EMD F3 B Unit.name=EMD F3 B
-entity.tc.Loco Electric BR 185.name=TRAXX
-entity.tc.Loco Electric Class 85.name=Class 85
-entity.tc.Loco Electric EWS Class 66.name=Class 66
-entity.tc.Loco Diesel Deltic.name=Class 55 "Deltic"
-entity.tc.Tender Coranation Class.name=Coronation Class Tender
-entity.tc.Loco Steam Coranation Class.name=Coronation Class
-entity.tc.Freight 100 Ton Hopper.name=Násypník 100t
-entity.tc.Freight Ice Wagon.name=Vagón na ľad
-entity.tc.Loco Diesel DD35A.name=DD35
-entity.tc.DD35 B Unit.name=DD35 B
-entity.tc.Propaganda USA.name=Propagačný vagón (US)
-entity.tc.Propaganda USSR.name=Propagačný vagón (SU)
-entity.tc.Propaganda Britain.name=Propagačný vagón (UK)
-entity.tc.Propaganda Japan.name=Propagačný vagón (JP)
-entity.tc.Loco Steam Snow Plow.name=Rotačný snehový pluh
-entity.tc.Loco Steam C41.name=C41
-entity.tc.Loco Steam C41T.name=C41T
-entity.tc.Tender C41.name=C41 Tender
-entity.tc.Tank Wagon Three Dome.name=Trojkomorová cisterna
-entity.tc.GWR Toad Brake Van.name=Brzdiaci vagón GWR Toad
-entity.tc.Loco Steam Pannier.name= GWR 0-6-0
-entity.tc.Denver Rio Grande Baggage.name=DRGW Batožinový
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 entity.tc.Denver Rio Grande Combo.name=DRGW Kombinovaný
 entity.tc.Denver Rio Grande Passenger.name=DRGW Osobný
-entity.tc.GE 44-ton Diesel switcher.name=GE 44-Ton
-entity.tc.Heavyweight Freight Car.name=Poštový vagón
-entity.tc.Rheingold Dining.name=Rheingold Reštauračný
-entity.tc.Rheingold Dining Alternate.name=Rheingold Reštauračný A
-entity.tc.Passenger Rheingold.name=Rheingold Osobný
-entity.tc.Rheingold Panorama.name=Rheingold Panoramatický
-entity.tc.Freight Bulkhead Flat Cart.name=Nákladný vagón so stenami vpredu aj vzadu
-entity.tc.Loco Steam Southern 1102.name=Southern 1102
-entity.tc.Tender Southern1102.name=Southern 1102 Tender
-entity.tc.Loco Electric E10 DB.name=E10 (DB)
-entity.tc.Passenger MILW.name=Hiawatha 1935 MILW Osobný
-entity.tc.Passenger MILW Tail.name=Hiawatha 1935 MILW Koncový
-entity.tc.MILW Baggage.name=Hiawatha 1935 MILW Batožinový
-entity.tc.Loco Steam MILW Class A.name=Hiawatha 1935 Class A MILW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 entity.tc.MILW Tender.name=Tender MILW
-entity.tc.Loco Electric E103.name=E103
-entity.tc.Loco Electric CD151.name=151
-entity.tc.Bamboo Flatcar Freight.name=Bambus nákladný 
-entity.tc.Bamboo Flatcar Engine.name=Bambus plošinový
-entity.tc.Bamboo Flatcar Passenger.name=Bambus osobný
-entity.tc.Loco Steam LSSP7.name=LSSP 7
-entity.tc.Freight Short Covered Hopper.name=Krátky násypník
-entity.tc.Freight K Class Rail Box.name=Železničná krabica typu K
-entity.tc.Freight Long Covered Hopper.name=Dlhý násypník, uzavretý
-entity.tc.Loco FOL M1.name=FOL M1
-entity.tc.Freight Heavyweight Baggage.name=Batožinový vagón
+
+
+
+
+
+
+
+
+
+
+
 entity.tc.Loco Diesel BP4.name=BP4
-entity.tc.Freight ASTF Autorack.name=ASTF ft-41 vagón na prepravu áut
 
 
-entity.tc.Loco Hall Class.name=GWR Hall
-entity.tc.4000GallonTender.name=15000l Tender
-entity.tc.Loco King Class.name=GWR King
-entity.tc.Loco WLS40.name=WLs40
-entity.tc.Freight Car L.name=Nákladný vagón L
-entity.tc.Loco Steam C41 0-8-0.name=C41 0-8-0
-entity.tc.Loco Steam Alco SC4.name=ALCO SC4
+
+
+
+
+
+
+
+
 
 description.villager.profession.tc.station_chief=Riaditeľ stanice
 

@@ -271,210 +271,210 @@ item.tc:tcRailEmbeddedLarge45DegreeSwitch.name=Embedded 45 Degree Switch (4x8)
 
 item.tc:tcRail20x2SCurve.name=Parallel Curve (2x20)
 
-item.tc:minecartWork.name=Work Train
-item.tc:minecartTender.name=Small Tender
-item.tc:minecartChest.name=Freight Car
-item.tc:minecartPower.name=4-4-0 (US)
-item.tc:minecartLoco3.name=Small Steam Locomotive
-item.tc:minecartBuilder.name=Tracks Builder
-item.tc:minecartCaboose.name=Caboose
-item.tc:minecartGrain.name=Grain Hopper
-item.tc:minecartWatertransp.name=Lava Tank Car
-item.tc:minecartWood.name=Log Transport
-item.tc:minecartPassenger2.name=Passenger Car
+item.tc:workCart.name=Work Train
+item.tc:tenderSmall.name=Small Tender
+item.tc:freightCartYellow.name=Freight Car
+item.tc:locoSteam4_4_0.name=4-4-0 (US)
+item.tc:locoSteamSmall.name=Small Steam Locomotive
+item.tc:tracksBuilder.name=Tracks Builder
+item.tc:cabooseRed.name=Caboose
+item.tc:freightHopper.name=Grain Hopper
+item.tc:tankCartLava.name=Lava Tank Car
+item.tc:freightWood.name=Log Transport
+item.tc:passengerCartBlackSmall.name=Passenger Car
 item.tc:Passenger Car 1.name=Passenger Car
-item.tc:minecartBR_E69.name=BR E69
-item.tc:minecartShunter.name=Class 08 Shunter (UK)
-item.tc:minecartVL10.name=VL10 (SU)
-item.tc:minecartTramWood.name=Wooden Tram
-item.tc:minecartChmE3.name=ChME3 (SU)
-item.tc:minecartTenderHeavy.name=Heavy Tender
-item.tc:minecartFlatCart.name=Flat Car
-item.tc:minecartFreightCart2.name=Freight Wagon
-item.tc:minecartOpenWagon.name=Open Wagon
-item.tc:minecartTankWagon.name=Tank Wagon (SU)
-item.tc:minecartJukeBoxCart.name=Jukebox
-item.tc:minecartStockCar.name=Stock Car
-item.tc:minecartCabooseWork.name=Work Caboose
-item.tc:minecartPassenger5.name=Passenger Car
-item.tc:minecartTankWagon2.name=Tank Wagon
-item.tc:minecartPassengerBlue.name=Passenger Car
-item.tc:minecartPassengerDBOriental.name=Passenger Orient Express
-item.tc:minecartGP7Red.name=GP7 (US)
-item.tc:minecartCD742.name=CD 742
+item.tc:locoElectricBR_E69.name=BR E69
+item.tc:locoDieselShunter.name=Class 08 Shunter (UK)
+item.tc:locoElectricVL10.name=VL10 (SU)
+item.tc:locoElectricTramYellow.name=Wooden Tram
+item.tc:locoDieselChME3.name=ChME3 (SU)
+item.tc:tenderHeavy.name=Heavy Tender
+item.tc:flatCart.name=Flat Car
+item.tc:freightCartRed.name=Freight Wagon
+item.tc:freightOpenWagon.name=Open Wagon
+item.tc:tankWagonYellow.name=Tank Wagon (SU)
+item.tc:jukeBoxCart.name=Jukebox
+item.tc:stockCar.name=Stock Car
+item.tc:workCaboose.name=Work Caboose
+item.tc:passengerLongGreen.name=Passenger Car
+item.tc:tankWagonGrey.name=Tank Wagon
+item.tc:passengerCartBlue.name=Passenger Car
+item.tc:passengerDBOriental.name=Passenger Orient Express
+item.tc:locoDieselGP7Red.name=GP7 (US)
+item.tc:locoDieselGP40.name=CD 742
 item.tc:minecartCD754.name=CD 754
-item.tc:minecartFlatCartSU.name=Flat car (SU)
-item.tc:minecartFlatCartUS.name=Flat car (US)
-item.tc:minecartBoxCartUS.name=Box Car (US)
-item.tc:minecartFreightHopperUS.name=Hopper Wagon (US)
-item.tc:minecartTankWagonUS.name=Tank Wagon (US)
-item.tc:minecartFlatCartWoodUS.name=Platform Car Wood (US)
-item.tc:minecartFreightCartUS.name=Freight Car (US)
-item.tc:minecartFreightCartSmall.name=Small Freight Car
-item.tc:minecartLocoCherepanov.name=Cherepanov (RU)
-item.tc:minecartMineTrain.name=Minecart
-item.tc:minecartLocoMineTrain.name=Cart Hauler
-item.tc:minecartSteamRedTender.name=4-4-0 Tender (US)
-item.tc:minecartFreightWood2.name=Wood Transport
-item.tc:minecartCaboose3.name=Caboose
-item.tc:minecartPassenger7.name=Passenger Car
-item.tc:minecartFreightClosed.name=Freight Car Closed
-item.tc:minecartFreightOpen2.name=Freight Car
-item.tc:minecartLocomogulBlue.name=Mogul (US)
-item.tc:minecartLocoForneyRed.name=Forney (US)
-item.tc:minecartLocoBR01_DB.name=BR01 (DB)
-item.tc:minecartMailWagon_DB.name=Mail Wagon (DB)
-item.tc:minecartFreightWagon_DB.name=Freight Wagon
-item.tc:minecartPassenger8_1class_DB.name=Pass. Car - I Class (DB)
-item.tc:minecartPassenger9_2class_DB.name=Pass. Car - II Class (DB)
-item.tc:minecartLocoBR80_DB.name=BR80 (DB)
-item.tc:minecartTenderBR01_DB.name=BR01 Tender (DB)
-item.tc:minecartFlatCartRail_DB.name=Rail transport (DB)
-item.tc:minecartFlatCart_DB.name=Flat Car (DB)
-item.tc:minecartFlatCartLogs_DB.name=Log Transport (DB)
-item.tc:minecartFreightGondola_DB.name=Freight Gondola (DB)
-item.tc:minecartTankWagon_DB.name=Tank Wagon (DB)
-item.tc:minecartLocoSD70.name=SD70M (US)
-item.tc:minecartLocoEr.name=USSR 0-5-0
-item.tc:minecartTenderEr.name=USSR 0-5-0 Tender
-item.tc:minecartFreightCenterBeam_Empty.name=Freight Car
-item.tc:minecartFreightCenterBeam_Wood_1.name=Wood Transport
-item.tc:minecartFreightCenterBeam_Wood_2.name=Wood Transport
-item.tc:minecartFreightTrailer.name=Freight Trailer
-item.tc:minecartFreightWellcar.name=Freight Wellcar
-item.tc:minecartKof_DB.name=Kof II (DB)
-item.tc:minecartV60_DB.name=V60 (DB)
+item.tc:flatCartSU.name=Flat car (SU)
+item.tc:flatCartUS.name=Flat car (US)
+item.tc:freightBoxCartUS.name=Box Car (US)
+item.tc:freightHopperUS.name=Hopper Wagon (US)
+item.tc:tankWagonUS.name=Tank Wagon (US)
+item.tc:flatCartWoodUS.name=Platform Car Wood (US)
+item.tc:freightCartUS.name=Freight Car (US)
+item.tc:freightCartSmall.name=Small Freight Car
+item.tc:locoSteamCherepanov.name=Cherepanov (RU)
+item.tc:freightMinetrain.name=Minecart
+item.tc:locoElectricMineTrain.name=Cart Hauler
+item.tc:tender4_4_0.name=4-4-0 Tender (US)
+item.tc:flatCartWoodLogs.name=Wood Transport
+item.tc:cabooseBlack.name=Caboose
+item.tc:passengerShortGreen.name=Passenger Car
+item.tc:freightClosedRedBrown.name=Freight Car Closed
+item.tc:freightOpenRedBrown.name=Freight Car
+item.tc:locoSteamMogul.name=Mogul (US)
+item.tc:locoSteamForney.name=Forney (US)
+item.tc:locoSteamBR01_DB.name=BR01 (DB)
+item.tc:mailWagen_DB.name=Mail Wagon (DB)
+item.tc:freightWagen_DB.name=Freight Wagon
+item.tc:passenger_1class_DB.name=Pass
+item.tc:passenger_2class_DB.name=Pass
+item.tc:locoSteamBR80.name=BR80 (DB)
+item.tc:tenderBR01.name=BR01 Tender (DB)
+item.tc:flatCarRails_DB.name=Rail transport (DB)
+item.tc:flatCar_DB.name=Flat Car (DB)
+item.tc:flatCarLogs_DB.name=Log Transport (DB)
+item.tc:freightGondola_DB.name=Freight Gondola (DB)
+item.tc:tankWagon_DB.name=Tank Wagon (DB)
+item.tc:locoDieselSD70.name=SD70M (US)
+item.tc:locoSteamEr_USSR.name=USSR 0-5-0
+item.tc:tenderEr_Ussr.name=USSR 0-5-0 Tender
+item.tc:freightCenterBeam_Empty.name=Freight Car
+item.tc:freightCenterBeam_Wood1.name=Wood Transport
+item.tc:freightCenterBeam_Wood2.name=Wood Transport
+item.tc:freightTrailer.name=Freight Trailer
+item.tc:freightWellcar.name=Freight Wellcar
+item.tc:locoDieselKOF.name=Kof II (DB)
+item.tc:locoDieselV60_DB.name=V60 (DB)
 
-item.tc:minecartPassengerHighSpeedCarZeroED.name=High Speed Passenger Car
-item.tc:minecartNYTram.name=Kawasaki PA4 (US)
-item.tc:minecartLocoHighSpeedZeroED.name=High Speed Train
-item.tc:minecartLocoC62Class.name=C62 Class [JNR]
-item.tc:minecartTenderC62Class.name=C62 Tender [JNR]
-item.tc:minecartTenderD51.name=D51 Tender [JNR]
-item.tc:minecartLocoD51Short.name=D51 [JNR] (short streamlining)
-item.tc:minecartLocoD51Long.name=D51 [JNR] (Long streamlining)
-item.tc:minecartLocoSteamShay.name=Shay (US)
-item.tc:minecartLocoSteamAdler.name=Adler
-item.tc:minecartTenderAdler.name=Adler Tender
-item.tc:minecartPassengerAdler.name=Adler Passenger Car
-item.tc:minecartCabooseLogging.name=Logging Caboose
-item.tc:minecartPassengerTramNY.name=Kawasaki PA4 Passenger Car (US)
-item.tc:minecartLocoSD40.name=SD40-2 (US)
+item.tc:passengerHighSpeedZeroED.name=High Speed Passenger Car
+item.tc:locoElectricTramNY.name=Kawasaki PA4 (US)
+item.tc:locoElectricSpeedZeroED.name=High Speed Train
+item.tc:locoSteamC62Class.name=C62 Class [JNR]
+item.tc:tenderC62Class.name=C62 Tender [JNR]
+item.tc:tenderD51.name=D51 Tender [JNR]
+item.tc:locoSteamD51Short.name=D51 [JNR] (short streamlining)
+item.tc:locoSteamD51Long.name=D51 [JNR] (Long streamlining)
+item.tc:locoSteamShay.name=Shay (US)
+item.tc:locoSteamAdler.name=Adler
+item.tc:tenderAdler.name=Adler Tender
+item.tc:passengerAdler.name=Adler Passenger Car
+item.tc:cabooseLogging.name=Logging Caboose
+item.tc:passengerTramNY.name=Kawasaki PA4 Passenger Car (US)
+item.tc:locoDieselSD40.name=SD40-2 (US)
 item.tc:zeppelin.name=Zeppelin
 item.tc:copperRail.name=Copper Rail
 item.tc:steelRail.name=Steel Rail
-item.tc:minecartLocoA4Mallard.name=A4 Mallard
-item.tc:minecartLocoA4MallardTender.name=A4 Mallard Tender
-item.tc:minecartIC4_DSB_MG.name=IC4 DSB MG
-item.tc:minecartIC4_DSB_FH.name=IC4 DSB FH
-item.tc:minecartIC4_DSB_FG.name=IC4 DSB FG
-item.tc:minecartDRWGStockCar.name=Stock Car (D&RGW)
-item.tc:minecartBoxCartPRR.name=PRR X31 Boxcar
-item.tc:minecartCabooseLoggingPRR.name=PRR N5c Caboose
-item.tc:minecartLocoSteamAlice.name=0-4-0 Alice
-item.tc:minecartLocoSteamGLYN.name=0-4-2 GLYN
-item.tc:minecartLocoSteamVBShay.name=Vertical Boiler Shay
-item.tc:minecartLocoSteam262T.name=2-6-2T
-item.tc:minecartFreightGTNG.name=Open Wagon (GTNG)
-item.tc:minecartLocoSteamClimax.name=4-0-4 Climax
-item.tc:minecartLocoSteam040vb.name=0-4-0 Vertical Boiler
-item.tc:minecartGS4_Passenger.name=GS4 Daylight Passenger
-item.tc:minecartGS4_Observatory.name=GS4 Daylight Tavern Car
-item.tc:minecartSlateWagon.name=Slate Wagon
-item.tc:minecartICE1_Restaurant.name=ICB Restaurant
-item.tc:minecartICE1_Loco.name=ICB
-item.tc:minecartMILW_H1044.name=FM H10-44
-item.tc:minecartICE1_2ndClass.name=ICB 2nd Class Passenger
-item.tc:minecartGS4_Baggage.name=GS4 Daylight Chair-Baggage Car
-item.tc:minecartGS4_Tender.name=GS4 Daylight Tender
-item.tc:minecartGS4_Loco.name=GS4 Daylight
-item.tc:minecartICE1_1stClass.name=ICB 1st Class Passenger
-item.tc:minecartGS4_Tail.name=GS4 Daylight Passenger Tail
-item.tc:minecartLocoEMDF7.name=EMD F7
-item.tc:minecartLocoEMDF3.name=EMD F3
-item.tc:minecartLocoEMDF7B.name=EMD F7 B-unit
-item.tc:minecartLocoEMDF3B.name=EMD F3 B-unit
-item.tc:minecartLocoBR185.name=BR 185
-item.tc:minecartLocoClass85.name=Class 85
-item.tc:minecartLocoEWSClass66.name=Class 66
-item.tc:minecartLocoDeltic.name=Deltic
-item.tc:minecartLocoCoranationClass.name=Coronation Class
-item.tc:minecartLocoCoranationClassTender.name=Coronation Class Tender
-item.tc:minecartFreight100TonHopper.name=100 Ton Hopper
+item.tc:locoSteamA4.name=A4 Mallard
+item.tc:tenderA4.name=A4 Mallard Tender
+item.tc:locoDieselIC4_DSB_MG.name=IC4 DSB MG
+item.tc:passengerIC4_DSB_FH.name=IC4 DSB FH
+item.tc:passengerIC4_DSB_FG.name=IC4 DSB FG
+item.tc:drwgStockCar.name=Stock Car (D&RGW)
+item.tc:freightBoxCartPRR.name=PRR X31 Boxcar
+item.tc:cabooseLoggingPRR.name=PRR N5c Caboose
+item.tc:locoSteamAlice.name=0-4-0 Alice
+item.tc:locoSteamGLYN.name=0-4-2 GLYN
+item.tc:locoSteamVBShay.name=Vertical Boiler Shay
+item.tc:locoSteam262T.name=2-6-2T
+item.tc:freightGTNG.name=Open Wagon (GTNG)
+item.tc:locoSteamClimax.name=4-0-4 Climax
+item.tc:locoSteam040VB.name=0-4-0 Vertical Boiler
+item.tc:passengerGS4.name=GS4 Daylight Passenger
+item.tc:passengerGS4Observatory.name=GS4 Daylight Tavern Car
+item.tc:slateWagon.name=Slate Wagon
+item.tc:passengerICE1_Restaurant.name=ICB Restaurant
+item.tc:locoElectricICE1.name=ICB
+item.tc:locoDieselMILW_H1044.name=FM H10-44
+item.tc:passengerICE1_Class2.name=ICB 2nd Class Passenger
+item.tc:freightCartGS4.name=GS4 Daylight Chair-Baggage Car
+item.tc:tenderGS4.name=GS4 Daylight Tender
+item.tc:locoSteamGS4.name=GS4 Daylight
+item.tc:passengerICE1_Class1.name=ICB 1st Class Passenger
+item.tc:passengerGS4_Tail.name=GS4 Daylight Passenger Tail
+item.tc:locoDieselEMDF7.name=EMD F7
+item.tc:locoDieselEMDF3.name=EMD F3
+item.tc:BUnitEMDF7.name=EMD F7 B-unit
+item.tc:BUnitEMDF3.name=EMD F3 B-unit
+item.tc:locoElectricBR185.name=BR 185
+item.tc:locoElectricClass85.name=Class 85
+item.tc:locoDieselEWSClass66.name=Class 66
+item.tc:locoDieselDeltic.name=Deltic
+item.tc:locoSteamCoranationClass.name=Coronation Class
+item.tc:tenderCoranationClass.name=Coronation Class Tender
+item.tc:freight100TonHopper.name=100 Ton Hopper
 item.tc:minecartFreightRhBWood.name= RhB Logcar
 item.tc:minecartRhB_De.name=RhB De
 item.tc:minecartRhB_Te.name=RhB Te
-item.tc:minecartIceWagon.name=Ice Wagon
-item.tc:minecartLocoDD35A.name=DD35
-item.tc:minecartLocoDD35B.name=DD35 B-unit
-item.tc:minecartPropagandaUs.name=Propaganda cart (USA)
-item.tc:minecartPropagandaUSSR.name=Propaganda cart (USSR)
-item.tc:minecartPropagandaBritish.name=Propaganda cart (Britain)
-item.tc:minecartPropagandaJapan.name=Propaganda cart (Japan)
-item.tc:minecartLocoSnowPlow.name=Snow Plow
-item.tc:minecartLocoC41.name=C41
-item.tc:minecartLocoC41T.name=C41T
-item.tc:minecartTenderC41.name=C41 Tender
-item.tc:minecartTankWagonThreeDome.name=Three Dome Tanker
-item.tc:minecartGWRBrakeVan.name=GWR Toad BrakeVan
-item.tc:minecartDenverRioGrandePassenger.name=Denver Rio Grande Passenger
-item.tc:minecartDenverRioGrandeCombo.name=Denver Rio Grande Combo
-item.tc:minecartDenverRioGrandeBaggage.name=Denver Rio Grande Baggage
-item.tc:minecartLoco44TonSwitcher.name=GE 44 Ton Switcher
-item.tc:minecartPassengerRheingoldDining1.name=Rheingold Dining
-item.tc:minecartPassengerRheingoldDining2.name=Rheingold Dining Pantograph
-item.tc:minecartPassengerRheingold.name=Rheingold Passenger
-item.tc:minecartPassengerRheingoldPanorama.name=Rheingold Panorama
+item.tc:iceWagon.name=Ice Wagon
+item.tc:locoDieselDD35A.name=DD35
+item.tc:BUnitDD35.name=DD35 B-unit
+item.tc:propagandaUs.name=Propaganda cart (USA)
+item.tc:propagandaUSSR.name=Propaganda cart (USSR)
+item.tc:propagandaBritain.name=Propaganda cart (Britain)
+item.tc:propagandaJapan.name=Propaganda cart (Japan)
+item.tc:locoSteamSnowPlow.name=Snow Plow
+item.tc:locoSteamC41.name=C41
+item.tc:locoSteamC41T.name=C41T
+item.tc:tender_C41.name=C41 Tender
+item.tc:tankThreeDome.name=Three Dome Tanker
+item.tc:GWRBrakeVan.name=GWR Toad BrakeVan
+item.tc:passengerDenverRioGrange.name=Denver Rio Grande Passenger
+item.tc:passengerDenverRioGrandeCombo.name=Denver Rio Grande Combo
+item.tc:freightDenverRioGrange.name=Denver Rio Grande Baggage
+item.tc:locoDiesel44TonSwitcher.name=GE 44 Ton Switcher
+item.tc:passengerRheingoldDining1.name=Rheingold Dining
+item.tc:passengerRheingoldDining2.name=Rheingold Dining Pantograph
+item.tc:passengerRheingold.name=Rheingold Passenger
+item.tc:passengerRheingoldPanorama.name=Rheingold Panorama
 item.tc:minecartPassengerBW305.name=Bw 305
 item.tc:minecartLocoElectricTW305.name=Tw 305
 item.tc:minecartLocoElectricInterurbanSeries100.name=Interurban Series 100
-item.tc:minecartBulkheadFlatCart.name=Bulkhead Flat Cart
-item.tc:minecartLocoSouthern1102.name=Baldwin F-14
-item.tc:minecartTenderSouthern1102.name=Baldwin F-14 Tender
-item.tc:minecartE10_DB.name=E10 (DB)
-item.tc:minecartPassengerMILW.name=Hiawatha 1935 MILW Passenger
-item.tc:minecartPassengerMILWTail.name=Hiawatha 1935 MILW Beavertail
-item.tc:minecartBaggageMILW.name=Hiawatha 1935 MILW Baggage
-item.tc:minecartLocoMILWClassA.name=Hiawatha 1935 Class A MILW
-item.tc:minecartMILWTender.name=Hiawatha 1935 MILW Tender
-item.tc:minecartHeavyweightMailcar.name=Heavyweight Mail Storage Car
-item.tc:minecartLocoSteamPannier.name=0-6-0 Pannier
-item.tc:minecartE103.name=E103
-item.tc:minecartLocoCD151.name=CD 151
-item.tc:minecartFreightBamboo.name=Bamboo flatcar freight
-item.tc:minecartTrainBamboo.name=Bamboo flatcar engine
-item.tc:minecartPassengerBamboo.name=Bamboo flatcar passenger
-item.tc:minecartFreightDepressedFlatbed.name=Depressed Flatbed
-item.tc:minecartFreightGermanPost.name=German Mailcar
-item.tc:minecartLocoLSSP7.name=One Truck Heisler (LSSP 7)
-item.tc:minecartShortCoveredHopper.name=Short Covered Hopper
-item.tc:minecartKClassRailBox.name=K Class Rail Box
-item.tc:minecartLongCoveredHopper.name=Long Covered Hopper
-item.tc:minecartLocoFOLM1.name=FOL-M1
-item.tc:minecartHeavyweightFreight.name=Heavyweight Baggage
-item.tc:minecartLocoBP4.name=BP4
-item.tc:minecartASTFAutorack.name=ASTF ft-41 Auto Rack
+item.tc:bulkheadFlatCartWood.name=Bulkhead Flat Cart
+item.tc:locoSteamSouthern1102.name=Baldwin F-14
+item.tc:tender_Southern1102.name=Baldwin F-14 Tender
+item.tc:locoDieselE10lDB.name=E10 (DB)
+item.tc:passengerMILW.name=Hiawatha 1935 MILW Passenger
+item.tc:passengerMILWTail.name=Hiawatha 1935 MILW Beavertail
+item.tc:freightMILWBaggage.name=Hiawatha 1935 MILW Baggage
+item.tc:locoSteamMILW.name=Hiawatha 1935 Class A MILW
+item.tc:tender_MILW.name=Hiawatha 1935 MILW Tender
+item.tc:freightheavyweight.name=Heavyweight Mail Storage Car
+item.tc:locoSteamPannier.name=0-6-0 Pannier
+item.tc:locoDieselE103.name=E103
+item.tc:locoElectricCD151.name=CD 151
+item.tc:freightCartBamboo.name=Bamboo flatcar freight
+item.tc:locoDieselBamboo.name=Bamboo flatcar engine
+item.tc:passengerBamboo.name=Bamboo flatcar passenger
+item.tc:freightDepressedFlatbed.name=Depressed Flatbed
+item.tc:freightGermanPost.name=German Mailcar
+item.tc:locoSteamLSSP7.name=One Truck Heisler (LSSP 7)
+item.tc:freightShortCoveredHopper.name=Short Covered Hopper
+item.tc:freightKClassRailBox.name=K Class Rail Box
+item.tc:freightLongCoveredHopper.name=Long Covered Hopper
+item.tc:locoDieselFOL_M1.name=FOL-M1
+item.tc:freightHeavyweight.name=Heavyweight Baggage
+item.tc:locoElectricBP4.name=BP4
+item.tc:ASTFAutorack.name=ASTF ft-41 Auto Rack
 
 item.tc:paintbrushThing.name=Paintbrush
 item.tc:whistle.name=Whistle
 item.tc:padlock.name=Padlock
 
-item.tc:minecart4000GallonTender.name=4000 Gallon Tender
-item.tc:minecartLocoHallClass.name=Hall Class
-item.tc:minecartLocoKingClass.name=King Class
-item.tc:minecartLocoWLs40.name=WLs40
+item.tc:Model4000GallonTender.name=4000 Gallon Tender
+item.tc:locosteamHallClass.name=Hall Class
+item.tc:locosteamKingClass.name=King Class
+item.tc:locoDieselWLs40.name=WLs40
 item.tc:train_freight_l.name=Freight Car L
-item.tc:minecartLocoUSATCUS.name=S100 (US)
-item.tc:minecartLocoUSATCUK.name=S100 (UK)
-item.tc:minecartLocoBerk1225.name=Berkshire 1225
-item.tc:minecartLocoBerk765.name=Berkshire 765
-item.tc:minecarttenderBerk1225.name=Berkshire Tender
-item.tc:minecartLocoFowler.name=Fowler 4F
-item.tc:minecartFowler4FTender.name=Fowler 4F Tender
-item.tc:minecartLocoC41_080.name=C41 0-8-0
-item.tc:minecartLocoAlcoSC4.name=Alco SC4
-item.tc:minecartFreightL.name=Freight Car L
-item.tc:minecartHeavySteam.name=Heavy Steam Locomotive
+item.tc:locoSteamUSATCUS.name=S100 (US)
+item.tc:locoSteamUSATCUK.name=S100 (UK)
+item.tc:locosteamBerk1225.name=Berkshire 1225
+item.tc:locosteamBerk765.name=Berkshire 765
+item.tc:Model225Tender.name=Berkshire Tender
+item.tc:locosteamFowler.name=Fowler 4F
+item.tc:ModelFowler4FTender.name=Fowler 4F Tender
+item.tc:locoSteamC41_080.name=C41 0-8-0
+item.tc:locoSteamAlcoSc4.name=Alco SC4
+item.tc:freightCarL.name=Freight Car L
+item.tc:locoHeavySteam.name=Heavy Steam Locomotive
 item.tc:minecartBNLRV_A.name=BNLRV Powered End
 item.tc:minecartBNLRV_B.name=BNLRV Unpowered End
 item.tc:minecartMetro2000Loco.name=Metro Madrid 2000 Motor
@@ -507,7 +507,7 @@ item.tc:minecartClimaxNew.name=2 Truck Climax
 item.tc:minecartVBShay2.name=2 Truck Class A Shay
 item.tc:minecartRoundHopper.name=Round Covered Hopper
 item.tc:minecartRibbedHopper.name=Ribbed Covered Hopper
-item.tc:minecartFOLM1B.name=FOL-M1B Unit
+item.tc:FOLM1B.name=FOL-M1B Unit
 item.tc:minecartLocoBR07.name=BR Class 07 Shunter
 item.tc:minecartLocoBR04.name=BR Class 04 Shunter
 item.tc:minecartLocoSM42.name= PKP SM42
@@ -797,16 +797,16 @@ item.tc:minecartM8DNF1Middleshort.name=M8D NF1 Middle (short)
 item.tc:minecartM8DNF1Tail.name=M8D NF1 Tail
 
 
-item.tc:hat_ticketMan_paintable.name=Ticket Man's Hat (Paintable) 
-item.tc:pants_ticketMan_paintable.name=Ticket Man's Pants (Paintable) 
-item.tc:jacket_ticketMan_paintable.name=Ticket Man's Jacket (Paintable) 
-item.tc:hat_driver_paintable.name=Driver's Hat (Paintable) 
-item.tc:pants_driver_paintable.name=Driver's Pants (Paintable) 
-item.tc:jacket_driver_paintable.name=Driver's Jacket (Paintable) 
-item.tc:helmet_suit_paintable.name=Composite Suit's Helmet (Paintable) 
-item.tc:pants_suit_paintable.name=Composite Suit's Pants (Paintable) 
-item.tc:boots_suit_paintable.name=Composite Suit's Boots (Paintable) 
-item.tc:jacket_suit_paintable.name=Composite Suit's Chest (Paintable) 
+item.tc:hat_ticketMan_paintable.name=Ticket Man's Hat (Paintable)
+item.tc:pants_ticketMan_paintable.name=Ticket Man's Pants (Paintable)
+item.tc:jacket_ticketMan_paintable.name=Ticket Man's Jacket (Paintable)
+item.tc:hat_driver_paintable.name=Driver's Hat (Paintable)
+item.tc:pants_driver_paintable.name=Driver's Pants (Paintable)
+item.tc:jacket_driver_paintable.name=Driver's Jacket (Paintable)
+item.tc:helmet_suit_paintable.name=Composite Suit's Helmet (Paintable)
+item.tc:pants_suit_paintable.name=Composite Suit's Pants (Paintable)
+item.tc:boots_suit_paintable.name=Composite Suit's Boots (Paintable)
+item.tc:jacket_suit_paintable.name=Composite Suit's Chest (Paintable)
 item.tc:reinforcedPlastic.name=Fibre-Reinforced Plastic
 item.tc:reinforcedPlates.name=Reinforced Plates
 item.tc:composite_wrench.name=Composite Wrench
@@ -969,194 +969,194 @@ lockmenu.Save To All Cars in Consist.name=Save To All Cars in Consist
 entity.tc.Entity Front Bogie.name=Bogie
 entity.tc.zeppelin big.name=Zeppelin One Balloon
 entity.tc.zeppelin.name=Zeppelin Two Balloons
-entity.tc.Loco Steam BR01.name=BR01 (DB)
-entity.tc.Loco Steam Cherepanov.name=Cherepanov (RU)
-entity.tc.Loco Steam BR80.name=BR80 (DB)
-entity.tc.Loco Steam 4-4-0.name=4-4-0 (US)
-entity.tc.Loco Steam Small.name=Small Steam Locomotive
-entity.tc.Loco Steam C62Class.name=C62 Class (JNR)
-entity.tc.Loco Steam D51 Short Streamlining.name=D51 (JNR) [short streamlining]
-entity.tc.Loco Steam D51 Long Streamlining.name=D51 (JNR) [short streamlining]
-entity.tc.Loco Steam ER_USSR.name=USSR 0-5-0 (SU)
-entity.tc.Loco Steam Forney.name=Forney (US)
-entity.tc.Loco Steam Mogul.name=Mogul (US)
-entity.tc.Loco Steam Shay.name=Shay (US)
-entity.tc.Loco Steam Adler.name=Adler
-entity.tc.Loco Electric Tram NY.name=N.Y. Tram (US)
-entity.tc.Loco Electric Yellow Wood Tram.name=wooden Tram
-entity.tc.Loco Electric High Speed ZeroED.name=High Speed Train
-entity.tc.Loco Electric Minetrain.name=Cart Hauler
-entity.tc.Loco Electric BR_E69.name=BR E69
-entity.tc.Loco Electric VL10.name=VL10 (SU)
-entity.tc.Loco Diesel V60 DB.name=V60 (DB)
-entity.tc.Loco Diesel Shunter.name=Class 08 Shunter (UK)
-entity.tc.Loco Diesel SD70.name=SD70M (US)
-entity.tc.Loco Diesel SD40.name=SD40-2 (US)
-entity.tc.Loco Diesel GP7.name=GP7 (US)
-entity.tc.Loco Diesel ChME3.name=ChME3 (SU)
-entity.tc.Loco Diesel CD742.name=CD 742
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 entity.tc.Loco Diesel CD754.name=CD 754
-entity.tc.Loco Diesel KOF DB.name=Kof II (DB)
-entity.tc.Tender C62Class.name=C62 Class Tender (JNR)
-entity.tc.Tender D51.name=D51 Tender (JNR)
-entity.tc.Tender ER_USSR.name=USSR 0-5-0 Tender (SU)
-entity.tc.Tender BR01.name=BR01 Tender (DB)
-entity.tc.Tender 4-4-0.name=4-4-0 Tender(US)
-entity.tc.Tender Heavy.name=Heavy Tender
-entity.tc.Tender Small Black.name=Small Tender
-entity.tc.Tender Adler.name=Adler Tender
-entity.tc.Tank Wagon Yellow.name=Tank Wagon (SU)
-entity.tc.Tank Lava.name=Lava Tank Wagon
-entity.tc.Tank Wagon Grey.name=Tank Wagon
-entity.tc.Tank Wagon US.name=Tank Wagon (US)
-entity.tc.Tank Wagon DB.name=Tank Wagon (DB)
-entity.tc.Freight Trailer.name=Freight Trailer
-entity.tc.Freight Well Car.name=Freight Well Car
-entity.tc.Freight Center Beam Wood2.name=Freight Center Beam Wood
-entity.tc.Freight Center Beam Wood1.name=Freight Center Beam Wood
-entity.tc.Freight Center Beam Empty.name=Freight Center Beam
-entity.tc.Freight Gondola DB.name=Freight Gondola (DB)
-entity.tc.Freight Flat Cart Logs DB.name=Flat Car Logs (DB)
-entity.tc.Freight Flat Cart Rails DB.name=Flat Car Rails (DB)
-entity.tc.Freight Wagon DB.name=Freight Wagon (DB)
-entity.tc.Freight Open RedBrown.name=Freight Open Wagon
-entity.tc.Freight Cart Closed RedBrown.name=Freight Car Closed
-entity.tc.Freight Flat Logs.name=Flat Car Logs
-entity.tc.Freight Minecart Yellow.name=Minecart
-entity.tc.Freight Cart Small.name=Small Freight Car
-entity.tc.Freight Box Cart US.name=Box Car (US)
-entity.tc.Freight Cart US.name=Freight Car (US)
-entity.tc.Freight Flat Cart Wood US.name=Flat Car Wood (US)
-entity.tc.Freight Hopper US.name=Freight Hopper (US)
-entity.tc.Freight Open Wagon.name=Open Wagon
-entity.tc.Freight Hopper Green.name=Freight Hopper
-entity.tc.Freight Flat Cart Log.name=Flat Car Logs
-entity.tc.Freight Cart Yellow.name=Freight Car
-entity.tc.Freight Cart Red.name=Freight Wagon
-entity.tc.Flat Cart DB.name=Flat Car (DB)
-entity.tc.Tracks Builder.name=Tracks Builder
-entity.tc.Flat Cart US.name=Flat Car (US)
-entity.tc.Flat Cart SU.name=Flat Car (SU)
-entity.tc.JukeBox Cart.name=Jukebox Car
-entity.tc.Mail Wagon DB.name=Mail Wagon (DB)
-entity.tc.Caboose Logging.name=Caboose Logging Car
-entity.tc.Work Caboose.name=Work Caboose
-entity.tc.Flat Cart.name=Flat Car
-entity.tc.Work Cart Yellow.name=Work Car
-entity.tc.Stock Cart.name=Stock Car
-entity.tc.Caboose Black.name=Caboose
-entity.tc.Caboose Red.name=Caboose
-entity.tc.Passenger Tram NY.name=N.Y. Tram Passenger Car (US)
-entity.tc.Passenger High Speed Zero ED.name=High Speed Passenger Car
-entity.tc.Passenger 2Class DB.name=Passenger Second Class Car (DB)
-entity.tc.Passenger 1Class DB.name=Passenger First Class Car (DB)
-entity.tc.Passenger Short Green.name=Passenger Car
-entity.tc.Passenger Green Long.name=Passenger Car
-entity.tc.Passenger Small Black.name=Passenger Car
-entity.tc.Passenger Blue.name=Passenger Car
-entity.tc.Passenger Adler.name=Adler Passenger Car
-entity.tc.Passenger DB Oriental.name=Passenger Orient Express
-entity.tc.Loco Steam A4 Mallard.name=A4 Mallard
-entity.tc.Tender A4 Mallard.name=A4 Mallard Tender
-entity.tc.Passenger IC4 DSB FH.name=IC4 DSB FH Passenger
-entity.tc.Passenger IC4 DSB FG.name=IC4 DSB FG Passenger
-entity.tc.Loco Diesel IC4 DSB MG.name=IC4 DSB MG
-entity.tc.DRWG Stock Cart.name=Stock Car (D&RGW)
-entity.tc.Freight Box Cart PRR.name=PRR X31 Boxcar
-entity.tc.PRR Caboose Logging.name=PRR N5c
-entity.tc.Loco Steam Alice.name=0-4-0 Alice
-entity.tc.Loco Steam glyn.name=0-4-2 GLYN
-entity.tc.Loco Steam VB Shay.name=Class A Shay
-entity.tc.Loco Steam 262T.name=2-6-2T
-entity.tc.Freight GTNG Ore Wagon.name=Open Wagon (GTNG)
-entity.tc.Loco Steam Climax.name=4-0-4 Class B
-entity.tc.Loco Steam 040VB.name=0-4-0 Vertical Boiler
-entity.tc.Passenger GS4.name=Streamlined Passenger
-entity.tc.Passenger GS4 Observatory.name=Streamlined Tavern Car
-entity.tc.Freight Slate Wagon.name=Slate Wagon
-entity.tc.ICE Restaurant.name=ICB Restaurant
-entity.tc.Loco Electric ICE 1.name=ICB
-entity.tc.Loco Diesel MILW H10-44.name=FM H10-44
-entity.tc.Passenger ICE 2nd Class.name=ICB 2nd Class Passenger
-entity.tc.Freight Cart GS4 Baggage.name=Streamlined Combo Cart
-entity.tc.Tender GS4.name=GS4 Daylight Tender
-entity.tc.Loco Steam GS4.name=GS4 Daylight
-entity.tc.Passenger ICE 1st Class.name=ICB 1st Class Passenger
-entity.tc.Passenger GS4 Tail.name=Streamlined Passenger Tail
-entity.tc.Loco Diesel EMD F-7.name=EMD F7
-entity.tc.Loco Diesel EMD F-3.name=EMD F3
-entity.tc.EMD F7 B Unit.name=EMD F7 B-unit
-entity.tc.EMD F3 B Unit.name=EMD F3 B-unit
-entity.tc.Loco Electric BR 185.name=BR 185
-entity.tc.Loco Electric Class 85.name=Class 85
-entity.tc.Loco Electric EWS Class 66.name=Class 66
-entity.tc.Loco Diesel Deltic.name=Deltic
-entity.tc.Tender Coranation Class.name=Coronation Class Tender
-entity.tc.Loco Steam Coranation Class.name=Coronation Class
-entity.tc.Freight 100 Ton Hopper.name=100 Ton Hopper
-entity.tc.Freight Ice Wagon.name=Ice Wagon
-entity.tc.Loco Diesel DD35A.name=DD35
-entity.tc.DD35 B Unit.name=DD35 B-unit
-entity.tc.Propaganda USA.name=Propaganda cart (USA)
-entity.tc.Propaganda USSR.name=Propaganda cart (USSR)
-entity.tc.Propaganda Britain.name=Propaganda cart (Britain)
-entity.tc.Propaganda Japan.name=Propaganda cart (Japan)
-entity.tc.Loco Steam Snow Plow.name=Snow Plow
-entity.tc.Loco Steam C41.name=C41
-entity.tc.Loco Steam C41T.name=C41T
-entity.tc.Tender C41.name=C41 Tender
-entity.tc.Tank Wagon Three Dome.name=Three Dome Tanker
-entity.tc.GWR Toad Brake Van.name=GWR Toad Brake Van
-entity.tc.Loco Steam Pannier.name= 0-6-0 Pannier
-entity.tc.Denver Rio Grande Baggage.name=Denver Rio Grande Baggage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 entity.tc.Denver Rio Grande Combo.name=Denver Rio Grande Combo
 entity.tc.Denver Rio Grande Passenger.name=Denver Rio Grande Passenger
-entity.tc.GE 44-ton Diesel switcher.name=GE 44 Ton Switcher
-entity.tc.Heavyweight Freight Car.name=Heavyweight Mail Storage Car
-entity.tc.Rheingold Dining.name=Rheingold Dining
-entity.tc.Rheingold Dining Alternate.name=Rheingold Dining Alternate
-entity.tc.Passenger Rheingold.name=Rheingold Passenger
-entity.tc.Rheingold Panorama.name=Rheingold Panorama
-entity.tc.Freight Bulkhead Flat Cart.name=Bulkhead Flat Cart
-entity.tc.Loco Steam Southern 1102.name=Baldwin F-14
-entity.tc.Tender Southern1102.name=Baldwin F-14 Tender
-entity.tc.Loco Electric E10 DB.name=E10 (DB)
-entity.tc.Passenger MILW.name=Hiawatha 1935 MILW Passenger
-entity.tc.Passenger MILW Tail.name=Hiawatha 1935 MILW Beavertail
-entity.tc.MILW Baggage.name=Hiawatha 1935 MILW Baggage
-entity.tc.Loco Steam MILW Class A.name=Hiawatha 1935 Class A MILW
-entity.tc.Tender MILW.name=Tender MILW
-entity.tc.Loco Electric E103.name=E103
-entity.tc.Loco Electric CD151.name=CD 151
-entity.tc.Bamboo Flatcar Freight.name=Bamboo flatcar freight
-entity.tc.Bamboo Flatcar Engine.name=Bamboo flatcar engine
-entity.tc.Bamboo Flatcar Passenger.name=Bamboo flatcar passenger
-entity.tc.Freight Depressed Flatcar.name=Depressed Flatbed
-entity.tc.Freight German Post.name=German Mailcar
-entity.tc.Loco Steam LSSP7.name=LSSP 7
-entity.tc.Freight Short Covered Hopper.name=Short Closed Hopper
-entity.tc.Freight K Class Rail Box.name=K Class Rail Box
-entity.tc.Freight Long Covered Hopper.name=Long Closed Hopper
-entity.tc.Loco FOL M1.name=FOL M1
-entity.tc.Freight Heavyweight Baggage.name=Heavyweight Baggage
-entity.tc.Loco Diesel BP4.name=BP4
-entity.tc.Freight ASTF Autorack.name=ASTF ft-41 Auto Rack
-entity.tc.Loco Fowler.name=Fowler 4F
-entity.tc.Fowler 4F Tender.name=Fowler 4F Tender
-entity.tc.Loco Electric BP4.name=BP4
-entity.tc.Loco Berkshire 765.name=Berkshire 765
-entity.tc.Loco Steam USATCUK.name=S100 (UK)
-entity.tc.Loco Steam USATCUS.name=S100 (US)
-entity.tc.1225 tender.name=Berkshire 1225 Tender
-entity.tc.Loco Berkshire 1225.name=Berkshire 1225
 
-entity.tc.Loco Hall Class.name=Hall Class
-entity.tc.4000GallonTender.name=4000 Gallon Tender
-entity.tc.Loco King Class.name=King Class
-entity.tc.Loco WLs40.name=WLs40
-entity.tc.Freight Car L.name=Freight Car L
-entity.tc.Loco Steam C41 0-8-0.name=C41 0-8-0
-entity.tc.Loco Steam Alco SC4.name=Alco SC4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+entity.tc.Loco Diesel BP4.name=BP4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 entity.tc.BNLRV_A.name=BNLRV Powered End
 entity.tc.BNLRV_B.name=BNLRV Unpowered End
 entity.tc.Metro2000Passenger.name=Metro Madrid 2000 Tail
@@ -1186,7 +1186,7 @@ entity.tc.2TruckClimax.name=2 Truck Climax
 entity.tc.2TruckVerticalBoilerShay.name=2 Truck Class A Shay
 entity.tc.Freight Round Covered Hopper.name=Round Covered Hopper
 entity.tc.Freight Ribbed Covered Hopper.name=Ribbed Covered Hopper
-entity.tc.FOL-M1B.name=FOL-M1B
+
 entity.tc.BR07.name=BR Class 07 Shunter
 entity.tc.BR04.name=BR Class 04 Shunter
 entity.tc.Loco SM42.name=PKP SM42
@@ -1232,11 +1232,11 @@ entity.tc.Tender PETender.name=Polar Express Tender
 entity.tc.Loco Steam PELoco.name=Polar Express 1225
 entity.tc.GP38dash9W.name=MT&S GP38-9W
 entity.tc.Krautt.name=Krauss-Maffei ML-4000
-entity.tc.Passenger DB oriental.name=Passenger Oriental Express
+
 entity.tc.Class321Motor.name=Class 321 Panto Car
-entity.tc.Passenger Denver Rio Grande Combo.name=Denver Rio Grande Combo
-entity.tc.Passenger Denver Rio Grande.name=Denver Rio Grande Passenger
-entity.tc.Loco Steam Heavy.name=Heavy Steam Locomotive
+
+
+
 entity.tc.E8A.name=E8A
 entity.tc.PA1.name=Alco PA-1
 entity.tc.PB1.name=Alco PB-1

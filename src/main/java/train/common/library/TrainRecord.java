@@ -22,7 +22,6 @@ import java.util.Map;
 
 /**
  * <p>{@link #entryName} The stock's unique internal name
- * <p>{@link #internalName} TODO TO BE DEPRECATED, only used to match with .lang files
  * <p>{@link #entityClass} The broad entity class (ex. 'EntitySteamLocomotive', 'EntityTender')
  * <p>{@link #icon} The item icon for this this stock
  * <p>{@link #emeralds} How many emeralds this stock trades for with the trainstation merchant
@@ -68,7 +67,7 @@ public final class TrainRecord {
             }
 
             trains.get(record.entryName).type = record;
-            EntityRegistry.registerModEntity(record.getEntityClass(), record.internalName, trainID, Traincraft.instance, 512, 1, true);
+            EntityRegistry.registerModEntity(record.getEntityClass(), record.entryName, trainID, Traincraft.instance, 512, 1, true);
 
             record.item = new ItemRollingStock(trains.get(record.entryName), Info.modID.toLowerCase() + ":trains/" + record.icon, true);
             record.item.setUnlocalizedName(Info.modID + ":" + record.entryName);
@@ -77,7 +76,6 @@ public final class TrainRecord {
     }
 
     private String entryName;
-    private String internalName;
     private Class<AbstractTrains> entityClass;
     private String icon;
     private int emeralds;
@@ -105,7 +103,6 @@ public final class TrainRecord {
     private Item item;
 
     public String getName()                     { return entryName; }
-    public String getInternalName()             { return internalName; }
     public Class<AbstractTrains> getEntityClass() { return entityClass; }
     public int getEmeralds()                    { return emeralds; }
     public int getMHP()                         { return MHP; }
