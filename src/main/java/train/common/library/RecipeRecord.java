@@ -4,14 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import org.apache.commons.lang3.ArrayUtils;
 import train.common.Traincraft;
 import train.common.core.handlers.ConfigHandler;
-import train.common.core.managers.TierRecipeManager;
 import train.common.inventory.TrainCraftingManager;
+import train.common.recipes.RecipesArmorDyes;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -26,6 +25,18 @@ public final class RecipeRecord {
 
     public static void init() {
 
+        /* Paintable TC armors in Workbench */
+        TrainCraftingManager.instance.getRecipeList().add(new RecipesArmorDyes());
+
+        /* OpenHearthFurnace recipes */
+        if (!ConfigHandler.MAKE_MODPACKS_GREAT_AGAIN) {
+            TrainCraftingManager.instance.addHearthFurnaceRecipe(OreDictionary.getOres("ingotIron").get(0), new ItemStack(ItemIDs.graphite.item), OreDictionary.getOres("ingotSteel").get(0), 2F, 1000);
+        }
+
+        /* Vanilla Furnace recipes */
+        GameRegistry.addSmelting(new ItemStack(Item.getItemFromBlock(BlockIDs.oreTC.block), 0), OreDictionary.getOres("ingotCopper").get(0), 0.7f);
+
+        /* Everything else */
         InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream("assets/tc/data/RecipeRecords.json");
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
 
@@ -53,8 +64,8 @@ public final class RecipeRecord {
                  * Builds up an Object[] in the format used by the minecraft crafting table.
                  * Empty lines are pruned to reduce the crafting area (ex. for slabs). The crafting table seems to handle itself recipe widths, so we don't change that.
                  * One difference is we don't remove duplicates, so every item gets assigned a unique character.
-                 * Example shaped output:       new Object[] { "A  ", " B ", "  C", 'A', stackA, 'B', stackB, 'C', stackC };
-                 * Example shapeless output:    new Object[] { stackA, stackB, stackC };
+                 * Example shaped inputs:       new Object[] { "A  ", " B ", "  C", 'A', stackA, 'B', stackB, 'C', stackC };
+                 * Example shapeless inputs:    new Object[] { stackA, stackB, stackC };
                  **/
 
                 if (record.shape.equals("shaped")) {

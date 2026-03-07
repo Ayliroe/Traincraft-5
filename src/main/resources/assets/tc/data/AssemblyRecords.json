@@ -30,7 +30,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoCherepanov",
+      "tc:locoSteamCherepanov",
       1
     ]
   },
@@ -65,7 +65,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartWork",
+      "tc:workCart",
       1
     ]
   },
@@ -94,7 +94,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTender",
+      "tc:tenderSmall",
       1
     ]
   },
@@ -126,7 +126,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartWatertransp",
+      "tc:tankCartLava",
       1
     ]
   },
@@ -170,7 +170,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoBR80_DB",
+      "tc:locoSteamBR80",
       1
     ]
   },
@@ -211,7 +211,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoSteamShay",
+      "tc:locoSteamShay",
       1
     ]
   },
@@ -240,7 +240,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartSlateWagon",
+      "tc:slateWagon",
       1
     ]
   },
@@ -281,7 +281,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoAlcoSC4",
+      "tc:locoSteamAlcoSc4",
       1
     ]
   },
@@ -322,7 +322,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoC41",
+      "tc:locoSteamC41",
       1
     ]
   },
@@ -363,7 +363,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoC41_080",
+      "tc:locoSteamC41_080",
       1
     ]
   },
@@ -404,7 +404,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoC41T",
+      "tc:locoSteamC41T",
       1
     ]
   },
@@ -436,7 +436,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTenderC41",
+      "tc:tender_C41",
       1
     ]
   },
@@ -477,7 +477,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoSouthern1102",
+      "tc:locoSteamSouthern1102",
       1
     ]
   },
@@ -521,7 +521,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoUSATCUS",
+      "tc:locoSteamUSATCUS",
       1
     ]
   },
@@ -565,7 +565,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoUSATCUK",
+      "tc:locoSteamUSATCUK",
       1
     ]
   },
@@ -597,7 +597,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTenderSouthern1102",
+      "tc:tender_Southern1102",
       1
     ]
   },
@@ -626,7 +626,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartIceWagon",
+      "tc:iceWagon",
       1
     ]
   },
@@ -658,7 +658,7 @@
       1
     ],
     "output": [
-      "tc:minecartSteamRedTender",
+      "tc:tender4_4_0",
       1
     ]
   },
@@ -702,7 +702,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoForneyRed",
+      "tc:locoSteamForney",
       1
     ]
   },
@@ -743,7 +743,7 @@
       1
     ],
     "output": [
-      "tc:minecartPower",
+      "tc:locoSteam4_4_0",
       1
     ]
   },
@@ -778,7 +778,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoSnowPlow",
+      "tc:locoSteamSnowPlow",
       1
     ]
   },
@@ -822,7 +822,7 @@
       1
     ],
     "output": [
-      "tc:minecartLoco3",
+      "tc:locoSteamSmall",
       1
     ]
   },
@@ -854,7 +854,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoLSSP7",
+      "tc:locoSteamLSSP7",
       1
     ]
   },
@@ -886,7 +886,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartWood",
+      "tc:freightWood",
       1
     ]
   },
@@ -930,7 +930,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoSteamAdler",
+      "tc:locoSteamAdler",
       1
     ]
   },
@@ -965,7 +965,7 @@
       1
     ],
     "output": [
-      "tc:minecartTenderAdler",
+      "tc:tenderAdler",
       1
     ]
   },
@@ -1003,7 +1003,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerAdler",
+      "tc:passengerAdler",
       1
     ]
   },
@@ -1038,7 +1038,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartPassenger2",
+      "tc:passengerCartBlackSmall",
       1
     ]
   },
@@ -1073,7 +1073,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartCaboose",
+      "tc:cabooseRed",
       1
     ]
   },
@@ -1105,7 +1105,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightCartSmall",
+      "tc:freightCartSmall",
       1
     ]
   },
@@ -1134,7 +1134,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartFlatCart",
+      "tc:flatCart",
       1
     ]
   },
@@ -1166,7 +1166,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartChest",
+      "tc:freightCartYellow",
       1
     ]
   },
@@ -1198,7 +1198,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightCart2",
+      "tc:freightCartRed",
       1
     ]
   },
@@ -1230,7 +1230,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightCartUS",
+      "tc:freightCartUS",
       1
     ]
   },
@@ -1262,7 +1262,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightClosed",
+      "tc:freightClosedRedBrown",
       1
     ]
   },
@@ -1294,7 +1294,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightOpen2",
+      "tc:freightOpenRedBrown",
       1
     ]
   },
@@ -1329,7 +1329,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartCaboose3",
+      "tc:cabooseBlack",
       1
     ]
   },
@@ -1364,7 +1364,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartPassenger7",
+      "tc:passengerShortGreen",
       1
     ]
   },
@@ -1405,7 +1405,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTramWood",
+      "tc:locoElectricTramYellow",
       1
     ]
   },
@@ -1440,7 +1440,7 @@
       1
     ],
     "output": [
-      "tc:minecartCabooseLogging",
+      "tc:cabooseLogging",
       1
     ]
   },
@@ -1475,7 +1475,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartGWRBrakeVan",
+      "tc:GWRBrakeVan",
       1
     ]
   },
@@ -1516,7 +1516,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoSteamVBShay",
+      "tc:locoSteamVBShay",
       1
     ]
   },
@@ -1551,7 +1551,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoSteamAlice",
+      "tc:locoSteamAlice",
       1
     ]
   },
@@ -1586,7 +1586,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoSteam040vb",
+      "tc:locoSteam040VB",
       1
     ]
   },
@@ -1615,7 +1615,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartPropagandaUs",
+      "tc:propagandaUs",
       1
     ]
   },
@@ -1644,7 +1644,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartPropagandaUSSR",
+      "tc:propagandaUSSR",
       1
     ]
   },
@@ -1673,7 +1673,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartPropagandaBritish",
+      "tc:propagandaBritain",
       1
     ]
   },
@@ -1702,7 +1702,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartPropagandaJapan",
+      "tc:propagandaJapan",
       1
     ]
   },
@@ -1737,7 +1737,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoSteamGLYN",
+      "tc:locoSteamGLYN",
       1
     ]
   },
@@ -1772,7 +1772,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoSteam262T",
+      "tc:locoSteam262T",
       1
     ]
   },
@@ -1807,7 +1807,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoSteamClimax",
+      "tc:locoSteamClimax",
       1
     ]
   },
@@ -1830,7 +1830,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartPassengerBamboo",
+      "tc:passengerBamboo",
       1
     ]
   },
@@ -1856,7 +1856,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightBamboo",
+      "tc:freightCartBamboo",
       1
     ]
   },
@@ -1882,7 +1882,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartTrainBamboo",
+      "tc:locoDieselBamboo",
       1
     ]
   },
@@ -1914,7 +1914,7 @@
       1
     ],
     "output": [
-      "tc:minecartDenverRioGrandeBaggage",
+      "tc:freightDenverRioGrange",
       1
     ]
   },
@@ -1949,7 +1949,7 @@
       1
     ],
     "output": [
-      "tc:minecartDenverRioGrandeCombo",
+      "tc:passengerDenverRioGrandeCombo",
       1
     ]
   },
@@ -1981,7 +1981,7 @@
       1
     ],
     "output": [
-      "tc:minecartDenverRioGrandePassenger",
+      "tc:passengerDenverRioGrange",
       1
     ]
   },
@@ -2016,7 +2016,7 @@
       1
     ],
     "output": [
-      "tc:minecartMineTrain",
+      "tc:freightMinetrain",
       1
     ]
   },
@@ -2060,7 +2060,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoMineTrain",
+      "tc:locoElectricMineTrain",
       1
     ]
   },
@@ -2095,7 +2095,7 @@
       1
     ],
     "output": [
-      "tc:minecartTankWagon",
+      "tc:tankWagonYellow",
       1
     ]
   },
@@ -2136,7 +2136,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoHallClass",
+      "tc:locosteamHallClass",
       1
     ]
   },
@@ -2177,7 +2177,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoKingClass",
+      "tc:locosteamKingClass",
       1
     ]
   },
@@ -2224,7 +2224,7 @@
       1
     ],
     "output": [
-      "tc:minecartChmE3",
+      "tc:locoDieselChME3",
       1
     ]
   },
@@ -2259,7 +2259,7 @@
       1
     ],
     "output": [
-      "tc:minecartGrain",
+      "tc:freightHopper",
       1
     ]
   },
@@ -2297,7 +2297,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassenger9_2class_DB",
+      "tc:passenger_2class_DB",
       1
     ]
   },
@@ -2335,7 +2335,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassenger5",
+      "tc:passengerLongGreen",
       1
     ]
   },
@@ -2370,7 +2370,7 @@
       1
     ],
     "output": [
-      "tc:minecartTankWagonThreeDome",
+      "tc:tankThreeDome",
       1
     ]
   },
@@ -2411,7 +2411,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoSteamPannier",
+      "tc:locoSteamPannier",
       1
     ]
   },
@@ -2455,7 +2455,7 @@
       1
     ],
     "output": [
-      "tc:minecartShunter",
+      "tc:locoDieselShunter",
       1
     ]
   },
@@ -2496,7 +2496,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocomogulBlue",
+      "tc:locoSteamMogul",
       1
     ]
   },
@@ -2543,7 +2543,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoEWSClass66",
+      "tc:locoDieselEWSClass66",
       1
     ]
   },
@@ -2587,7 +2587,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoCD151",
+      "tc:locoElectricCD151",
       1
     ]
   },
@@ -2634,7 +2634,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoDeltic",
+      "tc:locoDieselDeltic",
       1
     ]
   },
@@ -2669,7 +2669,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLoco44TonSwitcher",
+      "tc:locoDiesel44TonSwitcher",
       1
     ]
   },
@@ -2704,7 +2704,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoWLs40",
+      "tc:locoDieselWLs40",
       1
     ]
   },
@@ -2751,7 +2751,7 @@
       1
     ],
     "output": [
-      "tc:minecartCD742",
+      "tc:locoDieselGP40",
       1
     ]
   },
@@ -2798,7 +2798,7 @@
       1
     ],
     "output": [
-      "tc:minecartGP7Red",
+      "tc:locoDieselGP7Red",
       1
     ]
   },
@@ -2833,7 +2833,7 @@
       1
     ],
     "output": [
-      "tc:minecartTenderBR01_DB",
+      "tc:tenderBR01",
       1
     ]
   },
@@ -2874,7 +2874,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoCoranationClass",
+      "tc:locoSteamCoranationClass",
       1
     ]
   },
@@ -2915,7 +2915,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoBerk1225",
+      "tc:locosteamBerk1225",
       1
     ]
   },
@@ -2956,7 +2956,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoBerk765",
+      "tc:locosteamBerk765",
       1
     ]
   },
@@ -2997,7 +2997,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoFowler",
+      "tc:locosteamFowler",
       1
     ]
   },
@@ -3029,7 +3029,7 @@
       1
     ],
     "output": [
-      "tc:minecarttenderBerk1225",
+      "tc:Model225Tender",
       1
     ]
   },
@@ -3061,7 +3061,7 @@
       1
     ],
     "output": [
-      "tc:minecartFowler4FTender",
+      "tc:ModelFowler4FTender",
       1
     ]
   },
@@ -3105,7 +3105,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartMILW_H1044",
+      "tc:locoDieselMILW_H1044",
       1
     ]
   },
@@ -3143,7 +3143,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoBR01_DB",
+      "tc:locoSteamBR01_DB",
       1
     ]
   },
@@ -3184,7 +3184,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoC62Class",
+      "tc:locoSteamC62Class",
       1
     ]
   },
@@ -3225,7 +3225,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoD51Short",
+      "tc:locoSteamD51Short",
       1
     ]
   },
@@ -3266,7 +3266,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoD51Long",
+      "tc:locoSteamD51Long",
       1
     ]
   },
@@ -3298,7 +3298,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTenderD51",
+      "tc:tenderD51",
       1
     ]
   },
@@ -3336,7 +3336,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartHeavySteam",
+      "tc:locoHeavySteam",
       1
     ]
   },
@@ -3377,7 +3377,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartBuilder",
+      "tc:tracksBuilder",
       1
     ]
   },
@@ -3406,7 +3406,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartFlatCartSU",
+      "tc:flatCartSU",
       1
     ]
   },
@@ -3441,7 +3441,7 @@
       1
     ],
     "output": [
-      "tc:minecartTankWagon2",
+      "tc:tankWagonGrey",
       1
     ]
   },
@@ -3473,7 +3473,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartBoxCartUS",
+      "tc:freightBoxCartUS",
       1
     ]
   },
@@ -3505,7 +3505,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartBoxCartPRR",
+      "tc:freightBoxCartPRR",
       1
     ]
   },
@@ -3537,7 +3537,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightL",
+      "tc:freightCarL",
       1
     ]
   },
@@ -3569,7 +3569,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightHopperUS",
+      "tc:freightHopperUS",
       1
     ]
   },
@@ -3601,7 +3601,7 @@
       1
     ],
     "output": [
-      "tc:minecartShortCoveredHopper",
+      "tc:freightShortCoveredHopper",
       1
     ]
   },
@@ -3633,7 +3633,7 @@
       1
     ],
     "output": [
-      "tc:minecartLongCoveredHopper",
+      "tc:freightLongCoveredHopper",
       1
     ]
   },
@@ -3665,7 +3665,7 @@
       1
     ],
     "output": [
-      "tc:minecartKClassRailBox",
+      "tc:freightKClassRailBox",
       1
     ]
   },
@@ -3697,7 +3697,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreight100TonHopper",
+      "tc:freight100TonHopper",
       1
     ]
   },
@@ -3729,7 +3729,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTankWagonUS",
+      "tc:tankWagonUS",
       1
     ]
   },
@@ -3761,7 +3761,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTenderC62Class",
+      "tc:tenderC62Class",
       1
     ]
   },
@@ -3799,7 +3799,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassenger8_1class_DB",
+      "tc:passenger_1class_DB",
       1
     ]
   },
@@ -3831,7 +3831,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightWagon_DB",
+      "tc:freightWagen_DB",
       1
     ]
   },
@@ -3863,7 +3863,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartMailWagon_DB",
+      "tc:mailWagen_DB",
       1
     ]
   },
@@ -3901,7 +3901,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoEr",
+      "tc:locoSteamEr_USSR",
       1
     ]
   },
@@ -3933,7 +3933,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTenderEr",
+      "tc:tenderEr_Ussr",
       1
     ]
   },
@@ -3965,7 +3965,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoCoranationClassTender",
+      "tc:tenderCoranationClass",
       1
     ]
   },
@@ -3997,7 +3997,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecart4000GallonTender",
+      "tc:Model4000GallonTender",
       1
     ]
   },
@@ -4029,7 +4029,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartTenderHeavy",
+      "tc:tenderHeavy",
       1
     ]
   },
@@ -4070,7 +4070,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartNYTram",
+      "tc:locoElectricTramNY",
       1
     ]
   },
@@ -4099,7 +4099,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartPassengerTramNY",
+      "tc:passengerTramNY",
       1
     ]
   },
@@ -4137,7 +4137,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartLocoA4Mallard",
+      "tc:locoSteamA4",
       1
     ]
   },
@@ -4166,7 +4166,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoA4MallardTender",
+      "tc:tenderA4",
       1
     ]
   },
@@ -4198,7 +4198,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightWood2",
+      "tc:flatCartWoodLogs",
       1
     ]
   },
@@ -4230,7 +4230,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightCenterBeam_Wood_1",
+      "tc:freightCenterBeam_Wood1",
       1
     ]
   },
@@ -4259,7 +4259,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartFlatCartWoodUS",
+      "tc:flatCartWoodUS",
       1
     ]
   },
@@ -4291,7 +4291,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightCenterBeam_Wood_2",
+      "tc:freightCenterBeam_Wood2",
       1
     ]
   },
@@ -4323,7 +4323,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightCenterBeam_Empty",
+      "tc:freightCenterBeam_Empty",
       1
     ]
   },
@@ -4358,7 +4358,7 @@
       1
     ],
     "output": [
-      "tc:minecartCabooseWork",
+      "tc:workCaboose",
       1
     ]
   },
@@ -4393,7 +4393,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartPassengerDBOriental",
+      "tc:passengerDBOriental",
       1
     ]
   },
@@ -4425,7 +4425,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartStockCar",
+      "tc:stockCar",
       1
     ]
   },
@@ -4457,7 +4457,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartDRWGStockCar",
+      "tc:drwgStockCar",
       1
     ]
   },
@@ -4486,7 +4486,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartFlatCartUS",
+      "tc:flatCartUS",
       1
     ]
   },
@@ -4530,7 +4530,7 @@
       1
     ],
     "output": [
-      "tc:minecartKof_DB",
+      "tc:locoDieselKOF",
       1
     ]
   },
@@ -4571,7 +4571,7 @@
       1
     ],
     "output": [
-      "tc:minecartV60_DB",
+      "tc:locoDieselV60_DB",
       1
     ]
   },
@@ -4618,7 +4618,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoSD40",
+      "tc:locoDieselSD40",
       1
     ]
   },
@@ -4653,7 +4653,7 @@
       1
     ],
     "output": [
-      "tc:minecartFreightWellcar",
+      "tc:freightWellcar",
       1
     ]
   },
@@ -4694,7 +4694,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoBR185",
+      "tc:locoElectricBR185",
       1
     ]
   },
@@ -4729,7 +4729,7 @@
       1
     ],
     "output": [
-      "tc:minecartCabooseLoggingPRR",
+      "tc:cabooseLoggingPRR",
       1
     ]
   },
@@ -4764,7 +4764,7 @@
       1
     ],
     "output": [
-      "tc:minecartHeavyweightMailcar",
+      "tc:freightheavyweight",
       1
     ]
   },
@@ -4799,7 +4799,7 @@
       1
     ],
     "output": [
-      "tc:minecartHeavyweightFreight",
+      "tc:freightHeavyweight",
       1
     ]
   },
@@ -4840,7 +4840,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoHighSpeedZeroED",
+      "tc:locoElectricSpeedZeroED",
       1
     ]
   },
@@ -4875,7 +4875,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartPassengerHighSpeedCarZeroED",
+      "tc:passengerHighSpeedZeroED",
       1
     ]
   },
@@ -4907,7 +4907,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Passenger",
+      "tc:passengerGS4",
       1
     ]
   },
@@ -4939,7 +4939,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Passenger",
+      "tc:passengerGS4",
       1
     ]
   },
@@ -4971,7 +4971,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Tail",
+      "tc:passengerGS4_Tail",
       1
     ]
   },
@@ -5003,7 +5003,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Tail",
+      "tc:passengerGS4_Tail",
       1
     ]
   },
@@ -5038,7 +5038,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Observatory",
+      "tc:passengerGS4Observatory",
       1
     ]
   },
@@ -5067,7 +5067,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Tender",
+      "tc:tenderGS4",
       1
     ]
   },
@@ -5096,7 +5096,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Baggage",
+      "tc:freightCartGS4",
       1
     ]
   },
@@ -5134,7 +5134,7 @@
       1
     ],
     "output": [
-      "tc:minecartGS4_Loco",
+      "tc:locoSteamGS4",
       1
     ]
   },
@@ -5166,7 +5166,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerMILW",
+      "tc:passengerMILW",
       1
     ]
   },
@@ -5198,7 +5198,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerMILWTail",
+      "tc:passengerMILWTail",
       1
     ]
   },
@@ -5227,7 +5227,7 @@
       1
     ],
     "output": [
-      "tc:minecartMILWTender",
+      "tc:tender_MILW",
       1
     ]
   },
@@ -5256,7 +5256,7 @@
       1
     ],
     "output": [
-      "tc:minecartBaggageMILW",
+      "tc:freightMILWBaggage",
       1
     ]
   },
@@ -5294,7 +5294,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoMILWClassA",
+      "tc:locoSteamMILW",
       1
     ]
   },
@@ -5338,7 +5338,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoDD35B",
+      "tc:BUnitDD35",
       1
     ]
   },
@@ -5385,7 +5385,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoDD35A",
+      "tc:locoDieselDD35A",
       1
     ]
   },
@@ -5426,7 +5426,7 @@
       1
     ],
     "output": [
-      "tc:minecartICE1_Loco",
+      "tc:locoElectricICE1",
       1
     ]
   },
@@ -5458,7 +5458,7 @@
       1
     ],
     "output": [
-      "tc:minecartICE1_1stClass",
+      "tc:passengerICE1_Class1",
       1
     ]
   },
@@ -5490,7 +5490,7 @@
       1
     ],
     "output": [
-      "tc:minecartICE1_2ndClass",
+      "tc:passengerICE1_Class2",
       1
     ]
   },
@@ -5522,7 +5522,7 @@
       1
     ],
     "output": [
-      "tc:minecartICE1_Restaurant",
+      "tc:passengerICE1_Restaurant",
       1
     ]
   },
@@ -5560,7 +5560,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoEMDF7",
+      "tc:locoDieselEMDF7",
       1
     ]
   },
@@ -5598,7 +5598,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoEMDF3",
+      "tc:locoDieselEMDF3",
       1
     ]
   },
@@ -5630,7 +5630,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoEMDF7B",
+      "tc:BUnitEMDF7",
       1
     ]
   },
@@ -5662,7 +5662,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoEMDF3B",
+      "tc:BUnitEMDF3",
       1
     ]
   },
@@ -5703,7 +5703,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartLocoFOLM1",
+      "tc:locoDieselFOL_M1",
       1
     ]
   },
@@ -5738,7 +5738,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFOLM1B",
+      "tc:FOLM1B",
       1
     ]
   },
@@ -5785,7 +5785,7 @@
       1
     ],
     "output": [
-      "tc:minecartVL10",
+      "tc:locoElectricVL10",
       1
     ]
   },
@@ -5832,7 +5832,7 @@
       1
     ],
     "output": [
-      "tc:minecartBR_E69",
+      "tc:locoElectricBR_E69",
       1
     ]
   },
@@ -5879,7 +5879,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoSD70",
+      "tc:locoDieselSD70",
       1
     ]
   },
@@ -5923,7 +5923,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoBP4",
+      "tc:locoElectricBP4",
       1
     ]
   },
@@ -5955,7 +5955,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartOpenWagon",
+      "tc:freightOpenWagon",
       1
     ]
   },
@@ -5987,7 +5987,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightGTNG",
+      "tc:freightGTNG",
       1
     ]
   },
@@ -6019,7 +6019,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartJukeBoxCart",
+      "tc:jukeBoxCart",
       1
     ]
   },
@@ -6063,7 +6063,7 @@
       1
     ],
     "output": [
-      "tc:minecartE103",
+      "tc:locoDieselE103",
       1
     ]
   },
@@ -6107,7 +6107,7 @@
       1
     ],
     "output": [
-      "tc:minecartE10_DB",
+      "tc:locoDieselE10lDB",
       1
     ]
   },
@@ -6139,7 +6139,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerRheingold",
+      "tc:passengerRheingold",
       1
     ]
   },
@@ -6174,7 +6174,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerRheingoldPanorama",
+      "tc:passengerRheingoldPanorama",
       1
     ]
   },
@@ -6206,7 +6206,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerRheingoldDining1",
+      "tc:passengerRheingoldDining1",
       1
     ]
   },
@@ -6238,7 +6238,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerRheingoldDining2",
+      "tc:passengerRheingoldDining2",
       1
     ]
   },
@@ -6276,7 +6276,7 @@
       1
     ],
     "output": [
-      "tc:minecartPassengerBlue",
+      "tc:passengerCartBlue",
       1
     ]
   },
@@ -6311,7 +6311,7 @@
       1
     ],
     "output": [
-      "tc:minecartTankWagon_DB",
+      "tc:tankWagon_DB",
       1
     ]
   },
@@ -6358,7 +6358,7 @@
       1
     ],
     "output": [
-      "tc:minecartLocoClass85",
+      "tc:locoElectricClass85",
       1
     ]
   },
@@ -6390,7 +6390,7 @@
       1
     ],
     "output": [
-      "tc:minecartFreightGermanPost",
+      "tc:freightGermanPost",
       1
     ]
   },
@@ -6422,7 +6422,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFlatCartRail_DB",
+      "tc:flatCarRails_DB",
       1
     ]
   },
@@ -6451,7 +6451,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartFlatCart_DB",
+      "tc:flatCar_DB",
       1
     ]
   },
@@ -6480,7 +6480,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartBulkheadFlatCart",
+      "tc:bulkheadFlatCartWood",
       1
     ]
   },
@@ -6509,7 +6509,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartFreightDepressedFlatbed",
+      "tc:freightDepressedFlatbed",
       1
     ]
   },
@@ -6541,7 +6541,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFreightGondola_DB",
+      "tc:freightGondola_DB",
       1
     ]
   },
@@ -6570,7 +6570,7 @@
     "additional": [],
     "dye": [],
     "output": [
-      "tc:minecartASTFAutorack",
+      "tc:ASTFAutorack",
       1
     ]
   },
@@ -6605,7 +6605,7 @@
       1
     ],
     "output": [
-      "tc:minecartFreightTrailer",
+      "tc:freightTrailer",
       1
     ]
   },
@@ -6637,7 +6637,7 @@
     ],
     "dye": [],
     "output": [
-      "tc:minecartFlatCartLogs_DB",
+      "tc:flatCarLogs_DB",
       1
     ]
   }

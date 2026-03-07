@@ -49,39 +49,39 @@
     "name": "builder",
     "column": 7,
     "row": 6,
-    "stack": "tc:minecartBuilder",
+    "stack": "tc:tracksBuilder",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartBuilder"
+      "tc:tracksBuilder"
     ]
   },
   {
     "name": "cherepanov",
     "column": 5,
     "row": 10,
-    "stack": "tc:minecartLocoCherepanov",
+    "stack": "tc:locoSteamCherepanov",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartLocoCherepanov"
+      "tc:locoSteamCherepanov"
     ]
   },
   {
     "name": "dieselLoco",
     "column": -6,
     "row": 6,
-    "stack": "tc:minecartCD742",
+    "stack": "tc:locoDieselGP40",
     "parent": "dieselEngine",
     "special": "FALSE",
     "items": [
-      "tc:minecartGP7Red",
-      "tc:minecartShunter",
-      "tc:minecartChmE3",
-      "tc:minecartCD742",
-      "tc:minecartKof_DB",
-      "tc:minecartLocoSD70",
-      "tc:minecartV60_DB"
+      "tc:locoDieselGP7Red",
+      "tc:locoDieselShunter",
+      "tc:locoDieselChME3",
+      "tc:locoDieselGP40",
+      "tc:locoDieselKOF",
+      "tc:locoDieselSD70",
+      "tc:locoDieselV60_DB"
     ]
   },
   {
@@ -145,12 +145,12 @@
     "name": "fast",
     "column": -8,
     "row": 10,
-    "stack": "tc:minecartVL10",
+    "stack": "tc:locoElectricVL10",
     "parent": "electMotor",
     "special": "FALSE",
     "items": [
-      "tc:minecartVL10",
-      "tc:minecartBR_E69"
+      "tc:locoElectricVL10",
+      "tc:locoElectricBR_E69"
     ]
   },
   {
@@ -180,48 +180,48 @@
     "name": "flatCart",
     "column": 5,
     "row": 14,
-    "stack": "tc:minecartFlatCartRail_DB",
+    "stack": "tc:flatCarRails_DB",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartFlatCart",
-      "tc:minecartFlatCart_DB",
-      "tc:minecartFlatCartLogs_DB",
-      "tc:minecartFlatCartRail_DB",
-      "tc:minecartFlatCartSU",
-      "tc:minecartFlatCartUS",
-      "tc:minecartFlatCartWoodUS"
+      "tc:flatCart",
+      "tc:flatCar_DB",
+      "tc:flatCarLogs_DB",
+      "tc:flatCarRails_DB",
+      "tc:flatCartSU",
+      "tc:flatCartUS",
+      "tc:flatCartWoodUS"
     ]
   },
   {
     "name": "freight",
     "column": 7,
     "row": 2,
-    "stack": "tc:minecartChest",
+    "stack": "tc:freightCartYellow",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartChest",
-      "tc:minecartGrain",
-      "tc:minecartWood",
-      "tc:minecartFreightCart2",
-      "tc:minecartOpenWagon",
-      "tc:minecartBoxCartUS",
-      "tc:minecartFreightCartSmall",
-      "tc:minecartFreightCartUS",
-      "tc:minecartFreightCenterBeam_Empty",
-      "tc:minecartFreightCenterBeam_Wood_1",
-      "tc:minecartFreightCenterBeam_Wood_2",
-      "tc:minecartFreightClosed",
-      "tc:minecartFreightClosed",
-      "tc:minecartFreightGondola_DB",
-      "tc:minecartFreightHopperUS",
-      "tc:minecartFreightOpen2",
-      "tc:minecartFreightTrailer",
-      "tc:minecartFreightWagon_DB",
-      "tc:minecartFreightWellcar",
-      "tc:minecartFreightWood2",
-      "tc:minecartOpenWagon"
+      "tc:freightCartYellow",
+      "tc:freightHopper",
+      "tc:freightWood",
+      "tc:freightCartRed",
+      "tc:freightOpenWagon",
+      "tc:freightBoxCartUS",
+      "tc:freightCartSmall",
+      "tc:freightCartUS",
+      "tc:freightCenterBeam_Empty",
+      "tc:freightCenterBeam_Wood1",
+      "tc:freightCenterBeam_Wood2",
+      "tc:freightClosedRedBrown",
+      "tc:freightClosedRedBrown",
+      "tc:freightGondola_DB",
+      "tc:freightHopperUS",
+      "tc:freightOpenRedBrown",
+      "tc:freightTrailer",
+      "tc:freightWagen_DB",
+      "tc:freightWellcar",
+      "tc:flatCartWoodLogs",
+      "tc:freightOpenWagon"
     ]
   },
   {
@@ -255,71 +255,71 @@
     "name": "liquid",
     "column": 5,
     "row": 4,
-    "stack": "tc:minecartWatertransp",
+    "stack": "tc:tankCartLava",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartWatertransp",
-      "tc:minecartTankWagon",
-      "tc:minecartTankWagon2",
-      "tc:minecartTankWagon_DB",
-      "tc:minecartTankWagonUS"
+      "tc:tankCartLava",
+      "tc:tankWagonYellow",
+      "tc:tankWagonGrey",
+      "tc:tankWagon_DB",
+      "tc:tankWagonUS"
     ]
   },
   {
     "name": "mail",
     "column": 7,
     "row": 10,
-    "stack": "tc:minecartMailWagon_DB",
+    "stack": "tc:mailWagen_DB",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartMailWagon_DB"
+      "tc:mailWagen_DB"
     ]
   },
   {
     "name": "minetrain",
     "column": 7,
     "row": 8,
-    "stack": "tc:minecartMineTrain",
+    "stack": "tc:freightMinetrain",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartLocoMineTrain"
+      "tc:locoElectricMineTrain"
     ]
   },
   {
     "name": "normalSteam",
     "column": 0,
     "row": 6,
-    "stack": "tc:minecartPower",
+    "stack": "tc:locoSteam4_4_0",
     "parent": "firebox",
     "special": "FALSE",
     "items": [
-      "tc:minecartPower",
-      "tc:minecartLocoBR01_DB",
-      "tc:minecartLocoBR80_DB",
-      "tc:minecartLocoEr",
-      "tc:minecartLocoForneyRed",
-      "tc:minecartLocomogulBlue"
+      "tc:locoSteam4_4_0",
+      "tc:locoSteamBR01_DB",
+      "tc:locoSteamBR80",
+      "tc:locoSteamEr_USSR",
+      "tc:locoSteamForney",
+      "tc:locoSteamMogul"
     ]
   },
   {
     "name": "passenger",
     "column": 5,
     "row": 2,
-    "stack": "tc:minecartPassenger2",
+    "stack": "tc:passengerCartBlackSmall",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartPassenger5",
-      "tc:minecartPassengerBlue",
-      "tc:minecartPassenger2",
-      "tc:minecartCaboose",
-      "tc:minecartCaboose3",
-      "tc:minecartPassenger7",
-      "tc:minecartPassenger8_1class_DB",
-      "tc:minecartPassenger9_2class_DB"
+      "tc:passengerLongGreen",
+      "tc:passengerCartBlue",
+      "tc:passengerCartBlackSmall",
+      "tc:cabooseRed",
+      "tc:cabooseBlack",
+      "tc:passengerShortGreen",
+      "tc:passenger_1class_DB",
+      "tc:passenger_2class_DB"
     ]
   },
   {
@@ -337,11 +337,11 @@
     "name": "smallSteam",
     "column": -2,
     "row": 6,
-    "stack": "tc:minecartLoco3",
+    "stack": "tc:locoSteamSmall",
     "parent": "firebox",
     "special": "FALSE",
     "items": [
-      "tc:minecartLoco3"
+      "tc:locoSteamSmall"
     ]
   },
   {
@@ -386,38 +386,38 @@
     "name": "stockcar",
     "column": 5,
     "row": 12,
-    "stack": "tc:minecartStockCar",
+    "stack": "tc:stockCar",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartStockCar",
-      "tc:minecartDRWGStockCar"
+      "tc:stockCar",
+      "tc:drwgStockCar"
     ]
   },
   {
     "name": "tender",
     "column": 7,
     "row": 4,
-    "stack": "tc:minecartTender",
+    "stack": "tc:tenderSmall",
     "parent": "assemblyTable",
     "special": "FALSE",
     "items": [
-      "tc:minecartTender",
-      "tc:minecartTenderBR01_DB",
-      "tc:minecartTenderEr",
-      "tc:minecartSteamRedTender"
+      "tc:tenderSmall",
+      "tc:tenderBR01",
+      "tc:tenderEr_Ussr",
+      "tc:tender4_4_0"
     ]
   },
   {
     "name": "tram",
     "column": -12,
     "row": 10,
-    "stack": "tc:minecartTramWood",
+    "stack": "tc:locoElectricTramYellow",
     "parent": "electMotor",
     "special": "FALSE",
     "items": [
-      "tc:minecartTramWood",
-      "tc:minecartTramWood"
+      "tc:locoElectricTramYellow",
+      "tc:locoElectricTramYellow"
     ]
   },
   {
@@ -438,12 +438,12 @@
     "name": "workCart",
     "column": 5,
     "row": 6,
-    "stack": "tc:minecartWork",
+    "stack": "tc:workCart",
     "parent": "assemblyTable",
     "special": "TRUE",
     "items": [
-      "tc:minecartWork",
-      "tc:minecartCabooseWork"
+      "tc:workCart",
+      "tc:workCaboose"
     ]
   },
   {

@@ -77,7 +77,7 @@ public class GuiRecipeBook extends GuiScreen {
 
         addPage("", "", "left", null);
         addPage("", "", "right", null);
-        addPage("Welcome to the Traincraft guide! \nThis book contains everything you need to know about Traincraft.\n\nAuthors:\nSpitfire4466,\nMrbrutal\n\nBukkit port: \nDV8FromTheWorld\n\nThanks to CovertJaguar for his help and a great API.\n", "", "left", new ArrayList<StackToDraw>() {
+        /*addPage("Welcome to the Traincraft guide! \nThis book contains everything you need to know about Traincraft.\n\nAuthors:\nSpitfire4466,\nMrbrutal\n\nBukkit port: \nDV8FromTheWorld\n\nThanks to CovertJaguar for his help and a great API.\n", "", "left", new ArrayList<StackToDraw>() {
             {
                 add(new StackToDraw(new ItemStack(ItemIDs.minecartLocoBR80_DB.item), 20, 16));
                 add(new StackToDraw(new ItemStack(TCBlocks.trainWorkbench), 170, 16));
@@ -372,7 +372,7 @@ public class GuiRecipeBook extends GuiScreen {
 					}
 				});
 
-		addPage("On the following pages you will find all the train workbench recipes and assembly table recipes.\nIt is however strongly suggested to try to discover the recipes by yourself...\n\nWe hope you will enjoy the mod!\n\nSpitfire4466 and MrBrutal", "", "left", new ArrayList<StackToDraw>() {
+		*/addPage("On the following pages you will find all the train workbench recipes and assembly table recipes.\nIt is however strongly suggested to try to discover the recipes by yourself...\n\nWe hope you will enjoy the mod!\n\nSpitfire4466 and MrBrutal", "", "left", new ArrayList<StackToDraw>() {
 			{
 				add(new StackToDraw(new ItemStack(TCBlocks.trainWorkbench), 20, 16));
 				add(new StackToDraw(new ItemStack(ItemIDs.hat.item), 40, 155));

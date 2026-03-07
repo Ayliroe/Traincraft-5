@@ -2,26 +2,20 @@ package ebf.tim.render;
 
 import ebf.tim.utility.Vec5f;
 import fexcraft.tmt.slim.ModelRendererTurbo;
-import fexcraft.tmt.slim.Tessellator;
 import fexcraft.tmt.slim.TextureManager;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 import train.client.core.ClientProxy;
-import train.common.Traincraft;
 import train.common.api.AbstractTrains;
 import train.common.api.blocks.TileRenderFacing;
 import train.common.items.ItemRollingStock;
-import train.common.library.TraincraftRegistry;
 
 import java.util.HashMap;
 
@@ -116,7 +110,7 @@ public class CustomItemModel implements IItemRenderer /*ICustomModelLoader*/ {
                 return;
             }
 
-            AbstractTrains entity = TraincraftRegistry.trainsByItem.get(item.getItem()).getEntity(null);
+            AbstractTrains entity = ((ItemRollingStock)item.getItem()).getRegister().getEntity(null);
             scale = entity.getHitboxSize()[0];
             if(scale!=0){
                 scale = 1.3f/(scale /1.3f);

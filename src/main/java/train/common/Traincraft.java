@@ -181,7 +181,6 @@ public class Traincraft {
         proxy.setHook(); // Moved file needed to run JLayer, we need to set a hook in order to retrieve it
 
         GameRegistry.registerFuelHandler(new FuelHandler());
-        AchievementRecord.init();
         GameRegistry.registerWorldGenerator(worldGen = new WorldGenWorld(), 5);
 
         //Retrogen Handling
@@ -203,17 +202,15 @@ public class Traincraft {
 
         /* Recipes */
         tcLog.info("Initialize Recipes");
-        RecipeHandler.initBlockRecipes();
+        TraincraftRegistry.initTrains();
         RecipeRecord.init();
-        RecipeHandler.initSmeltingRecipes();
         AssemblyRecord.init();
+        AchievementRecord.init();
 
         EntityRegistry.registerModEntity(EntityZeppelinTwoBalloons.class, "zeppelin", EntityIds.ZEPPELIN, Traincraft.instance, 512, 1, true);//zepplin
         EntityRegistry.registerModEntity(EntityBogie.class, "Entity Front Bogie", EntityIds.LOCOMOTIVE_BOGIE, Traincraft.instance, 512, 3, true);//front bogie
         EntityRegistry.registerModEntity(EntityZeppelinOneBalloon.class, "zeppelin big", EntityIds.ZEPPELIN_BIG, Traincraft.instance, 512, 1, true);//zepplin big
         EntityRegistry.registerModEntity(EntitySeat.class, "Seat", 16, Traincraft.instance,512,3,true);//seat
-
-        TraincraftRegistry.registerTrains();
 
         /* Liquid FX */
         proxy.registerTextureFX();

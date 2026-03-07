@@ -3,7 +3,6 @@ package train.common.library;
 import buildcraft.api.fuels.BuildcraftFuelRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Optional;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -48,7 +47,6 @@ import java.util.*;
 public class TraincraftRegistry {
 
     public static class TrainRegister {
-        public int ID;
         public TrainRecord type;
         public RenderRecord render;
         public SoundRecord sounds;
@@ -58,8 +56,7 @@ public class TraincraftRegistry {
                 AbstractTrains train = (AbstractTrains) type.getEntityClass().getConstructor(World.class).newInstance(world);
                 train.init(this);
                 return train;
-            } catch (IllegalArgumentException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException |
-                     InvocationTargetException e) {
+            } catch (IllegalArgumentException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
             return null;
@@ -73,11 +70,8 @@ public class TraincraftRegistry {
 
     public TraincraftRegistry() {}
 
-    public static void registerTrains() {
+    public static void initTrains() {
         TrainRecord.put(trains, "assets/tc/data/TrainRecords.json");
-        for (TrainRegister train : trains.values()) {
-            trainsByItem.put(train.type.getItem(), train);
-        }
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
             RenderRecord.put(trains, "assets/tc/data/RenderRecords.json");
             SoundRecord.put(trains, "assets/tc/data/SoundRecords.json");
@@ -87,39 +81,6 @@ public class TraincraftRegistry {
         for (TrackRecord track : EnumTracks.values()) {
             tracks.put(track.getLabel(), track);
         }
-
-        for(TrainRegister train : trains.values()){
-            EntityRegistry.registerModEntity(train.type.getEntityClass(), train.type.getInternalName(), train.ID, Traincraft.instance, 512, 1, true);
-        }
-    }
-
-    // Only used for ComputerCraft peripherals, TODO refactor
-    public static String findTrainType(AbstractTrains t){
-        if(t instanceof SteamTrain){
-            return "steam";
-        }
-        if(t instanceof DieselTrain){
-            return "diesel";
-        }
-        if(t instanceof ElectricTrain){
-            return "electric";
-        }
-        if(t instanceof Tender){
-            return "tender";
-        }
-        if(t instanceof AbstractWorkCart){
-            return "work";
-        }
-        if(t instanceof Freight){
-            return "freight";
-        }
-        if(t instanceof IPassenger){
-            return "passenger";
-        }
-        if(t instanceof LiquidTank){
-            return "tank";
-        }
-        return "decorative";
     }
 
     //todo:purge redundancy checks on postinit

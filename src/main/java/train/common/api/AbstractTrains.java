@@ -9,7 +9,6 @@ import fexcraft.tmt.slim.ModelBase;
 import io.netty.buffer.ByteBuf;
 import mods.railcraft.api.carts.IMinecart;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
 import net.minecraft.entity.IEntityMultiPart;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
@@ -150,11 +149,23 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public String getTrainName()        { return dataWatcher.getWatchableObjectString(9); }
     public String getTrainCreator()     { return dataWatcher.getWatchableObjectString(13); }
 
+    // Only used for ComputerCraft peripherals, TODO refactor
+    public String getTrainType() {
+        if(this instanceof SteamTrain)       return "steam";
+        if(this instanceof DieselTrain)      return "diesel";
+        if(this instanceof ElectricTrain)    return "electric";
+        if(this instanceof Tender)           return "tender";
+        if(this instanceof AbstractWorkCart) return "work";
+        if(this instanceof Freight)          return "freight";
+        if(this instanceof IPassenger)       return "passenger";
+        if(this instanceof LiquidTank)       return "tank";
+        return "decorative";
+    }
+
     public RenderRecord getRender()     { return register.render; }
     public SoundRecord getSounds()      { return register.sounds; }
     public String getName()             { return register.type.getName(); }
     public Item getItem()               { return register.type.getItem(); }
-    public String getTrainType()        { return TraincraftRegistry.findTrainType(this); }
     public float getMHP()               { return register.type.getMHP(); }
     public float getMaxSpeed()          { return register.type.getMaxSpeed(); }
     public float weightKg()             { return register.type.getMass()*10f; }

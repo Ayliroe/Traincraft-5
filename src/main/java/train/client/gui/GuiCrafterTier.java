@@ -12,6 +12,7 @@ import train.client.gui.sideTabs.SideTabRecipes;
 import train.client.gui.sideTabs.SideTabSlots;
 import train.common.Traincraft;
 import train.common.api.AbstractTrains;
+import train.common.items.ItemRollingStock;
 import train.common.library.TrainRecord;
 import train.common.containers.ContainerTier;
 import train.common.core.interfaces.ITier;
@@ -42,7 +43,6 @@ public class GuiCrafterTier extends GuiTraincraft {
     private boolean rollDown;
     public Item currentKnownItem = null;
     private int ticksInGui = 0;
-    private Item previousItem;
     private AbstractTrains renderEntity;
     private int color = 0;
     private int currentRenderTabY = 40;
@@ -54,8 +54,6 @@ public class GuiCrafterTier extends GuiTraincraft {
         recipeList = TierRecipeManager.getInstance().getTierRecipeList(tier1.Tier());
         recipes = tier1.knownRecipes();
         ySize = 256;
-        // Init the item
-        previousItem = ItemIDs.minecartLoco3.item;
     }
 
     @Override
@@ -121,12 +119,8 @@ public class GuiCrafterTier extends GuiTraincraft {
                 GL11.glTranslatef(guiLeft - 70, this.guiTop + 170, 100);
 
                 RenderHelper.enableGUIStandardItemLighting();
-                TraincraftRegistry.TrainRegister train = TraincraftRegistry.trainsByItem.get(currentKnownItem);
+                TraincraftRegistry.TrainRegister train = ((ItemRollingStock)currentKnownItem).getRegister();
                 renderEntity = train.getEntity(mc.theWorld);
-
-                if (renderEntity != null && !Item.itemRegistry.getNameForObject(currentKnownItem).equals(Item.itemRegistry.getNameForObject(previousItem))) {
-                    previousItem = currentKnownItem;
-                }
 
                 if (!train.type.getSkins().isEmpty()) {
                     if (color < 0) {

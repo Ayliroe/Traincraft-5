@@ -29,6 +29,7 @@ import train.common.library.BlockIDs;
 import train.common.library.EnumTracks;
 import train.common.library.TrainRecord;
 import train.common.library.TraincraftRegistry;
+import train.common.library.TraincraftRegistry.TrainRegister;
 import train.common.tile.TileTCRail;
 import train.common.tile.TileTCRailGag;
 
@@ -37,32 +38,32 @@ import java.util.List;
 
 public class ItemRollingStock extends ItemMinecart implements IMinecart, IMinecartItem {
 
-	private String iconName = "";
-	private ResourceLocation itemTexture;
+	private final TrainRegister register;
+	private final String iconName;
+	private final ResourceLocation itemTexture;
 	private String trainCreator;
 
-	public ItemRollingStock(String iconName) {
+	public ItemRollingStock(TrainRegister register, String iconName, boolean isBasePack) {
 		super(1);
+		this.register = register;
 		this.iconName = iconName;
-		itemTexture=new ResourceLocation(iconName);
+		this.itemTexture = new ResourceLocation(iconName);
 		maxStackSize = 1;
-		if(!ConfigHandler.SPLIT_CREATIVE) {
-			setCreativeTab(Traincraft.tcTab);
-		} else {
-			setCreativeTab(Traincraft.tcTrainTab);
+
+		if (isBasePack) {
+			if (!ConfigHandler.SPLIT_CREATIVE) {
+				setCreativeTab(Traincraft.tcTab);
+			} else {
+				setCreativeTab(Traincraft.tcTrainTab);
+			}
+		}
+		else {
+			setCreativeTab(Traincraft.tcCommunityTab);
 		}
 	}
 
-	public ItemRollingStock(String iconName, CreativeTabs tab) {
-		super(1);
-		this.iconName = iconName;
-		maxStackSize = 1;
-		setCreativeTab(tab);
-	}
-
-	public ResourceLocation getIconResource() {
-		return itemTexture;
-	}
+	public TrainRegister getRegister()			{ return register; }
+	public ResourceLocation getIconResource() 	{ return itemTexture; }
 
 	public int setNewUniqueID(ItemStack stack, EntityPlayer player, int numberOfTrains) {
 		NBTTagCompound var3 = stack.getTagCompound();
@@ -96,7 +97,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 		}
 
-		TrainRecord spec = TraincraftRegistry.trainsByItem.get(this).type;
+		TrainRecord spec = getRegister().type;
 		Class<AbstractTrains> specClass = spec.getEntityClass();
 
 		//year is the tell for if the TC4.5 API was used in favor of 4.3's.
@@ -320,7 +321,7 @@ public class ItemRollingStock extends ItemMinecart implements IMinecart, IMineca
 
 
 	public EntityMinecart placeCart(EntityPlayer player, ItemStack itemstack, World world, int i, int j, int k) {
-		AbstractTrains rollingStock = TraincraftRegistry.trainsByItem.get(this).getEntity(world);
+		AbstractTrains rollingStock = getRegister().getEntity(world);
 		if (rollingStock != null) {
 			rollingStock.setPosition( i + 0.5D , j+ 0.3D, k + 0.5D);
 			if (!world.isRemote) {

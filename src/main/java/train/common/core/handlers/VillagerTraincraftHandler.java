@@ -15,6 +15,7 @@ import net.minecraft.world.gen.structure.StructureVillagePieces;
 import train.common.generation.ComponentVillageTrainstation;
 import train.common.items.ItemRollingStock;
 import train.common.library.ItemIDs;
+import train.common.library.TraincraftRegistry;
 
 import java.util.List;
 import java.util.Random;
@@ -54,12 +55,14 @@ public class VillagerTraincraftHandler implements IVillageCreationHandler, IVill
         recipeList.add(new MerchantRecipe(getRandomSizedItemStack(Items.tnt_minecart, random, 1), Items.emerald));
         recipeList.add(new MerchantRecipe(getRandomSizedItemStack(Items.emerald, random, 1), new ItemStack(Items.tnt_minecart)));
 
+        for (TraincraftRegistry.TrainRegister train : TraincraftRegistry.trains.values()) {
+            recipeList.add(new MerchantRecipe(new ItemStack(train.type.getItem()), new ItemStack(Items.emerald, train.type.getEmeralds())));
+            recipeList.add(new MerchantRecipe(new ItemStack(Items.emerald, train.type.getEmeralds()), train.type.getItem()));
+        }
+
         for (ItemIDs item : ItemIDs.values()) {
             if (item != null && item.item != null) {
-                if (item.item instanceof ItemRollingStock) {
-                    recipeList.add(new MerchantRecipe(new ItemStack(item.item), new ItemStack(Items.emerald, item.amountForEmerald)));
-                    recipeList.add(new MerchantRecipe(new ItemStack(Items.emerald, item.amountForEmerald), item.item));
-                } else if (item.amountForEmerald > 0) {
+                if (item.amountForEmerald > 0) {
                     recipeList.add(new MerchantRecipe(new ItemStack(item.item, item.amountForEmerald), Items.emerald));
                     recipeList.add(new MerchantRecipe(new ItemStack(Items.emerald), new ItemStack(item.item, item.amountForEmerald)));
                 }

@@ -2,9 +2,13 @@ package train.common.library;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import train.common.Traincraft;
 import train.common.api.AbstractTrains;
+import train.common.core.EntityIds;
+import train.common.items.ItemRollingStock;
 import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.io.BufferedReader;
@@ -18,27 +22,26 @@ import java.util.Map;
 
 /**
  * <p>{@link #entryName} The stock's unique internal name
- * <p>{@link #internalName} @TODO TO BE DEPRECATED, only used to match with .lang files
+ * <p>{@link #internalName} TODO TO BE DEPRECATED, only used to match with .lang files
  * <p>{@link #entityClass} The broad entity class (ex. 'EntitySteamLocomotive', 'EntityTender')
- * <p>{@link #item} The item linked to this stock
- * <p>{@link #trainType} @TODO DEPRECATED, use TraincraftRegistry.findTrainType(this)
+ * <p>{@link #icon} The item icon for this this stock
+ * <p>{@link #emeralds} How many emeralds this stock trades for with the trainstation merchant
  * <p>{@link #MHP} Minecraft HorsePower, i.e. how much mass this stock can pull
  * <p>{@link #maxSpeed} The maximum speed under power (Locomotives)
  * <p>{@link #mass} The mass that is added to the whole train, slowing down pulling Locomotives
  * <p>{@link #fuelConsumption} How much fuel is consumed per tick (Locomotives)
  * <p>{@link #waterConsumption} How much water is consumed per tick (Steam Locomotives)
- * <p>{@link #heatingTime} @TODO CURRENTLY UNUSED
+ * <p>{@link #heatingTime} TODO CURRENTLY UNUSED
  * <p>{@link #accelerationRate} The maximum acceleration under power (Locomotives)
  * <p>{@link #brakeRate} The maximum break rate (Locomotives)
  * <p>{@link #tankCapacity} How much liquid is stored, where 1000 = 1 cubic meter (Tanks, Tenders, Non-electric Locomotives)
  * <p>{@link #cargoCapacity} How many freight slots are available (Freight)
- * <p>{@link #guiRenderScale} @TODO DEPRECATED?
  * <p>{@link #additionnalTooltip} Optional information (Item tooltip)
  * <p>{@link #bogieLocoPositions} The spacing between the stock's bogies
  * <p>{@link #country} Country of origin (Item tooltip)
  * <p>{@link #year} Year of origin (Item tooltip)
  * <p>{@link #fictional} Is this stock fictional (Item tooltip)
- * <p>{@link #optimalDistance} @TODO TO BE DEPRECATED, use hitboxSize instead (Spacing when linked to another cart)
+ * <p>{@link #optimalDistance} TODO TO BE DEPRECATED, use hitboxSize instead (Spacing when linked to another cart)
  * <p>{@link #hitboxSize} The size of this stock's proxies
  * <p>{@link #shouldRiderSit} Should the rider be in a sitting position
  * <p>{@link #riderOffsets} Position of the rider for each seat relative to the stock's center, the first being the driver
@@ -59,22 +62,25 @@ public final class TrainRecord {
             if (!trains.containsKey(record.entryName))
                 trains.put(record.entryName, new TrainRegister());
 
-            trains.get(record.entryName).type = record;
-
-            // Records being accessed from an unordered hashmap, it is best to assign the ID on reading the json to guarantee consistency
-            trains.get(record.entryName).ID = trainID;
             trainID++;
-            if(trainID == 112 || trainID == 51){
+            while (trainID == EntityIds.ZEPPELIN || trainID == EntityIds.LOCOMOTIVE_BOGIE || trainID == EntityIds.ZEPPELIN_BIG) {
                 trainID++;
             }
+
+            trains.get(record.entryName).type = record;
+            EntityRegistry.registerModEntity(record.getEntityClass(), record.internalName, trainID, Traincraft.instance, 512, 1, true);
+
+            record.item = new ItemRollingStock(trains.get(record.entryName), Info.modID.toLowerCase() + ":trains/" + record.icon, true);
+            record.item.setUnlocalizedName(Info.modID + ":" + record.entryName);
+            GameRegistry.registerItem(record.item, record.entryName);
         }
     }
 
     private String entryName;
     private String internalName;
     private Class<AbstractTrains> entityClass;
-    private Item item;
-    private String trainType;
+    private String icon;
+    private int emeralds;
     private int MHP;
     private int maxSpeed;
     private float mass;
@@ -85,7 +91,6 @@ public final class TrainRecord {
     private double brakeRate;
     private int tankCapacity;
     private int cargoCapacity;
-    private int guiRenderScale;
     private String additionnalTooltip;
     private double bogieLocoPositions;
     private String[] skins;
@@ -97,11 +102,12 @@ public final class TrainRecord {
     private boolean shouldRiderSit;
     private float[][] riderOffsets;
 
+    private Item item;
+
     public String getName()                     { return entryName; }
     public String getInternalName()             { return internalName; }
     public Class<AbstractTrains> getEntityClass() { return entityClass; }
-    public Item getItem()                       { return item; }
-    public String getTrainType()                { return trainType; }
+    public int getEmeralds()                    { return emeralds; }
     public int getMHP()                         { return MHP; }
     public int getMaxSpeed()                    { return maxSpeed; }
     public float getMass()                      { return mass; }
@@ -112,7 +118,6 @@ public final class TrainRecord {
     public double getBrakeRate()                { return brakeRate; }
     public int getTankCapacity()                { return tankCapacity; }
     public int getCargoCapacity()               { return cargoCapacity; }
-    public int getGuiRenderScale()              { return guiRenderScale; }
     public String getAdditionnalTooltip()       { return additionnalTooltip; }
     public double getBogieLocoPosition()        { return bogieLocoPositions; }
     public List<String> getSkins() {
@@ -126,4 +131,6 @@ public final class TrainRecord {
     public float[] getHitboxSize()              { return hitboxSize; }
     public boolean getShouldRiderSit()          { return shouldRiderSit; }
     public float[][] getRiderOffsets()          { return riderOffsets; }
+
+    public Item getItem()                       { return item; }
 }

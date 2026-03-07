@@ -20,7 +20,32 @@ public class TCItems {
 
 	public static void init() {
 		loadItems();
-		registerItems();
+
+		for (ItemIDs items : ItemIDs.values()) {
+			if (items.item != null) {
+				items.item.setUnlocalizedName(Info.modID + ":" + items.name());
+				GameRegistry.registerItem(items.item, items.name());
+			}
+		}
+	}
+
+	public static void registerTCCERollingStock() {
+
+		// TODO: To be refactored into TrainRecord style
+		/*for (TCCEItemIDs tcceItems : TCCEItemIDs.values()) {
+			if (tcceItems.className != null) {
+				if (tcceItems.className.equals("ItemRollingStock")) {
+					tcceItems.item = new ItemRollingStock(Info.modID.toLowerCase() + ":trains/" + tcceItems.iconName, false);
+				}
+			}
+		}
+
+		for (TCCEItemIDs tcceItems : TCCEItemIDs.values()) {
+			if (tcceItems.item != null){
+				tcceItems.item.setUnlocalizedName(Info.modID + ":" + tcceItems.name());
+				GameRegistry.registerItem(tcceItems.item, tcceItems.name());
+			}
+		}*/
 	}
 
 	private static void loadItems() {
@@ -28,9 +53,6 @@ public class TCItems {
 			if (items.className != null) {
 				if (items.className.equals("ItemTrain")) {
 					items.item = new ItemPart(items.iconName);
-				}
-				else if (items.className.equals("ItemRollingStock")) {
-					items.item = new ItemRollingStock(Info.modID.toLowerCase() + ":trains/" + items.iconName);
 				}
 				else if (items.className.equals("ItemRotativeDigger")) {
 					items.item = new ItemRotativeDigger();
@@ -218,35 +240,5 @@ public class TCItems {
 		ItemIDs.whistle.item = new ItemWhistle();
 		ItemIDs.padlock.item = new ItemPadlock();
 		ItemIDs.bolt.item = new ItemBolt(); //this is the spike for crafting
-	}
-	
-	private static void registerItems() {
-		for (ItemIDs items : ItemIDs.values()) {
-			if (items.item != null) {
-				items.item.setUnlocalizedName(Info.modID + ":" + items.name());
-				GameRegistry.registerItem(items.item, items.name());
-			}
-		}
-	}
-
-
-	public static void registerTCCERollingStock(){
-
-		for (TCCEItemIDs tcceItems : TCCEItemIDs.values()) {
-			if (tcceItems.className != null) {
-				if (tcceItems.className.equals("ItemRollingStock")) {
-					tcceItems.item = new ItemRollingStock(Info.modID.toLowerCase() + ":trains/" + tcceItems.iconName, Traincraft.tcCommunityTab);
-				}
-
-			}
-		}
-
-		for (TCCEItemIDs tcceItems : TCCEItemIDs.values()) {
-			if (tcceItems.item != null){
-				tcceItems.item.setUnlocalizedName(Info.modID + ":" + tcceItems.name());
-				GameRegistry.registerItem(tcceItems.item, tcceItems.name());
-			}
-		}
-
 	}
 }

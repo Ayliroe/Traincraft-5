@@ -99,7 +99,10 @@ class DeserializingUtils {
                 try {
                     stack = new ItemStack(ItemIDs.valueOf(item).item, size, damage);
                 } catch (IllegalArgumentException f) {
-                    stack = new ItemStack(GameRegistry.findBlock(Info.modID, item), size, damage); // Because some TCBlocks are not registered as enum
+                    stack = new ItemStack(GameRegistry.findBlock(Info.modID, item), size, damage); // For TCBlocks that are not registered as enum
+                    if (stack.getItem() == null) {
+                        stack = new ItemStack(GameRegistry.findItem(Info.modID, item), size, damage);
+                    }
                 }
             }
         }
