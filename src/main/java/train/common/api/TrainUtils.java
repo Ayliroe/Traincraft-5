@@ -108,6 +108,7 @@ public final class TrainUtils {
                 playerEntity.addChatMessage(new ChatComponentText("Attaching mode on for: " + train.getTrainName()));
                 itemstack.damageItem(1, playerEntity);
             } else {
+                train.links.setIsAttaching(false);
                 playerEntity.addChatMessage(new ChatComponentText("Reset, click again to couple new cart to this one"));
                 train.links.unlink();
             }

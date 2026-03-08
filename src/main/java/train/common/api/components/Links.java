@@ -21,8 +21,8 @@ public class Links {
 
     private boolean isAttached = false;
     private boolean isAttaching = false;
-    private double link1;
-    private double link2;
+    private double frontID;
+    private double backID;
     private AbstractTrains front = null;
     private AbstractTrains back = null;
     private ArrayList<AbstractTrains> list = new ArrayList<>(); // This SHOULD remain private and without a getter, to not have code affecting this list in random places
@@ -292,6 +292,8 @@ public class Links {
                 }
                 other.links.isAttaching = false;
                 isAttaching = false;
+                other.links.isAttached = true;
+                isAttached = true;
 
                 updateLinks();
 
@@ -323,8 +325,8 @@ public class Links {
 
     private void detachLink(AbstractTrains other) {
         if (other != null) {
-            if (other.links.link1 == host.uniqueID) {
-                other.links.link1 = 0;
+            if (other.links.front == host) {
+                other.links.frontID = 0;
                 other.links.front = null;
                 if (other.links.list != null){
                     other.links.list.clear();
@@ -332,15 +334,14 @@ public class Links {
                     other.links.updateLinks();
                 }
 
-            } else if (other.links.link2 == host.uniqueID) {
-                other.links.link2 = 0;
+            } else if (other.links.back == host) {
+                other.links.backID = 0;
                 other.links.back = null;
                 if (other.links.list != null){
                     other.links.list.clear();
                     other.links.list.add(other);
                     other.links.updateLinks();
                 }
-
             }
         }
     }
@@ -353,15 +354,15 @@ public class Links {
      * backLink will be updated accordingly
      */
     public void restoreLinks() {
-        if (host.addedToChunk && ((front == null && link1 != 0) || (back == null && link2 != 0))) {
+        if (host.addedToChunk && ((front == null && frontID != 0) || (back == null && backID != 0))) {
             List<?> list = host.getWorld().getEntitiesWithinAABBExcludingEntity(host, host.boundingBox.expand(15, 15, 15));
 
             if (list != null && !list.isEmpty()) {
                 for (Object entity : list) {
                     if (entity instanceof EntityRollingStock) {
-                        if (((EntityRollingStock) entity).uniqueID == link1) {
+                        if (((EntityRollingStock) entity).uniqueID == frontID) {
                             front = (EntityRollingStock) entity;
-                        } else if (((EntityRollingStock) entity).uniqueID == link2) {
+                        } else if (((EntityRollingStock) entity).uniqueID == backID) {
                             back = (EntityRollingStock) entity;
                         }
                     }
@@ -376,13 +377,13 @@ public class Links {
 
     public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         nbttagcompound.setBoolean("isAttached", isAttached);
-        nbttagcompound.setDouble("Link1", link1);
-        nbttagcompound.setDouble("Link2", link2);
+        nbttagcompound.setDouble("Link1", frontID);
+        nbttagcompound.setDouble("Link2", backID);
     }
 
     public void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         isAttached = nbttagcompound.getBoolean("isAttached");
-        link1 = nbttagcompound.getDouble("Link1");
-        link2 = nbttagcompound.getDouble("Link2");
+        frontID = nbttagcompound.getDouble("Link1");
+        backID = nbttagcompound.getDouble("Link2");
     }
 }

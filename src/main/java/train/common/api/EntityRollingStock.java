@@ -571,12 +571,12 @@ public abstract class EntityRollingStock extends AbstractTrains {
 
     private double rollingX=0,rollingY=0,rollingZ=0;
 
-    @Override
-    @SideOnly(Side.CLIENT)
     /**
      * Sets the position and rotation. Only difference from the other one is no bounding on the rotation. Args: posX,
      * posY, posZ, yaw, pitch
      */
+    @Override
+    @SideOnly(Side.CLIENT)
     public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9) {
         rollingX = par1;
         rollingY = par3;
