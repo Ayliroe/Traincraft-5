@@ -136,12 +136,9 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
-
 		if (entityMainTrain != null) {
-
-			entityMainTrain.interactFirst(entityplayer);
+			return entityMainTrain.interactFirst(entityplayer);
 		}
-
 		return true;
 	}
 

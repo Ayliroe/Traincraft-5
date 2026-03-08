@@ -66,12 +66,14 @@ public final class TrainRecord {
                 trainID++;
             }
 
-            trains.get(record.entryName).type = record;
+            TrainRegister register = trains.get(record.entryName);
+
+            register.type = record;
             EntityRegistry.registerModEntity(record.getEntityClass(), record.entryName, trainID, Traincraft.instance, 512, 1, true);
 
-            record.item = new ItemRollingStock(trains.get(record.entryName), Info.modID.toLowerCase() + ":trains/" + record.icon, true);
-            record.item.setUnlocalizedName(Info.modID + ":" + record.entryName);
-            GameRegistry.registerItem(record.item, record.entryName);
+            register.item = new ItemRollingStock(trains.get(record.entryName), Info.modID.toLowerCase() + ":trains/" + record.icon, true);
+            register.item.setUnlocalizedName(Info.modID + ":" + record.entryName);
+            GameRegistry.registerItem(register.item, record.entryName);
 
             if (record.spawnInStation)
                 TraincraftRegistry.stationTrains.add(trains.get(record.entryName));
@@ -104,8 +106,6 @@ public final class TrainRecord {
     private float[][] riderOffsets;
     private boolean spawnInStation;
 
-    private Item item;
-
     public String getName()                     { return entryName; }
     public Class<AbstractTrains> getEntityClass() { return entityClass; }
     public int getEmeralds()                    { return emeralds; }
@@ -121,10 +121,7 @@ public final class TrainRecord {
     public int getCargoCapacity()               { return cargoCapacity; }
     public String getAdditionnalTooltip()       { return additionnalTooltip; }
     public double getBogieLocoPosition()        { return bogieLocoPositions; }
-    public List<String> getSkins() {
-        if (skins == null || skins.length==0)   { return new ArrayList<>(); }
-        else                                    { return new ArrayList<String>(Arrays.asList(skins)); } //this isnt redundant, Arrays.asList overrides and breaks the List.Add method, so we have to dump content to a proper instance.
-    }
+    public List<String> getSkins()              { return Arrays.asList(skins); }
     public String getCountry()                  { return country; }
     public String getYear()                     { return year; }
     public boolean isFictional()                { return fictional; }
@@ -132,6 +129,4 @@ public final class TrainRecord {
     public float[] getHitboxSize()              { return hitboxSize; }
     public boolean getShouldRiderSit()          { return shouldRiderSit; }
     public float[][] getRiderOffsets()          { return riderOffsets; }
-
-    public Item getItem()                       { return item; }
 }

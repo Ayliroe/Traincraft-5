@@ -222,8 +222,9 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      * =========================================== TYPE ===========================================
      **/
 
+    public Item getItem()               { return register.item; }
+
     public String getName()             { return register.type.getName(); }
-    public Item getItem()               { return register.type.getItem(); }
     public float getMHP()               { return register.type.getMHP(); }
     public float getMaxSpeed()          { return register.type.getMaxSpeed(); }
     public float weightKg()             { return register.type.getMass()*10f; }

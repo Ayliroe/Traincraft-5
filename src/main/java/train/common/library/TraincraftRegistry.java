@@ -50,6 +50,7 @@ public class TraincraftRegistry {
         public TrainRecord type;
         public RenderRecord render;
         public SoundRecord sounds;
+        public Item item;
 
         public AbstractTrains getEntity(World world) {
             try {
