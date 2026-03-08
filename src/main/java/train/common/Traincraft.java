@@ -96,8 +96,6 @@ public class Traincraft {
     public static final SimpleNetworkWrapper gsfsChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsChannel");
     public static final SimpleNetworkWrapper gsfsrChannel = NetworkRegistry.INSTANCE.newSimpleChannel("gsfsReturnChannel");
 
-    private final TraincraftRegistry traincraftRegistry = new TraincraftRegistry();
-
     public static File configDirectory;
 
     /* Creative tab for Traincraft */
@@ -135,7 +133,7 @@ public class Traincraft {
         trainCloth = proxy.addArmor("Paintable");
         trainCompositeSuit = proxy.addArmor("CompositeSuit");
 
-        if (Loader.isModLoaded("ComputerCraft")) {
+        if (Traincraft.hasComputerCraft()) {
             try {
                 proxy.registerComputerCraftPeripherals();
             } catch (ClassNotFoundException e) {
@@ -202,7 +200,7 @@ public class Traincraft {
 
         /* Recipes */
         tcLog.info("Initialize Recipes");
-        TraincraftRegistry.initTrains();
+        TraincraftRegistry.init();
         RecipeRecord.init();
         AssemblyRecord.init();
         AchievementRecord.init();
@@ -257,15 +255,19 @@ public class Traincraft {
     }
 
     public static boolean hasComputerCraft() {
-        return Loader.isModLoaded("ComputerCraft");
+        return Loader.isModLoaded("ComputerCraft") || Loader.isModLoaded("OpenComputers");
     }
 
     public static boolean hasNotEnoughItems() {
-        return Loader.isModLoaded("NotEnoughItems");
+        return Loader.isModLoaded("NotEnoughItems") || Loader.isModLoaded("Not Enough Items");
     }
 
     public static boolean hasRailcraft() {
         return Loader.isModLoaded("Railcraft");
+    }
+
+    public static boolean hasBuildcraft() {
+        return Loader.isModLoaded("BuildCraft|Energy");
     }
 
     public static boolean hasTCCEAddon() {return Loader.isModLoaded("tcce");}

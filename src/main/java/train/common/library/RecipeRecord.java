@@ -47,7 +47,7 @@ public final class RecipeRecord {
             boolean allowedByConfig = true;
 
             if (record.config.equals("ComputerCraft"))
-                allowedByConfig = Loader.isModLoaded("ComputerCraft");
+                allowedByConfig = Traincraft.hasComputerCraft();
             if (record.config.equals("hardMode"))
                 allowedByConfig = !ConfigHandler.MAKE_MODPACKS_GREAT_AGAIN;
             if (record.config.equals("ingotCopper"))

@@ -14,6 +14,23 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * <p>{@link #entryName} The stock's unique internal name (only used to sort into the correct register)
+ * <p>{@link #model} The model used for the stock
+ * <p>{@link #texture} The string name for texture files, excluding skin variants
+ * <p>{@link #multiTexture} Does this stock have more than one skin
+ * <p>{@link #trans} The x/y/z offset the model should render at, with 0 being the entity center
+ * <p>{@link #rotate} The x/y/z rotation the model should render at in degrees
+ * <p>{@link #scale} The scale to render the model at
+ * <p>{@link #smokeType} TODO DESCRIBE
+ * <p>{@link #smokeIterations} TODO DESCRIBE
+ * <p>{@link #smokeFX} TODO DESCRIBE
+ * <p>{@link #explosionType} TODO DESCRIBE
+ * <p>{@link #explosionFX} TODO DESCRIBE
+ * <p>{@link #explosionFXIterations} TODO DESCRIBE
+ * <p>{@link #hasSmokeOnSlopes} TODO DESCRIBE
+ * <p>{@link #bogies} TODO IMPLEMENT: The list of models to be used for the bogies
+ */
 public final class RenderRecord {
 
     public static void put(Map<String, TrainRegister> trains, String path) {
@@ -44,13 +61,11 @@ public final class RenderRecord {
     private boolean hasSmokeOnSlopes;
     private String[] bogies;
 
-    public String getEntryName()                    { return entryName; }
     public ModelBase getModel()                     { return model; }
     public ResourceLocation getTextureFile(String skin) {
-        if (getIsMultiTextured())                   { return new ResourceLocation(Info.resourceLocation, Info.trainsPrefix + texture + skin + ".png"); }
+        if (multiTexture)                           { return new ResourceLocation(Info.resourceLocation, Info.trainsPrefix + texture + skin + ".png"); }
         else                                        { return new ResourceLocation(Info.resourceLocation, Info.trainsPrefix + texture + ".png"); }
     }
-    public boolean getIsMultiTextured()             { return multiTexture; }
     public float[] getTrans()                       { return trans.length != 0 ? trans : null; }
     public float[] getRotate()                      { return rotate.length != 0 ? rotate : null; }
     public float[] getScale()                       { return scale.length != 0 ? scale : null; }

@@ -16,6 +16,7 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.*;
+import train.common.Traincraft;
 import train.common.blocks.BlockTraincraftFluid;
 import train.common.items.ItemBlockFluid;
 import train.common.library.BlockIDs;
@@ -50,10 +51,10 @@ public class LiquidManager {
 		REFINED_FUEL.setBlock(BlockIDs.refinedFuel.block);
 		FluidContainerRegistry.registerFluidContainer(DIESEL, new ItemStack(ItemIDs.diesel.item), new ItemStack(ItemIDs.emptyCanister.item));
 		FluidContainerRegistry.registerFluidContainer(REFINED_FUEL, new ItemStack(ItemIDs.refinedFuel.item), new ItemStack(ItemIDs.emptyCanister.item));
-		if (Loader.isModLoaded("Railcraft")) {
+		if (Traincraft.hasRailcraft()) {
 			addRCFluids();
 		}
-		if (Loader.isModLoaded("BuildCraft|Energy")) {
+		if (Traincraft.hasBuildcraft()) {
 			addBCFluids();
 		}
 		MinecraftForge.EVENT_BUS.register(this);

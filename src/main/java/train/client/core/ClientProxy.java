@@ -148,7 +148,7 @@ public class ClientProxy extends CommonProxy {
         }
 
         HUDloco huDloco = new HUDloco();
-        if (Loader.isModLoaded("ComputerCraft")) {
+        if (Traincraft.hasComputerCraft()) {
             HUDMTC hudMTC = new HUDMTC();
             registerEvent(hudMTC);
         }
@@ -366,7 +366,7 @@ public class ClientProxy extends CommonProxy {
             case (GuiIDs.DIGGER):
                 return riddenByEntity != null ? new GuiBuilder(player, riddenByEntity.inventory, entity) : null;
             case (GuiIDs.MTC_INFO):
-                return riddenByEntity != null && Loader.isModLoaded("ComputerCraft") ? new GuiMTCInfo(player) : null;
+                return riddenByEntity != null && Traincraft.hasComputerCraft() ? new GuiMTCInfo(player) : null;
 
             // Stationary entities while player is not riding.
             case (GuiIDs.FREIGHT):
@@ -441,7 +441,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void doNEICheck(ItemStack stack) {
         if (Minecraft.getMinecraft().thePlayer != null) {
-            if (Loader.isModLoaded("Not Enough Items")) {
+            if (Traincraft.hasNotEnoughItems()) {
                 try {
                     Class<?> neiApi = Class.forName("codechicken.nei.api.API");
                     Method hideItem = neiApi.getDeclaredMethod("hideItem", stack.getClass());

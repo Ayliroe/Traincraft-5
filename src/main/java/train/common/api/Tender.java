@@ -173,19 +173,19 @@ public abstract class Tender extends Freight implements IFluidHandler {
                     }
                 }
             }
-            if (drain == null && frontLink instanceof LiquidTank
-                    && !(frontLink instanceof AbstractBUnit)) {
+            if (drain == null && links.getFront() instanceof LiquidTank
+                    && !(links.getFront() instanceof AbstractBUnit)) {
                 if (getFluid() == null) {
-                    drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
+                    drain = ((LiquidTank) links.getFront()).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
                 } else if (getFluid().getFluid() == FluidRegistry.WATER) {
-                    drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
+                    drain = ((LiquidTank) links.getFront()).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
                 }
-            } else if (drain == null && backLink instanceof LiquidTank
-                    && !(frontLink instanceof AbstractBUnit)) {
+            } else if (drain == null && links.getBack() instanceof LiquidTank
+                    && !(links.getBack() instanceof AbstractBUnit)) {
                 if (getFluid() == null) {
-                    drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
+                    drain = ((LiquidTank) links.getBack()).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
                 } else if (getFluid().getFluid() == FluidRegistry.WATER) {
-                    drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
+                    drain = ((LiquidTank) links.getBack()).drain(ForgeDirection.UNKNOWN, new FluidStack(FluidRegistry.WATER, 100), true);
                 }
             }
             if (drain != null) {

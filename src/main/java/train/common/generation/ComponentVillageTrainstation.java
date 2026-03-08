@@ -41,30 +41,6 @@ public class ComponentVillageTrainstation extends StructureVillagePieces.Village
 		return canVillageGoDeeper(structureboundingbox) && StructureComponent.findIntersecting(par1List, structureboundingbox) == null ? new ComponentVillageTrainstation(par0ComponentVillageStartPiece, par7, par2Random, structureboundingbox, par6) : null;
 	}
 
-	/*
-	 * Stocks being defined in a json file, it is not guaranteed that they are valid objects to be spawned.
-	 * This catches at game start that the strings are valid, but also that the entity will readily instantiate, so players don't encounter a crash on a village generating
-	 * (Probably overkill, but at least it's there)
-	 **/
-	public static void put(List<TrainRegister> trains, String path) {
-
-		InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream(path);
-		BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-		TrainstationRecordJson[] recordsJson = new Gson().fromJson(reader, TrainstationRecordJson[].class);
-
-		for (TrainstationRecordJson recordJson : recordsJson) {
-			TrainRegister record = TraincraftRegistry.trains.get(recordJson.entryName);
-			if (record != null) {
-				// Attempt to instantiate the stock. This should also cause a stack trace if it fails.
-				if ((EntityRollingStock) record.getEntity((World) null) != null) {
-					trains.add(record);
-				} else {
-					tcLog.warn("Invalid trainstation stock: " + record.type.getName());
-				}
-			}
-		}
-	}
-
 	@Override
 	public boolean addComponentParts(World world, Random random, StructureBoundingBox structureboundingbox) {
 		if (averageGroundLevel < 0) {

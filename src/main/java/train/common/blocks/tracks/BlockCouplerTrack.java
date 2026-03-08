@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import train.common.api.AbstractTrains;
 import train.common.api.EntityRollingStock;
-import train.common.core.handlers.LinkHandler;
+import train.common.api.components.Links;
 import train.common.library.Tracks;
 
 import java.io.DataInputStream;
@@ -44,24 +44,24 @@ public class BlockCouplerTrack extends TrackBaseTraincraft implements ITrackPowe
 		}
 
 		if (isPowered() && cart instanceof EntityRollingStock) {
-			((EntityRollingStock) cart).isAttaching = true;
+			((EntityRollingStock) cart).links.setIsAttaching(true);
 			if (taggedCart instanceof EntityRollingStock) {
-				((EntityRollingStock) taggedCart).isAttaching = true;
-				LinkHandler.addStake((EntityRollingStock) this.taggedCart, (EntityRollingStock) cart, false);
+				((EntityRollingStock) taggedCart).links.setIsAttaching(true);
+				((EntityRollingStock) this.taggedCart).links.link((EntityRollingStock) cart);
 			}
 			this.taggedCart = cart;
 		}
-		if (!isPowered() && !(cart instanceof AbstractTrains)) {
+		if (!isPowered() && !(cart instanceof EntityRollingStock)) {
 			ILinkageManager lm = CartTools.getLinkageManager(cart.worldObj);
 			if (taggedCart != null)
 				lm.breakLink(this.taggedCart, cart);
 			this.taggedCart = cart;
 		}
 
-		if (!isPowered() && cart instanceof AbstractTrains) {
-			((AbstractTrains) cart).isAttached = false;
+		if (!isPowered() && cart instanceof EntityRollingStock) {
+			((AbstractTrains) cart).links.unlink();
 			if (taggedCart != null)
-				((AbstractTrains) taggedCart).isAttaching = false;
+				((AbstractTrains) taggedCart).links.unlink();
 			this.taggedCart = cart;
 		}
 	}

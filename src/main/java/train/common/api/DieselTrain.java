@@ -160,27 +160,27 @@ public abstract class DieselTrain extends Locomotive implements IFluidHandler {
 					}
 				}
 			}
-			if(drain==null && frontLink instanceof LiquidTank && !(frontLink instanceof AbstractBUnit)){
+			if(drain==null && links.getFront() instanceof LiquidTank && !(links.getFront() instanceof AbstractBUnit)){
 				if (getFluid() == null) {
-					drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
+					drain = ((LiquidTank) links.getFront()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
 					if (drain == null){
-						drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 50), true);
+						drain = ((LiquidTank) links.getFront()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 50), true);
 					}
 				} else if (getFluid().getFluid() == LiquidManager.DIESEL) {
-					drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
+					drain = ((LiquidTank) links.getFront()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
 				} else {
-					drain = ((LiquidTank) frontLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 50), true);
+					drain = ((LiquidTank) links.getFront()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 50), true);
 				}
-			} else if (drain==null && backLink instanceof LiquidTank && !(backLink instanceof AbstractBUnit)){
+			} else if (drain==null && links.getBack() instanceof LiquidTank && !(links.getBack() instanceof AbstractBUnit)){
 				if (getFluid() == null) {
-					drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
+					drain = ((LiquidTank) links.getBack()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
 					if (drain == null){
-						drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 50), true);
+						drain = ((LiquidTank) links.getBack()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 50), true);
 					}
 				} else if (getFluid().getFluid() == LiquidManager.DIESEL) {
-					drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
+					drain = ((LiquidTank) links.getBack()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.DIESEL, 100), true);
 				} else {
-					drain = ((LiquidTank) backLink).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 100), true);
+					drain = ((LiquidTank) links.getBack()).drain(ForgeDirection.UNKNOWN, new FluidStack(LiquidManager.REFINED_FUEL, 100), true);
 				}
 			}
 			if (drain != null){

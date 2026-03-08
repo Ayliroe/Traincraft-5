@@ -64,19 +64,15 @@ public class TraincraftRegistry {
     }
 
     public static final Map<String,TrainRegister> trains = new HashMap<>();
-    public static final Map<Item,TrainRegister> trainsByItem = new HashMap<>(); //TODO: nuke this (the item should know its own register)
     public static final List<TrainRegister> stationTrains = new ArrayList<>();
     public static final Map<String,TrackRecord> tracks = new HashMap<>();
 
-    public TraincraftRegistry() {}
-
-    public static void initTrains() {
+    public static void init() {
         TrainRecord.put(trains, "assets/tc/data/TrainRecords.json");
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
             RenderRecord.put(trains, "assets/tc/data/RenderRecords.json");
             SoundRecord.put(trains, "assets/tc/data/SoundRecords.json");
         }
-        ComponentVillageTrainstation.put(stationTrains, "assets/tc/data/TrainstationRecords.json");
 
         for (TrackRecord track : EnumTracks.values()) {
             tracks.put(track.getLabel(), track);
@@ -289,7 +285,6 @@ public class TraincraftRegistry {
         }
     }
 
-
     /**
      * @param priority the priority to generate, higher numbers tend to generate after other mods.
      */
@@ -297,13 +292,11 @@ public class TraincraftRegistry {
         GameRegistry.registerWorldGenerator(veinConfig, priority);
     }
 
-
     public static void endRegistration() {
         usedNames = null;
         registryPosition = -1;
         redundantTiles = null;
     }
-
 
     //todo:add support for buildcraft/railcraft burnable fluids
 
@@ -316,5 +309,4 @@ public class TraincraftRegistry {
     static void registerRCFluid(Fluid f, int totalBurningTime) {
         FuelManager.addBoilerFuel(f, totalBurningTime);
     }
-
 }

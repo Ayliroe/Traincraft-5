@@ -52,8 +52,17 @@ import static train.common.core.util.TraincraftUtil.isRailBlockAt;
 
 public abstract class EntityRollingStock extends AbstractTrains {
 
-    public int fuelTrain = 0; // Note: Used by locos, but also b-units which derive from different classes, so this can't be moved higher-up
+    // --- MAIN ---
+    public EntityBogie bogieFront = null;
+    public EntityBogie bogieBack = null;
+    private boolean hasSpawnedBogie = false;
+    public EntityHitbox collisionHandler = null;
 
+    // --- PHYSICS ---
+    private boolean firstLoad = true;
+    private boolean derail = false;
+    private int rollingturnProgress;    // The progress of the turn?
+    public Vec3f[] cachedVectors = new Vec3f[]{ new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0) };
     protected static final int[][][] matrix = {
             {{0, 0, -1}, {0, 0, 1}},
             {{-1, 0, 0}, {1, 0, 0}},
@@ -66,29 +75,18 @@ public abstract class EntityRollingStock extends AbstractTrains {
             {{0, 0, -1}, {-1, 0, 0}},
             {{0, 0, -1}, {1, 0, 0}}};
 
-
-    /**
-     * appears to be the progress of the turn
-     */
-    private int rollingturnProgress;
-
-    public EntityHitbox collisionHandler=null;
-
-    public int linkageNumber;
-
+    // --- AUDIO ---
     @SideOnly(Side.CLIENT)
     private SoundHandler theSoundManager;
     @SideOnly(Side.CLIENT)
     private SoundUpdaterRollingStock sndUpdater;
 
-    /**
-     * New physics integration
-     */
-    private boolean firstLoad = true;
-    private boolean hasSpawnedBogie = false;
-    private boolean derail = false;
+    // --- STATE ---
+    public int fuelTrain = 0; // Note: Used by locos, but also b-units which derive from different classes, so this can't be moved higher-up
 
-    public Vec3f[] cachedVectors = new Vec3f[]{ new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0),new Vec3f(0,0,0) };
+    /*
+     * =========================================== INIT ===========================================
+     **/
 
     public EntityRollingStock(World world) {
         super(world);
@@ -99,18 +97,14 @@ public abstract class EntityRollingStock extends AbstractTrains {
         isImmuneToFire = true;
         setSize(0.25f,0.25f);
         yOffset = 0;
-        linkageNumber = 0;
         entityCollisionReduction = 0.8F;
-
-        consist = new ArrayList<AbstractTrains>();
-        consist.add(this);
-        updateLinks();
 
         collisionHandler=new EntityHitbox(this);
 
         /* Railcraft's stuff */
         //maxSpeed = defaultMaxSpeedRail;
         //maxSpeedGround = defaultMaxSpeedGround;
+
         maxSpeedAirLateral = defaultMaxSpeedAirLateral;
         maxSpeedAirVertical = defaultMaxSpeedAirVertical;
 
@@ -125,25 +119,14 @@ public abstract class EntityRollingStock extends AbstractTrains {
         setCollisionHandler(null);
     }
 
-    public GameProfile getOwner() {
-        return CartTools.getCartOwner(this);
-    }
-
-
-    public Entity[] getParts(){
-        return collisionHandler==null || collisionHandler.interactionBoxes==null?null:
-                collisionHandler.interactionBoxes.toArray(new Entity[]{});
-    }
-
     @Override
-    public void readSpawnData(ByteBuf additionalData) {
-        super.readSpawnData(additionalData);
-        int numOfTrustedPlayers = additionalData.readInt();
-        for (int i = 0; i < numOfTrustedPlayers; i++) {
-            getTrustedList().add(new TrustedPlayer(ByteBufUtils.readUTF8String(additionalData), additionalData.readBoolean()));
-        }
-        if (additionalData.readBoolean()) { // If accepts overlay textures...
-            getOverlayTextureContainer().importFromConfigTag(ByteBufUtils.readTag(additionalData));
+    protected void entityInit() {
+        if(getWorld()!=null) {
+            dataWatcher.addObject(16, (byte) 0);
+            dataWatcher.addObject(17, 0);
+            dataWatcher.addObject(18, 1);
+            dataWatcher.addObject(19, 0.0F);
+            dataWatcher.addObject(29, 0.0F);
         }
     }
 
@@ -162,187 +145,37 @@ public abstract class EntityRollingStock extends AbstractTrains {
         }
     }
 
-
     @Override
-    public double getMountedYOffset() {
-        return 0;
-    }
-
-    @Override
-    protected void entityInit() {
-        if(getWorld()!=null) {
-            dataWatcher.addObject(16, (byte) 0);
-            dataWatcher.addObject(17, 0);
-            dataWatcher.addObject(18, 1);
-            dataWatcher.addObject(19, 0.0F);
-            dataWatcher.addObject(29, 0.0F);
+    public void readSpawnData(ByteBuf additionalData) {
+        super.readSpawnData(additionalData);
+        int numOfTrustedPlayers = additionalData.readInt();
+        for (int i = 0; i < numOfTrustedPlayers; i++) {
+            getTrustedList().add(new TrustedPlayer(ByteBufUtils.readUTF8String(additionalData), additionalData.readBoolean()));
+        }
+        if (additionalData.readBoolean()) { // If accepts overlay textures...
+            getOverlayTextureContainer().importFromConfigTag(ByteBufUtils.readTag(additionalData));
         }
     }
 
-    @Override
-    public AxisAlignedBB getCollisionBox(Entity entity) {
-        return null;
-    }
+    /*
+     * =========================================== NBT ===========================================
+     **/
 
-    protected int steamFuelLast(ItemStack it) {
-        return FuelHandler.steamFuelLast(it);
+    @Override
+    protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+        super.writeEntityToNBT(nbttagcompound);
+        nbttagcompound.setBoolean("firstLoad", firstLoad);
     }
 
     @Override
-    public boolean attackEntityFromPart(EntityDragonPart part, DamageSource damagesource, float i) {
-        return attackEntityFrom(damagesource,i);
+    protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+        super.readEntityFromNBT(nbttagcompound);
+        firstLoad = nbttagcompound.getBoolean("firstLoad");
     }
 
-    @Override
-    public boolean attackEntityFrom(DamageSource damagesource, float i) {
-        if (!getWorld().isRemote && !isDead && TrainUtils.canBeAttackedBySource(this, damagesource)) {
-            EntityPlayer player = (EntityPlayer)damagesource.getEntity(); // canBeAttackedBySource guarantees this is valid
-
-            setRollingDirection(-getRollingDirection());
-            setRollingAmplitude(10);
-            setBeenAttacked();
-            if (player.capabilities.isCreativeMode) {
-                setDamage(1000);
-                if (ConfigHandler.ENABLE_WAGON_REMOVAL_NOTICES && player.canCommandSenderUseCommand(2, "")) {
-                    player.addChatComponentMessage(new ChatComponentText("Operator removed train owned by " + getTrainOwner()));
-                }
-            }
-            setDamage(getDamage() + i * 10);
-            if (getDamage() > 40) {
-                //TODO: check the seats instead
-                if (riddenByEntity != null) {
-                    riddenByEntity.mountEntity(this);
-                }
-                ServerLogger.deleteWagon(this);
-                setDead();
-                dropCartAsItem(player.capabilities.isCreativeMode);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void performHurtAnimation() {
-        setRollingDirection(-getRollingDirection());
-        setRollingAmplitude(10);
-        setDamage(getDamage() + getDamage() * 10);
-    }
-
-    public void unLink() {
-        if (isAttached) {
-            if (frontLink != null) {
-                if (frontLink.Link1 == uniqueID) {
-                    frontLink.Link1 = 0;
-                    frontLink.frontLink = null;
-                    if (frontLink.consist != null){
-                        frontLink.consist.clear();
-                        frontLink.consist.add(frontLink);
-                        frontLink.updateLinks();
-                    }
-
-                } else if (frontLink.Link2 == uniqueID) {
-                    frontLink.Link2 = 0;
-                    frontLink.backLink = null;
-                    if (frontLink.consist != null){
-                        frontLink.consist.clear();
-                        frontLink.consist.add(frontLink);
-                        frontLink.updateLinks();
-                    }
-
-                }
-            }
-            if (backLink != null) {
-                if (backLink.Link1 == uniqueID) {
-                    backLink.Link1 = 0;
-                    backLink.frontLink = null;
-                    if (backLink.consist != null){
-                        backLink.consist.clear();
-                        backLink.consist.add(backLink);
-                        frontLink.updateLinks();
-                    }
-
-                } else if (backLink.Link2 == uniqueID) {
-                    backLink.Link2 = 0;
-                    backLink.backLink = null;
-                    if (backLink.consist != null){
-                        backLink.consist.clear();
-                        backLink.consist.add(backLink);
-                        frontLink.updateLinks();
-                    }
-
-                }
-            }
-            frontLink = null;
-            backLink = null;
-            isAttached = false;
-            updateLinks();
-        }
-    }
-
-    @Override
-    public void setDead() {
-        super.setDead();
-        unLink();
-        if (bogieFront != null) {
-            bogieFront.setDead();
-        }
-        if (bogieBack != null) {
-            bogieBack.setDead();
-        }
-        Side side = FMLCommonHandler.instance().getEffectiveSide();
-        if (side == Side.CLIENT) {
-            soundUpdater();
-        }
-        //remove seats
-        for (EntitySeat seat : seats) {
-            seat.setDead();
-            seat.getWorld().removeEntity(seat);
-        }
-
-        for(CollisionBox box : collisionHandler.interactionBoxes){
-            if(box !=null){
-                box.setDead();
-                getWorld().removeEntity(box);
-            }
-        }
-    }
-
-    /**
-     * gets packet from server and distribute for GUI handles motion
-     *
-     * @param
-     */
-    public boolean isLockedAndNotOwner(EntityPlayer player) {
-        if (getTrainLockedFromPacket()) {
-            return !player.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isPlayerTrusted(player.getDisplayName());
-        }
-        return false;
-    }
-    /**
-     * The actions to perform on key press
-     * @return Returns true if the action isn't allowed or has been 'eaten'
-     */
-    public boolean keyHandlerFromPacket(int i, EntityPlayer player) {
-        if (getTrainLockedFromPacket() && isLockedAndNotOwner(player))
-            return true;
-        return TrainUtils.onOpeningGUI(this, i, player);
-    }   
-
-    private double rollingX=0,rollingY=0,rollingZ=0;
-    @Override
-    @SideOnly(Side.CLIENT)
-    /**
-     * Sets the position and rotation. Only difference from the other one is no bounding on the rotation. Args: posX,
-     * posY, posZ, yaw, pitch
-     */
-    public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9) {
-        rollingX = par1;
-        rollingY = par3;
-        rollingZ = par5;
-        rollingturnProgress = par9 + 2;
-    }
+    /*
+     * =========================================== UPDATE ===========================================
+     **/
 
     @Override
     public void onUpdate() {
@@ -362,7 +195,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
             hasSpawnedBogie = true;
         }
 
-        // --- CHUNKLOADING UNIQUEID ---
+        // --- CHUNKLOADING UUID ---
         if (!getWorld().isRemote && uniqueID == -1) {
             if (FMLCommonHandler.instance().getMinecraftServerInstance() != null) {
                 setNewUniqueID(getEntityId());
@@ -387,7 +220,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
             }
         }
 
-        // --- IGNORE MINECART DAMAGE ---
+        // --- DAMAGE FALLOFF ---
         if (getRollingAmplitude() > 0) {
             setRollingAmplitude(getRollingAmplitude() - 1);
         }
@@ -395,6 +228,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
             setDamage(getDamage() - 1);
         }
 
+        // --- SEATS ---
         if (getRiderOffsets() != null && getRiderOffsets().length > 0 && seats.size() < getRiderOffsets().length) {
             for (int i = 0; i < getRiderOffsets().length; i++) {
                 EntitySeat seat = new EntitySeat(getWorld(), posX, posY, posZ, getRiderOffsets()[i][0], getRiderOffsets()[i][1] + 2, getRiderOffsets()[i][2], this, i);
@@ -485,7 +319,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
             return;
         }
 
-        restoreLinks();
+        links.restoreLinks();
 
         prevPosX = posX;
         prevPosY = posY;
@@ -543,33 +377,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
         }
     }
 
-    /**
-     * As entities can't be registered in nbttagcompound I had to setup this
-     * system... When world loads, only the (double) Link1 and Link2 are
-     * known. This method search for the entity with the ID corresponding to
-     * Link1 or Link2 When it finds it, (EntityRollingStock)frontLink and
-     * backLink will be updated accordingly
-     */
-    private void restoreLinks(){
-
-        if (addedToChunk && ((frontLink == null && Link1 != 0) || (backLink == null && Link2 != 0))) {
-            List<?> list = getWorld().getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(15, 15, 15));
-
-            if (list != null && !list.isEmpty()) {
-                for (Object entity : list) {
-                    if (entity instanceof EntityRollingStock) {
-                        if (((EntityRollingStock) entity).uniqueID == Link1) {
-                            frontLink = (EntityRollingStock) entity;
-                        } else if (((EntityRollingStock) entity).uniqueID == Link2) {
-                            backLink = (EntityRollingStock) entity;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private void positionSeats(){
+    private void positionSeats() {
         //rider updating isn't called if there's no driver/conductor, so just in case of that, we reposition the seats here too.
         if (getRiderOffsets() != null) {
             for (int i1 = 0; i1 < seats.size(); i1++) {
@@ -589,7 +397,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
         }
     }
 
-    public void updatePosition(){
+    public void updatePosition() {
         if(!getWorld().isRemote) {
 
             // --- RAIL CHECKS ---
@@ -614,36 +422,17 @@ public abstract class EntityRollingStock extends AbstractTrains {
 
             // --- DERAIL YAW CHANGES ---
             if(derail) {
-                if(frontLink instanceof EntityRollingStock &&
-                        backLink instanceof EntityRollingStock){
-                    rotationYaw=CommonUtil.atan2degreesf(
-                            backLink.posZ - frontLink.posZ,
-                            backLink.posX - frontLink.posX);
-                } else if (backLink instanceof EntityRollingStock){
-                    rotationYaw=CommonUtil.atan2degreesf(
-                            backLink.posZ - posZ,
-                            backLink.posX - posX);
-                } else if (frontLink instanceof EntityRollingStock){
-                    rotationYaw=CommonUtil.atan2degreesf(
-                            posZ - frontLink.posZ,
-                            posX - frontLink.posX);
+                if(links.isFrontLinked() && links.isBackLinked()) {
+                    rotationYaw = CommonUtil.atan2degreesf(links.getBack().posZ - links.getFront().posZ, links.getBack().posX - links.getFront().posX);
+                } else if (links.isBackLinked()) {
+                    rotationYaw = CommonUtil.atan2degreesf(links.getBack().posZ - posZ, links.getBack().posX - posX);
+                } else if (links.isFrontLinked()) {
+                    rotationYaw = CommonUtil.atan2degreesf(posZ - links.getFront().posZ, posX - links.getFront().posX);
                 }
             }
 
             // --- LINKS SPRING ---
-            double activeSpring = 0.5d; double passiveSpring = 0.25d;
-            double springDist = 0d;
-            int pullingDir = pullingLocomotiveDirection();
-            if (frontLink instanceof EntityRollingStock) {
-                springDist += manageLink((EntityRollingStock) frontLink) * (pullingDir == 1 ? activeSpring : (pullingDir == -1 ? 0 : passiveSpring));
-            }
-            if (backLink instanceof EntityRollingStock) {
-                springDist -= manageLink((EntityRollingStock) backLink) * (pullingDir == -1 ? activeSpring : (pullingDir == 1 ? 0 : passiveSpring));
-            }
-            // Non-null springDist means this stock is allowed to be pulled and an active link is pulling or pushing it
-            if (springDist != 0d) {
-                setVelocity(springDist);
-            }
+            links.updateSpring();
 
             // --- DRAG ---
             applyDrag();
@@ -676,56 +465,12 @@ public abstract class EntityRollingStock extends AbstractTrains {
         }
     }
 
-    public void setVelocity(double velocity) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        bogieBack.setVelocity(this, velocity);
-        bogieFront.setVelocity(this, velocity);
-    }
-
-    public void appendMovement(double velocity) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        bogieBack.addVelocity(this, velocity);
-        bogieFront.addVelocity(this, velocity);
-    }
-
-    @Override
-    public void setVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        double velocity = Math.sqrt(Math.pow(p_70024_1_,2)+Math.pow(p_70024_5_,2));
-        bogieBack.setVelocity(this, velocity);
-        bogieFront.setVelocity(this, velocity);
-    }
-
-    @Override
-    public void addVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        double velocity = Math.sqrt(Math.pow(p_70024_1_,2)+Math.pow(p_70024_5_,2));
-        bogieBack.addVelocity(this, velocity);
-        bogieFront.addVelocity(this, velocity);
-    }
-
-    public double manageLink(EntityRollingStock other) {
-        // Don't apply spring movement if uninitialized or a non-passive loco
-        if (other.bogieBack == null || other.bogieFront == null || bogieBack == null || bogieFront == null || (this instanceof Locomotive && !canBePushed())) {
-            return 0d;
-        }
-
-        double vecX = other.posX - posX;
-        double vecZ = other.posZ - posZ;
-
-        return MathHelper.sqrt_double(vecX * vecX + vecZ * vecZ) - (getOptimalDistance()+other.getOptimalDistance());
-    }
-
     @Override
     protected void applyDrag() {
         float drag = 0.95f; float derailDrag = 0.175f; float lateralDrag = 0.15f;
         //If an active loco is linked, don't apply a constant drag
-        for(AbstractTrains stock : consist) {
-            if(stock instanceof Locomotive && ((Locomotive)stock).isLocoTurnedOn && !stock.canBePushed()){
-                drag = 1f;
-                break;
-            }
-        }
+        if (links.isActiveLocoLinked())
+            drag = 1f;
 
         // --- SLOPE ACCELERATION ---
         if(ConfigHandler.ENABLE_SLOPE_ACCELERATION) {
@@ -759,10 +504,55 @@ public abstract class EntityRollingStock extends AbstractTrains {
         bogieBack.multiplyVelocity(drag);
     }
 
-    public float getVelocity(){
-        return getWorld().isRemote?dataWatcher.getWatchableObjectFloat(29):
-                (float)(Math.abs(motionX)+Math.abs(motionZ));
+    // Called by EntitySeat's onUpdate()
+    @SideOnly(Side.CLIENT)
+    public void setSeats(EntitySeat seat, int seatNumber) {
+        if (seats.size() < seatNumber || seats.isEmpty()) { //there is a case where seatNumber == 0 so seats.size() was always ==.
+            seats.add(seat);
+        } else {
+            seats.set(seatNumber, seat);
+        }
     }
+
+    /*
+     * =========================================== PHYSICS ===========================================
+     **/
+
+    public void setVelocity(double velocity) {
+        if (bogieBack == null || bogieFront == null) { return; }
+        bogieBack.setVelocity(this, velocity);
+        bogieFront.setVelocity(this, velocity);
+    }
+
+    public void appendMovement(double velocity) {
+        if (bogieBack == null || bogieFront == null) { return; }
+        bogieBack.addVelocity(this, velocity);
+        bogieFront.addVelocity(this, velocity);
+    }
+
+    @Override
+    public void setVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {
+        if (bogieBack == null || bogieFront == null) { return; }
+        double velocity = Math.sqrt(Math.pow(p_70024_1_,2)+Math.pow(p_70024_5_,2));
+        bogieBack.setVelocity(this, velocity);
+        bogieFront.setVelocity(this, velocity);
+    }
+
+    @Override
+    public void addVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {
+        if (bogieBack == null || bogieFront == null) { return; }
+        double velocity = Math.sqrt(Math.pow(p_70024_1_,2)+Math.pow(p_70024_5_,2));
+        bogieBack.addVelocity(this, velocity);
+        bogieFront.addVelocity(this, velocity);
+    }
+
+    public void multiplyVelocity(double vel) {
+        if (bogieBack == null || bogieFront == null) { return; } //This method can fire before the stock fully initializes, so we need to make sure bogies exist.
+        bogieBack.multiplyVelocity(vel);
+        bogieFront.multiplyVelocity(vel);
+    }
+
+    public float getVelocity(){ return getWorld().isRemote ? dataWatcher.getWatchableObjectFloat(29): (float)(Math.abs(motionX)+Math.abs(motionZ)); }
     double maxBoost(Block booster){
         if(this instanceof Locomotive && ((Locomotive)this).getMaxSpeed() > 0){
             return Math.min(((Locomotive)this).getMaxSpeed(),
@@ -770,18 +560,125 @@ public abstract class EntityRollingStock extends AbstractTrains {
         }
         return CommonUtil.getMaxRailSpeed(getWorld(), (BlockRailBase) booster,this, posX,posY,posZ);
     }
-    @Override
-    protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
-        super.writeEntityToNBT(nbttagcompound);
 
-        nbttagcompound.setBoolean("firstLoad", firstLoad);
+    public Entity[] getParts() {
+        return (collisionHandler == null || collisionHandler.interactionBoxes == null) ? null : collisionHandler.interactionBoxes.toArray(new Entity[]{});
+    }
+
+    /*
+     * =========================================== RENDER ===========================================
+     **/
+
+    private double rollingX=0,rollingY=0,rollingZ=0;
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    /**
+     * Sets the position and rotation. Only difference from the other one is no bounding on the rotation. Args: posX,
+     * posY, posZ, yaw, pitch
+     */
+    public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9) {
+        rollingX = par1;
+        rollingY = par3;
+        rollingZ = par5;
+        rollingturnProgress = par9 + 2;
+    }
+
+    /*
+     * =========================================== DAMAGE ===========================================
+     **/
+
+    @Override
+    public boolean attackEntityFromPart(EntityDragonPart part, DamageSource damagesource, float i) {
+        return attackEntityFrom(damagesource,i);
     }
 
     @Override
-    protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
-        super.readEntityFromNBT(nbttagcompound);
+    public boolean attackEntityFrom(DamageSource damagesource, float i) {
+        if (!getWorld().isRemote && !isDead && TrainUtils.canBeAttackedBySource(this, damagesource)) {
+            EntityPlayer player = (EntityPlayer)damagesource.getEntity(); // canBeAttackedBySource guarantees this is valid
 
-        firstLoad = nbttagcompound.getBoolean("firstLoad");
+            setRollingDirection(-getRollingDirection());
+            setRollingAmplitude(10);
+            setBeenAttacked();
+            if (player.capabilities.isCreativeMode) {
+                setDamage(1000);
+                if (ConfigHandler.ENABLE_WAGON_REMOVAL_NOTICES && player.canCommandSenderUseCommand(2, "")) {
+                    player.addChatComponentMessage(new ChatComponentText("Operator removed train owned by " + getTrainOwner()));
+                }
+            }
+            setDamage(getDamage() + i * 10);
+            if (getDamage() > 40) {
+                //TODO: check the seats instead
+                if (riddenByEntity != null) {
+                    riddenByEntity.mountEntity(this);
+                }
+                ServerLogger.deleteWagon(this);
+                setDead();
+                dropCartAsItem(player.capabilities.isCreativeMode);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void performHurtAnimation() {
+        setRollingDirection(-getRollingDirection());
+        setRollingAmplitude(10);
+        setDamage(getDamage() + getDamage() * 10);
+    }
+
+    @Override
+    public void setDead() {
+        super.setDead();
+        links.unlink();
+        if (bogieFront != null) {
+            bogieFront.setDead();
+        }
+        if (bogieBack != null) {
+            bogieBack.setDead();
+        }
+        Side side = FMLCommonHandler.instance().getEffectiveSide();
+        if (side == Side.CLIENT) {
+            soundUpdater();
+        }
+        //remove seats
+        for (EntitySeat seat : seats) {
+            seat.setDead();
+            seat.getWorld().removeEntity(seat);
+        }
+
+        for(CollisionBox box : collisionHandler.interactionBoxes){
+            if(box !=null){
+                box.setDead();
+                getWorld().removeEntity(box);
+            }
+        }
+    }
+
+    /*
+     * =========================================== INTERACTION ===========================================
+     **/
+
+    /**
+     * Gets packet from server and distribute for GUI handles motion
+     */
+    public boolean isLockedAndNotOwner(EntityPlayer player) {
+        if (getTrainLockedFromPacket()) {
+            return !player.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isPlayerTrusted(player.getDisplayName());
+        }
+        return false;
+    }
+    /**
+     * The actions to perform on key press
+     * @return Returns true if the action isn't allowed or has been 'eaten'
+     */
+    public boolean keyHandlerFromPacket(int i, EntityPlayer player) {
+        if (getTrainLockedFromPacket() && isLockedAndNotOwner(player))
+            return true;
+        return TrainUtils.onOpeningGUI(this, i, player);
     }
 
     @Override
@@ -795,7 +692,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
         // Prevent interactions if locked + not a trusted user + cannot be ridden while locked
         if (!getWorld().isRemote && getTrainLockedFromPacket()) {
             boolean isTrustedPlayer = isPlayerTrusted(entityplayer.getDisplayName());
-            if (!entityplayer.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isTrustedPlayer && !canBeRiddenWhileLocked(this)) {
+            if (!entityplayer.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isTrustedPlayer && !canBeRiddenWhileLocked()) {
                 if (!getWorld().isRemote)
                     entityplayer.addChatMessage(new ChatComponentText("Train is locked by " + getTrainOwner() + "."));
                 return true;
@@ -840,95 +737,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         return getWorld().isRemote;
     }
 
-    @SideOnly(Side.CLIENT)
-    private void soundUpdater() {
-        if(ticksExisted>0) {
-            if (FMLClientHandler.instance().getClient() != null) {
-                theSoundManager = FMLClientHandler.instance().getClient().getSoundHandler();
-            }
-            if (FMLClientHandler.instance().getClient() != null && theSoundManager != null && FMLClientHandler.instance().getClient().thePlayer != null) {
-                if (sndUpdater != null) {
-                    sndUpdater.update(FMLClientHandler.instance().getClient().getSoundHandler(), this, FMLClientHandler.instance().getClient().thePlayer);
-                }
-            }
-        }
-    }
-
-    /**
-     * Applies a velocity to each of the entities pushing them away from each
-     * other. Args: entity
-     */
-    @Override
-    public void applyEntityCollision(Entity par1Entity) {}
-
-    public void multiplyVelocity(double vel) {
-        if (bogieBack == null || bogieFront == null) { return; } //This method can fire before the stock fully initializes, so we need to make sure bogies exist.
-        bogieBack.multiplyVelocity(vel);
-        bogieFront.multiplyVelocity(vel);
-    }
-
-    @Override
-    public boolean isLinked() {return frontLink !=null || backLink!=null;}
-
-
-    /*
-     * =========================================== VANILLA OVERRIDES ===========================================
-     **/
-
-    /**
-     * Return false if this cart should not call IRail.onMinecartPass() and should ignore Powered Rails.
-     * @return True if this cart should call IRail.onMinecartPass().
-     */
-    @Override
-    public boolean shouldDoRailFunctions() { return true; }
-
-    @Override
-    public void moveMinecartOnRail(int i, int j, int k, double d) {}
-    @Override
-    public int getMinecartType() { return 0; }
-
-    /**
-     * Used in SoundUpdaterRollingStock
-     */
-    public int getMotionXClient() {
-        return dataWatcher.getWatchableObjectInt(14);
-    }
-
-    /**
-     * Used in SoundUpdaterRollingStock
-     */
-    public int getMotionZClient() {
-        return dataWatcher.getWatchableObjectInt(21);
-    }
-
-    @Override
-    public List<ItemStack> getItemsDropped() {
-        List<ItemStack> items = new ArrayList<ItemStack>();
-
-        items.add(ItemRollingStock.setPersistentData(new ItemStack(getItem()), this, getUniqueTrainID(), trainCreator, trainOwner, getSkin()));
-        return items;
-    }
-
-
-    public ItemStack[] getInventory() {
-        return null;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void setSeats(EntitySeat seat, int seatNumber){
-        if (seats.size() < seatNumber || seats.isEmpty()) { //there is a case where seatNumber == 0 so seats.size() was always ==.
-            seats.add(seat);
-        } else {
-            seats.set(seatNumber, seat);
-        }
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int i, ItemStack itemstack) { return true; }
-
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer entityplayer) {return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D; }
-
     /**
      * <h2>Permissions handler</h2>
      * Used to check if the player has permission to do whatever it is the player is trying to do. Yes I could be more vague with that.
@@ -949,10 +757,42 @@ public abstract class EntityRollingStock extends AbstractTrains {
         if ((player.capabilities.isCreativeMode && player.canCommandSenderUseCommand(2, ""))
                 || (getOwner()!=null && getOwner() == player.getGameProfile())
                 || isPlayerTrusted(player.getDisplayName())
-                || canBeRiddenWhileLocked(this)) {
+                || canBeRiddenWhileLocked()) {
             return true;
         }
 
         return !getTrainLockedFromPacket();
     }
+
+    @Override
+    public List<ItemStack> getItemsDropped() {
+        List<ItemStack> items = new ArrayList<ItemStack>();
+
+        items.add(ItemRollingStock.setPersistentData(new ItemStack(getItem()), this, getUniqueTrainID(), trainCreator, trainOwner, getSkin()));
+        return items;
+    }
+
+    public ItemStack[] getInventory() { return null; }
+
+    /*
+     * =========================================== AUDIO ===========================================
+     **/
+
+    @SideOnly(Side.CLIENT)
+    private void soundUpdater() {
+        if(ticksExisted>0) {
+            if (FMLClientHandler.instance().getClient() != null) {
+                theSoundManager = FMLClientHandler.instance().getClient().getSoundHandler();
+            }
+            if (FMLClientHandler.instance().getClient() != null && theSoundManager != null && FMLClientHandler.instance().getClient().thePlayer != null) {
+                if (sndUpdater != null) {
+                    sndUpdater.update(FMLClientHandler.instance().getClient().getSoundHandler(), this, FMLClientHandler.instance().getClient().thePlayer);
+                }
+            }
+        }
+    }
+
+    // Used in SoundUpdaterRollingStock
+    public int getMotionXClient() { return dataWatcher.getWatchableObjectInt(14); }
+    public int getMotionZClient() { return dataWatcher.getWatchableObjectInt(21); }
 }

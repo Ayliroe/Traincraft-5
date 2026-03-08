@@ -174,8 +174,8 @@ public abstract class SteamTrain extends Locomotive implements IFluidHandler {
 				}
 			}
 
-			AbstractTrains[] links = {backLink,frontLink};
-			for (AbstractTrains link : links) {
+			AbstractTrains[] listLinks = {links.getBack(),links.getFront()};
+			for (AbstractTrains link : listLinks) {
 				if (link instanceof Tender){
 					if(drain==null && fill(ForgeDirection.UNKNOWN,new FluidStack(FluidRegistry.WATER, 100), false)==100) {
 						if (getFluid() == null || getFluid().getFluid() == FluidRegistry.WATER) {

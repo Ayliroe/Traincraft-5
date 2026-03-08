@@ -88,7 +88,7 @@ public final class TrainUtils {
 
     public static boolean onClickWithStake(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
         if (itemstack != null && itemstack.getItem() == ItemIDs.stake.item && !train.getWorld().isRemote &&
-                (FMLCommonHandler.instance().getMinecraftServerInstance().isSinglePlayer() || !train.isLinked() || train.getTrainOwner().equals(playerEntity.getDisplayName()) || train.getTrainOwner().isEmpty() || train.getTrainOwner() == null)) {
+                (FMLCommonHandler.instance().getMinecraftServerInstance().isSinglePlayer() || !train.links.isLinked() || train.getTrainOwner().equals(playerEntity.getDisplayName()) || train.getTrainOwner().isEmpty() || train.getTrainOwner() == null)) {
             if (playerEntity.isSneaking() && train instanceof Locomotive) {
                 if (!train.canBePushed()) {
                     playerEntity.addChatMessage(new ChatComponentText(train.getTrainName() + " can be pulled, don't forget to fuel it!"));
@@ -99,56 +99,17 @@ public final class TrainUtils {
                     ((Locomotive) train).setCanBePushed(false);
                 }
 
-                if(train.consistLeadID!=train.getEntityId()){
-                    train.updateLinks();
-                }
+                train.links.refreshLeadID();
                 return true;
             }
 
-            if (!train.isAttaching) {
-                train.isAttaching = true;
+            if (!train.links.getIsAttaching()) {
+                train.links.setIsAttaching(true);
                 playerEntity.addChatMessage(new ChatComponentText("Attaching mode on for: " + train.getTrainName()));
                 itemstack.damageItem(1, playerEntity);
             } else {
                 playerEntity.addChatMessage(new ChatComponentText("Reset, click again to couple new cart to this one"));
-                train.Link1 = -1;
-                train.Link2 = -1;
-                if (train.frontLink != null && train.frontLink.Link1 == train.getUniqueTrainID()) {
-					train.frontLink.Link1 = -1;
-				}
-
-                if (train.frontLink != null && train.frontLink.Link2 == train.getUniqueTrainID()) {
-					train.frontLink.Link2 = -1;
-				}
-
-                if (train.backLink != null && train.backLink.Link1 == train.getUniqueTrainID()) {
-					train.backLink.Link1 = -1;
-				}
-
-                if (train.backLink != null && train.backLink.Link2 == train.getUniqueTrainID()) {
-					train.backLink.Link2 = -1;
-				}
-
-                if (train.frontLink != null && train.frontLink.frontLink != null && train.frontLink.frontLink.equals(train)) {
-					train.frontLink.frontLink = null;
-				}
-
-                if (train.frontLink != null && train.frontLink.backLink != null && train.frontLink.backLink.equals(train)) {
-					train.frontLink.backLink = null;
-				}
-
-                if (train.backLink != null && train.backLink.backLink != null && train.backLink.backLink.equals(train)) {
-					train.backLink.backLink = null;
-				}
-
-                if (train.backLink != null && train.backLink.frontLink != null && train.backLink.frontLink.equals(train)) {
-					train.backLink.frontLink = null;
-				}
-
-                train.frontLink = null;
-                train.backLink = null;
-                train.isAttaching = false;
-                train.isAttached = false;
+                train.links.unlink();
             }
             return true;
         }

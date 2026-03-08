@@ -87,56 +87,14 @@ public class EntityHitbox {
                         continue;
                     }
                     EntityRollingStock entityOne = (((CollisionBox) e).host);
-                    if(host.frontLink==entityOne || host.backLink==entityOne){
+
+                    if (host.links.getFront() == entityOne || host.links.getBack() == entityOne){
                         continue;
                     }
-                    if (entityOne.isAttaching && host.isAttaching) {
-                        if(entityOne.canBePushed() || host.canBePushed()){
-
-                            if(new Vec3f(front.posX,front.posY,front.posZ).subtract(new Vec3f(entityOne.posX,entityOne.posY,entityOne.posZ)).length()
-                                    <
-                                    new Vec3f(back.posX,back.posY,back.posZ).subtract(new Vec3f(entityOne.posX,entityOne.posY,entityOne.posZ)).length()
-                            ){
-                                if(host.frontLink==null){
-                                    host.frontLink=entityOne;
-                                }
-                            } else {
-                                if(host.backLink==null){
-                                    host.backLink=entityOne;
-                                }
-                            }
-
-                            if(new Vec3f(entityOne.collisionHandler.front.posX,entityOne.collisionHandler.front.posY,entityOne.collisionHandler.front.posZ).subtract(new Vec3f(host.posX,host.posY,host.posZ)).length()
-                                    <
-                                    new Vec3f(entityOne.collisionHandler.back.posX,entityOne.collisionHandler.back.posY,entityOne.collisionHandler.back.posZ).subtract(new Vec3f(host.posX,host.posY,host.posZ)).length()
-                            ){
-                                if(entityOne.frontLink==null){
-                                    entityOne.frontLink=host;
-                                }
-                            } else {
-                                if(entityOne.backLink==null){
-                                    entityOne.backLink=host;
-                                }
-                            }
-                            entityOne.isAttaching = false;
-                            host.isAttaching = false;
-
-                            host.updateLinks();
-
-
-                            EntityPlayer entityplayer = host.getWorld().getClosestPlayerToEntity(host, 20);//
-                            if (entityplayer != null) {
-                                entityplayer.addChatMessage(new ChatComponentText("attached!"));
-                            }
-
-                        } else {
-                            EntityPlayer p = host.getWorld().getClosestPlayerToEntity(host,32);
-                            if(p!=null){
-                                p.addChatComponentMessage(new ChatComponentText("One or more trains is not in towing mode."));
-                                p.addChatComponentMessage(new ChatComponentText("Use a Stake while sneaking to toggle towing mode."));
-                            }
-                        }
-                    } else {
+                    if (host.links.getIsAttaching() && entityOne.links.getIsAttaching()) {
+                        host.links.link(entityOne);
+                    }
+                    else {
                         double distanceFront = Math.sqrt((e.posX - front.posX) * (e.posX - front.posX)
                                 + (e.posZ - front.posZ) * (e.posZ - front.posZ));
                         double distanceBack = Math.sqrt((e.posX - back.posX) * (e.posX - back.posX)
@@ -204,8 +162,8 @@ public class EntityHitbox {
 
                             //No matter what, we don't want to push a locomotive.
                             //If the config is disabled, we don't want to push ANYTHING.
-                            //If the cart is in a consist containing a locomotive, we do not want to push it.
-                            if (!ConfigHandler.PUSHABLE_ROLLINGSTOCK || host instanceof Locomotive || (host.consistLeadID != null && host.worldObj.getEntityByID(host.consistLeadID) instanceof Locomotive)) {
+                            //If the cart is in a linked list containing a locomotive, we do not want to push it.
+                            if (!ConfigHandler.PUSHABLE_ROLLINGSTOCK || host instanceof Locomotive || (host.links.getLeadID() != null && host.getWorld().getEntityByID(host.links.getLeadID()) instanceof Locomotive)) {
                                 //still need to push the player back though
                                 if (obj instanceof EntityLiving && containsEntity((Entity)obj)) {
                                     ((Entity)obj).applyEntityCollision(host);
@@ -224,21 +182,13 @@ public class EntityHitbox {
                                 continue;
                             }
 
+                            //we don't want to collide with our own CollisionBoxes, or the CollisionBoxes of our own links either
+                            if(obj instanceof CollisionBox) {
+                                if((host.links.getFront() != null && ((CollisionBox) obj).host.getEntityId()==host.links.getFront().getEntityId()) || (host.links.getBack() != null && ((CollisionBox) obj).host.getEntityId()==host.links.getBack().getEntityId()))
+                                    continue;
 
-                            //we don't want to collide with our own CollisionBoxes, or the CollisionBoxes of our own consist either
-                            if(obj instanceof CollisionBox){
-                                if((host.frontLink!=null && ((CollisionBox) obj).host.getEntityId()==host.frontLink.getEntityId()) || (host.backLink!=null && ((CollisionBox) obj).host.getEntityId()==host.backLink.getEntityId())){
+                                if (host.links.containsByID(((CollisionBox) obj).host))
                                     continue;
-                                }
-                                boolean skip=false;
-                                for(AbstractTrains t: host.consist) {
-                                    if(t.getEntityId()==((CollisionBox) obj).host.getEntityId()){
-                                        skip=true;
-                                    }
-                                }
-                                if(skip) {
-                                    continue;
-                                }
                             }
 
                             if(containsEntity((Entity) obj)){

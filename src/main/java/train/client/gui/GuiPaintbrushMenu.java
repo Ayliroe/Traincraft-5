@@ -104,7 +104,7 @@ public class GuiPaintbrushMenu extends GuiScreen {
         this.rollingStock = rollingStock;
         drawList = false;
         topVisSkin = 0;
-        renderEntity = rollingStock.getEntity(rollingStock.getWorld());
+        renderEntity = rollingStock.makeNewEntity(rollingStock.getWorld());
         skins = rollingStock.getSkins();
         totalOptions = skins.size();
 

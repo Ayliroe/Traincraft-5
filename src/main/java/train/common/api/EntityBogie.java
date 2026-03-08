@@ -414,7 +414,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		velocity[1] = Math.copySign(norm_cpx * motionSqrt, railPathZ2);
 	}
 
-	private void limitSpeed(AbstractTrains host, double speedMagnitude) {
+	private void limitSpeed(EntityRollingStock host, double speedMagnitude) {
 
 		// Default speed for most carts
 		double maxSpeed = getMaxCartSpeedOnRail();
@@ -434,7 +434,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 	 * Velocity needs to be added relative to each bogie's current rotation to prevent drifting between them, as the host's rotation doesn't match when entering curves.
 	 * Always adding in the direction of existing movement prevents reverse, and is unpredictable with null starting velocity, so we compare the bogie's rotation to the host's.
 	 */
-	public void addVelocity(AbstractTrains host, double speed) {
+	public void addVelocity(EntityRollingStock host, double speed) {
 		Vec3f bogieRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+(float)Math.toDegrees(Math.atan2(velocity[1], velocity[0])),0);
 		Vec3f hostRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+host.rotationYaw,0);
 		int direction = bogieRotation.dotProduct(hostRotation) >= 0 ? 1 : -1;
@@ -448,7 +448,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 		velocity[1] *= mult;
 	}
 
-	public void setVelocity(AbstractTrains host, double speed){
+	public void setVelocity(EntityRollingStock host, double speed){
 		Vec3f bogieRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+(float)Math.toDegrees(Math.atan2(velocity[1], velocity[0])),0);
 		Vec3f hostRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+host.rotationYaw,0);
 		int direction = bogieRotation.dotProduct(hostRotation) >= 0 ? 1 : -1;
@@ -459,7 +459,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 
 	public World getWorld(){return worldObj;}
 
-	public void minecartMove(AbstractTrains host) {
+	public void minecartMove(EntityRollingStock host) {
 		//server only
 		if(!getWorld().isRemote) {
 			xFloor = CommonUtil.floorDouble(posX);
@@ -524,7 +524,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 	}
 
 
-	private void loopVanilla(AbstractTrains host, double moveLength, BlockRailBase block){
+	private void loopVanilla(EntityRollingStock host, double moveLength, BlockRailBase block){
 
 		//try to adhere to limiter track
 		float railmax = block.getRailMaxSpeed(getWorld(),this,xFloor, yFloor, zFloor);

@@ -446,7 +446,7 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
     }
 
     public void disconnectFromServer() {
-        if (Loader.isModLoaded("ComputerCraft") || Loader.isModLoaded("OpenComputers")) {
+        if (Traincraft.hasComputerCraft()) {
             JsonObject sendTo = new JsonObject();
             sendTo.addProperty("funct", "disconnect");
             sendMessage(new PDMMessage(trainID, serverUUID, sendTo.toString(), 0));

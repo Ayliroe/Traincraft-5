@@ -39,7 +39,7 @@ public class PacketSetTrainLockedToClient implements IMessage {
      * <p>Client <-> Server communication packet to update lock and trusted list.</p>
      * @param bool Locked status. True for locked, false for unlocked.
      * @param trustedList Trusted players list.
-     * @param propagate Whether to propagate the changes throughout the consist.
+     * @param propagate Whether to propagate the changes throughout the linked stocks.
      */
     public PacketSetTrainLockedToClient(boolean bool, List<TrustedPlayer> trustedList, int trainEntity, boolean propagate) {
         this.bool = bool;
@@ -104,7 +104,7 @@ public class PacketSetTrainLockedToClient implements IMessage {
                         ((AbstractTrains) TrainEntity).setTrustedList(message.trustedList);
                             Traincraft.lockChannel.sendToAllAround(new PacketSetTrainLockedToClient(message.bool, message.trustedList, message.entityID, false), new NetworkRegistry.TargetPoint(TrainEntity.dimension, TrainEntity.posX, TrainEntity.posY, TrainEntity.posZ, 256D));
                         if (message.propagate)
-                            propagateChanges((EntityRollingStock) TrainEntity, message.trustedList);
+                            ((EntityRollingStock) TrainEntity).links.propagateLockAndTrustedList(message.trustedList);
 
                     }
                 } else {
@@ -124,25 +124,6 @@ public class PacketSetTrainLockedToClient implements IMessage {
                 }
             }
             return null;
-        }
-
-        /**
-         * <p>Server side method used to update the lock status and trusted players list for all cars in a given consist
-         * belonging to the train owner.</p>
-         * @author 02skaplan
-         * @param rollingStock The main rolling stock entity being updated and from which we should propogate changes.
-         * @param trustedPlayerList List of trusted players.
-         */
-        private static void propagateChanges(EntityRollingStock rollingStock, List<TrustedPlayer> trustedPlayerList) {
-            boolean locked = rollingStock.getTrainLockedFromPacket();
-            for (AbstractTrains car : rollingStock.consist) {
-                if (car != rollingStock && car.getTrainOwner().equalsIgnoreCase(rollingStock.getTrainOwner())) {
-                    car.setTrainLockedFromPacket(locked);
-                    car.setTrustedList(trustedPlayerList);
-                    Traincraft.lockChannel.sendToAllAround(new PacketSetTrainLockedToClient(locked, trustedPlayerList, car.getEntityId(), false),
-                            new NetworkRegistry.TargetPoint(car.dimension, car.posX, car.posY, car.posZ, 256D));
-                }
-            }
         }
     }
 }

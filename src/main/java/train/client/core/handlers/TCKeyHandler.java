@@ -50,7 +50,7 @@ public class TCKeyHandler {
         bell = new KeyBinding("key.traincraft.bell", Keyboard.KEY_B, "key.categories.traincraft");
         ClientRegistry.registerKeyBinding(bell);
 
-        if (Loader.isModLoaded("ComputerCraft")) {
+        if (Traincraft.hasComputerCraft()) {
             MTCScreen = new KeyBinding("key.traincraft.showMTCScreen", Keyboard.KEY_M, "key.categories.traincraft");
             ClientRegistry.registerKeyBinding(MTCScreen);
             toggleATO = new KeyBinding("key.traincraft.toggleATO", Keyboard.KEY_O, "key.categories.traincraft");

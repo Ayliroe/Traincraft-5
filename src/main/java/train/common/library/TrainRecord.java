@@ -72,6 +72,9 @@ public final class TrainRecord {
             record.item = new ItemRollingStock(trains.get(record.entryName), Info.modID.toLowerCase() + ":trains/" + record.icon, true);
             record.item.setUnlocalizedName(Info.modID + ":" + record.entryName);
             GameRegistry.registerItem(record.item, record.entryName);
+
+            if (record.spawnInStation)
+                TraincraftRegistry.stationTrains.add(trains.get(record.entryName));
         }
     }
 
@@ -99,6 +102,7 @@ public final class TrainRecord {
     private float[] hitboxSize;
     private boolean shouldRiderSit;
     private float[][] riderOffsets;
+    private boolean spawnInStation;
 
     private Item item;
 

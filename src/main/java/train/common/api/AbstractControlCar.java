@@ -144,18 +144,6 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
 
         if (!getWorld().isRemote)  {
             //Server side stuff.
-            if (frontLink != null)  {
-                for (AbstractTrains train : frontLink.consist)  {
-                    if (train instanceof Locomotive) {
-                        connectedLocomotive = (Locomotive) train;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                connectedLocomotive = null;
-            }
 
             dataWatcher.updateObject(29, connectedLocomotive == null ? 0 : connectedLocomotive.getEntityId());
         }
@@ -359,14 +347,8 @@ public abstract class AbstractControlCar extends EntityRollingStock implements I
         return false;
     }
 
-    public String lightingDetailsJSONString()
-    {
-        JsonObject lightingDetailsJSONString = new JsonObject();
-        lightingDetailsJSONString.addProperty(DataMemberName.isLightsEnabled.AsString(), isLightsEnabled);
-        lightingDetailsJSONString.addProperty(DataMemberName.isBeaconEnabled.AsString(), isBeaconEnabled);
-        lightingDetailsJSONString.addProperty(DataMemberName.beaconCycleIndex.AsString(), beaconCycleIndex);
-        lightingDetailsJSONString.addProperty(DataMemberName.ditchLightMode.AsString(), ditchLightMode);
-        return lightingDetailsJSONString.toString();
+    public String lightingDetailsJSONString()  {
+        return lightingDetailsAsJSON().toString();
     }
 
     public JsonObject lightingDetailsAsJSON()

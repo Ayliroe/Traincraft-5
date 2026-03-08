@@ -152,11 +152,11 @@ public abstract class AbstractTracksBuilder extends EntityRollingStock {
     private void fillLinkedInventory() {
         if (getInventory() != null){
             Freight link;
-            if(frontLink instanceof Freight && ((Freight) frontLink).getInventory() !=null) {
-                link = (Freight) frontLink;
+            if(links.getFront() instanceof Freight && ((Freight) links.getFront()).getInventory() != null) {
+                link = (Freight) links.getFront();
 
-            } else if (backLink instanceof Freight && ((Freight) backLink).getInventory() !=null) {
-                link = (Freight) backLink;
+            } else if (links.getBack() instanceof Freight && ((Freight) links.getBack()).getInventory() != null) {
+                link = (Freight) links.getBack();
             } else {
                 return;
             }
@@ -422,7 +422,7 @@ public abstract class AbstractTracksBuilder extends EntityRollingStock {
         if (lis != null && lis.size() > 0) {
             for (int j1 = 0; j1 < lis.size(); j1++) {
                 Entity entity = (Entity) lis.get(j1);
-                if ((entity instanceof Freight) && (isAttached || isLinked()) && ((Freight) entity).cargoItems!=null && ((Freight) entity).cargoItems.length>0) {
+                if ((entity instanceof Freight) && links.isLinked() && ((Freight) entity).cargoItems!=null && ((Freight) entity).cargoItems.length>0) {
                     noFreight = false;
                     for (int u = 0; u < ((Freight) entity).cargoItems.length; u++) {// checks the inventory
                         ItemStack itemInside = ((IInventory) entity).getStackInSlot(u);

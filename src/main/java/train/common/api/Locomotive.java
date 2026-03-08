@@ -98,13 +98,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         dataWatcher.addObject(26, guiDetailsJSON());
         dataWatcher.addObject(28, lightingDetailsJSONString());
 
-        // --- UPDATE LINKS ---
-        for(AbstractTrains t : consist){
-            if(t.consistLeadID!=getEntityId()){
-                updateLinks();
-            }
-        }
-
         // --- MTC ---
         MTC.generateTrainID();
         MTC.attemptConnection(MTC.serverUUID);
@@ -143,9 +136,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     public void onUpdate() {
         cycleBeaconIndex();
         if (!getWorld().isRemote) {
-            if(consistLeadID!=getEntityId()){
-                updateLinks();
-            }
             if (ticksExisted % 10 == 0) {
                 updateDebuffs(); }
             if (ticksExisted % 200 == 0) {
@@ -190,11 +180,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         double totalMhp = getMHP() > 0 ? getMHP() : 100;    // Guarantee non-zero so we don't divide by zero
 
         // Append passive locos Mhp
-        for (AbstractTrains stock : consist) {
-            if (stock instanceof Locomotive && stock.uniqueID != uniqueID) {
-                totalMhp += ((Locomotive)stock).getMHP();
-            }
-        }
+        totalMhp += links.getTotalMhpExcludingSelf();
 
         // Mhp debuffs
         currentSpeedSlowDown = massPulledFactor / totalMhp * 74.57;
@@ -322,13 +308,8 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
                 velocityMult *= brakingRate;
             }
             // Lockdown track
-            for (AbstractTrains train : consist) {
-                if (train != null) {
-                    if (RailTools.isCartLockedDown(train)) {
-                        velocityMult *= 0;
-                        break;
-                    }
-                }
+            if (links.isLinkedStockLockedDown()) {
+                velocityMult *= 0;
             }
             // Acceleration (only allow if on, fueled and nothing else is slowing down)
             if (isLocoTurnedOn & getFuel() > 0) {
@@ -519,7 +500,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     public String guiDetailsDW() {              return dataWatcher.getWatchableObjectString(26); }
     public String guiDetailsJSON() {
         JsonObject gui = new JsonObject();
-        gui.addProperty("cartsPulled", consist.size()-1);
+        gui.addProperty("cartsPulled", links.getListSize() - 1);
         gui.addProperty("massPulled", currentMassPulled);
         gui.addProperty("slowDown", Math.round(currentSpeedSlowDown));
         gui.addProperty("accelSlowDown", (double)Math.round(currentAccelSlowDown*1000)/1000);
@@ -540,15 +521,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     private JsonObject AsJsonObject(String string) { return new JsonParser().parse(string).getAsJsonObject(); }
 
-    public String lightingDetailsJSONString()  {
-        JsonObject lightingDetailsJSONString = new JsonObject();
-        lightingDetailsJSONString.addProperty(DataMemberName.isLightsEnabled.AsString(), isLightsEnabled);
-        lightingDetailsJSONString.addProperty(DataMemberName.isBeaconEnabled.AsString(), isBeaconEnabled);
-        lightingDetailsJSONString.addProperty(DataMemberName.beaconCycleIndex.AsString(), beaconCycleIndex);
-        lightingDetailsJSONString.addProperty(DataMemberName.ditchLightMode.AsString(), ditchLightMode);
-        return lightingDetailsJSONString.toString();
-    }
-
     public JsonObject lightingDetailsAsJSON()  {
         JsonObject lightingDetailsJSONString = new JsonObject();
         lightingDetailsJSONString.addProperty(DataMemberName.isLightsEnabled.AsString(), isLightsEnabled);
@@ -556,6 +528,10 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         lightingDetailsJSONString.addProperty(DataMemberName.beaconCycleIndex.AsString(), beaconCycleIndex);
         lightingDetailsJSONString.addProperty(DataMemberName.ditchLightMode.AsString(), ditchLightMode);
         return lightingDetailsJSONString;
+    }
+
+    public String lightingDetailsJSONString()  {
+        return lightingDetailsAsJSON().toString();
     }
 
     // Parking brakingRate
