@@ -38,15 +38,13 @@ public final class RenderRecord {
         InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream(path);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
 
-        Gson gson = new GsonBuilder().registerTypeAdapter(ModelBase.class, new ModelDeserializer()).create();
-
-        for (RenderRecord record : gson.fromJson(reader, RenderRecord[].class)) {
+        for (RenderRecord record : new GsonBuilder().create().fromJson(reader, RenderRecord[].class)) {
             trains.get(record.entryName).render = record;
         }
     }
 
     private String entryName;
-    private ModelBase model;
+    private String model;
     private String texture;
     private boolean multiTexture;
     private float[] trans;
@@ -61,7 +59,12 @@ public final class RenderRecord {
     private boolean hasSmokeOnSlopes;
     private String[] bogies;
 
-    public ModelBase getModel()                     { return model; }
+    private ModelBase cachedModel = null;   // We only store this when a stock actually needs it, else loading this for every possible class is wasted memory
+
+    public ModelBase getModel() {
+        if (cachedModel == null)                    { cachedModel = DeserializingUtils.modelForString(model); }
+                                                    { return cachedModel; }
+    }
     public ResourceLocation getTextureFile(String skin) {
         if (multiTexture)                           { return new ResourceLocation(Info.resourceLocation, Info.trainsPrefix + texture + skin + ".png"); }
         else                                        { return new ResourceLocation(Info.resourceLocation, Info.trainsPrefix + texture + ".png"); }

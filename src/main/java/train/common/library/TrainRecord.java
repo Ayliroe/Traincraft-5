@@ -52,7 +52,7 @@ public final class TrainRecord {
         InputStream stream = Traincraft.instance.getClass().getClassLoader().getResourceAsStream(path);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
 
-        Gson gson = new GsonBuilder().registerTypeAdapter(AbstractTrains.class.getClass(), new TrainDeserializer()).registerTypeAdapter(Item.class, new ItemDeserializer()).create();
+        Gson gson = new GsonBuilder().registerTypeAdapter(Item.class, new ItemDeserializer()).create();
 
         int trainID = 32;
 
@@ -81,7 +81,7 @@ public final class TrainRecord {
     }
 
     private String entryName;
-    private Class<AbstractTrains> entityClass;
+    private String entityClass;
     private String icon;
     private int emeralds;
     private int MHP;
@@ -106,8 +106,13 @@ public final class TrainRecord {
     private float[][] riderOffsets;
     private boolean spawnInStation;
 
+    private Class<AbstractTrains> cachedEntityClass = null;   // We only store this when a stock actually needs it, else loading this for every possible class is wasted memory
+
     public String getName()                     { return entryName; }
-    public Class<AbstractTrains> getEntityClass() { return entityClass; }
+    public Class<AbstractTrains> getEntityClass() {
+        if (cachedEntityClass == null)          { cachedEntityClass = DeserializingUtils.trainClassForString(entityClass); }
+                                                { return cachedEntityClass; }
+    }
     public int getEmeralds()                    { return emeralds; }
     public int getMHP()                         { return MHP; }
     public int getMaxSpeed()                    { return maxSpeed; }

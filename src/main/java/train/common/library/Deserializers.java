@@ -20,24 +20,14 @@ import java.util.List;
 class TrainDeserializer implements JsonDeserializer<Class<AbstractTrains>> {
     @Override
     public Class<AbstractTrains> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        try {
-            return (Class<AbstractTrains>) Class.forName(json.getAsString());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        return DeserializingUtils.trainClassForString(json.getAsString());
     }
 }
 
 class ModelDeserializer implements JsonDeserializer<ModelBase> {
     @Override
     public ModelBase deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        try {
-            return ((Class<ModelBase>) Class.forName(json.getAsString())).newInstance();
-        } catch (ClassNotFoundException e) {
-            return BEOModelLoader.load(json.getAsString());
-        } catch (InstantiationException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+        return DeserializingUtils.modelForString(json.getAsString());
     }
 }
 
@@ -77,6 +67,24 @@ class ItemStackDeserializer implements JsonDeserializer<ItemStack> {
 }
 
 class DeserializingUtils {
+
+    public static Class<AbstractTrains> trainClassForString(String string) {
+        try {
+            return (Class<AbstractTrains>) Class.forName(string);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ModelBase modelForString(String string) {
+        try {
+            return ((Class<ModelBase>) Class.forName(string)).newInstance();
+        } catch (ClassNotFoundException e) {
+            return BEOModelLoader.load(string);
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     /**
      * Util for converting a serialized ItemStack string into a stack of the matching mod/ore item, stack size and stack damage
