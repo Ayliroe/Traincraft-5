@@ -2616,7 +2616,7 @@
     "brakeRate": 0,
     "tankCapacity": 0,
     "cargoCapacity": 36,
-    "additionnalTooltip": "Cargo: blocks, vanilla items//\"train_hopper\" for open wagon => weird",
+    "additionnalTooltip": "Cargo: blocks, vanilla items",
     "bogieLocoPositions": 0,
     "skins": [],
     "country": "",

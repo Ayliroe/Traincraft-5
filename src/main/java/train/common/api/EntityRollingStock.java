@@ -35,11 +35,11 @@ import train.common.Traincraft;
 import train.common.adminbook.ServerLogger;
 import train.common.core.handlers.ConfigHandler;
 import train.common.core.network.PacketRollingStockRotation;
-import train.common.entity.CollisionBox;
 import train.common.entity.EntityHitbox;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemRollingStock;
 import train.common.library.BlockIDs;
+import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
     public EntityBogie bogieFront = null;
     public EntityBogie bogieBack = null;
     private boolean hasSpawnedBogie = false;
-    public EntityHitbox collisionHandler = null;
+    public EntityHitbox hitbox = new EntityHitbox(this);
 
     // --- PHYSICS ---
     private boolean firstLoad = true;
@@ -84,6 +84,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
      * =========================================== INIT ===========================================
      **/
 
+
     public EntityRollingStock(World world) {
         super(world);
         dataWatcher.addObject(14, 0);
@@ -94,8 +95,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         setSize(0.25f,0.25f);
         yOffset = 0;
         entityCollisionReduction = 0.8F;
-
-        collisionHandler=new EntityHitbox(this);
 
         /* Railcraft's stuff */
         //maxSpeed = defaultMaxSpeedRail;
@@ -112,7 +111,14 @@ public abstract class EntityRollingStock extends AbstractTrains {
             sndUpdater = new SoundUpdaterRollingStock();
         }
 
+        // Ignore default minecraft collisions
         setCollisionHandler(null);
+    }
+
+    @Override
+    public void init(TrainRegister spec) {
+        super.init(spec);
+        hitbox.init();
     }
 
     @Override
@@ -167,6 +173,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
         firstLoad = nbttagcompound.getBoolean("firstLoad");
+        hitbox.init();
     }
 
     /*
@@ -308,12 +315,12 @@ public abstract class EntityRollingStock extends AbstractTrains {
                 }
             }
 
-            collisionHandler.position(posX, posY, posZ, rotationPitch, rotationYaw);
-            collisionHandler.updateCollidingEntities(this);
-            collisionHandler.manageCollision();
             positionSeats();
+            hitbox.update();
             return;
         }
+
+        /* --- SERVER-ONLY STUFF ONWARDS --- */
 
         links.restoreLinks();
 
@@ -352,10 +359,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         func_145775_I();
         MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, floor_posX, floor_posY, floor_posZ));
 
-        //update the collision handler's positions
-        collisionHandler.position(posX, posY, posZ, rotationPitch, rotationYaw);
-        collisionHandler.updateCollidingEntities(this);
-        collisionHandler.manageCollision();
         for (EntitySeat seat: seats) { //handle died in train
             if (seat.getPassenger() != null && (seat.getPassenger().isDead || seat != seat.getPassenger().ridingEntity)) {
                 seat.getPassenger().ridingEntity = null;
@@ -365,6 +368,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
         dataWatcher.updateObject(14, (int) (motionX * 100));
         dataWatcher.updateObject(21, (int) (motionZ * 100));
         positionSeats();
+        hitbox.update();
         if (ConfigHandler.ENABLE_LOGGING && !getWorld().isRemote && ticksExisted % 120 == 0) {
             ServerLogger.writeWagonToFolder(this);
         }
@@ -434,8 +438,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
             applyDrag();
 
             // --- POSITION ---
-            cachedVectors[1] = new Vec3f(rotationPoints()[1], 0, 0).rotatePoint(0, rotationYaw, 0)
-                    .addVector(bogieBack.posX,0,bogieBack.posZ);
+            cachedVectors[1] = new Vec3f(rotationPoints()[1], 0, 0).rotatePoint(0, rotationYaw, 0).addVector(bogieBack.posX,0,bogieBack.posZ);
             setPosition(cachedVectors[1].xCoord, (bogieBack.posY+bogieFront.posY)*0.5,cachedVectors[1].zCoord);
 
             // --- BOGIES ---
@@ -450,14 +453,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
 
             //reset the vector when we're done so it wont break trains.
             cachedVectors[1]= new Vec3f(0,0,0);
-
-            // --- COLLISION ---
-            if(collisionHandler==null) {
-                collisionHandler = new EntityHitbox(this);
-                collisionHandler.position(posX, posY, posZ, rotationPitch, rotationYaw);
-            } else {
-                collisionHandler.position(posX, posY, posZ, rotationPitch, rotationYaw);
-            }
         }
     }
 
@@ -557,9 +552,9 @@ public abstract class EntityRollingStock extends AbstractTrains {
         return CommonUtil.getMaxRailSpeed(getWorld(), (BlockRailBase) booster,this, posX,posY,posZ);
     }
 
-    public Entity[] getParts() {
-        return (collisionHandler == null || collisionHandler.interactionBoxes == null) ? null : collisionHandler.interactionBoxes.toArray(new Entity[]{});
-    }
+    // Dragonparts
+    @Override
+    public Entity[] getParts() { return hitbox.getParts(); }
 
     /*
      * =========================================== RENDER ===========================================
@@ -646,12 +641,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
             seat.getWorld().removeEntity(seat);
         }
 
-        for(CollisionBox box : collisionHandler.interactionBoxes){
-            if(box !=null){
-                box.setDead();
-                getWorld().removeEntity(box);
-            }
-        }
+        hitbox.setDead();
     }
 
     /*

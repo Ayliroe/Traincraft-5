@@ -538,7 +538,6 @@ public class CommonUtil {
         return xyz;
     }
 
-    @Deprecated //todo: a LOT of calls for this dont use pitch, for efficiency sake there should be a method that doesnt take it
     public static Vec3d rotateDistance(double distance, float pitch, float yaw) {
         Vec3d xyz = new Vec3d(distance, 0,0);
         //rotate pitch

@@ -1,7 +1,6 @@
 package train.common.api.components;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
-import fexcraft.tmt.slim.Vec3f;
 import mods.railcraft.api.tracks.RailTools;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -46,8 +45,8 @@ public class Links {
     public AbstractTrains getBack()     { return back; }
     public int getListSize()            { return list.size(); }
 
-    public Integer getLeadID()          { return leadID; }
-    public boolean containsByID(AbstractTrains other) {
+    public AbstractTrains getLead()     { return leadID != null ? (AbstractTrains)host.getWorld().getEntityByID(leadID) : null; }
+    public boolean contains(AbstractTrains other) {
         for (AbstractTrains listLink : list) {
             if (listLink.getEntityId() == other.getEntityId())
                 return true;
@@ -266,29 +265,27 @@ public class Links {
 
     public void link(EntityRollingStock other) {
         if (host instanceof EntityRollingStock) {
+            EntityPlayer player = host.getWorld().getClosestPlayerToEntity(host, 20);
+
             if (other.canBePushed() || host.canBePushed()) {
                 EntityRollingStock stock = (EntityRollingStock)host;
 
-                if (new Vec3f(stock.collisionHandler.front.posX, stock.collisionHandler.front.posY, stock.collisionHandler.front.posZ).subtract(new Vec3f(other.posX, other.posY, other.posZ)).length()
-                        < new Vec3f(stock.collisionHandler.back.posX, stock.collisionHandler.back.posY, stock.collisionHandler.back.posZ).subtract(new Vec3f(other.posX, other.posY, other.posZ)).length()) {
-                    if (front == null) {
+                // Link to front or back based on the closest collision to the other stock
+                if (stock.hitbox.getFrontPos().subtract(other.getPos()).length() < stock.hitbox.getBackPos().subtract(other.getPos()).length()) {
+                    if (front == null)
                         front = other;
-                    }
                 } else {
-                    if (back == null) {
+                    if (back == null)
                         back = other;
-                    }
                 }
 
-                if (new Vec3f(other.collisionHandler.front.posX, other.collisionHandler.front.posY, other.collisionHandler.front.posZ).subtract(new Vec3f(host.posX, host.posY, host.posZ)).length()
-                        < new Vec3f(other.collisionHandler.back.posX, other.collisionHandler.back.posY, other.collisionHandler.back.posZ).subtract(new Vec3f(host.posX, host.posY, host.posZ)).length()) {
-                    if (other.links.front == null) {
+                // Do the same for the other stock
+                if (other.hitbox.getFrontPos().subtract(host.getPos()).length() < other.hitbox.getBackPos().subtract(host.getPos()).length()) {
+                    if (other.links.front == null)
                         other.links.front = host;
-                    }
                 } else {
-                    if (other.links.back == null) {
+                    if (other.links.back == null)
                         other.links.back = host;
-                    }
                 }
                 other.links.isAttaching = false;
                 isAttaching = false;
@@ -297,16 +294,14 @@ public class Links {
 
                 updateLinks();
 
-                EntityPlayer entityplayer = host.getWorld().getClosestPlayerToEntity(host, 20);
-                if (entityplayer != null) {
-                    entityplayer.addChatMessage(new ChatComponentText("attached!"));
-                }
+
+                if (player != null)
+                    player.addChatMessage(new ChatComponentText("attached!"));
 
             } else {
-                EntityPlayer p = host.getWorld().getClosestPlayerToEntity(host, 32);
-                if (p != null) {
-                    p.addChatComponentMessage(new ChatComponentText("One or more trains is not in towing mode."));
-                    p.addChatComponentMessage(new ChatComponentText("Use a Stake while sneaking to toggle towing mode."));
+                if (player != null) {
+                    player.addChatComponentMessage(new ChatComponentText("One or more trains is not in towing mode."));
+                    player.addChatComponentMessage(new ChatComponentText("Use a Stake while sneaking to toggle towing mode."));
                 }
             }
         }

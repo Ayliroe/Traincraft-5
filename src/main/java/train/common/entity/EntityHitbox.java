@@ -2,13 +2,11 @@ package train.common.entity;
 
 import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
-import ebf.tim.utility.DebugUtil;
 import fexcraft.tmt.slim.Vec3d;
 import fexcraft.tmt.slim.Vec3f;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.EntityDamageSource;
 import train.common.api.AbstractTrains;
 import train.common.api.EntityBogie;
@@ -21,205 +19,137 @@ import java.util.List;
 
 public class EntityHitbox {
 
-    private float longest=0;
+    private final EntityRollingStock host;
+    private Vec3f hostSize;
 
-    public List<CollisionBox> interactionBoxes = new ArrayList<>();
-    public CollisionBox front,back;
-    public EntityRollingStock host;
+    private final List<CollisionBox> hitboxes = new ArrayList<>();
+    private CollisionBox front,back;
 
-    public EntityHitbox(EntityRollingStock entity){
-        if (entity.getWorld()==null){
-            return;
-        }
-        host=entity;
+    /*
+     * =========================================== INIT ===========================================
+     **/
+
+    public EntityHitbox(EntityRollingStock host) {
+        this.host = host;
     }
 
+    public void init() {
+        hostSize = new Vec3f(host.getHitboxSize()); // Cache it once on init, it's not gonna change anyway
 
-    public void position(double x, double y, double z, float pitch, float yaw){
-        if(interactionBoxes.size()<1){
-            float depth =host.getHitboxSize()[0]*0.5f;
-            float width =host.getHitboxSize()[2]*0.5f;
-            longest=Math.abs(depth);
+        float depth = hostSize.xCoord + host.getOptimalDistance();
+        for (float f = 0; f < depth - (hostSize.zCoord * 0.25f); f += hostSize.zCoord) {
+            CollisionBox c = new CollisionBox(host);
+            c.boundingBox.setBounds(-hostSize.zCoord * 0.5, 0, -hostSize.zCoord * 0.5, hostSize.zCoord * 0.5, hostSize.yCoord, hostSize.zCoord * 0.5);
+            hitboxes.add(c);
+            host.getWorld().spawnEntityInWorld(c);
+        }
+        front = hitboxes.get(0);
+        back = hitboxes.get(hitboxes.size() - 1);
+        updatePositions();
+    }
 
-            depth*=2;width*=2;
-            depth+=host.getOptimalDistance();
-            interactionBoxes = new ArrayList<>();
-            for (float f = 0; f < depth - (width * 0.25f); f += width) {
-                CollisionBox c = new CollisionBox((host));
-                c.boundingBox.setBounds(-width*0.5,0,-width*0.5,
-                        width*0.5,host.getHitboxSize()[1],width*0.5);
-                c.setPosition(host.posX+f, host.posY, host.posZ);
-                c.host=host;
-                interactionBoxes.add(c);
-                host.getWorld().spawnEntityInWorld(c);
-                if(front==null){
-                    front=c;
-                } else{
-                    back=c;
-                }
+    /*
+     * =========================================== UPDATE ===========================================
+     **/
+
+    public void update() {
+        updatePositions();
+        updateCollisions();
+    }
+
+    private void updatePositions() {
+        for(int i = 0; i< hitboxes.size(); i++) {
+            // Offsets each hitbox in a line from the host's front to its back, taking into account pitch and yaw; then append the host's absolute position
+            Vec3d newPos = CommonUtil.rotateDistance(-host.getOptimalDistance() + ((hostSize.xCoord / hitboxes.size()) * (i + 0.5f)), -host.rotationPitch, host.rotationYaw).addVector(host.posX, host.posY - 0.35, host.posZ);
+            hitboxes.get(i).setPosition(newPos.xCoord, newPos.yCoord, newPos.zCoord);
+        }
+    }
+
+    private void updateCollisions() {
+        List<Entity> collidingEntities = new ArrayList<>();
+
+        for (Object obj : host.getWorld().getEntitiesWithinAABBExcludingEntity(host, host.boundingBox.expand(hostSize.xCoord + 4, hostSize.xCoord + 4, hostSize.xCoord + 4))) {
+
+            // Skip our own hitboxes and those in the same linked train
+            if (obj instanceof CollisionBox) {
+                if (hitboxes.contains((CollisionBox)obj) || host.links.contains(((CollisionBox)obj).host))
+                    continue;
             }
-        }
-        Vec3d part;
-        for(int i=0; i<interactionBoxes.size();i++) {
-            part = CommonUtil.rotateDistance( -host.getOptimalDistance() +
-                            ((host.getHitboxSize()[0] / interactionBoxes.size()) * (i + 0.5f)),
-                    -pitch, yaw).addVector(x, y, z);
-            interactionBoxes.get(i).setPosition(part.xCoord, part.yCoord, part.zCoord);
-        }
-    }
+            // Collide with carts, but not our own stocks/bogies
+            else if (obj instanceof EntityMinecart) {
+                if (obj instanceof AbstractTrains || obj instanceof EntityBogie)
+                    continue;
 
-    public void manageCollision(){
-        if (front == null && back == null)
-            return;
+            }
+            // Skip everything else but living entities (ex. seats), excluding if they are riding something else (ex. passengers in seats)
+            else if (!(obj instanceof EntityLivingBase) || ((Entity) obj).ridingEntity != null) {
+                continue;
+            }
 
-        for(Entity e:collidingEntities) {
-            //on client we need to push away players.
+            if (intersectsWith((Entity) obj))
+                collidingEntities.add((Entity)obj);
+        }
+
+        for (Entity e : collidingEntities) {
+            // On client we need to push away players.
             if (host.getWorld().isRemote) {
-                if (e instanceof EntityPlayer || e instanceof EntityLiving) {
-                    double[] motion = CommonUtil.rotatePoint(-0.075, 0,
-                            CommonUtil.atan2degreesf(host.posZ - e.posZ, host.posX - e.posX));
-                    e.addVelocity(motion[0], 0.05, motion[2]);
+                if (e instanceof EntityLivingBase) {
+                    e.applyEntityCollision(host);
                 }
             }
             else {
                 if (e instanceof CollisionBox) {
-                    if(((CollisionBox) e).host==null){
-                        continue;
-                    }
-                    EntityRollingStock entityOne = (((CollisionBox) e).host);
+                    EntityRollingStock other = ((CollisionBox) e).host;
 
-                    if (host.links.getFront() == entityOne || host.links.getBack() == entityOne){
-                        continue;
-                    }
-                    if (host.links.getIsAttaching() && entityOne.links.getIsAttaching()) {
-                        host.links.link(entityOne);
-                    }
-                    else {
-                        double distanceFront = Math.sqrt((e.posX - front.posX) * (e.posX - front.posX)
-                                + (e.posZ - front.posZ) * (e.posZ - front.posZ));
-                        double distanceBack = Math.sqrt((e.posX - back.posX) * (e.posX - back.posX)
-                                + (e.posZ - back.posZ) * (e.posZ - back.posZ));
-                        if (distanceFront<distanceBack) {
-                            host.appendMovement(-0.005);
-                        } else {
-                            host.appendMovement(0.005);
-                        }
-                    }
+                    // Attempt to link if both are attaching
+                    if (host.links.getIsAttaching() && other.links.getIsAttaching())
+                        host.links.link(other);
 
+                    // Else push us back
+                    else appendMovement(e, 0.005f);
                 }
-                else if (e instanceof EntityPlayer || e instanceof EntityLiving) {
-                    //hurt entity if going fast
-                    if (Math.abs(host.motionX) + Math.abs(host.motionZ) > 0.25f) {
-                        e.attackEntityFrom(new EntityDamageSource(
-                                        host instanceof Locomotive ? "Locomotive" : "rollingstock", host),
-                                (float) (Math.abs(host.motionX) + Math.abs(host.motionZ)) * 0.5f);
-                    }
-                    else if (Math.abs(host.motionX) + Math.abs(host.motionZ) <0.05) {
-                        double distanceFront = Math.sqrt((e.posX - front.posX) * (e.posX - front.posX)
-                                + (e.posZ - front.posZ) * (e.posZ - front.posZ));
-                        double distanceBack = Math.sqrt((e.posX - back.posX) * (e.posX - back.posX)
-                                + (e.posZ - back.posZ) * (e.posZ - back.posZ));
-                        if (distanceFront<distanceBack) {
-                            host.appendMovement(-0.005);
-                        } else {
-                            host.appendMovement(0.005);
-                        }
-                    }
+                else {
+                    // Hurt entity if going fast
+                    if (Math.abs(host.motionX) + Math.abs(host.motionZ) > 0.25f)
+                        e.attackEntityFrom(new EntityDamageSource(host.getClass().toString(), host), (float) (Math.abs(host.motionX) + Math.abs(host.motionZ)) * 0.5f);
+
+                    // Push us back
+                    appendMovement(e, 0.005f);
                 }
             }
         }
     }
 
+    private void appendMovement(Entity e, float strength) {
+        // Don't receive movement if the config is off, we're a locomotive, or the linked train has an active locomotive
+        if (ConfigHandler.PUSHABLE_ROLLINGSTOCK && !(host instanceof Locomotive) && !(host.links.isActiveLocoLinked())) {
+            double distanceFront = Math.sqrt((e.posX - front.posX) * (e.posX - front.posX) + (e.posZ - front.posZ) * (e.posZ - front.posZ));
+            double distanceBack = Math.sqrt((e.posX - back.posX) * (e.posX - back.posX) + (e.posZ - back.posZ) * (e.posZ - back.posZ));
 
-    /**
-     * AWT methods
-     */
-
-    public List<Entity> collidingEntities = new ArrayList<>();
-    public List<int[]> collidingBlocks = new ArrayList<>();
-    private List[] entities;
-    private int x,xMax,z,zMax;
-
-    public void updateCollidingEntities(EntityRollingStock host){
-        collidingEntities = new ArrayList<>();
-        collidingBlocks = new ArrayList<>();
-        if(host==null){return;}
-
-        x = CommonUtil.floorDouble((-longest+host.posX - 16) / 16.0D);
-        xMax = CommonUtil.floorDouble((longest+host.posX + 16) / 16.0D);
-        z = CommonUtil.floorDouble((-longest+host.posZ - 16) / 16.0D);
-        zMax = CommonUtil.floorDouble((longest+host.posZ + 16) / 16.0D);
-        for (int i = x; i <= xMax; ++i) {
-            for (int j = z; j <= zMax; ++j) {
-                if (host.getWorld().getChunkProvider().chunkExists(i,j)) {
-                    entities = host.getWorld().getChunkFromChunkCoords(i, j).entityLists;
-                    for (List olist: entities) {
-                        for(Object obj : olist) {
-                            //this shouldn't be possible, but it's forge, sooooo....
-                            if(!(obj instanceof Entity) || interactionBoxes.contains(obj)){
-                                continue;
-                            }
-
-                            //No matter what, we don't want to push a locomotive.
-                            //If the config is disabled, we don't want to push ANYTHING.
-                            //If the cart is in a linked list containing a locomotive, we do not want to push it.
-                            if (!ConfigHandler.PUSHABLE_ROLLINGSTOCK || host instanceof Locomotive || (host.links.getLeadID() != null && host.getWorld().getEntityByID(host.links.getLeadID()) instanceof Locomotive)) {
-                                //still need to push the player back though
-                                if (obj instanceof EntityLiving && containsEntity((Entity)obj)) {
-                                    ((Entity)obj).applyEntityCollision(host);
-                                }
-                                continue;
-                            }
-
-                            //we don't want to collide with bogies, data(EntityRollingStock, ElectricTrain, ect...), or seat entities.
-                            //Since those are mounted on a train itself, we can ignore them.
-                            if (obj instanceof EntityBogie || obj instanceof EntitySeat || obj instanceof AbstractTrains) {
-                                continue;
-                            }
-
-                            //we don't want to collide with any passenger that is in a seat. Can just blanket skip everything that is riding something else.
-                            if (((Entity) obj).ridingEntity != null) {
-                                continue;
-                            }
-
-                            //we don't want to collide with our own CollisionBoxes, or the CollisionBoxes of our own links either
-                            if(obj instanceof CollisionBox) {
-                                if((host.links.getFront() != null && ((CollisionBox) obj).host.getEntityId()==host.links.getFront().getEntityId()) || (host.links.getBack() != null && ((CollisionBox) obj).host.getEntityId()==host.links.getBack().getEntityId()))
-                                    continue;
-
-                                if (host.links.containsByID(((CollisionBox) obj).host))
-                                    continue;
-                            }
-
-                            if(containsEntity((Entity) obj)){
-                                this.collidingEntities.add((Entity)obj);
-                            }
-                        }
-                    }
-
-                    //block collisions won't happen on client due to positioning, so there's no reason to check.
-                    /*if(host.worldObj.isRemote){
-                        continue;
-                    }
-                    //this is basically a BlockPos for where the block is, so the entity can figure out what to do.
-                    // but that's not a 1.7 thing, so we do this heresy to keep code similarities for easier porting
-                    for(int k=y; k<yMax;k++) {
-                        if (!(CommonUtil.getBlockAt(host.worldObj, i, j, k) instanceof BlockAir)){
-                            collidingBlocks.add(new int[]{i,j,k});
-                        }
-                    }*/
-                }
-            }
+            host.appendMovement(distanceFront < distanceBack ? -strength : strength);
         }
     }
 
-
-    public boolean containsEntity(Entity e){
-        for(CollisionBox box : interactionBoxes){
-            //check for X
-            if (e.boundingBox.intersectsWith(box.boundingBox.expand(0.2D, e instanceof EntityPlayer?1.2D:0.2D, 0.2D)))
+    private boolean intersectsWith(Entity e) {
+        for (CollisionBox box : hitboxes) {
+            if (e.boundingBox.intersectsWith(box.boundingBox))
                 return true;
         }
         return false;
     }
+
+    /*
+     * =========================================== PUBLIC UTILS ===========================================
+     **/
+
+    public void setDead() {
+        for (CollisionBox box : hitboxes) {
+            box.setDead();
+            host.getWorld().removeEntity(box);
+        }
+    }
+
+    public Entity[] getParts() { return hitboxes.toArray(new Entity[]{}); }
+    public Vec3f getFrontPos() { return new Vec3f(front.posX, front.posY, front.posZ); }
+    public Vec3f getBackPos() { return new Vec3f(back.posX, back.posY, back.posZ); }
 }

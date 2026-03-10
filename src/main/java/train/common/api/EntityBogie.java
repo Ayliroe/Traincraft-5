@@ -1,15 +1,10 @@
 package train.common.api;
 
-import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
-import ebf.tim.utility.DebugUtil;
 import fexcraft.tmt.slim.Vec3f;
-import mods.railcraft.api.carts.CartTools;
-import mods.railcraft.api.carts.IMinecart;
-import mods.railcraft.api.carts.IRoutableCart;
 import mods.railcraft.api.tracks.ITrackSwitch;
 import mods.railcraft.api.tracks.ITrackTile;
 import net.minecraft.block.Block;
@@ -18,19 +13,19 @@ import net.minecraft.block.BlockRailBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import train.common.Traincraft;
 import train.common.blocks.BlockTCRail;
 import train.common.blocks.BlockTCRailGag;
+import train.common.core.network.PacketRemove;
 import train.common.items.TCRailTypes;
 import train.common.tile.TileTCRail;
 import train.common.tile.TileTCRailGag;
 
 
-public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableCart {
+public class EntityBogie extends EntityMinecart {
 
 	public boolean isOnRail;
 	public int meta,oldBlockX,oldBlockZ;
@@ -112,8 +107,12 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource damageSource, float f) {
-		return (entityMainTrain != null && entityMainTrain.attackEntityFrom(damageSource, f));
+	public boolean attackEntityFrom(DamageSource damageSource, float p_70097_2_) {
+		if(worldObj.isRemote){
+			Traincraft.keyChannel.sendToServer(new PacketRemove(entityMainTrain.getEntityId(), damageSource==null?-1:damageSource.getEntity().getEntityId()));
+			return true;
+		}
+		return entityMainTrain != null && entityMainTrain.attackEntityFrom(damageSource, p_70097_2_);
 	}
 
 	@Override
@@ -146,34 +145,6 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 	public int getMinecartType() {
 
 		return -1;
-	}
-
-	// --- RC IROUTABLECART ---
-	@Override
-	public String getDestination() {
-		if (entityMainTrain != null && entityMainTrain instanceof Locomotive) {
-			return ((Locomotive)entityMainTrain).MTC.getDestination();
-		}
-		return null;
-	}
-
-	@Override
-	public boolean setDestination(ItemStack ticket) {
-		if (entityMainTrain != null && entityMainTrain instanceof Locomotive) {
-			return ((Locomotive)entityMainTrain).MTC.setDestination(ticket);
-		}
-		return false;
-	}
-
-	@Override
-	public GameProfile getOwner() {
-		return entityMainTrain.getOwner();
-	}
-
-	@Override
-	public boolean doesCartMatchFilter(ItemStack stack, EntityMinecart cart) {
-
-		return false;
 	}
 
 	/**
@@ -506,6 +477,7 @@ public class EntityBogie extends EntityMinecart implements IMinecart, IRoutableC
 			limitSpeed(host, speedMagnitude);
 			if (l instanceof BlockRailBase) {
 				yOffset=0.3425f;
+				yOffset=0.2175f;
 				loopVanilla(host, speedMagnitude, (BlockRailBase) l);
 			} else if (l instanceof BlockTCRail || l instanceof BlockTCRailGag){
 				yOffset=0.425f;

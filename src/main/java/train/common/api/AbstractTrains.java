@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ebf.tim.entities.EntitySeat;
 import fexcraft.tmt.slim.ModelBase;
+import fexcraft.tmt.slim.Vec3f;
 import io.netty.buffer.ByteBuf;
 import mods.railcraft.api.carts.CartTools;
 import mods.railcraft.api.carts.IMinecart;
@@ -241,8 +242,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public float getOptimalDistance()   { return register.type.getOptimalDistance() != 0 ? register.type.getOptimalDistance() : getHitboxSize()[0]*0.5f; }
     public float[] getHitboxSize(){
         if (register.type.getHitboxSize().length != 0) { return register.type.getHitboxSize(); }
-        if (register.type.getBogieLocoPosition() != 0) { return new float[]{(float)Math.abs(register.type.getBogieLocoPosition())+(Math.abs(getOptimalDistance()*2f)),2f,1f}; }
-                                                         return new float[]{Math.abs((getOptimalDistance()*2)),2f,1f};
+        if (register.type.getBogieLocoPosition() != 0) { return new float[]{(float)Math.abs(register.type.getBogieLocoPosition())+(Math.abs(getOptimalDistance()*2f)),1.65f,1f}; }
+                                                         return new float[]{Math.abs((getOptimalDistance()*2)),1.65f,1f};
     }
     @Override
     public boolean shouldRiderSit()     { return register.type.getShouldRiderSit(); }
@@ -338,6 +339,8 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
      **/
 
     public World getWorld() { return worldObj; }
+
+    public Vec3f getPos() { return new Vec3f(posX, posY, posZ); }
 
     // Only used for ComputerCraft peripherals, TODO refactor
     public String getTrainType() {
@@ -655,6 +658,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     @Override
     public void markDirty() {}
 
+    @Override
     public boolean isUseableByPlayer(EntityPlayer entityplayer) { return !isDead && entityplayer.getDistanceSqToEntity(this) <= 64D; }
 
     @Override
