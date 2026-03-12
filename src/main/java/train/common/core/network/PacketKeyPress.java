@@ -56,7 +56,7 @@ public class PacketKeyPress implements IMessage {
         public IMessage onMessage(PacketKeyPress message, MessageContext context) {
             Entity ridingEntity = context.getServerHandler().playerEntity.ridingEntity;
             if (ridingEntity instanceof EntitySeat) {
-                ridingEntity = ((EntitySeat) ridingEntity).parent;
+                ridingEntity = ((EntitySeat) ridingEntity).getHost();
             }
             /* "instanceof" is null-safe, but we check to avoid four unnecessary instanceof checks for when the value is null anyways. */
             if (ridingEntity != null) {

@@ -134,12 +134,7 @@ public class EntityBogie extends EntityMinecart {
 	}
 
 	@Override
-	public boolean interactFirst(EntityPlayer entityplayer) {
-		if (entityMainTrain != null) {
-			return entityMainTrain.interactFirst(entityplayer);
-		}
-		return true;
-	}
+	public boolean canBeCollidedWith() { return false; }
 
 	@Override
 	public int getMinecartType() {

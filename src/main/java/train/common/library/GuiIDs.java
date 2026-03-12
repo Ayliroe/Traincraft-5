@@ -14,7 +14,6 @@ public class GuiIDs {
 	public static final int CRAFTER_TIER_II = 95;
 	public static final int CRAFTER_TIER_III = 96;
 	public static final int TRAIN_WORKBENCH = 90;
-	public static final int FORNEY = 91;
 	public static final int DIGGER = 94;
 	public static final int OPEN_HEARTH_FURNACE = 97;
 	public static final int RECIPE_BOOK = 98;
@@ -29,6 +28,5 @@ public class GuiIDs {
 	public static final int FIXED_OVERLAY = 107;
 	public static final int DYNAMIC_OVERLAY = 108;
 	public static final int SEAT_GUI = 109;
-	public static final int CONTROL_CAR = 110;
 	public static final int LOCK_MENU = 111;
 }

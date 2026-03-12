@@ -23,19 +23,8 @@ import train.common.library.Info;
 import java.util.Collections;
 
 public class GuiLoco2 extends GuiContainer {
-    private final String texture = Info.guiPrefix + "customButton.png";
     private final Locomotive loco;
-    private GuiButton buttonLock;
-    private int textureX = 0;
-    private int textureY = 46;
-    private int textureSizeX = 40;
-    private int textureSizeY = 13;
-    private int buttonPosX = 0;
-    private int buttonPosY = 0;
-
-    private InventoryPlayer player;
-    private GUIButton buttonSeatManager;
-
+    private final InventoryPlayer player;
 
     public GuiLoco2(InventoryPlayer inventoryplayer, Entity entityminecart) {
         super(new InventoryLoco(inventoryplayer, (Locomotive) entityminecart));
@@ -48,6 +37,10 @@ public class GuiLoco2 extends GuiContainer {
         super.initGui();
         buttonList.clear();
 
+        EntityPlayer passenger = getEntityPlayer();
+
+        int textureX,textureY,textureSizeX,textureSizeY,buttonPosY1,buttonPosX1;
+        String texture = Info.guiPrefix + "customButton.png";
         if (!loco.getParkingBrakeFromPacket()) {
             if (loco instanceof SteamTrain) {
                 textureX = 41;
@@ -60,9 +53,9 @@ public class GuiLoco2 extends GuiContainer {
                 textureSizeX = 43;
                 textureSizeY = 13;
             }
-            buttonPosX = 43;
-            buttonPosY = -13;
-            buttonList.add(new GuiCustomButton(2, ((width - xSize) / 2) + buttonPosX - 12, ((height - ySize) / 2) + buttonPosY, textureSizeX, textureSizeY, "", texture, textureX, textureY));//Brake: Off
+            buttonPosX1 = 43;
+            buttonPosY1 = -13;
+            buttonList.add(new GuiCustomButton(2, ((width - xSize) / 2) + buttonPosX1 - 12, ((height - ySize) / 2) + buttonPosY1, textureSizeX, textureSizeY, "", texture, textureX, textureY));//Brake: Off
         } else {
             if (loco instanceof SteamTrain) {
                 textureX = 0;
@@ -75,128 +68,83 @@ public class GuiLoco2 extends GuiContainer {
                 textureSizeX = 43;
                 textureSizeY = 13;
             }
-            buttonPosX = 0;
-            buttonPosY = -13;
-            buttonList.add(new GuiCustomButton(2, ((width - xSize) / 2) + buttonPosX, ((height - ySize) / 2) + buttonPosY, textureSizeX, textureSizeY, "", texture, textureX, textureY));//Brake: On
+            buttonPosX1 = 0;
+            buttonPosY1 = -13;
+            buttonList.add(new GuiCustomButton(2, ((width - xSize) / 2) + buttonPosX1, ((height - ySize) / 2) + buttonPosY1, textureSizeX, textureSizeY, "", texture, textureX, textureY));//Brake: On
         }
 
-        int buttonPosX = (this.width - xSize) / 2;
-        int buttonPosY = (this.height - ySize) / 2;
+        int buttonPosX = (width - xSize) / 2;
+        int buttonPosY = (height - ySize) / 2;
 
-        if (!loco.getTrainLockedFromPacket()) {
-            this.buttonList.add(this.buttonLock = new GuiButton(3, buttonPosX + 108, buttonPosY - 10, 67, 10, "Unlocked"));
-        } else {
-            EntityPlayer engineer = ((EntityPlayer) loco.seats.get(0).getPassenger());
-            if (loco.getTrainOwner().equalsIgnoreCase(engineer.getDisplayName()))
-                this.buttonList.add(this.buttonLock = new GuiButton(3, buttonPosX + 108, buttonPosY - 10, 67, 10, "Locked"));
-            else if (loco.isPlayerTrusted(engineer.getDisplayName()))
-                if (loco.isPlayerTrustedToBreak(engineer.getDisplayName()))
-                    this.buttonList.add(this.buttonLock = new GuiButton(3, buttonPosX + 104, buttonPosY - 10, 71, 10, "Trusted+"));
-                else
-                    this.buttonList.add(this.buttonLock = new GuiButton(3, buttonPosX + 106, buttonPosY - 10, 69, 10, "Trusted"));
-        }
+        String lockString = loco.getTrainLockedFromPacket() ? "Locked" : "Unlocked";
+        if (loco.isPlayerTrustedToBreak(passenger.getDisplayName()))
+            lockString = "Trusted+";
+        if (loco.isPlayerTrusted(passenger.getDisplayName()))
+            lockString = "Trusted";
 
-        if (!(loco instanceof SteamTrain)) {
-            if (loco.isLocoTurnedOn) {
-                this.buttonList.add(this.buttonLock = new GuiButton(4, buttonPosX + 108, buttonPosY - 22, 67, 12, "Stop Engine"));
-            } else {
-                this.buttonList.add(this.buttonLock = new GuiButton(4, buttonPosX + 108, buttonPosY - 22, 67, 12, "Start Engine"));
-            }
-        }
+        buttonList.add(new GuiButton(3, buttonPosX + 108, buttonPosY - 10, 69, 10, lockString));
+
+        if (!(loco instanceof SteamTrain))
+            buttonList.add(new GuiButton(4, buttonPosX + 108, buttonPosY - 22, 67, 12, loco.isLocoTurnedOn ? "Stop Engine" : "Start Engine"));
+
         if (loco.seats.size() > 1) {
-            this.buttonList.add(this.buttonSeatManager = new GUIButton(buttonPosX + 41, buttonPosY - 22, 67,10, "Seats") {
+            buttonList.add(new GUIButton(buttonPosX + 41, buttonPosY - 22, 67,10, "Seats") {
                 @Override
-                public String getHoverText() {
-                    return "gui.seats";
-                }
+                public String getHoverText() { return "gui.seats"; }
 
                 @Override
-                public int[] getColor(){
-                    return null;
-                }
-
-                @Override
-                public void onClick() {
-                    Traincraft.proxy.seatGUI(player.player,loco);
-                }
+                public void onClick() { Traincraft.proxy.seatGUI(player.player,loco); }
 
                 @Override
                 public FontRenderer getFont(){return fontRendererObj;}
             });
         }
 
-        //region Lights On/Off
-        if (loco.isLightsEnabled())
-        {
-            buttonList.add(this.buttonLock = new GuiButton(6, buttonPosX + 108, buttonPosY + 166, 67, 12, "Lights: On"));
-        }
-        else
-        {
-            buttonList.add(this.buttonLock = new GuiButton(6, buttonPosX + 108, buttonPosY + 166, 67, 12, "Lights: Off"));
-        }
-        //endregion Lights On/Off
-
-        //region Beacon On/Off
-        if (loco.isBeaconEnabled())
-        {
-            buttonList.add(this.buttonLock = new GuiButton(7, buttonPosX + 41, buttonPosY + 166, 67, 12, "Beacon: On"));
-        }
-        else
-        {
-            buttonList.add(this.buttonLock = new GuiButton(7, buttonPosX + 41, buttonPosY + 166, 67, 12, "Beacon: Off"));
-        }
-        //endregion Beacon On/Off
-
-        //region DitchLights On/Off
-        if (loco.isDitchLightsEnabled())
-        {
-            buttonList.add(this.buttonLock = new GuiButton(8, buttonPosX + 90, buttonPosY + 178, 85, 12, "Ditch Lights: On"));
-        }
-        else
-        {
-            buttonList.add(this.buttonLock = new GuiButton(8, buttonPosX + 90, buttonPosY + 178, 85, 12, "Ditch Lights: Off"));
-        }
-        //endregion DitchLights On/Off
+        buttonList.add(new GuiButton(6, buttonPosX + 108, buttonPosY + 166, 67, 12, loco.isLightsEnabled() ? "Lights: On" : "Lights: Off"));
+        buttonList.add(new GuiButton(7, buttonPosX + 41, buttonPosY + 166, 67, 12, loco.isBeaconEnabled() ? "Beacon: On" : "Beacon: Off"));
+        buttonList.add(new GuiButton(8, buttonPosX + 90, buttonPosY + 178, 85, 12, loco.isDitchLightsEnabled() ? "Ditch Lights: On" : "Ditch Lights: Off"));
     }
 
     @Override
     protected void actionPerformed(GuiButton guibutton) {
+        EntityPlayer passenger = getEntityPlayer();
+
         if (guibutton.id == 2) {
             if (!loco.parkingBrake && loco.getSpeed() < 10) {
                 Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(true, loco.getEntityId()));
                 loco.parkingBrake = true;
                 guibutton.displayString = "Brake: On";
-                this.initGui();
+                initGui();
             } else if (loco.getSpeed() < 10) {
                 Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(false, loco.getEntityId()));
                 loco.parkingBrake = false;
                 guibutton.displayString = "Brake: Off";
-                this.initGui();
+                initGui();
             }
         }
 
         if (guibutton.id == 3) {
-            if (!loco.isNotOwner()) {
+            if (loco.seats.isPassengerOwner(0)) {
                 if ((!loco.getTrainLockedFromPacket())) {
                     if (!isShiftKeyDown()) {
                         Traincraft.lockChannel.sendToServer(new PacketSetTrainLockedToClient(true, loco.getTrustedList(), loco.getEntityId(), false));
                         loco.locked = true;
                         guibutton.displayString = "Locked";
-                        this.initGui();
+                        initGui();
                     } else
-                        ((EntityPlayer) loco.seats.get(0).riddenByEntity).openGui(Traincraft.instance, GuiIDs.LOCK_MENU, ((EntityPlayer) loco.seats.get(0).riddenByEntity).getEntityWorld(), loco.getEntityId(), -1, (int) loco.seats.get(0).riddenByEntity.posZ);
+                        passenger.openGui(Traincraft.instance, GuiIDs.LOCK_MENU, passenger.getEntityWorld(), loco.getEntityId(), -1, (int) passenger.posZ);
                 }
                 else {
                     if (!isShiftKeyDown()) {
                         Traincraft.lockChannel.sendToServer(new PacketSetTrainLockedToClient(false, loco.getTrustedList(), loco.getEntityId(), false));
                         loco.locked = false;
                         guibutton.displayString = "Unlocked";
-                        this.initGui();
+                        initGui();
                     } else
-                        ((EntityPlayer) loco.seats.get(0).riddenByEntity).openGui(Traincraft.instance, GuiIDs.LOCK_MENU, ((EntityPlayer) loco.seats.get(0).riddenByEntity).getEntityWorld(), loco.getEntityId(), -1, (int) loco.seats.get(0).riddenByEntity.posZ);
+                        passenger.openGui(Traincraft.instance, GuiIDs.LOCK_MENU, passenger.getEntityWorld(), loco.getEntityId(), -1, (int) passenger.posZ);
                 }
             } else {
-                getEntityPlayer().addChatMessage(new ChatComponentText("You are not the owner"));
+                passenger.addChatMessage(new ChatComponentText("You are not the owner"));
             }
         }
 
@@ -210,9 +158,9 @@ public class GuiLoco2 extends GuiContainer {
                     // An auto parking brakingRate is implemented here because Brutal tried to implement it in the Locomotive API when you turn off the Train.
                     Traincraft.brakeChannel.sendToServer(new PacketParkingBrake(true, loco.getEntityId()));
                     loco.parkingBrake = true;
-                    this.initGui();
+                    initGui();
                 } else {
-                    getEntityPlayer().addChatMessage(new ChatComponentText("Stop before turning it Off!"));
+                    passenger.addChatMessage(new ChatComponentText("Stop before turning it Off!"));
                 }
             } else {
                 Traincraft.ignitionChannel.sendToServer(new PacketSetLocoTurnedOn(true));
@@ -272,15 +220,7 @@ public class GuiLoco2 extends GuiContainer {
         }
     }
 
-    private EntityPlayer getEntityPlayer()
-    {
-        EntityPlayer p = (EntityPlayer) loco.riddenByEntity;
-        if (loco.seats.size() != 0 && loco.seats.get(0).getPassenger() instanceof EntityPlayer) {
-            p = (EntityPlayer) loco.seats.get(0).getPassenger();
-        }
-
-        return p;
-    }
+    private EntityPlayer getEntityPlayer() { return (EntityPlayer) loco.seats.getDriver(); }
 
     @Override
     protected void drawCreativeTabHoveringText(String str, int t, int g) {

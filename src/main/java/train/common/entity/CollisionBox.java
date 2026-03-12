@@ -5,7 +5,6 @@ import mods.railcraft.api.carts.IFluidCart;
 import mods.railcraft.api.carts.IMinecart;
 import mods.railcraft.api.carts.IRoutableCart;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.IEntityMultiPart;
 import net.minecraft.entity.boss.EntityDragonPart;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +12,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
@@ -28,32 +26,17 @@ import train.common.core.network.PacketRemove;
 
 public class CollisionBox extends EntityDragonPart implements IInventory, IFluidHandler, IMinecart, IFluidCart, IRoutableCart {
 
-    static String dragonBoxName ="trainbox";
     public EntityRollingStock host;
 
-    // Serverside constructor
+    // Constructor called by both server & client hosts (note we don't need a clientside (World world) constructor, since this isn't registered as a FML entity using registerModEntity)
     public CollisionBox(EntityRollingStock host) {
-        super(host, dragonBoxName, host.getHitboxSize()[2], host.getHitboxSize()[1]);
+        super(host, "trainbox", host.getHitboxSize()[2], host.getHitboxSize()[1]);
         this.host = host;
-    }
-
-    // Clientside constructor, this lets us register the hitbox as a real entity
-    public CollisionBox(final World w) {
-        super(new IEntityMultiPart() {
-            @Override
-            public World func_82194_d() {return w;}
-
-            @Override
-            public boolean attackEntityFromPart(EntityDragonPart p, DamageSource d, float i) {return false;}
-        },dragonBoxName,1,1);
     }
 
     @Override
     public boolean interactFirst(EntityPlayer p_130002_1_) {
-        if(worldObj.isRemote){
-            Traincraft.keyChannel.sendToServer(new PacketInteract(host.getEntityId()));
-        }
-        return host == null;
+        return host.interactFirst(p_130002_1_);
     }
 
     //check often to be sure the host actually exists and didnt somehow get deleted in such a way that would make it skip hitbox removal.

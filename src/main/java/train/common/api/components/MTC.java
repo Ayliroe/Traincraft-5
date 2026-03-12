@@ -8,6 +8,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import ebf.tim.utility.CommonUtil;
 import mods.railcraft.api.carts.CartTools;
 import mods.railcraft.api.carts.IRoutableCart;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -221,26 +222,23 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
         }
     }
 
-    public void accel(Integer desiredSpeed) {
-        if (loco.getWorld() != null) {
-            if (loco.getSpeed() != desiredSpeed) {
-                if ((int) loco.getSpeed() <= speedLimit) {
-                    double rotation = loco.seats.get(0).getPassenger() == null?loco.rotationYaw:loco.seats.get(0).getPassenger().rotationYaw;
-                    double[] motion = CommonUtil.rotatePoint(0.002,0,rotation==0?0:CommonUtil.floorDouble(rotation/90d)*90);
-                    motion[1]= MathHelper.sqrt_double(motion[0]*motion[0]+motion[2]*motion[2]);
-                    loco.appendMovement(motion[1]);
-                }
-            }
+    private void accel(Integer desiredSpeed) {
+        if (loco.getWorld() != null && loco.getSpeed() != desiredSpeed && (int) loco.getSpeed() <= speedLimit) {
+            EntityLivingBase driver = loco.seats.getDriver();
+            double rotation = driver == null ? loco.rotationYaw : driver.rotationYaw;
+            double[] motion = CommonUtil.rotatePoint(0.002,0,rotation==0?0:CommonUtil.floorDouble(rotation/90d)*90);
+            motion[1]= MathHelper.sqrt_double(motion[0]*motion[0]+motion[2]*motion[2]);
+            loco.appendMovement(motion[1]);
         }
     }
 
-    public void slow(Integer desiredSpeed) {
+    private void slow(Integer desiredSpeed) {
         if (loco.getSpeed() >= desiredSpeed) {
             loco.multiplyVelocity(loco.brakingRate);
         }
     }
 
-    public void stop(Vec3 signalPosition) {
+    private void stop(Vec3 signalPosition) {
         double currentDistance = Math.copySign(Vec3.createVectorHelper(loco.posX, loco.posY, loco.posZ).distanceTo(signalPosition), 1.0D);
         if (1.0D - currentDistance != 0.0D && currentDistance != 0.0D) {
             loco.multiplyVelocity(currentDistance / loco.getSpeed());

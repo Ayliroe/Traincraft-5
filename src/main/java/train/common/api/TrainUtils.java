@@ -2,7 +2,6 @@ package train.common.api;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
-import ebf.tim.entities.EntitySeat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemDye;
@@ -20,7 +19,6 @@ import train.common.items.ItemPaintbrushThing;
 import train.common.items.ItemWrench;
 import train.common.library.GuiIDs;
 import train.common.library.ItemIDs;
-import train.common.library.RenderRecord;
 
 import java.util.List;
 
@@ -170,69 +168,40 @@ public final class TrainUtils {
      **/
 
     public static boolean onOpeningGUI(EntityRollingStock train, int i, EntityPlayer playerEntity) {
-        //EntityPlayer targetPlayer = (train.seats != null && !train.seats.isEmpty() && train.seats.get(0).getPassenger() != null) ? (EntityPlayer)train.seats.get(0).getPassenger() : playerEntity;
-        EntityPlayer player = playerEntity;
 
         int targetGUI = -1;
         if (i == 7) {
-            // Loco
-            if (train instanceof Locomotive & train.seats != null) {
-                for (EntitySeat seat : train.seats) {
-                    if(seat.isControlSeat() && seat.getPassenger() != null && player == seat.getPassenger() && player.ridingEntity == seat) {
-                        player = (EntityPlayer)seat.getPassenger();
-                        targetGUI = GuiIDs.LOCO;
-                        break;
-                    } else if (seat.getPassenger() != null && seat.getPassenger() instanceof EntityPlayer) {
-                        Traincraft.proxy.seatGUI((EntityPlayer) seat.getPassenger(),train);
-                        break;
-                    }
-                }
-            }
+            if (train instanceof Locomotive && playerEntity == train.seats.getDriver()) { targetGUI = GuiIDs.LOCO; }
             else if (train instanceof AbstractWorkCart)     { targetGUI = GuiIDs.CRAFTING_CART; }
-            else if (train instanceof AbstractControlCar)   { targetGUI = GuiIDs.CONTROL_CAR; }
-            // Generic - Seat
-            else if (train.seats != null && train.seats.size() > 1 && train.getSizeInventory() == 0 && train.riddenByEntity instanceof EntityPlayer) {
-                player = (EntityPlayer)train.riddenByEntity;
-                targetGUI = GuiIDs.SEAT_GUI;
-            }
+            else                                            { Traincraft.proxy.seatGUI(playerEntity, train); } // TODO: why does this not work with openGUI?
         }
         if (i == 9) {
             if (train instanceof AbstractWorkCart)          { targetGUI = GuiIDs.FURNACE_CART; }
         }
 
-        if (targetGUI > 0) {
-            player.openGui(Traincraft.instance, targetGUI, train.getWorld(), (int) train.posX, (int) train.posY, (int) train.posZ);
+        if (targetGUI != -1) {
+            playerEntity.openGui(Traincraft.instance, targetGUI, train.getWorld(), 0, 0, 0);
             return true;
         }
         return false;
     }
 
     public static boolean onOpeningInventory(EntityRollingStock train, EntityPlayer playerEntity) {
-        EntityPlayer player = playerEntity;
-
         int targetGUI = -1;
 
-        if (train instanceof Tender) {
+        if (train instanceof Tender)
             targetGUI = GuiIDs.TENDER;
-        }
-        else if (train instanceof Freight && !(train instanceof Locomotive)) {
+        else if (train instanceof Freight && !(train instanceof Locomotive))
             targetGUI = GuiIDs.FREIGHT;
-        }
-        else if (train instanceof LiquidTank) {
+        else if (train instanceof LiquidTank)
             targetGUI = GuiIDs.LIQUID;
-        }
-        else if (train instanceof AbstractTracksBuilder) {
+        else if (train instanceof AbstractTracksBuilder)
             targetGUI = GuiIDs.BUILDER;
-            ((AbstractTracksBuilder)train).pushZ = (train.posZ - player.posZ);
-            ((AbstractTracksBuilder)train).pushX = (train.posX - player.posX);
-            ((AbstractTracksBuilder)train).applyDragAndPushForces();
-        }
-        else if (train instanceof AbstractJukeBox) {
+        else if (train instanceof AbstractJukeBox)
             targetGUI = GuiIDs.JUKEBOX;
-        }
 
-        if (targetGUI > 0) {
-            player.openGui(Traincraft.instance, targetGUI, train.getWorld(), train.getEntityId(), -1, (int) train.posZ);
+        if (targetGUI != -1) {
+            playerEntity.openGui(Traincraft.instance, targetGUI, train.getWorld(), train.getEntityId(), -1, 0); // x is used to pass the stock's ID, if y = -1 (see CommonProxy.java)
             return true;
         }
         return false;

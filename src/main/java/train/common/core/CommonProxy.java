@@ -138,101 +138,66 @@ public class CommonProxy implements IGuiHandler {
 
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        TileEntity te = world.getTileEntity(x, y, z);
-        EntityPlayer riddenByEntity = null;
-        Entity entity = null;
-
-        if (player.ridingEntity instanceof EntityRollingStock || player.ridingEntity instanceof AbstractZeppelin
-                || player.ridingEntity instanceof EntityRotativeDigger) {
+        Object entity;
+        if (y == -1 && world instanceof WorldServer) // External entity
+            entity = world.getEntityByID(x);
+        else if (player.ridingEntity instanceof EntitySeat) // Riding entity (stock)
+            entity = ((EntitySeat) player.ridingEntity).getHost();
+        else if (player.ridingEntity instanceof AbstractZeppelin || player.ridingEntity instanceof EntityRotativeDigger) // Riding entity (other)
             entity = player.ridingEntity;
-            if (entity.riddenByEntity instanceof EntityPlayer) {
-                riddenByEntity = (EntityPlayer) entity.riddenByEntity;
-            }
-        }
-        if (player.ridingEntity instanceof EntitySeat) {
-            entity = ((EntitySeat) player.ridingEntity).parent;
-            if (((EntityRollingStock)entity).seats.get(0).getPassenger() instanceof EntityPlayer) {
-                riddenByEntity = (EntityPlayer) ((EntityRollingStock)entity).seats.get(0).getPassenger();
-            }
-        }
-        Entity entity1 = null;
-        if (y == -1) {
-            entity1 = getEntity(world, x);
-        }
+        else
+            entity = world.getTileEntity(x, y, z); // Tile entity
+
+        assert entity != null;
 
         switch (ID) {
+            // --- TILE ENTITIES ---
             case (GuiIDs.CRAFTER_TIER_I):
-                return te instanceof TileCrafterTierI ? new ContainerTier(player.inventory, (TileCrafterTierI) te) : null;
+                return new ContainerTier(player.inventory, (TileCrafterTierI) entity);
             case (GuiIDs.CRAFTER_TIER_II):
-                return te instanceof TileCrafterTierII ? new ContainerTier(player.inventory, (TileCrafterTierII) te) : null;
+                return new ContainerTier(player.inventory, (TileCrafterTierII) entity);
             case (GuiIDs.CRAFTER_TIER_III):
-                return te instanceof TileCrafterTierIII ? new ContainerTier(player.inventory, (TileCrafterTierIII) te) : null;
+                return new ContainerTier(player.inventory, (TileCrafterTierIII) entity);
             case (GuiIDs.DISTIL):
-                return te instanceof TileEntityDistil ? new ContainerDistil(player.inventory, (TileEntityDistil) te) : null;
+                return new ContainerDistil(player.inventory, (TileEntityDistil) entity);
             case (GuiIDs.GENERATOR_DIESEL):
-                return te instanceof TileGeneratorDiesel ? new ContainerGeneratorDiesel(player.inventory, (TileGeneratorDiesel) te) : null;
+                return new ContainerGeneratorDiesel(player.inventory, (TileGeneratorDiesel) entity);
             case (GuiIDs.OPEN_HEARTH_FURNACE):
-                return te instanceof TileEntityOpenHearthFurnace ? new ContainerOpenHearthFurnace(player.inventory, (TileEntityOpenHearthFurnace) te) : null;
+                return new ContainerOpenHearthFurnace(player.inventory, (TileEntityOpenHearthFurnace) entity);
             case (GuiIDs.TRAIN_WORKBENCH):
-                return te instanceof TileTrainWbench ? new ContainerTrainWorkbench(player.inventory, player.worldObj, (TileTrainWbench) te) : null;
+                return new ContainerTrainWorkbench(player.inventory, player.worldObj, (TileTrainWbench) entity);
+        /*case (GuiIDs.FORTY_FOOT_CONTAINER):
+            return new ContainerStorage((TileFortyFootContainer)te, player);*/
+            // --- INTERNAL STOCK GUIs ---
             case (GuiIDs.LOCO):
-                if (entity instanceof EntityRollingStock)
-                {
-                    return riddenByEntity != null ? new InventoryLoco(riddenByEntity.inventory,(EntityRollingStock)entity) : null;
-                }
-            case (GuiIDs.CONTROL_CAR):
-                return riddenByEntity != null ? new InventoryControlCar(riddenByEntity.inventory, (EntityRollingStock) entity) : null;
-            case (GuiIDs.FORNEY):
-                if (entity instanceof EntityRollingStock) {
-                    return riddenByEntity != null ? new InventoryForney(player.inventory, (EntityRollingStock) entity) : null;
-                }
+                return new InventoryLoco(player.inventory, (EntityRollingStock) entity);
             case (GuiIDs.CRAFTING_CART):
                 return new ContainerWorkbenchCart(player.inventory, player.worldObj);
             case (GuiIDs.FURNACE_CART):
-                return riddenByEntity != null ? new InventoryWorkCart(player.inventory, entity) : null;
+                return new InventoryWorkCart(player.inventory, (Entity) entity);
             case (GuiIDs.ZEPPELIN):
-                if (entity instanceof AbstractZeppelin) {
-                    return riddenByEntity != null ? new InventoryZepp(player.inventory, (AbstractZeppelin) entity) : null;
-                }
+                return new InventoryZepp(player.inventory, (AbstractZeppelin) entity);
             case (GuiIDs.DIGGER):
-                if (entity instanceof EntityRotativeDigger) {
-                    return riddenByEntity != null ? new InventoryRotativeDigger(player.inventory, (EntityRotativeDigger) entity) : null;
-                }
-
-                /* Stationary entities while player is not riding. */
-            case (GuiIDs.FREIGHT):
-                //System.out.println("Freight: " + ID + " | " + entity1.getEntityName() + " | " + x + ":" + y + ":" + z);
-                return entity1 instanceof Freight ? new InventoryFreight(player.inventory, (Freight) entity1) : null;
-            case (GuiIDs.JUKEBOX):
-                return entity1 instanceof AbstractJukeBox ? new InventoryJukeBoxCart(player.inventory, (AbstractJukeBox) entity1) : null;
-            case (GuiIDs.TENDER):
-                return entity1 instanceof Tender ? new InventoryTender(player.inventory, (Tender) entity1) : null;
-            case (GuiIDs.BUILDER):
-                return entity1 instanceof AbstractTracksBuilder ? new InventoryBuilder(player.inventory, (AbstractTracksBuilder) entity1) : null;
-            case (GuiIDs.LIQUID):
-                return entity1 instanceof LiquidTank ? new InventoryLiquid(player.inventory, (LiquidTank) entity1) : null;
+                return new InventoryRotativeDigger(player.inventory, (EntityRotativeDigger) entity);
             case (GuiIDs.SEAT_GUI):
-                if (entity instanceof EntityRollingStock) {
-                    return riddenByEntity != null ? new GUISeatManager(player, (EntityRollingStock)entity) : null; //#!#doesn't work for whatever reason
-                }
-		/*case (GuiIDs.FORTY_FOOT_CONTAINER):
-			return new ContainerStorage((TileFortyFootContainer)te, player);*/
-
-            default:
-                return null;
-
+                return null; // No inventory for the Seat GUI
+            // --- EXTERNAL STOCK GUIs ---
+            case (GuiIDs.FREIGHT):
+                return new InventoryFreight(player.inventory, (Freight) entity);
+            case (GuiIDs.JUKEBOX):
+                return new InventoryJukeBoxCart(player.inventory, (AbstractJukeBox) entity);
+            case (GuiIDs.TENDER):
+                return new InventoryTender(player.inventory, (Tender) entity);
+            case (GuiIDs.BUILDER):
+                return new InventoryBuilder(player.inventory, (AbstractTracksBuilder) entity);
+            case (GuiIDs.LIQUID):
+                return new InventoryLiquid(player.inventory, (LiquidTank) entity);
         }
+        return null;
     }
 
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        return null;
-    }
-
-    public static Entity getEntity(World world, int entityId) {
-        if (world instanceof WorldServer) {
-            return world.getEntityByID(entityId);
-        }
         return null;
     }
 

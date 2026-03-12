@@ -37,7 +37,7 @@ public class PacketSetLocoTurnedOn implements IMessage {
         public IMessage onMessage(PacketSetLocoTurnedOn message, MessageContext context) {
             Entity trainEntity = context.getServerHandler().playerEntity.ridingEntity;
             if (trainEntity instanceof EntitySeat) {
-                trainEntity = ((EntitySeat)context.getServerHandler().playerEntity.ridingEntity).parent;
+                trainEntity = ((EntitySeat)context.getServerHandler().playerEntity.ridingEntity).getHost();
             }
 
             /* "instanceof" is null-safe, but we check to avoid four unnecessary instanceof checks for when the value is null anyways. */

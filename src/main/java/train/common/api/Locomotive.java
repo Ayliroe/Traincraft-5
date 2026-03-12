@@ -435,16 +435,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
     @Override
     public int getMinecartType() { return 2; }
 
-    public boolean isNotOwner() {
-        if (riddenByEntity instanceof EntityPlayer && !((EntityPlayer) riddenByEntity).getDisplayName().equalsIgnoreCase(getTrainOwner())) {
-            return true;
-        }
-        if (!seats.isEmpty() && seats.get(0).getPassenger() instanceof EntityPlayer && !((EntityPlayer) seats.get(0).getPassenger()).getDisplayName().equalsIgnoreCase(getTrainOwner())) {
-            return true;
-        }
-        return false;
-    }
-
     @Override
     public boolean attackEntityFrom(DamageSource damagesource, float i) {
         if (super.attackEntityFrom(damagesource, i)) {

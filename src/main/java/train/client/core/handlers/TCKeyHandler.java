@@ -70,7 +70,7 @@ public class TCKeyHandler {
 
         Entity riding =Minecraft.getMinecraft().thePlayer.ridingEntity;
         if(riding instanceof EntitySeat){
-            riding=((EntitySeat) riding).parent;
+            riding=((EntitySeat) riding).getHost();
         }
         if (riding instanceof AbstractTrains || riding instanceof AbstractZeppelin){
             if (up.getIsKeyPressed()) {

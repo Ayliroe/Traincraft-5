@@ -54,8 +54,6 @@ public class PacketSeatUpdate implements IMessage {
         @Override public IMessage onMessage(PacketSeatUpdate message, MessageContext ctx) {
             EntityRollingStock rollingStockEntity;
             EntityPlayer playerEntity;
-            EntitySeat oldSeat;
-            EntitySeat newSeat;
             if (ctx.side == Side.SERVER) {
                 rollingStockEntity = (EntityRollingStock) ctx.getServerHandler().playerEntity.worldObj.getEntityByID(message.rollingStockId);
                 playerEntity = (EntityPlayer) ctx.getServerHandler().playerEntity.worldObj.getEntityByID(message.playerId);
@@ -64,11 +62,8 @@ public class PacketSeatUpdate implements IMessage {
                 rollingStockEntity = (EntityRollingStock) Minecraft.getMinecraft().theWorld.getEntityByID(message.rollingStockId);
                 playerEntity = (EntityPlayer) Minecraft.getMinecraft().theWorld.getEntityByID(message.playerId);
             }
-            oldSeat = rollingStockEntity.seats.get(message.oldSeatIndex);
-            newSeat = rollingStockEntity.seats.get(message.newSeatIndex);
-            oldSeat.removePassenger(playerEntity);
-            newSeat.addPassenger(playerEntity);
-            playerEntity.mountEntity(newSeat);
+            rollingStockEntity.seats.removePassengerAtIndex(message.oldSeatIndex);
+            rollingStockEntity.seats.addPassengerAtIndex(message.newSeatIndex, playerEntity);
             if (ctx.side == Side.SERVER) {
                 Traincraft.updateChannel.sendToAllAround(new PacketSeatUpdate(message.rollingStockId,message.playerId,message.oldSeatIndex,message.newSeatIndex, message.dimension),
                         new NetworkRegistry.TargetPoint(message.dimension,rollingStockEntity.posX,rollingStockEntity.posY,rollingStockEntity.posZ,256D));

@@ -133,5 +133,5 @@ public final class TrainRecord {
     public float getOptimalDistance()           { return optimalDistance; }
     public float[] getHitboxSize()              { return hitboxSize; }
     public boolean getShouldRiderSit()          { return shouldRiderSit; }
-    public float[][] getRiderOffsets()          { return riderOffsets; }
+    public float[][] getRiderOffsets()          { return riderOffsets != null ? riderOffsets : new float[][]{}; }
 }

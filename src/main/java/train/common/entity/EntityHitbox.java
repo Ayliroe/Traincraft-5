@@ -1,6 +1,5 @@
 package train.common.entity;
 
-import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
 import fexcraft.tmt.slim.Vec3d;
 import fexcraft.tmt.slim.Vec3f;

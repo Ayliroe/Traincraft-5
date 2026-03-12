@@ -5,7 +5,6 @@ import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.tim.entities.EntitySeat;
 import fexcraft.tmt.slim.ModelBase;
 import fexcraft.tmt.slim.Vec3f;
 import io.netty.buffer.ByteBuf;
@@ -56,7 +55,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     // --- MAIN ---
     private TrainRegister register = null;
     public final Links links = new Links(this);
-    public List<EntitySeat> seats = new LinkedList<>();
 
     // --- RENDER ---
     public TransportRenderCache render_cache = new TransportRenderCache();
@@ -92,6 +90,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public AbstractTrains(World world) {
         super(world);
 
+        setSize(0.25f, 0.25f);
         renderDistanceWeight = 2.0D;
 
         // TODO: merge stuff into json
@@ -116,7 +115,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public void init(TrainRegister register) {
         this.register = register;
         setDefaultMass(weightKg()*0.1);
-        setSize(0.98f, 1.98f);
         setMinecartName(getName());
         dataWatcher.updateObject(30, getDefaultSkin());
     }
@@ -398,7 +396,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     // --- LOCKING ---
     public boolean getTrainLockedFromPacket() { return locked; }
     public void setTrainLockedFromPacket(boolean set) { locked = set; }
-    protected boolean canBeRiddenWhileLocked() { return this instanceof Locomotive || this instanceof IPassenger || this instanceof AbstractWorkCart; }
+    public boolean canBeRiddenWhileLocked() { return this instanceof Locomotive || this instanceof IPassenger || this instanceof AbstractWorkCart; }
     protected boolean lockThisCart(ItemStack itemstack, EntityPlayer entityplayer) {
         if (itemstack != null && (itemstack.getItem() instanceof ItemWrench || itemstack.getItem() instanceof ItemAdminBook)) {
             if (entityplayer.getDisplayName().equals(trainOwner) || entityplayer.getGameProfile().getName().equals(trainOwner)
@@ -617,6 +615,9 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     // Applies a velocity to each of the entities pushing them away from each other
     @Override
     public void applyEntityCollision(Entity par1Entity) {}
+
+    @Override
+    public boolean canBeCollidedWith() { return false; }
 
     /*
      * =========================================== RAILCRAFT IMINECART ===========================================
