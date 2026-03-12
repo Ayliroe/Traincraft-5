@@ -357,7 +357,7 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
     public String getTrainOwner()       { return dataWatcher.getWatchableObjectString(7); }
     public String getTrainName()        { return dataWatcher.getWatchableObjectString(9); }
     public String getTrainCreator()     { return dataWatcher.getWatchableObjectString(13); }
-    public GameProfile getOwner()       { return CartTools.getCartOwner(this); }
+    public GameProfile getOwner()       { return CartTools.getCartOwner(this); }    // ??? Difference w/ train.getTrainOwner().equalsIgnoreCase(playerEntity.getDisplayName())
 
     // --- UUID ---
     public int getUniqueTrainID()       { return uniqueID; }

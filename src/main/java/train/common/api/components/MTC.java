@@ -3,12 +3,11 @@ package train.common.api.components;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.authlib.GameProfile;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import ebf.tim.utility.CommonUtil;
 import mods.railcraft.api.carts.CartTools;
 import mods.railcraft.api.carts.IRoutableCart;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -224,7 +223,7 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
 
     private void accel(Integer desiredSpeed) {
         if (loco.getWorld() != null && loco.getSpeed() != desiredSpeed && (int) loco.getSpeed() <= speedLimit) {
-            EntityLivingBase driver = loco.seats.getDriver();
+            Entity driver = loco.seats.getDriver();
             double rotation = driver == null ? loco.rotationYaw : driver.rotationYaw;
             double[] motion = CommonUtil.rotatePoint(0.002,0,rotation==0?0:CommonUtil.floorDouble(rotation/90d)*90);
             motion[1]= MathHelper.sqrt_double(motion[0]*motion[0]+motion[2]*motion[2]);

@@ -33,9 +33,8 @@ import train.common.Traincraft;
 import train.common.adminbook.ServerLogger;
 import train.common.api.components.Seats;
 import train.common.core.handlers.ConfigHandler;
-import train.common.core.network.PacketInteract;
 import train.common.core.network.PacketRollingStockRotation;
-import train.common.entity.EntityHitbox;
+import train.common.api.components.Hitboxes;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemRollingStock;
 import train.common.library.BlockIDs;
@@ -53,7 +52,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
     public EntityBogie bogieBack = null;
     private boolean hasSpawnedBogie = false;
     public final Seats seats = new Seats(this);
-    public EntityHitbox hitbox = new EntityHitbox(this);
+    public Hitboxes hitbox = new Hitboxes(this);
 
     // --- PHYSICS ---
     private boolean firstLoad = true;
@@ -580,12 +579,13 @@ public abstract class EntityRollingStock extends AbstractTrains {
      * =========================================== INTERACTION ===========================================
      **/
 
-    /**
-     * Gets packet from server and distribute for GUI handles motion
-     */
+    // Prevent interactions if locked + not a trusted user + cannot be ridden while locked
     public boolean isLockedAndNotOwner(EntityPlayer player) {
         if (getTrainLockedFromPacket()) {
-            return !player.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isPlayerTrusted(player.getDisplayName());
+            if(getOwner() != player.getGameProfile() && !isPlayerTrusted(player.getDisplayName()) && !canBeRiddenWhileLocked() && !(player.capabilities.isCreativeMode && player.canCommandSenderUseCommand(2, ""))) {
+                player.addChatMessage(new ChatComponentText("Train is locked by " + getTrainOwner() + "."));
+                return true;
+            }
         }
         return false;
     }
@@ -594,54 +594,46 @@ public abstract class EntityRollingStock extends AbstractTrains {
      * @return Returns true if the action isn't allowed or has been 'eaten'
      */
     public boolean keyHandlerFromPacket(int i, EntityPlayer player) {
-        if (getTrainLockedFromPacket() && isLockedAndNotOwner(player))
+        if (isLockedAndNotOwner(player))
             return true;
         return TrainUtils.onOpeningGUI(this, i, player);
     }
 
+    /**
+     * The action to perform when interacted with
+     * This can only be called from the server, if on client use Traincraft.keyChannel.sendToServer(new PacketInteract(host.getEntityId()));
+     */
     @Override
     public boolean interactFirst(EntityPlayer entityplayer) {
-        if (super.interactFirst(entityplayer))                                    { return true; }
+        if (!getWorld().isRemote) {
+            // Prevent interactions if we are mounted on a seat
+            if (entityplayer.ridingEntity instanceof EntitySeat)                      { return true; }
 
-        if (getWorld().isRemote)
-            Traincraft.keyChannel.sendToServer(new PacketInteract(getEntityId())); // TODO FIX THIS
+            // --- LOCKED CARTS ---
+            if (isLockedAndNotOwner(entityplayer))                                    { return true; }
 
-        // Prevent interactions if we are mounted on a seat
-        if (entityplayer.ridingEntity instanceof EntitySeat)                      { return true; }
-
-        // --- LOCKED CARTS ---
-        // Prevent interactions if locked + not a trusted user + cannot be ridden while locked
-        if (!getWorld().isRemote && getTrainLockedFromPacket()) {
-            if (!entityplayer.getDisplayName().equalsIgnoreCase(getTrainOwner()) && !isPlayerTrusted(entityplayer.getDisplayName()) && !canBeRiddenWhileLocked()) {
-                entityplayer.addChatMessage(new ChatComponentText("Train is locked by " + getTrainOwner() + "."));
-                return true;
+            // --- ITEM IN HAND ---
+            ItemStack itemstack = entityplayer.inventory.getCurrentItem();
+            if(itemstack != null) {
+                if (TrainUtils.onClickWithChunkloader(this, itemstack, entityplayer)) { return true; }  // S
+                if (TrainUtils.onClickWithWrench(this, itemstack, entityplayer))      { return true; }  // S
+                if (TrainUtils.onClickWithCrowbar(this, itemstack, entityplayer))     { return false; } // --
+                if (TrainUtils.onClickWithTicket(this, itemstack, entityplayer))      { return true; }  // S/C?
+                if (TrainUtils.onClickWithDye(this, itemstack, entityplayer))         { return true; }  // S/C?
+                if (TrainUtils.onClickWithStake(this, itemstack, entityplayer))       { return true; }  // S
+                if (TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer))  { return true; }  // C?
+                if (TrainUtils.onClickWithPadlock(this, itemstack, entityplayer))     { return true; }  // ?
             }
+
+            // --- ENTERING SEAT ---
+            if (seats.onEnteringSeat(entityplayer))                                   { return true; } // S/C
+
+            // --- INVENTORY GUI ---
+            if (TrainUtils.onOpeningInventory(this, entityplayer))                    { return true; }  // C?
+
+            if (MinecraftForge.EVENT_BUS.post(new MinecartInteractEvent(this, entityplayer))) { return true; }
         }
-
-        // --- ITEM IN HAND ---
-        ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-        if(itemstack != null) {
-            if (TrainUtils.onClickWithChunkloader(this, itemstack, entityplayer)) { return true; }  // S
-            if (TrainUtils.onClickWithWrench(this, itemstack, entityplayer))      { return true; }  // S
-            if (TrainUtils.onClickWithCrowbar(this, itemstack, entityplayer))     { return false; } // --
-            if (TrainUtils.onClickWithTicket(this, itemstack, entityplayer))      { return true; }  // S/C?
-            if (TrainUtils.onClickWithDye(this, itemstack, entityplayer))         { return true; }  // S/C?
-            if (TrainUtils.onClickWithStake(this, itemstack, entityplayer))       { return true; }  // S
-            if (TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer))  { return true; }  // C?
-            if (TrainUtils.onClickWithPadlock(this, itemstack, entityplayer))     { return true; }  // ?
-        }
-
-        // --- ENTERING SEAT ---
-        if (seats.onEnteringSeat(entityplayer))                                   { return true; } // S/C
-
-        // --- INVENTORY GUI ---
-        if (TrainUtils.onOpeningInventory(this, entityplayer))                    { return true; }  // C?
-
-        if (MinecraftForge.EVENT_BUS.post(new MinecartInteractEvent(this, entityplayer))) {
-            return true;
-        }
-
-        return getWorld().isRemote;
+        return false;
     }
 
     @Override

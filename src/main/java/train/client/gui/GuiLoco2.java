@@ -93,7 +93,7 @@ public class GuiLoco2 extends GuiContainer {
                 public String getHoverText() { return "gui.seats"; }
 
                 @Override
-                public void onClick() { Traincraft.proxy.seatGUI(player.player,loco); }
+                public void onClick() { Traincraft.proxy.displayGUI(GuiIDs.SEAT_GUI, player.player, loco); }
 
                 @Override
                 public FontRenderer getFont(){return fontRendererObj;}

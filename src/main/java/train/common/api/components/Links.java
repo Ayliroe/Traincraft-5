@@ -185,7 +185,7 @@ public class Links {
     }
 
     public void refreshLeadID() {
-        if(leadID != host.getEntityId()) {
+        if(leadID == null || leadID != host.getEntityId()) {
             updateLinks();
         }
     }

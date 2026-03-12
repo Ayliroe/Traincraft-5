@@ -5,68 +5,52 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
-import ebf.tim.entities.EntitySeat;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 import train.common.Traincraft;
 import train.common.api.EntityRollingStock;
 
 /**
- * <h1>Seat Packet</h1>
- * bi-directional packet for managing seat changes while in a piece of stock.
- * @author broscolotos
- * @author 02Skaplan
+ * Bi-directional packet for entering a stock's seat from outside, or switching seats from inside
  */
 public class PacketSeatUpdate implements IMessage {
-    /**the ID of the entity to dismount from*/
-    private int rollingStockId, playerId, oldSeatIndex, newSeatIndex, dimension;
 
-    public PacketSeatUpdate() {}
-    public PacketSeatUpdate(int rollingStockId, int playerId, int oldSeatIndex, int newSeatIndex, int dimension) {
-        this.rollingStockId = rollingStockId;
+    private int stockId, playerId, seatID;
+
+    public PacketSeatUpdate() {};
+    public PacketSeatUpdate(int stockId, int playerId, int seatID) {
+        this.stockId = stockId;
         this.playerId = playerId;
-        this.oldSeatIndex = oldSeatIndex;
-        this.newSeatIndex = newSeatIndex;
-        this.dimension = dimension;
+        this.seatID = seatID;
     }
-    /**reads the packet on server to get the variables from the Byte Buffer*/
+
     @Override
     public void fromBytes(ByteBuf bbuf) {
-        rollingStockId= bbuf.readInt();
-        playerId=bbuf.readInt();
-        oldSeatIndex=bbuf.readInt();
-        newSeatIndex=bbuf.readInt();
-        dimension=bbuf.readInt();
+        stockId = bbuf.readInt();
+        playerId = bbuf.readInt();
+        seatID = bbuf.readInt();
     }
-    /**puts the variables into a Byte Buffer so they can be sent to server*/
+
     @Override
     public void toBytes(ByteBuf bbuf) {
-        bbuf.writeInt(rollingStockId);
+        bbuf.writeInt(stockId);
         bbuf.writeInt(playerId);
-        bbuf.writeInt(oldSeatIndex);
-        bbuf.writeInt(newSeatIndex);
-        bbuf.writeInt(dimension);
+        bbuf.writeInt(seatID);
     }
 
     public static class Handler implements IMessageHandler<PacketSeatUpdate,IMessage> {
         @Override public IMessage onMessage(PacketSeatUpdate message, MessageContext ctx) {
-            EntityRollingStock rollingStockEntity;
-            EntityPlayer playerEntity;
-            if (ctx.side == Side.SERVER) {
-                rollingStockEntity = (EntityRollingStock) ctx.getServerHandler().playerEntity.worldObj.getEntityByID(message.rollingStockId);
-                playerEntity = (EntityPlayer) ctx.getServerHandler().playerEntity.worldObj.getEntityByID(message.playerId);
+            World world = ctx.side == Side.SERVER ? ctx.getServerHandler().playerEntity.worldObj : Minecraft.getMinecraft().theWorld;
+            EntityRollingStock stock = (EntityRollingStock) world.getEntityByID(message.stockId);
+            EntityPlayer player = (EntityPlayer) world.getEntityByID(message.playerId);
 
-            } else {
-                rollingStockEntity = (EntityRollingStock) Minecraft.getMinecraft().theWorld.getEntityByID(message.rollingStockId);
-                playerEntity = (EntityPlayer) Minecraft.getMinecraft().theWorld.getEntityByID(message.playerId);
-            }
-            rollingStockEntity.seats.removePassengerAtIndex(message.oldSeatIndex);
-            rollingStockEntity.seats.addPassengerAtIndex(message.newSeatIndex, playerEntity);
+            stock.seats.updateFromPacket(message.seatID, player);
+
             if (ctx.side == Side.SERVER) {
-                Traincraft.updateChannel.sendToAllAround(new PacketSeatUpdate(message.rollingStockId,message.playerId,message.oldSeatIndex,message.newSeatIndex, message.dimension),
-                        new NetworkRegistry.TargetPoint(message.dimension,rollingStockEntity.posX,rollingStockEntity.posY,rollingStockEntity.posZ,256D));
+                Traincraft.updateChannel.sendToAllAround(new PacketSeatUpdate(message.stockId, message.playerId, message.seatID),
+                        new NetworkRegistry.TargetPoint(stock.dimension, stock.posX, stock.posY, stock.posZ, 256D));
             }
             return null;
         }

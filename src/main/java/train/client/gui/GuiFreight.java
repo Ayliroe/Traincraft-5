@@ -79,7 +79,7 @@ public class GuiFreight extends GuiContainer {
 
                 @Override
                 public void onClick() {
-                    Traincraft.proxy.seatGUI(player,freight);
+                    Traincraft.proxy.displayGUI(GuiIDs.SEAT_GUI, player, freight);
                 }
 
                 @Override

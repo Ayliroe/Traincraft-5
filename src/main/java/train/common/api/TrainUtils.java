@@ -2,6 +2,7 @@ package train.common.api;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemDye;
@@ -85,7 +86,7 @@ public final class TrainUtils {
     }
 
     public static boolean onClickWithStake(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
-        if (itemstack != null && itemstack.getItem() == ItemIDs.stake.item && !train.getWorld().isRemote &&
+        if (!train.getWorld().isRemote && itemstack != null && itemstack.getItem() == ItemIDs.stake.item &&
                 (FMLCommonHandler.instance().getMinecraftServerInstance().isSinglePlayer() || !train.links.isLinked() || train.getTrainOwner().equals(playerEntity.getDisplayName()) || train.getTrainOwner().isEmpty() || train.getTrainOwner() == null)) {
             if (playerEntity.isSneaking() && train instanceof Locomotive) {
                 if (!train.canBePushed()) {
@@ -120,15 +121,15 @@ public final class TrainUtils {
             List<String> skins = train.getSkins();
             if (!skins.isEmpty()) {
                 if (playerEntity.isSneaking()) {
-                    playerEntity.openGui(Traincraft.instance, GuiIDs.PAINTBRUSH, playerEntity.getEntityWorld(), train.getEntityId(), -1, (int) train.posZ);
-                    return true;
+                    Traincraft.proxy.displayGUI(GuiIDs.PAINTBRUSH, playerEntity, train);
                 }
                 else {
                     int currentSkinIndex = skins.indexOf(train.getSkin());
-                    return train.setSkin(currentSkinIndex < skins.size() - 1 ? skins.get(currentSkinIndex + 1) : skins.get(0));
+                    train.setSkin(currentSkinIndex < skins.size() - 1 ? skins.get(currentSkinIndex + 1) : skins.get(0));
                 }
             }
             else printPossibleSkins(train, playerEntity);
+            return true;
         }
         return false;
     }
@@ -136,7 +137,7 @@ public final class TrainUtils {
     public static boolean onClickWithPadlock(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
         if (itemstack.getItem() instanceof ItemPadlock && playerEntity.isSneaking()) {
             if (train.getTrainOwner().equalsIgnoreCase(playerEntity.getDisplayName())) {
-                playerEntity.openGui(Traincraft.instance, GuiIDs.LOCK_MENU, playerEntity.getEntityWorld(), train.getEntityId(), -1, (int) train.posZ);
+                Traincraft.proxy.displayGUI(GuiIDs.LOCK_MENU, playerEntity, train);
                 return true;
             } else {
                 if (!train.getWorld().isRemote) playerEntity.addChatMessage(new ChatComponentText("Train is locked by " + train.getTrainOwner() + "."));
@@ -147,7 +148,7 @@ public final class TrainUtils {
     }
 
     public static boolean onClickWithTicket(AbstractTrains train, ItemStack itemstack, EntityPlayer playerEntity) {
-        if (itemstack.hasTagCompound() && MTC.getTicketDestination(itemstack) != null && !MTC.getTicketDestination(itemstack).isEmpty() && train instanceof Locomotive) {
+        if (train instanceof Locomotive && !MTC.getTicketDestination(itemstack).isEmpty()) {
             ((Locomotive)train).MTC.setDestination(itemstack);
             if (!train.getWorld().isRemote) playerEntity.addChatMessage(new ChatComponentText("Setting destination to " + MTC.getTicketDestination(itemstack) + "."));
 
@@ -170,17 +171,22 @@ public final class TrainUtils {
     public static boolean onOpeningGUI(EntityRollingStock train, int i, EntityPlayer playerEntity) {
 
         int targetGUI = -1;
+        boolean isServerGUI = true;
         if (i == 7) {
             if (train instanceof Locomotive && playerEntity == train.seats.getDriver()) { targetGUI = GuiIDs.LOCO; }
             else if (train instanceof AbstractWorkCart)     { targetGUI = GuiIDs.CRAFTING_CART; }
-            else                                            { Traincraft.proxy.seatGUI(playerEntity, train); } // TODO: why does this not work with openGUI?
+            else                                            { targetGUI = GuiIDs.SEAT_GUI; isServerGUI = false; }
         }
         if (i == 9) {
             if (train instanceof AbstractWorkCart)          { targetGUI = GuiIDs.FURNACE_CART; }
         }
 
         if (targetGUI != -1) {
-            playerEntity.openGui(Traincraft.instance, targetGUI, train.getWorld(), 0, 0, 0);
+            if (isServerGUI)
+                playerEntity.openGui(Traincraft.instance, targetGUI, train.getWorld(), 0, 0, 0);
+            else
+                Traincraft.proxy.displayGUI(targetGUI, playerEntity, train); // Client GUIs need to be opened directly
+
             return true;
         }
         return false;

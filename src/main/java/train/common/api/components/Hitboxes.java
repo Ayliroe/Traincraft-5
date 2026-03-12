@@ -1,4 +1,4 @@
-package train.common.entity;
+package train.common.api.components;
 
 import ebf.tim.utility.CommonUtil;
 import fexcraft.tmt.slim.Vec3d;
@@ -12,11 +12,12 @@ import train.common.api.EntityBogie;
 import train.common.api.EntityRollingStock;
 import train.common.api.Locomotive;
 import train.common.core.handlers.ConfigHandler;
+import train.common.entity.CollisionBox;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityHitbox {
+public class Hitboxes {
 
     private final EntityRollingStock host;
     private Vec3f hostSize;
@@ -28,7 +29,7 @@ public class EntityHitbox {
      * =========================================== INIT ===========================================
      **/
 
-    public EntityHitbox(EntityRollingStock host) {
+    public Hitboxes(EntityRollingStock host) {
         this.host = host;
     }
 

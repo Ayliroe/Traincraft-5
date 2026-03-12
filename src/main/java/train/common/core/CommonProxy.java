@@ -179,8 +179,6 @@ public class CommonProxy implements IGuiHandler {
                 return new InventoryZepp(player.inventory, (AbstractZeppelin) entity);
             case (GuiIDs.DIGGER):
                 return new InventoryRotativeDigger(player.inventory, (EntityRotativeDigger) entity);
-            case (GuiIDs.SEAT_GUI):
-                return null; // No inventory for the Seat GUI
             // --- EXTERNAL STOCK GUIs ---
             case (GuiIDs.FREIGHT):
                 return new InventoryFreight(player.inventory, (Freight) entity);
@@ -193,13 +191,19 @@ public class CommonProxy implements IGuiHandler {
             case (GuiIDs.LIQUID):
                 return new InventoryLiquid(player.inventory, (LiquidTank) entity);
         }
-        return null;
+        return null; // Note that returning null will prevent GUIs from opening on client, so for those without an inventory call displayGUI()
     }
 
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         return null;
     }
+
+    public GuiScreen getGUIForID(int ID, EntityPlayer player, Object entity) {
+        return null;
+    }
+
+    public void displayGUI(int ID, EntityPlayer player, Object entity) {}
 
     public int addArmor(String armor) {
         return 0;
@@ -258,10 +262,6 @@ public class CommonProxy implements IGuiHandler {
 
     public void setHook() {
     }
-
-
-    public void seatGUI(EntityPlayer player, EntityRollingStock transport) {    }
-
 
     public Object getTESR(){return null;}
     public Object getEntityRender(){return null;}

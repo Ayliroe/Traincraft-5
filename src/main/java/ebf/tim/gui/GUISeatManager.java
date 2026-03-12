@@ -1,6 +1,5 @@
 package ebf.tim.gui;
 
-import ebf.tim.entities.EntitySeat;
 import ebf.tim.networking.PacketSeatUpdate;
 import ebf.tim.utility.ClientUtil;
 import net.minecraft.client.Minecraft;
@@ -16,7 +15,7 @@ import train.common.Traincraft;
 import train.common.api.EntityRollingStock;
 
 import javax.vecmath.Vector2f;
-import java.util.*;
+import java.util.ArrayList;
 
 
 /**
@@ -27,8 +26,6 @@ import java.util.*;
 public class GUISeatManager extends GuiScreen {
     public final EntityRollingStock entity;
     public final int seatCount;
-
-    public int currentSeat;
 
     public int lastClickTick = 0;
 
@@ -41,9 +38,6 @@ public class GUISeatManager extends GuiScreen {
         entity=transport;
         seatCount = transport.seats.size();
     }
-    public GUISeatManager(EntityPlayer player, EntityRollingStock transport) {
-        this(transport);
-    }
 
     @Override
     public void initGui() {}
@@ -53,6 +47,9 @@ public class GUISeatManager extends GuiScreen {
 
     @Override
     public void drawScreen(int parWidth, int parHeight, float p_73863_3_) {
+        if (mc == null) // Because that *just happens*
+            return;
+
         drawDefaultBackground();
         super.drawScreen(parWidth, parHeight, p_73863_3_);
         locations.clear();
@@ -60,10 +57,6 @@ public class GUISeatManager extends GuiScreen {
         guiTop=new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight).getScaledHeight();
 
         if (seatCount != 0) {
-            for (int i = 0; i < seatCount; i++) {
-                if (entity.seats.getPassengerAtIndex(i) == mc.thePlayer)
-                    currentSeat = i;
-            }
 
             defineButtons();
             guiSeatManager();
@@ -130,7 +123,7 @@ public class GUISeatManager extends GuiScreen {
                             @Override
                             public void onClick() {
                                 if (lastClickTick+5 < entity.ticksExisted) {
-                                    Traincraft.updateChannel.sendToServer(new PacketSeatUpdate(entity.getEntityId(), mc.thePlayer.getEntityId(), currentSeat, buttonList.indexOf(this), entity.dimension));
+                                    Traincraft.updateChannel.sendToServer(new PacketSeatUpdate(entity.getEntityId(), mc.thePlayer.getEntityId(), buttonList.indexOf(this)));
                                     lastClickTick = entity.ticksExisted;
                                 }
                             }

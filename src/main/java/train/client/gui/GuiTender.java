@@ -70,7 +70,7 @@ public class GuiTender extends GuiContainer {
 
                 @Override
                 public void onClick() {
-                    Traincraft.proxy.seatGUI(player,tender);
+                    Traincraft.proxy.displayGUI(GuiIDs.SEAT_GUI, player, tender);
                 }
 
                 @Override

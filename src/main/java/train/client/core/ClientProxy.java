@@ -320,6 +320,11 @@ public class ClientProxy extends CommonProxy {
 
         assert entity != null;
 
+        return getGUIForID(ID, player, entity);
+    }
+
+    @Override
+    public GuiScreen getGUIForID(int ID, EntityPlayer player, Object entity) {
         switch (ID) {
             // --- TILE ENTITIES ---
             case (GuiIDs.CRAFTER_TIER_I):
@@ -336,8 +341,8 @@ public class ClientProxy extends CommonProxy {
                 return new GuiOpenHearthFurnace(player.inventory, (TileEntityOpenHearthFurnace) entity);
             case (GuiIDs.TRAIN_WORKBENCH):
                 return new GuiTrainCraftingBlock(player.inventory, player.worldObj, (TileTrainWbench) entity);
-        /*case (GuiIDs.FORTY_FOOT_CONTAINER):
-            return new ContainerStorage((TileFortyFootContainer)te, player);*/
+            /*case (GuiIDs.FORTY_FOOT_CONTAINER):
+                return new ContainerStorage((TileFortyFootContainer)te, player);*/
             // --- INTERNAL STOCK GUIs ---
             case (GuiIDs.LOCO):
                 return new GuiLoco2(player.inventory, (EntityRollingStock) entity);
@@ -350,7 +355,7 @@ public class ClientProxy extends CommonProxy {
             case (GuiIDs.DIGGER):
                 return new GuiBuilder(player, player.inventory, (EntityRotativeDigger) entity);
             case (GuiIDs.SEAT_GUI):
-                return new GUISeatManager(player, (EntityRollingStock) entity);
+                return new GUISeatManager((EntityRollingStock) entity);
             // --- EXTERNAL STOCK GUIs ---
             case (GuiIDs.FREIGHT):
                 return new GuiFreight(player, player.inventory, (Freight) entity);
@@ -365,8 +370,8 @@ public class ClientProxy extends CommonProxy {
             // --- OTHERS ---
             case (GuiIDs.RECIPE_BOOK):
                 return new GuiRecipeBook(player, player.getCurrentEquippedItem());
-        /*case (GuiIDs.RECIPE_BOOK2):
-            return new GuiRecipeBook2(player, player.getCurrentEquippedItem());*/
+            /*case (GuiIDs.RECIPE_BOOK2):
+                return new GuiRecipeBook2(player, player.getCurrentEquippedItem());*/
             case (GuiIDs.LANTERN):
                 return new GuiLantern(player, (TileLantern) entity);
             case (GuiIDs.FORTY_FOOT_CONTAINER):
@@ -381,6 +386,12 @@ public class ClientProxy extends CommonProxy {
                 return new GuiLockMenu(player, ((EntityRollingStock) entity));
         }
         return null;
+    }
+
+    // Use this to display GUIs that do not have an attached inventory
+    @Override
+    public void displayGUI(int ID, EntityPlayer player, Object entity) {
+        Minecraft.getMinecraft().displayGuiScreen(getGUIForID(ID, player, entity));
     }
 
     @Override
@@ -460,10 +471,5 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void setHook() {
         JavaLayerUtils.setHook(new JLayerHook(Minecraft.getMinecraft()));
-    }
-
-    @Override
-    public void seatGUI(EntityPlayer player, EntityRollingStock transport) {
-        Minecraft.getMinecraft().displayGuiScreen(new GUISeatManager(transport));
     }
 }

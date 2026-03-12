@@ -1,11 +1,14 @@
 package train.common.api.components;
 
 import ebf.tim.entities.EntitySeat;
+import ebf.tim.networking.PacketSeatUpdate;
 import fexcraft.tmt.slim.Vec3f;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import train.common.Traincraft;
 import train.common.api.EntityRollingStock;
 
 import java.util.LinkedList;
@@ -50,7 +53,7 @@ public class Seats {
             if (seat.riddenByEntity != null) {
 
                 //just so we aren't doing it *every* tick, but still frequent enough to not let the passenger actually take damage
-                if(host.ticksExisted % 18 == 0)
+                if(host.ticksExisted % 18 == 0 && seat.riddenByEntity instanceof EntityLivingBase)
                     ((EntityLivingBase)seat.riddenByEntity).addPotionEffect(new PotionEffect(Potion.resistance.id, 20, 5, true));
 
                 if (seat.riddenByEntity.isDead || seat != seat.riddenByEntity.ridingEntity) {
@@ -67,13 +70,32 @@ public class Seats {
         }
     }
 
-    private boolean addPassenger(EntitySeat seat, EntityLivingBase passenger) {
-        if (passenger != null && (seat.riddenByEntity == null || seat.riddenByEntity == passenger)) { //1.12 is stupid, sometimes when the passenger is null, it returns the player
-            passenger.mountEntity(seat);
-            return true;
+    /*
+     * =========================================== SET PASSENGERS ===========================================
+     **/
 
+    public boolean onEnteringSeat(Entity passenger) {
+        if (!host.getWorld().isRemote && !passenger.isSneaking()) {
+            for (EntitySeat seat : seats) {
+                if (canEnter(seat, passenger)) {
+                    Traincraft.updateChannel.sendToServer(new PacketSeatUpdate(host.getEntityId(), passenger.getEntityId(), seats.indexOf(seat)));
+                    return true;
+                }
+            }
         }
         return false;
+    }
+
+    public void updateFromPacket(int seatID, Entity passenger) {
+        for (EntitySeat seat : seats) {
+            if (seat.riddenByEntity == passenger)
+                removePassenger(seat);
+        }
+
+        EntitySeat seat = seats.get(seatID);
+        if (canEnter(seat, passenger)) {
+            passenger.mountEntity(seat);
+        }
     }
 
     private void removePassenger(EntitySeat seat) {
@@ -83,28 +105,12 @@ public class Seats {
         }
     }
 
-    private boolean canEnter(EntityPlayer player) {
-        //be sure operators and owners can do whatever
-        if ((player.capabilities.isCreativeMode && player.canCommandSenderUseCommand(2, "")) || host.getOwner() == player.getGameProfile() || host.isPlayerTrusted(player.getDisplayName()) || host.canBeRiddenWhileLocked())
-            return true;
-
-        return !host.getTrainLockedFromPacket();
-    }
+    // 1.12 is stupid, sometimes when the passenger is null, it returns the player
+    private boolean canEnter(EntitySeat seat, Entity passenger) { return seat.riddenByEntity == null || seat.riddenByEntity == passenger; }
 
     /*
      * =========================================== PUBLIC UTILS ===========================================
      **/
-
-    // Note: This needs to be called for both clients and servers at the moment, else either the player doesn't follow the seat, or menus can't be opened
-    public boolean onEnteringSeat(EntityPlayer playerEntity) {
-        if (canEnter(playerEntity) && !playerEntity.isSneaking()) {
-            for (EntitySeat seat : seats) {
-                if (addPassenger(seat, playerEntity))
-                    return true;
-            }
-        }
-        return false;
-    }
 
     public int size() { return seats.size(); }
 
@@ -112,21 +118,11 @@ public class Seats {
         return !seats.isEmpty() && seats.get(i).riddenByEntity instanceof EntityPlayer && ((EntityPlayer) seats.get(i).riddenByEntity).getDisplayName().equalsIgnoreCase(host.getTrainOwner());
     }
 
-    public EntityLivingBase getPassengerAtIndex(int i) {
-        return (!seats.isEmpty() && seats.size() >= i) ? (EntityLivingBase)seats.get(i).riddenByEntity : null;
+    public Entity getPassengerAtIndex(int i) {
+        return (!seats.isEmpty() && seats.size() >= i) ? seats.get(i).riddenByEntity : null;
     }
 
-    public EntityLivingBase getDriver() {
-        return getPassengerAtIndex(0);
-    }
-
-    public boolean addPassengerAtIndex(int i, EntityLivingBase passenger) {
-        return addPassenger(seats.get(i), passenger);
-    }
-
-    public void removePassengerAtIndex(int i) {
-        removePassenger(seats.get(i));
-    }
+    public Entity getDriver() { return getPassengerAtIndex(0); }
 
     public void setDead() {
         for (EntitySeat seat : seats) {
