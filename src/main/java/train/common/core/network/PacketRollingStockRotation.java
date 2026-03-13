@@ -17,29 +17,25 @@ import train.common.api.EntityRollingStock;
 public class PacketRollingStockRotation implements IMessage {
 
     int entityID;
-    float rotationYawServer;
     double frontx=0,fronty=0,frontz=0,backx=0,backy=0,backz=0;
 
-    public PacketRollingStockRotation() {
-    }
+    public PacketRollingStockRotation() {}
 
-    public PacketRollingStockRotation(EntityRollingStock entity) {
+    public PacketRollingStockRotation(EntityRollingStock entity, double backx, double backy, double backz, double frontx, double fronty, double frontz) {
         this.entityID = entity.getEntityId();
-        this.rotationYawServer = entity.rotationYaw; // Don't even ASK ME why we do this. Probably an attempt to reduce Packet size, but at what cost of precision..?
-        if(entity.bogieFront!=null && entity.bogieBack!=null) {
-            this.frontx = entity.bogieFront.posX;
-            this.fronty = entity.bogieFront.posY;
-            this.frontz = entity.bogieFront.posZ;
-            this.backx = entity.bogieBack.posX;
-            this.backy = entity.bogieBack.posY;
-            this.backz = entity.bogieBack.posZ;
-        }
+
+        this.frontx = frontx;
+        this.fronty = fronty;
+        this.frontz = frontz;
+        this.backx = backx;
+        this.backy = backy;
+        this.backz = backz;
+
     }
 
     @Override
     public void fromBytes(ByteBuf bbuf) {
         this.entityID = bbuf.readInt();
-        this.rotationYawServer = bbuf.readFloat();
         this.frontx = bbuf.readDouble();
         this.fronty = bbuf.readDouble();
         this.frontz = bbuf.readDouble();
@@ -51,7 +47,6 @@ public class PacketRollingStockRotation implements IMessage {
     @Override
     public void toBytes(ByteBuf bbuf) {
         bbuf.writeInt(this.entityID);
-        bbuf.writeFloat(this.rotationYawServer);
         bbuf.writeDouble(frontx);
         bbuf.writeDouble(fronty);
         bbuf.writeDouble(frontz);
@@ -68,11 +63,8 @@ public class PacketRollingStockRotation implements IMessage {
                 Entity entity = mc.theWorld.getEntityByID(message.entityID);
                 if (entity instanceof EntityRollingStock) {
                     EntityRollingStock rollingStock = (EntityRollingStock) entity;
-                    rollingStock.rotationYaw = message.rotationYawServer;
-                    if(rollingStock.bogieFront!=null && rollingStock.bogieBack!=null && message.frontx!=0 && message.fronty!=0 && message.frontz!=0) {
-                        rollingStock.bogieFront.setPosition(message.frontx, message.fronty, message.frontz);
-                        rollingStock.bogieBack.setPosition(message.backx, message.backy, message.backz);
-                    }
+
+                    rollingStock.bogies.receivePositionFromServer(message.backx, message.backy, message.backz, message.frontx, message.fronty, message.frontz);
                 }
             }
 

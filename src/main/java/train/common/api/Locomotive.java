@@ -5,7 +5,6 @@ import com.google.gson.JsonParser;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import io.netty.buffer.ByteBuf;
-import mods.railcraft.api.tracks.RailTools;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -86,10 +85,9 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         // --- DEFAULTS ---
         setDefaultMass(0);
         if (this instanceof SteamTrain) isLocoTurnedOn = true;
-        entityCollisionReduction = 0.99F;
 
         // --- DATA WATCHER ---
-        dataWatcher.addObject(2, 0);
+        dataWatcher.addObject(2, 1000); // Max speed (default value is above all max speeds, otherwise this clamps movement when resuming from NBT)
         dataWatcher.addObject(3, MTC.destination);
         dataWatcher.addObject(20, 0f); // Heat
         dataWatcher.addObject(23, ""); // State
@@ -113,7 +111,13 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         fuelRate = getFuelConsumption();
     }
 
-    // Additional spawn data to check for
+    @Override
+    public void writeSpawnData(ByteBuf buffer) {
+        super.writeSpawnData(buffer);
+        buffer.writeBoolean(isLocoTurnedOn);
+        buffer.writeBoolean(parkingBrake);
+    }
+
     @Override
     public void readSpawnData(ByteBuf additionalData) {
         super.readSpawnData(additionalData);
@@ -121,11 +125,59 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         parkingBrake = additionalData.readBoolean();
     }
 
+    /*
+     * =========================================== NBT ===========================================
+     **/
+
     @Override
-    public void writeSpawnData(ByteBuf buffer) {
-        super.writeSpawnData(buffer);
-        buffer.writeBoolean(isLocoTurnedOn);
-        buffer.writeBoolean(parkingBrake);
+    protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+        super.writeEntityToNBT(nbttagcompound);
+
+        // --- LOCO STATE ---
+        nbttagcompound.setBoolean("isLocoTurnedOn", isLocoTurnedOn);
+        nbttagcompound.setBoolean("parkingBrake", parkingBrake);
+        nbttagcompound.setBoolean("canBePulled", canBePulled);
+        nbttagcompound.setFloat("heat", getHeat());
+        nbttagcompound.setDouble("speedLimiter", speedLimiter);
+
+        nbttagcompound.setString("lastRider", lastRider);
+
+        nbttagcompound.setInteger("fuelTrain", fuelTrain);
+
+        // --- MTC & ATO ---
+        MTC.writeEntityToNBT(nbttagcompound);
+
+        // --- LIGHTING ---
+        nbttagcompound.setString(DataMemberName.lightingDetailsJSONString.AsString(), lightingDetailsJSONString());
+
+    }
+
+    @Override
+    protected void readEntityFromNBT(NBTTagCompound ntc) {
+        super.readEntityFromNBT(ntc);
+
+        // --- LOCO STATE ---
+        isLocoTurnedOn = ntc.getBoolean("isLocoTurnedOn");
+        parkingBrake = ntc.getBoolean("parkingBrake");
+        canBePulled = ntc.getBoolean("canBePulled");
+        setHeat(ntc.getFloat("heat"));
+        speedLimiter = ntc.getDouble("speedLimiter");
+
+        lastRider = ntc.getString("lastRider");
+
+        fuelTrain = ntc.getInteger("fuelTrain");
+
+        // --- MTC & ATO ---
+        MTC.readEntityFromNBT(ntc);
+
+        // --- LIGHTING ---
+        JsonObject lightingDetailsJSONStringObject;
+        try { lightingDetailsJSONStringObject = new JsonParser().parse(ntc.getString(DataMemberName.lightingDetailsJSONString.AsString())).getAsJsonObject(); }
+        catch (Exception e)  { lightingDetailsJSONStringObject = lightingDetailsAsJSON(); }
+        isLightsEnabled = lightingDetailsJSONStringObject.get(DataMemberName.isLightsEnabled.AsString()).getAsBoolean();
+        isBeaconEnabled = lightingDetailsJSONStringObject.get(DataMemberName.isBeaconEnabled.AsString()).getAsBoolean();
+        ditchLightMode = lightingDetailsJSONStringObject.get(DataMemberName.ditchLightMode.AsString()).getAsByte();
+        beaconCycleIndex = lightingDetailsJSONStringObject.get(DataMemberName.beaconCycleIndex.AsString()).getAsByte();
     }
 
     /*
@@ -134,17 +186,9 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     @Override
     public void onUpdate() {
+        super.onUpdate();
         cycleBeaconIndex();
-        if (!getWorld().isRemote) {
-            if (ticksExisted % 10 == 0) {
-                updateDebuffs(); }
-            if (ticksExisted % 200 == 0) {
-                updateFillStatus();
-            }
-            if (ticksExisted % 100 == 0) {
-                updateFuel();
-            }
-        }
+        
         if (ticksExisted % 600 == 0 && riddenByEntity instanceof EntityPlayer) {
             lastRider = ((EntityPlayer) riddenByEntity).getDisplayName();
             lastEntityRider = (riddenByEntity);
@@ -152,13 +196,17 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
         updateWhistle();
         updateVelocity();
-        if (!getWorld().isRemote) {
-            MTC.updateMTCandATO();
-        }
 
-        super.onUpdate();
         updateHeat();
         if (!getWorld().isRemote) {
+            if (ticksExisted % 10 == 0) {
+                updateDebuffs(); }
+            if (ticksExisted % 200 == 0)
+                updateFillStatus();
+            if (ticksExisted % 100 == 0)
+                updateFuel();
+
+            MTC.updateMTCandATO();
             updateDataWatcher();
             if (ticksExisted % 4 == 0) {
                 updateDrowning();
@@ -314,7 +362,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
             // Acceleration (only allow if on, fueled and nothing else is slowing down)
             if (isLocoTurnedOn & getFuel() > 0) {
                 if (velocityMult == 1 && (forwardPressed || backwardPressed)) {
-                    appendMovement(0.0015 * accelRate * ((forwardPressed ? -1 : 1) + (backwardPressed ? 1 : -1)));
+                    bogies.addVelocity(0.0015 * accelRate * ((forwardPressed ? -1 : 1) + (backwardPressed ? 1 : -1)));
                 }
             }
             else {
@@ -342,7 +390,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
             }
         }
 
-        multiplyVelocity(velocityMult);
+        bogies.multiplyVelocity(velocityMult);
     }
 
     public void updateDrowning() {
@@ -452,7 +500,7 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
         dataWatcher.updateObject(3, MTC.destination);
         // 15 is unused
         dataWatcher.updateObject(24, fuelTrain);
-        dataWatcher.updateObject(25, (int)Math.round(TrainUtils.convertSpeedInv(Math.sqrt(bogieBack.velocity[0] * bogieBack.velocity[0] + bogieBack.velocity[1] * bogieBack.velocity[1]))));
+        dataWatcher.updateObject(25, (int)Math.round(TrainUtils.convertSpeedInv(bogies.velocity())));
         dataWatcher.updateObject(26, guiDetailsJSON());
         dataWatcher.updateObject(28, lightingDetailsJSONString());
     }
@@ -530,61 +578,6 @@ public abstract class Locomotive extends Freight implements IRollingStockLightCo
 
     // Loco on
     public void setLocoTurnedOnFromPacket(boolean set) {    isLocoTurnedOn = set; }
-
-    /*
-     * =========================================== NBT ===========================================
-     **/
-
-    @Override
-    protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
-        super.writeEntityToNBT(nbttagcompound);
-
-        // --- LOCO STATE ---
-        nbttagcompound.setBoolean("isLocoTurnedOn", isLocoTurnedOn);
-        nbttagcompound.setBoolean("parkingBrake", parkingBrake);
-        nbttagcompound.setBoolean("canBePulled", canBePulled);
-        nbttagcompound.setFloat("heat", getHeat());
-        nbttagcompound.setDouble("speedLimiter", speedLimiter);
-
-        nbttagcompound.setString("lastRider", lastRider);
-
-        nbttagcompound.setInteger("fuelTrain", fuelTrain);
-
-        // --- MTC & ATO ---
-        MTC.writeEntityToNBT(nbttagcompound);
-
-        // --- LIGHTING ---
-        nbttagcompound.setString(DataMemberName.lightingDetailsJSONString.AsString(), lightingDetailsJSONString());
-
-    }
-
-    @Override
-    protected void readEntityFromNBT(NBTTagCompound ntc) {
-        super.readEntityFromNBT(ntc);
-
-        // --- LOCO STATE ---
-        isLocoTurnedOn = ntc.getBoolean("isLocoTurnedOn");
-        parkingBrake = ntc.getBoolean("parkingBrake");
-        canBePulled = ntc.getBoolean("canBePulled");
-        setHeat(ntc.getFloat("heat"));
-        speedLimiter = ntc.getDouble("speedLimiter");
-
-        lastRider = ntc.getString("lastRider");
-
-        fuelTrain = ntc.getInteger("fuelTrain");
-
-        // --- MTC & ATO ---
-        MTC.readEntityFromNBT(ntc);
-
-        // --- LIGHTING ---
-        JsonObject lightingDetailsJSONStringObject;
-        try { lightingDetailsJSONStringObject = new JsonParser().parse(ntc.getString(DataMemberName.lightingDetailsJSONString.AsString())).getAsJsonObject(); }
-        catch (Exception e)  { lightingDetailsJSONStringObject = lightingDetailsAsJSON(); }
-        isLightsEnabled = lightingDetailsJSONStringObject.get(DataMemberName.isLightsEnabled.AsString()).getAsBoolean();
-        isBeaconEnabled = lightingDetailsJSONStringObject.get(DataMemberName.isBeaconEnabled.AsString()).getAsBoolean();
-        ditchLightMode = lightingDetailsJSONStringObject.get(DataMemberName.ditchLightMode.AsString()).getAsByte();
-        beaconCycleIndex = lightingDetailsJSONStringObject.get(DataMemberName.beaconCycleIndex.AsString()).getAsByte();
-    }
 
     /*
      * =========================================== GUI PACKETS ===========================================

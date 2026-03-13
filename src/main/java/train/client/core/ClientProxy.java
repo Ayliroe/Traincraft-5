@@ -163,17 +163,12 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerRenderInformation() {
         FMLCommonHandler.instance().bus().register(new ClientTickHandler());
-        RenderingRegistry.registerEntityRenderingHandler(CollisionBox.class, nullRender);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityRollingStock.class, new RenderRollingStock());
         RenderingRegistry.registerEntityRenderingHandler(EntityZeppelinTwoBalloons.class, new RenderZeppelins());
         RenderingRegistry.registerEntityRenderingHandler(EntityZeppelinOneBalloon.class, new RenderZeppelins());
         RenderingRegistry.registerEntityRenderingHandler(EntityRotativeDigger.class, new RenderRotativeDigger());
         RenderingRegistry.registerEntityRenderingHandler(EntityRotativeWheel.class, new RenderRotativeWheel());
-
-        // Register Renderer for Bogies
-        RenderingRegistry.registerEntityRenderingHandler(EntityBogie.class, new RenderBogie());
-
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileStopper.class, new RenderStopper());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlockIDs.stopper.block), new ItemRenderStopper());
@@ -248,8 +243,10 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(TCBlocks.speedSign), new ItemRenderSpeedSign());
 
 
-        //seats
+        // Stock Parts
+        RenderingRegistry.registerEntityRenderingHandler(EntityBogie.class, new RenderBogie());
         RenderingRegistry.registerEntityRenderingHandler(EntitySeat.class, nullRender);
+        RenderingRegistry.registerEntityRenderingHandler(CollisionBox.class, nullRender);
 
 		/*
 		ClientRegistry.bindTileEntitySpecialRenderer(TileFortyFootContainer.class, new FortyFootContainerRender());

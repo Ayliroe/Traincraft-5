@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import ebf.tim.utility.CommonUtil;
 import ebf.tim.utility.DebugUtil;
 import fexcraft.tmt.slim.Tessellator;
+import net.minecraft.block.BlockRailBase;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
@@ -75,7 +76,7 @@ public class RenderRollingStock extends Render {
         int j = MathHelper.floor_double(cart.posY);
         int k = MathHelper.floor_double(cart.posZ);
 
-        if (cart.getWorld() != null && (CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockTCRail || CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockTCRailGag)) {
+        if (cart.getWorld() != null && (CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockTCRail || CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockTCRailGag || CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockRailBase)) {
             GL11.glTranslatef(0f, 0.15f, 0f);
         }
 
@@ -163,14 +164,11 @@ public class RenderRollingStock extends Render {
                 }
             }
 
-            if (cart.bogieFront != null) {// || cart.bogieUtility[0]!=null){
-                renderSmokeFX(cart, 90 + cart.rotationYaw, cart.rotationPitch, render.getSmokeType(), cart.render_cache.smokePosition, render.getSmokeIterations(), time, render.hasSmokeOnSlopes());
-            }
+            renderSmokeFX(cart, 90 + cart.rotationYaw, cart.rotationPitch, render.getSmokeType(), cart.render_cache.smokePosition, render.getSmokeIterations(), time, render.hasSmokeOnSlopes());
         }
         if (render.hasExplosion()) {
-            if (cart.bogieFront != null) {// || cart.bogieUtility[0]!=null){
-                renderExplosionFX(cart, 90 + cart.rotationYaw, cart.rotationPitch, render.getExplosionType(), render.getExplosionFX(), render.getExplosionFXIterations(), render.hasSmokeOnSlopes());
-            }
+            renderExplosionFX(cart, 90 + cart.rotationYaw, cart.rotationPitch, render.getExplosionType(), render.getExplosionFX(), render.getExplosionFXIterations(), render.hasSmokeOnSlopes());
+
         }
 
         GL11.glPopMatrix();

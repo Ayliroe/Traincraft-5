@@ -53,8 +53,13 @@ public class TraincraftRegistry {
         public Item item;
 
         public AbstractTrains getEntity(World world) {
+            return getEntity(world, 0d, 0d, 0d, 0f, 0f);
+        }
+
+        public AbstractTrains getEntity(World world, double posX, double posY, double posZ, float yaw, float pitch) {
             try {
                 AbstractTrains train = (AbstractTrains) type.getEntityClass().getConstructor(World.class).newInstance(world);
+                train.setLocationAndAngles(posX, posY, posZ, yaw, pitch);
                 train.init(this);
                 return train;
             } catch (IllegalArgumentException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | InvocationTargetException e) {

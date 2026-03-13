@@ -154,7 +154,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         links.writeEntityToNBT(nbttagcompound);
 
         nbttagcompound.setInteger("numberOfTrains", AbstractTrains.numberOfTrains);
-        nbttagcompound.setTag("Motion", newDoubleNBTList(motionX, motionY, motionZ));
         nbttagcompound.setInteger("Dim", dimension);
 
         nbttagcompound.setLong("UUIDM", getUniqueID().getMostSignificantBits());
@@ -186,10 +185,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
         numberOfTrains = nbttagcompound.getInteger("numberOfTrains");
 
-        NBTTagList nbttaglist1 = nbttagcompound.getTagList("Motion", 6);
-        motionX = nbttaglist1.func_150309_d(0);
-        motionZ = nbttaglist1.func_150309_d(2);
-
         if(nbttagcompound.hasKey("Dim")){
             dimension=nbttagcompound.getInteger("Dim");
         }
@@ -204,16 +199,6 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
 
     @Override
     public boolean writeMountToNBT(NBTTagCompound tag) {
-        return false;
-    }
-
-    @Override
-    public boolean writeToNBTOptional(NBTTagCompound p_70039_1_) {
-        if (!isDead && getEntityString() != null) {
-            p_70039_1_.setString("id", getEntityString());
-            writeToNBT(p_70039_1_);
-            return true;
-        }
         return false;
     }
 

@@ -26,16 +26,14 @@ public class SnowPlow {
     }
 
     public void updatePlow() {
-        if (train.getWorld().isRemote || train.bogieFront==null || train.bogieBack==null) {
+        if (train.getWorld().isRemote) {
             return;
         }
 
         if (fakePlayer == null)
             fakePlayer = new FakePlayer(train.getWorld());
 
-        int rotation = MathHelper.floor_float(TraincraftUtil.atan2degreesf(
-                train.bogieFront.posZ - train.bogieBack.posZ,
-                train.bogieFront.posX - train.bogieBack.posX));
+        int rotation = MathHelper.floor_float(train.bogies.yaw() + 180f);
 
         double[] point1 = rotateVec3(blockpos[0], train.rotationPitch, rotation);
         point1[0] += train.posX;

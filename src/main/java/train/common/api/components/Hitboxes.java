@@ -8,7 +8,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.EntityDamageSource;
 import train.common.api.AbstractTrains;
-import train.common.api.EntityBogie;
 import train.common.api.EntityRollingStock;
 import train.common.api.Locomotive;
 import train.common.core.handlers.ConfigHandler;
@@ -77,7 +76,7 @@ public class Hitboxes {
             }
             // Collide with carts, but not our own stocks/bogies
             else if (obj instanceof EntityMinecart) {
-                if (obj instanceof AbstractTrains || obj instanceof EntityBogie)
+                if (obj instanceof AbstractTrains)
                     continue;
 
             }
@@ -106,7 +105,7 @@ public class Hitboxes {
                         host.links.link(other);
 
                     // Else push us back
-                    else appendMovement(e, 0.005f);
+                    else addVelocity(e, 0.005f);
                 }
                 else {
                     // Hurt entity if going fast
@@ -114,19 +113,19 @@ public class Hitboxes {
                         e.attackEntityFrom(new EntityDamageSource(host.getClass().toString(), host), (float) (Math.abs(host.motionX) + Math.abs(host.motionZ)) * 0.5f);
 
                     // Push us back
-                    appendMovement(e, 0.005f);
+                    addVelocity(e, 0.005f);
                 }
             }
         }
     }
 
-    private void appendMovement(Entity e, float strength) {
+    private void addVelocity(Entity e, float strength) {
         // Don't receive movement if the config is off, we're a locomotive, or the linked train has an active locomotive
         if (ConfigHandler.PUSHABLE_ROLLINGSTOCK && !(host instanceof Locomotive) && !(host.links.isActiveLocoLinked())) {
             double distanceFront = Math.sqrt((e.posX - front.posX) * (e.posX - front.posX) + (e.posZ - front.posZ) * (e.posZ - front.posZ));
             double distanceBack = Math.sqrt((e.posX - back.posX) * (e.posX - back.posX) + (e.posZ - back.posZ) * (e.posZ - back.posZ));
 
-            host.appendMovement(distanceFront < distanceBack ? -strength : strength);
+            host.bogies.addVelocity(distanceFront < distanceBack ? -strength : strength);
         }
     }
 

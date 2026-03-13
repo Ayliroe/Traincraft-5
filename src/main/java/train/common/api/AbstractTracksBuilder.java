@@ -616,19 +616,11 @@ public abstract class AbstractTracksBuilder extends EntityRollingStock {
     private int getFacing() {
         float rotation;
         if (!worldObj.isRemote) {
-            double d6 = bogieBack.posX - bogieFront.posX;
-            double d7 = bogieBack.posZ - bogieFront.posZ;
-            if(d7 == 0. && d6 == 0.) {
-                if(lastFace == -1) {
-                    //lastFace = ((int) Math.round(rotationYaw/90) + 5)%4;
-                }
-                return lastFace;
-            }
-            rotation = TraincraftUtil.atan2degreesf(d7,d6);
+            rotation = bogies.yaw();
             lastFace = MathHelper.floor_double(rotation * 4.0F / 360.0F + 0.5D) & 3;
         }
         else {
-            rotation = (TraincraftUtil.atan2degreesf(0 - motionX, 0 - motionZ));
+            rotation = TraincraftUtil.atan2degreesf(0 - motionX, 0 - motionZ);
         }
         return MathHelper.floor_double(rotation * 4.0F / 360.0F + 0.5D) & 3;
     }

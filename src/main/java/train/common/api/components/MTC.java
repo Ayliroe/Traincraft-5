@@ -227,22 +227,22 @@ public class MTC implements WirelessTransmitter, IRoutableCart {
             double rotation = driver == null ? loco.rotationYaw : driver.rotationYaw;
             double[] motion = CommonUtil.rotatePoint(0.002,0,rotation==0?0:CommonUtil.floorDouble(rotation/90d)*90);
             motion[1]= MathHelper.sqrt_double(motion[0]*motion[0]+motion[2]*motion[2]);
-            loco.appendMovement(motion[1]);
+            loco.bogies.addVelocity(motion[1]);
         }
     }
 
     private void slow(Integer desiredSpeed) {
         if (loco.getSpeed() >= desiredSpeed) {
-            loco.multiplyVelocity(loco.brakingRate);
+            loco.bogies.multiplyVelocity(loco.brakingRate);
         }
     }
 
     private void stop(Vec3 signalPosition) {
         double currentDistance = Math.copySign(Vec3.createVectorHelper(loco.posX, loco.posY, loco.posZ).distanceTo(signalPosition), 1.0D);
         if (1.0D - currentDistance != 0.0D && currentDistance != 0.0D) {
-            loco.multiplyVelocity(currentDistance / loco.getSpeed());
+            loco.bogies.multiplyVelocity(currentDistance / loco.getSpeed());
         } else {
-            loco.multiplyVelocity(0.5);
+            loco.bogies.multiplyVelocity(0.5);
         }
     }
 

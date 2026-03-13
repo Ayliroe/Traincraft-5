@@ -2,7 +2,6 @@ package train.common.api;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
 import fexcraft.tmt.slim.Vec3f;
 import mods.railcraft.api.tracks.ITrackSwitch;
@@ -10,29 +9,23 @@ import mods.railcraft.api.tracks.ITrackTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockRailBase;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
+import net.minecraft.entity.boss.EntityDragonPart;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import train.common.Traincraft;
 import train.common.blocks.BlockTCRail;
 import train.common.blocks.BlockTCRailGag;
-import train.common.core.network.PacketRemove;
 import train.common.items.TCRailTypes;
 import train.common.tile.TileTCRail;
 import train.common.tile.TileTCRailGag;
 
+public class EntityBogie extends EntityDragonPart {
 
-public class EntityBogie extends EntityMinecart {
+	public EntityRollingStock host;
 
-	public boolean isOnRail;
+	public boolean isOnRail = false;
 	public int meta,oldBlockX,oldBlockZ;
-	public EntityRollingStock entityMainTrain;
 	public TileTCRail lastTrack=null;
 	public Block l;
-
 
 	private int railMetadata, xFloor=0,yFloor=0,zFloor=0;
 	private double railPathX=0, railPathZ=0,motionSqrt,railPathX2, railPathZ2;
@@ -52,128 +45,92 @@ public class EntityBogie extends EntityMinecart {
 			{{0, -0.5}, {0.5, 0}, {-0.5, -0.5}}
 	};
 
-	double[] velocity = new double[]{0,0};
+	public double[] velocity = new double[]{0,0};
 
-
-
-
-	public EntityBogie(World world) {
-
-		super(world);
-
-		isOnRail = false;
-		worldObj = world;
-
-		setSize(0.5f, 0.25f);
-
-		//boundingBox.offset(0, 0.5, 0);
-		setCollisionHandler(null);
-		yOffset = 0.65f;
-		//setSize(0.1F, 1.98F);
-		isImmuneToFire = true;
-		noClip=true;
+	public EntityBogie(EntityRollingStock host, double x, double y, double z) {
+		super(host, "bogie", 0.5f, 1.25f);
+		this.host = host;
+		yOffset=0.425f; // TODO: this shouldn't be duplicated in ItemRollingStock
+		setPosition(x, y, z);
 	}
 
-	public EntityBogie(World world, double d, double d1, double d2, EntityRollingStock mainTrain) {
+	public void update() {
+		if(!getWorld().isRemote && (Math.abs(velocity[0]) + Math.abs(velocity[1])) != 0) {
+			xFloor = CommonUtil.floorDouble(posX);
+			yFloor = CommonUtil.floorDouble(posY);
+			zFloor = CommonUtil.floorDouble(posZ);
 
-		this(world);
+			//update old position, add the gravity, and get the block below this,
+			prevPosX = posX;
+			prevPosY = posY;
+			prevPosZ = posZ;
 
-		entityMainTrain = mainTrain;
-		motionX = 0.0D;
-		motionY = 0.0D;
-		motionZ = 0.0D;
-		prevPosX = d;
-		prevPosY = d1;
-		prevPosZ = d2;
-		setPosition(d, d1 + yOffset, d2);
-		isImmuneToFire = true;
-		setSize(0.5f, 1.25f);
-		noClip=true;
-	}
+			Block oldL=l;
 
-	@Override
-	public boolean canBePushed() {
+			l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
+			//detect slopes
+			if(!(l instanceof BlockRailBase || l instanceof BlockTCRail || l instanceof BlockTCRailGag)){
+				prevPosY = posY;
+				if(getWorld().isAirBlock(xFloor, yFloor, zFloor)){
+					posY--;
+					yFloor--;
+				} else {
+					posY++;
+					yFloor++;
+				}
+				l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
 
-		return false;
-	}
+				//if it wasn't a slope, fall back to the last block, only do this for a single full block distance.
+				if(!(l instanceof BlockAir || l instanceof BlockRailBase ||
+						l instanceof BlockTCRail || l instanceof BlockTCRailGag) &&
+						(Math.abs(xFloor)-Math.abs(oldBlockZ))+(Math.abs(zFloor)+Math.abs(oldBlockZ))<=2){
+					l=oldL;
+					posY++;
+					yFloor++;
+				}
+			} else {
+				oldBlockX=xFloor;
+				oldBlockZ=zFloor;
+			}
 
-	/**
-	 * Returns a boundingBox used to collide the entity with other entities and blocks. This enables the entity to be pushable on contact, like boats or minecarts.
-	 */
-	@Override
-	public AxisAlignedBB getCollisionBox(Entity par1Entity) {
-
-		return null;
-	}
-
-	@Override
-	public boolean attackEntityFrom(DamageSource damageSource, float p_70097_2_) {
-		if(worldObj.isRemote){
-			Traincraft.keyChannel.sendToServer(new PacketRemove(entityMainTrain.getEntityId(), damageSource==null?-1:damageSource.getEntity().getEntityId()));
-			return true;
-		}
-		return entityMainTrain != null && entityMainTrain.attackEntityFrom(damageSource, p_70097_2_);
-	}
-
-	@Override
-	public void applyEntityCollision(Entity entity) {
-
-		if (entityMainTrain != null && entity != entityMainTrain && !(entity instanceof EntitySeat) ) {
-
-			entityMainTrain.applyEntityCollision(entity);
-
+			//move on rails
+			isOnRail = true;
+			double speedMagnitude = Math.sqrt(Math.pow(velocity[0],2)+Math.pow(velocity[1],2));
+			limitSpeed(speedMagnitude);
+			if (l instanceof BlockRailBase) {
+				loopVanilla(speedMagnitude, (BlockRailBase) l);
+			} else if (l instanceof BlockTCRail || l instanceof BlockTCRailGag){
+				moveOnTCRail(xFloor, yFloor, zFloor, l);
+			} else {
+				posY++;
+				yFloor++;
+				posX += velocity[0] * 0.5;
+				posZ += velocity[1] * 0.5;
+				isOnRail = false;
+			}
 		}
 	}
 
-	private boolean isDerail = false;
+	/*
+	 * =========================================== ENTITY ===========================================
+	 **/
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public float getShadowSize() {
+	public float getShadowSize() { return height / 2.0F; }
 
-		return height / 2.0F;
-	}
+	// Returning false in both of these disables writing the entity to disk
+	@Override
+	public boolean writeToNBTOptional(NBTTagCompound tagCompound) { return false; }
+	@Override
+	public boolean writeMountToNBT(NBTTagCompound tagCompound) { return false; }
 
 	@Override
 	public boolean canBeCollidedWith() { return false; }
 
-	@Override
-	public int getMinecartType() {
-
-		return -1;
-	}
-
-	/**
-	 * Return false if this cart should not call onMinecartPass() and should ignore Powered Rails.
-	 *
-	 * @return True if this cart should call onMinecartPass().
-	 */
-	@Override
-	public boolean shouldDoRailFunctions() {
-		return true;
-	}
-
-	@Override
-	public double getSlopeAdjustment() {
-		return 0;
-	}
-
-	/**
-	 * Returns the carts max speed when traveling on rails. Carts going faster than 1.1 cause issues
-	 * with chunk loading. This value is compared with the rails max speed and the carts current
-	 * speed cap to determine the carts current max speed. A normal rail's max speed is 0.4.
-	 *
-	 * @return Carts max speed.
-	 */
-	@Override
-	public float getMaxCartSpeedOnRail() {
-
-		return 1.8f;
-	}
-
-	@Override
-	protected void func_145821_a(int x, int y, int z, double maxSpeed, double slopeAdjustment, Block block, int railMeta) {
-		super.func_145821_a(x, y, z, getMaxCartSpeedOnRail(), slopeAdjustment, block, railMeta);
-	}
+	/*
+	 * =========================================== MOVEMENT ===========================================
+	 **/
 
 	private void moveOnTCRail(int i, int j, int k, Block l) {
 
@@ -229,18 +186,6 @@ public class EntityBogie extends EntityMinecart {
 			moveOnTCCurvedSlope(j, lastTrack.r, lastTrack.cx, lastTrack.cz, lastTrack.xCoord, lastTrack.zCoord, lastTrack.getBlockMetadata(), lastTrack.slopeAngle);
 		} else if (TCRailTypes.isDiagonalTrack(lastTrack) || TCRailTypes.isDiagonalCrossingTrack(lastTrack)){
 			moveOnTCDiagonal(j);
-		}
-	}
-
-	/**
-	 * Called to update the entity's position/logic.
-	 */
-	@Override
-	public void onUpdate(){
-		if(ticksExisted%100==1){
-			if(entityMainTrain==null){
-				setDead();
-			}
 		}
 	}
 
@@ -377,10 +322,10 @@ public class EntityBogie extends EntityMinecart {
 		velocity[1] = Math.copySign(norm_cpx * motionSqrt, railPathZ2);
 	}
 
-	private void limitSpeed(EntityRollingStock host, double speedMagnitude) {
+	private void limitSpeed(double speedMagnitude) {
 
 		// Default speed for most carts
-		double maxSpeed = getMaxCartSpeedOnRail();
+		double maxSpeed = 1.8f;
 		// Current max speed for locos
 		if (host instanceof Locomotive) {
 			maxSpeed = Math.min(maxSpeed,TrainUtils.convertSpeed((double)((Locomotive)host).getCurrentMaxSpeed()));
@@ -397,7 +342,7 @@ public class EntityBogie extends EntityMinecart {
 	 * Velocity needs to be added relative to each bogie's current rotation to prevent drifting between them, as the host's rotation doesn't match when entering curves.
 	 * Always adding in the direction of existing movement prevents reverse, and is unpredictable with null starting velocity, so we compare the bogie's rotation to the host's.
 	 */
-	public void addVelocity(EntityRollingStock host, double speed) {
+	public void addVelocity(double speed) {
 		Vec3f bogieRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+(float)Math.toDegrees(Math.atan2(velocity[1], velocity[0])),0);
 		Vec3f hostRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+host.rotationYaw,0);
 		int direction = bogieRotation.dotProduct(hostRotation) >= 0 ? 1 : -1;
@@ -411,7 +356,7 @@ public class EntityBogie extends EntityMinecart {
 		velocity[1] *= mult;
 	}
 
-	public void setVelocity(EntityRollingStock host, double speed){
+	public void setVelocity(double speed){
 		Vec3f bogieRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+(float)Math.toDegrees(Math.atan2(velocity[1], velocity[0])),0);
 		Vec3f hostRotation = CommonUtil.rotatePoint(new Vec3f(1,0,0),0,180+host.rotationYaw,0);
 		int direction = bogieRotation.dotProduct(hostRotation) >= 0 ? 1 : -1;
@@ -422,81 +367,15 @@ public class EntityBogie extends EntityMinecart {
 
 	public World getWorld(){return worldObj;}
 
-	public void minecartMove(EntityRollingStock host) {
-		//server only
-		if(!getWorld().isRemote) {
-			xFloor = CommonUtil.floorDouble(posX);
-			yFloor = CommonUtil.floorDouble(posY);
-			zFloor = CommonUtil.floorDouble(posZ);
-			//prevent moving without velocity
-			if (Math.abs(velocity[0]) + Math.abs(velocity[1]) ==0) {
-				return;
-			}
-
-			//update old position, add the gravity, and get the block below this,
-			prevPosX = posX;
-			prevPosY = posY;
-			prevPosZ = posZ;
-
-			Block oldL=l;
-
-			l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
-			//detect slopes
-			if(!(l instanceof BlockRailBase || l instanceof BlockTCRail || l instanceof BlockTCRailGag)){
-				prevPosY = posY;
-				if(getWorld().isAirBlock(xFloor, yFloor, zFloor)){
-					posY--;
-					yFloor--;
-				} else {
-					posY++;
-					yFloor++;
-				}
-				l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
-
-				//if it wasn't a slope, fall back to the last block, only do this for a single full block distance.
-				if(!(l instanceof BlockAir || l instanceof BlockRailBase ||
-						l instanceof BlockTCRail || l instanceof BlockTCRailGag) &&
-						(Math.abs(xFloor)-Math.abs(oldBlockZ))+(Math.abs(zFloor)+Math.abs(oldBlockZ))<=2){
-					l=oldL;
-					posY++;
-					yFloor++;
-				}
-			} else {
-				oldBlockX=xFloor;
-				oldBlockZ=zFloor;
-			}
-
-			//move on rails
-			isOnRail = true;
-			double speedMagnitude = Math.sqrt(Math.pow(velocity[0],2)+Math.pow(velocity[1],2));
-			limitSpeed(host, speedMagnitude);
-			if (l instanceof BlockRailBase) {
-				yOffset=0.3425f;
-				yOffset=0.2175f;
-				loopVanilla(host, speedMagnitude, (BlockRailBase) l);
-			} else if (l instanceof BlockTCRail || l instanceof BlockTCRailGag){
-				yOffset=0.425f;
-				moveOnTCRail(xFloor, yFloor, zFloor, l);
-			} else {
-				posY++;
-				yFloor++;
-				posX += velocity[0] * 0.5;
-				posZ += velocity[1] * 0.5;
-				isOnRail = false;
-			}
-		}
-	}
-
-
-	private void loopVanilla(EntityRollingStock host, double moveLength, BlockRailBase block){
+	private void loopVanilla(double moveLength, BlockRailBase block){
 
 		//try to adhere to limiter track
-		float railmax = block.getRailMaxSpeed(getWorld(),this,xFloor, yFloor, zFloor);
+		float railmax = block.getRailMaxSpeed(getWorld(),host, xFloor, yFloor, zFloor); // TODO: x and y flipped?
 		Block blockUp;
 		if(railmax!=0.4f){
 			moveLength=Math.min(moveLength,railmax);
 		}
-		railMetadata = CommonUtil.getRailMeta(getWorld(), this, xFloor, yFloor, zFloor);
+		railMetadata = CommonUtil.getRailMeta(getWorld(), host, xFloor, yFloor, zFloor);
 		//actually move
 		while (moveLength>0) {
 			moveBogieVanilla(Math.min(0.3, moveLength));
@@ -511,10 +390,7 @@ public class EntityBogie extends EntityMinecart {
 				for (int i = 1; i < host.getHitboxSize()[1] - 1; i++) {
 					blockUp = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor + i, zFloor);
 					if (!(blockUp instanceof BlockAir)) {
-						host.bogieBack.motionX=0;
-						host.bogieBack.motionZ=0;
-						host.bogieFront.motionX=0;
-						host.bogieFront.motionZ=0;
+						host.bogies.multiplyVelocity(0);
 						return;
 					}
 				}
@@ -534,20 +410,19 @@ public class EntityBogie extends EntityMinecart {
 				if (l instanceof BlockRailBase) {
 					block = (BlockRailBase) l;
 					//do the rail functions.
-					if(shouldDoRailFunctions()) {
-						block.onMinecartPass(getWorld(), this, xFloor, yFloor, zFloor);
+					if(host.shouldDoRailFunctions()) {
+						block.onMinecartPass(getWorld(), host, xFloor, yFloor, zFloor);
 					}
 					//get the direction of the rail from it's metadata
-					railMetadata = CommonUtil.getRailMeta(getWorld(), this, xFloor, yFloor, zFloor);
+					railMetadata = CommonUtil.getRailMeta(getWorld(), host, xFloor, yFloor, zFloor);
 				}
 				//get the direction of the rail from it's metadata
 				else if (getWorld().getTileEntity(xFloor, yFloor, zFloor) instanceof ITrackTile && (((ITrackTile)getWorld().getTileEntity(xFloor, yFloor, zFloor)).getTrackInstance() instanceof ITrackSwitch)){
-					railMetadata = CommonUtil.getRailMeta(getWorld(),this,xFloor, yFloor, zFloor);//railcraft support
+					railMetadata = CommonUtil.getRailMeta(getWorld(),host,xFloor, yFloor, zFloor);//railcraft support
 				}
 			}
 		}
 	}
-
 
 	private void moveBogieVanilla(double currentMotion){
 		if(Math.abs(currentMotion)<0.000001){return;}

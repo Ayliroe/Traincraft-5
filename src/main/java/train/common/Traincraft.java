@@ -16,7 +16,6 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.VillagerRegistry;
 import cpw.mods.fml.relauncher.Side;
-import ebf.tim.entities.EntitySeat;
 import ebf.tim.networking.PacketSeatUpdate;
 import ebf.tim.utility.DebugUtil;
 import fexcraft.tmt.slim.TextureManager;
@@ -27,7 +26,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import train.common.api.EntityBogie;
 import train.common.api.LiquidManager;
 import train.common.blocks.TCBlocks;
 import train.common.core.CommonProxy;
@@ -35,7 +33,6 @@ import train.common.core.CreativeTabTraincraft;
 import train.common.core.EntityIds;
 import train.common.core.TrainModCore;
 import train.common.core.handlers.*;
-import train.common.entity.CollisionBox;
 import train.common.entity.zeppelin.EntityZeppelinOneBalloon;
 import train.common.entity.zeppelin.EntityZeppelinTwoBalloons;
 import train.common.generation.ComponentVillageTrainstation;
@@ -207,7 +204,6 @@ public class Traincraft {
         AchievementRecord.init();
 
         EntityRegistry.registerModEntity(EntityZeppelinTwoBalloons.class, "zeppelin", EntityIds.ZEPPELIN, Traincraft.instance, 512, 1, true);//zepplin
-        EntityRegistry.registerModEntity(EntityBogie.class, "Entity Front Bogie", EntityIds.LOCOMOTIVE_BOGIE, Traincraft.instance, 512, 3, true);//front bogie
         EntityRegistry.registerModEntity(EntityZeppelinOneBalloon.class, "zeppelin big", EntityIds.ZEPPELIN_BIG, Traincraft.instance, 512, 1, true);//zepplin big
 
         /* Liquid FX */

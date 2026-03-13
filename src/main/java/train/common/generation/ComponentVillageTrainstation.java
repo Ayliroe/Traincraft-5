@@ -176,10 +176,9 @@ public class ComponentVillageTrainstation extends StructureVillagePieces.Village
 	private void spawnTrainstationCart(World world, Random random, StructureBoundingBox structureboundingbox, int j, int k, int l) {
 		if (structureboundingbox.isVecInside(j, k, l) && !TraincraftRegistry.stationTrains.isEmpty()) {
 			TrainRegister record = TraincraftRegistry.stationTrains.get(random.nextInt(TraincraftRegistry.stationTrains.size()-1));
-			EntityRollingStock cart = (EntityRollingStock)record.getEntity(world);
+			EntityRollingStock cart = (EntityRollingStock)record.getEntity(world, j + 0.5D, k, l + 0.5D, 90.0F, 0.0F);
 
 			if (cart != null) {
-				cart.setLocationAndAngles(j + 0.5D, k, l + 0.5D, 90.0F, 0.0F);
 				cart.shouldChunkLoad = false;
 				List<String> skins = record.type.getSkins();
 				if (!skins.isEmpty()) {

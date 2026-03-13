@@ -3,12 +3,10 @@ package train.common.api;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.ByteBufUtils;
-import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ebf.tim.entities.EntitySeat;
 import ebf.tim.utility.CommonUtil;
-import fexcraft.tmt.slim.Vec3f;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailBase;
@@ -31,10 +29,10 @@ import net.minecraftforge.event.entity.minecart.MinecartUpdateEvent;
 import train.client.core.handlers.SoundUpdaterRollingStock;
 import train.common.Traincraft;
 import train.common.adminbook.ServerLogger;
+import train.common.api.components.Bogies;
+import train.common.api.components.Hitboxes;
 import train.common.api.components.Seats;
 import train.common.core.handlers.ConfigHandler;
-import train.common.core.network.PacketRollingStockRotation;
-import train.common.api.components.Hitboxes;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemRollingStock;
 import train.common.library.BlockIDs;
@@ -48,27 +46,13 @@ import static train.common.core.util.TraincraftUtil.isRailBlockAt;
 public abstract class EntityRollingStock extends AbstractTrains {
 
     // --- MAIN ---
-    public EntityBogie bogieFront = null;
-    public EntityBogie bogieBack = null;
-    private boolean hasSpawnedBogie = false;
+    public Bogies bogies = new Bogies(this);
     public final Seats seats = new Seats(this);
     public Hitboxes hitbox = new Hitboxes(this);
 
     // --- PHYSICS ---
     private boolean firstLoad = true;
     private boolean derail = false;
-    private int rollingturnProgress;    // The progress of the turn?
-    /*protected static final int[][][] matrix = {
-            {{0, 0, -1}, {0, 0, 1}},
-            {{-1, 0, 0}, {1, 0, 0}},
-            {{-1, -1, 0}, {1, 0, 0}},
-            {{-1, 0, 0}, {1, -1, 0}},
-            {{0, 0, -1}, {0, -1, 1}},
-            {{0, -1, -1}, {0, 0, 1}},
-            {{0, 0, 1}, {1, 0, 0}},
-            {{0, 0, 1}, {-1, 0, 0}},
-            {{0, 0, -1}, {-1, 0, 0}},
-            {{0, 0, -1}, {1, 0, 0}}};*/
 
     // --- AUDIO ---
     @SideOnly(Side.CLIENT)
@@ -92,7 +76,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         preventEntitySpawning = true;
         isImmuneToFire = true;
         yOffset = 0;
-        entityCollisionReduction = 0.8F;
 
         /* Railcraft's stuff */
         //maxSpeed = defaultMaxSpeedRail;
@@ -116,6 +99,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
     @Override
     public void init(TrainRegister spec) {
         super.init(spec);
+        bogies.init();
         seats.init(); // TODO: unduplicate these
         hitbox.init();
     }
@@ -142,7 +126,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         buffer.writeBoolean(acceptsOverlayTextures());
         if (acceptsOverlayTextures()) {
             ByteBufUtils.writeTag(buffer, getOverlayTextureContainer().getOverlayConfigTag());
-
         }
     }
 
@@ -166,14 +149,17 @@ public abstract class EntityRollingStock extends AbstractTrains {
     protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         super.writeEntityToNBT(nbttagcompound);
         nbttagcompound.setBoolean("firstLoad", firstLoad);
+        bogies.writeEntityToNBT(nbttagcompound);
     }
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         super.readEntityFromNBT(nbttagcompound);
         firstLoad = nbttagcompound.getBoolean("firstLoad");
+        bogies.init();
         seats.init();
         hitbox.init();
+        bogies.readEntityFromNBT(nbttagcompound);
     }
 
     /*
@@ -182,21 +168,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
 
     @Override
     public void onUpdate() {
-
-        // --- SPAWN BOGIES ---
-        if (addedToChunk && !hasSpawnedBogie) {
-            if (bogieFront == null) {
-                double[] offset=CommonUtil.rotatePoint(rotationPoints()[0], 0,180+rotationYaw);
-                bogieFront = new EntityBogie(getWorld(),offset[0]+posX,posY,offset[2]+posZ, this);
-
-                offset=CommonUtil.rotatePoint(rotationPoints()[1], 0,180+rotationYaw);
-                bogieBack = new EntityBogie(getWorld(),offset[0]+posX,posY,offset[2]+posZ, this);
-
-                getWorld().spawnEntityInWorld(bogieBack);
-                getWorld().spawnEntityInWorld(bogieFront);
-            }
-            hasSpawnedBogie = true;
-        }
 
         // --- CHUNKLOADING UUID ---
         if (!getWorld().isRemote && uniqueID == -1) {
@@ -219,7 +190,133 @@ public abstract class EntityRollingStock extends AbstractTrains {
             setDamage(getDamage() - 1);
         }
 
-        // --- PORTAL ---
+        updatePortal();
+
+        if (Traincraft.proxy.isClient()) {
+            soundUpdater();
+        }
+
+        seats.update();
+        hitbox.update();
+        bogies.update();
+
+        if (getWorld().isRemote) {
+            if(render_cache!=null && render_cache.bogies!=null){
+                for (train.client.render.Bogie b : render_cache.bogies) {
+                    if (b != null) {
+                        b.updatePosition(this, null);
+                        b.updateRotation(this);
+                    }
+                }
+            }
+
+            return;
+        }
+
+        else {
+            updatePosition();
+
+            links.restoreLinks();
+
+            int floor_posX = MathHelper.floor_double(posX);
+            int floor_posY = MathHelper.floor_double(posY);
+            int floor_posZ = MathHelper.floor_double(posZ);
+
+            if (getWorld().isAirBlock(floor_posX, floor_posY, floor_posZ))
+                floor_posY--;
+            else if (isRailBlockAt(getWorld(), floor_posX, floor_posY + 1, floor_posZ) || getWorld().getBlock(floor_posX, floor_posY + 1, floor_posZ) == BlockIDs.tcRail.block || getWorld().getBlock(floor_posX, floor_posY + 1, floor_posZ) == BlockIDs.tcRailGag.block)
+                floor_posY++;
+
+            func_145775_I();
+            MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, floor_posX, floor_posY, floor_posZ));
+
+            dataWatcher.updateObject(14, (int) (motionX * 100));
+            dataWatcher.updateObject(21, (int) (motionZ * 100));
+            dataWatcher.updateObject(29, getVelocity());
+
+            if (ConfigHandler.ENABLE_LOGGING && !getWorld().isRemote && ticksExisted % 120 == 0)
+                ServerLogger.writeWagonToFolder(this);
+        }
+    }
+
+    public void updatePosition() {
+        // --- RAIL CHECKS ---
+        // TODO this obviously doesn't work
+        Block b = CommonUtil.getBlockAt(getWorld(),posX,posY,posZ);
+        if (b instanceof BlockRailBase){
+            derail= false;
+
+            //do scaled rail boosting but keep it capped to the max velocity of the rail
+            if (b == Blocks.golden_rail) {
+                if ((((BlockRailBase) b).isPowered()) && getVelocity() < maxBoost(b)) {
+                    float boost = CommonUtil.getMaxRailSpeed(getWorld(), (BlockRailBase) b, this, posX, posY, posZ) * 0.005f;
+                    bogies.addVelocity(boost);
+                }
+            }
+        } else {
+            //set the derail state based on whether or not there's a valid rail block below.
+            //later this will add more inherent support for 3rd party mods like ZnD, right now it's just vanilla/RC/TiM
+            //derail= !CommonUtil.isTrack(getWorld(),posX,posY,posZ);
+        }
+
+        // --- DERAIL YAW CHANGES ---
+        if(derail) {
+            if(links.isFrontLinked() && links.isBackLinked()) {
+                rotationYaw = CommonUtil.atan2degreesf(links.getBack().posZ - links.getFront().posZ, links.getBack().posX - links.getFront().posX);
+            } else if (links.isBackLinked()) {
+                rotationYaw = CommonUtil.atan2degreesf(links.getBack().posZ - posZ, links.getBack().posX - posX);
+            } else if (links.isFrontLinked()) {
+                rotationYaw = CommonUtil.atan2degreesf(posZ - links.getFront().posZ, posX - links.getFront().posX);
+            }
+        }
+
+        // --- LINKS SPRING ---
+        links.updateSpring();
+
+        // --- DRAG ---
+        applyDrag();
+    }
+
+    @Override
+    protected void applyDrag() {
+        float drag = 0.95f; float derailDrag = 0.175f; float lateralDrag = 0.15f;
+        //If an active loco is linked, don't apply a constant drag
+        if (links.isActiveLocoLinked())
+            drag = 1f;
+
+        // --- SLOPE ACCELERATION ---
+        if(ConfigHandler.ENABLE_SLOPE_ACCELERATION) {
+            if (Math.abs(rotationPitch) - 1 > 0) { //cap the pitch that we actually consider to be on a slope
+                //vanilla uses 0.0078125 per tick for slope speed.
+                //0.00017361 would be that divided by 45 since vanilla slopes are 45 degree angles. Clamp the pitch so vanilla 45s don't cause enormous speedup.
+                //scale by entity pitch, it's backwards here for some reason, idk.
+                float clampedPitch = Math.max(-7.5f, Math.min(7.5f, rotationPitch));
+                bogies.addVelocity((0.00017361) * -clampedPitch);
+            }
+        }
+
+        // --- DERAIL DRAG ---
+        // Sum up off-rail bogies and scale based on slipperiness of block below
+        float bogiesOffRail = derail ? 1f : bogies.isDerailed();
+        if(bogiesOffRail > 0) {
+            drag *= 1 - bogiesOffRail * derailDrag * (1 - CommonUtil.getBlockAt(getWorld(),posX,posY,posZ).slipperiness);
+        }
+
+        // --- LATERAL FRICTION DRAG ---
+        // If you do both at the same time then it's way too much.
+        // TODO fix this
+        else if (false) {
+            drag -= lateralDrag * 0 * 4.448f; //we don't know what 4.448 does
+        }
+
+        //cap the drag to prevent weird behavior.
+        // if it goes to 1 or higher then we speed up, which is bad, if it's below 0 we reverse, which is also bad
+        drag = Math.max(0, Math.min(0.9999f, drag));
+
+        bogies.multiplyVelocity(drag);
+    }
+
+    public void updatePortal() {
         if (!getWorld().isRemote && getWorld() instanceof WorldServer) {
             getWorld().theProfiler.startSection("portal");
             MinecraftServer var1 = MinecraftServer.getServer();
@@ -259,223 +356,20 @@ public abstract class EntityRollingStock extends AbstractTrains {
 
             getWorld().theProfiler.endSection();
         }
-
-        if (Traincraft.proxy.isClient()) {
-            soundUpdater();
-        }
-
-        if (getWorld().isRemote) {
-            if (rollingturnProgress > 0) {
-                setPosition(posX + (rollingX - posX) / (double)rollingturnProgress,
-                        posY + (rollingY - posY) / (double)rollingturnProgress,
-                        posZ + (rollingZ - posZ) / (double)rollingturnProgress);
-                --rollingturnProgress;
-
-                if(bogieFront!=null && bogieBack !=null){
-                    posY=(bogieFront.posY+bogieBack.posY)*0.5;
-                    double d6 = bogieBack.posX - bogieFront.posX;
-                    double d7 = bogieBack.posZ - bogieFront.posZ;
-                    rotationPitch = CommonUtil.atan2degreesf(bogieFront.posY - bogieBack.posY, Math.sqrt(d6 * d6 + d7 * d7));
-                }
-            } else {
-                setPosition(posX, posY, posZ);
-
-            }
-
-            if(render_cache!=null && render_cache.bogies!=null){
-                for (train.client.render.Bogie b : render_cache.bogies) {
-                    if (b != null) {
-                        b.updatePosition(this, null);
-                        b.updateRotation(this);
-                    }
-                }
-            }
-
-            seats.update(); // TODO: unduplicate these calls
-            hitbox.update();
-            return;
-        }
-
-        /* --- SERVER-ONLY STUFF ONWARDS --- */
-
-        links.restoreLinks();
-
-        prevPosX = posX;
-        prevPosY = posY;
-        prevPosZ = posZ;
-
-        int floor_posX = MathHelper.floor_double(posX);
-        int floor_posY = MathHelper.floor_double(posY);
-        int floor_posZ = MathHelper.floor_double(posZ);
-
-        if (getWorld().isAirBlock(floor_posX, floor_posY, floor_posZ)) {
-            floor_posY--;
-        } else if (isRailBlockAt(getWorld(), floor_posX, floor_posY + 1, floor_posZ) || getWorld().getBlock(floor_posX, floor_posY + 1, floor_posZ) == BlockIDs.tcRail.block || getWorld().getBlock(floor_posX, floor_posY + 1, floor_posZ) == BlockIDs.tcRailGag.block) {
-            floor_posY++;
-        }
-
-        updatePosition();
-
-        if (bogieFront != null && bogieBack!=null) {
-
-            double d6 = bogieBack.posX - bogieFront.posX;
-            double d7 = bogieBack.posZ - bogieFront.posZ;
-            prevRotationYaw = rotationYaw;
-
-            rotationYaw = CommonUtil.atan2degreesf(d7, d6);
-            rotationPitch = CommonUtil.atan2degreesf(bogieFront.posY - bogieBack.posY, Math.sqrt(d6 * d6 + d7 * d7));
-        }
-
-        if (!getWorld().isRemote && ticksExisted % 2 == 0) {
-            Traincraft.rotationChannel.sendToAllAround(new PacketRollingStockRotation(this), new TargetPoint(getWorld().provider.dimensionId, posX, posY, posZ, 300.0D));
-        }
-
-        func_145775_I();
-        MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, floor_posX, floor_posY, floor_posZ));
-
-        dataWatcher.updateObject(14, (int) (motionX * 100));
-        dataWatcher.updateObject(21, (int) (motionZ * 100));
-        seats.update();
-        hitbox.update();
-        if (ConfigHandler.ENABLE_LOGGING && !getWorld().isRemote && ticksExisted % 120 == 0) {
-            ServerLogger.writeWagonToFolder(this);
-        }
-        if(!getWorld().isRemote) {
-            dataWatcher.updateObject(29, getVelocity());
-        }
-    }
-
-
-
-    public void updatePosition() {
-        if(!getWorld().isRemote) {
-
-            // --- RAIL CHECKS ---
-            // TODO this obviously doesn't work
-            Block b = CommonUtil.getBlockAt(getWorld(),posX,posY,posZ);
-            if (b instanceof BlockRailBase){
-                derail= false;
-
-                //do scaled rail boosting but keep it capped to the max velocity of the rail
-                if (b == Blocks.golden_rail) {
-                    if ((((BlockRailBase) b).isPowered()) && getVelocity() < maxBoost(b)) {
-                        float boost = CommonUtil.getMaxRailSpeed(getWorld(), (BlockRailBase) b, this, posX, posY, posZ) * 0.005f;
-                        appendMovement(boost);
-                    }
-                }
-            } else {
-                //set the derail state based on whether or not there's a valid rail block below.
-                //later this will add more inherent support for 3rd party mods like ZnD, right now it's just vanilla/RC/TiM
-                //derail= !CommonUtil.isTrack(getWorld(),posX,posY,posZ);
-            }
-
-            // --- DERAIL YAW CHANGES ---
-            if(derail) {
-                if(links.isFrontLinked() && links.isBackLinked()) {
-                    rotationYaw = CommonUtil.atan2degreesf(links.getBack().posZ - links.getFront().posZ, links.getBack().posX - links.getFront().posX);
-                } else if (links.isBackLinked()) {
-                    rotationYaw = CommonUtil.atan2degreesf(links.getBack().posZ - posZ, links.getBack().posX - posX);
-                } else if (links.isFrontLinked()) {
-                    rotationYaw = CommonUtil.atan2degreesf(posZ - links.getFront().posZ, posX - links.getFront().posX);
-                }
-            }
-
-            // --- LINKS SPRING ---
-            links.updateSpring();
-
-            // --- DRAG ---
-            applyDrag();
-
-            // --- POSITION ---
-            Vec3f newPos = new Vec3f(rotationPoints()[1], 0, 0).rotatePoint(0, rotationYaw, 0).addVector(bogieBack.posX,0,bogieBack.posZ);
-            setPosition(newPos.xCoord, (bogieBack.posY+bogieFront.posY) * 0.5, newPos.zCoord);
-
-            // --- BOGIES ---
-            bogieFront.minecartMove(this);
-            bogieBack.minecartMove(this);
-
-            // --- ROTATION ---
-            setRotation((CommonUtil.atan2degreesf(bogieBack.posZ - bogieFront.posZ, bogieBack.posX - bogieFront.posX)),
-                    CommonUtil.calculatePitch(bogieFront.posY, bogieBack.posY , Math.abs(rotationPoints()[0]) + Math.abs(rotationPoints()[1])));
-        }
-    }
-
-    @Override
-    protected void applyDrag() {
-        float drag = 0.95f; float derailDrag = 0.175f; float lateralDrag = 0.15f;
-        //If an active loco is linked, don't apply a constant drag
-        if (links.isActiveLocoLinked())
-            drag = 1f;
-
-        // --- SLOPE ACCELERATION ---
-        if(ConfigHandler.ENABLE_SLOPE_ACCELERATION) {
-            if (Math.abs(rotationPitch) - 1 > 0) { //cap the pitch that we actually consider to be on a slope
-                //vanilla uses 0.0078125 per tick for slope speed.
-                //0.00017361 would be that divided by 45 since vanilla slopes are 45 degree angles. Clamp the pitch so vanilla 45s don't cause enormous speedup.
-                //scale by entity pitch, it's backwards here for some reason, idk.
-                float clampedPitch = Math.max(-7.5f, Math.min(7.5f, rotationPitch));
-                appendMovement((0.00017361) * -clampedPitch);
-            }
-        }
-
-        // --- DERAIL DRAG ---
-        // Sum up off-rail bogies and scale based on slipperiness of block below
-        float bogiesOffRail = derail ? 1f : (bogieBack.isOnRail?0f:0.5f) + (bogieFront.isOnRail?0f:0.5f);
-        if(bogiesOffRail > 0) {
-            drag *= 1 - bogiesOffRail * derailDrag * (1 - CommonUtil.getBlockAt(getWorld(),posX,posY,posZ).slipperiness);
-        }
-
-        // --- LATERAL FRICTION DRAG ---
-        // If you do both at the same time then it's way too much.
-        // TODO fix this
-        else if (false) {
-            drag -= lateralDrag * 0 * 4.448f; //we don't know what 4.448 does
-        }
-
-        //cap the drag to prevent weird behavior.
-        // if it goes to 1 or higher then we speed up, which is bad, if it's below 0 we reverse, which is also bad
-        drag = Math.max(0, Math.min(0.9999f, drag));
-
-        bogieFront.multiplyVelocity(drag);
-        bogieBack.multiplyVelocity(drag);
     }
 
     /*
      * =========================================== PHYSICS ===========================================
      **/
 
-    public void setVelocity(double velocity) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        bogieBack.setVelocity(this, velocity);
-        bogieFront.setVelocity(this, velocity);
-    }
-
-    public void appendMovement(double velocity) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        bogieBack.addVelocity(this, velocity);
-        bogieFront.addVelocity(this, velocity);
-    }
-
     @Override
     public void setVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        double velocity = Math.sqrt(Math.pow(p_70024_1_,2)+Math.pow(p_70024_5_,2));
-        bogieBack.setVelocity(this, velocity);
-        bogieFront.setVelocity(this, velocity);
+        bogies.setVelocity(p_70024_1_, p_70024_3_, p_70024_5_);
     }
 
     @Override
     public void addVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {
-        if (bogieBack == null || bogieFront == null) { return; }
-        double velocity = Math.sqrt(Math.pow(p_70024_1_,2)+Math.pow(p_70024_5_,2));
-        bogieBack.addVelocity(this, velocity);
-        bogieFront.addVelocity(this, velocity);
-    }
-
-    public void multiplyVelocity(double vel) {
-        if (bogieBack == null || bogieFront == null) { return; } //This method can fire before the stock fully initializes, so we need to make sure bogies exist.
-        bogieBack.multiplyVelocity(vel);
-        bogieFront.multiplyVelocity(vel);
+        bogies.addVelocity(p_70024_1_, p_70024_3_, p_70024_5_);
     }
 
     public float getVelocity(){ return getWorld().isRemote ? dataWatcher.getWatchableObjectFloat(29): (float)(Math.abs(motionX)+Math.abs(motionZ)); }
@@ -490,25 +384,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
     // Dragonparts
     @Override
     public Entity[] getParts() { return hitbox.getParts(); }
-
-    /*
-     * =========================================== RENDER ===========================================
-     **/
-
-    private double rollingX=0,rollingY=0,rollingZ=0;
-
-    /**
-     * Sets the position and rotation. Only difference from the other one is no bounding on the rotation. Args: posX,
-     * posY, posZ, yaw, pitch
-     */
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9) {
-        rollingX = par1;
-        rollingY = par3;
-        rollingZ = par5;
-        rollingturnProgress = par9 + 2;
-    }
 
     /*
      * =========================================== DAMAGE ===========================================
@@ -560,12 +435,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
     public void setDead() {
         super.setDead();
         links.unlink();
-        if (bogieFront != null) {
-            bogieFront.setDead();
-        }
-        if (bogieBack != null) {
-            bogieBack.setDead();
-        }
+        bogies.setDead();
         Side side = FMLCommonHandler.instance().getEffectiveSide();
         if (side == Side.CLIENT) {
             soundUpdater();
@@ -615,21 +485,21 @@ public abstract class EntityRollingStock extends AbstractTrains {
             // --- ITEM IN HAND ---
             ItemStack itemstack = entityplayer.inventory.getCurrentItem();
             if(itemstack != null) {
-                if (TrainUtils.onClickWithChunkloader(this, itemstack, entityplayer)) { return true; }  // S
-                if (TrainUtils.onClickWithWrench(this, itemstack, entityplayer))      { return true; }  // S
-                if (TrainUtils.onClickWithCrowbar(this, itemstack, entityplayer))     { return false; } // --
-                if (TrainUtils.onClickWithTicket(this, itemstack, entityplayer))      { return true; }  // S/C?
-                if (TrainUtils.onClickWithDye(this, itemstack, entityplayer))         { return true; }  // S/C?
-                if (TrainUtils.onClickWithStake(this, itemstack, entityplayer))       { return true; }  // S
-                if (TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer))  { return true; }  // C?
-                if (TrainUtils.onClickWithPadlock(this, itemstack, entityplayer))     { return true; }  // ?
+                if (TrainUtils.onClickWithChunkloader(this, itemstack, entityplayer)) { return true; }
+                if (TrainUtils.onClickWithWrench(this, itemstack, entityplayer))      { return true; }
+                if (TrainUtils.onClickWithCrowbar(this, itemstack, entityplayer))     { return false; }
+                if (TrainUtils.onClickWithTicket(this, itemstack, entityplayer))      { return true; }
+                if (TrainUtils.onClickWithDye(this, itemstack, entityplayer))         { return true; }
+                if (TrainUtils.onClickWithStake(this, itemstack, entityplayer))       { return true; }
+                if (TrainUtils.onClickWithPaintbrush(this, itemstack, entityplayer))  { return true; }
+                if (TrainUtils.onClickWithPadlock(this, itemstack, entityplayer))     { return true; }
             }
 
             // --- ENTERING SEAT ---
-            if (seats.onEnteringSeat(entityplayer))                                   { return true; } // S/C
+            if (seats.onEnteringSeat(entityplayer))                                   { return true; }
 
             // --- INVENTORY GUI ---
-            if (TrainUtils.onOpeningInventory(this, entityplayer))                    { return true; }  // C?
+            if (TrainUtils.onOpeningInventory(this, entityplayer))                    { return true; }
 
             if (MinecraftForge.EVENT_BUS.post(new MinecartInteractEvent(this, entityplayer))) { return true; }
         }

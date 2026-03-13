@@ -7,6 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagDouble;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.ForgeChunkManager;
@@ -271,5 +273,20 @@ public final class TrainUtils {
             }
             else player.addChatMessage(new ChatComponentText("No other skins available."));
         }
+    }
+
+    public static NBTTagList newDoubleNBTList(double ... p_70087_1_)
+    {
+        NBTTagList nbttaglist = new NBTTagList();
+        double[] adouble = p_70087_1_;
+        int i = p_70087_1_.length;
+
+        for (int j = 0; j < i; ++j)
+        {
+            double d1 = adouble[j];
+            nbttaglist.appendTag(new NBTTagDouble(d1));
+        }
+
+        return nbttaglist;
     }
 }

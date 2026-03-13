@@ -95,17 +95,16 @@ public class Links {
             }
             // Non-null springDist means this stock is allowed to be pulled and an active link is pulling or pushing it
             if (springDist != 0d) {
-                ((EntityRollingStock) host).setVelocity(springDist);
+                ((EntityRollingStock) host).bogies.setVelocity(springDist);
             }
         }
     }
 
     private double manageLink(EntityRollingStock other) {
-        // Don't apply spring movement if uninitialized or a non-passive loco
+        // Don't apply spring movement if a non-passive loco
         if (host instanceof EntityRollingStock) {
-            if (other.bogieBack == null || other.bogieFront == null || ((EntityRollingStock)host).bogieBack == null || ((EntityRollingStock)host).bogieFront == null || (host instanceof Locomotive && !host.canBePushed())) {
+            if (host instanceof Locomotive && !host.canBePushed())
                 return 0d;
-            }
 
             double vecX = other.posX - host.posX;
             double vecZ = other.posZ - host.posZ;
@@ -272,20 +271,28 @@ public class Links {
 
                 // Link to front or back based on the closest collision to the other stock
                 if (stock.hitbox.getFrontPos().subtract(other.getPos()).length() < stock.hitbox.getBackPos().subtract(other.getPos()).length()) {
-                    if (front == null)
+                    if (front == null) {
                         front = other;
+                        frontID = other.uniqueID;
+                    }
                 } else {
-                    if (back == null)
+                    if (back == null) {
                         back = other;
+                        backID = other.uniqueID;
+                    }
                 }
 
                 // Do the same for the other stock
                 if (other.hitbox.getFrontPos().subtract(host.getPos()).length() < other.hitbox.getBackPos().subtract(host.getPos()).length()) {
-                    if (other.links.front == null)
+                    if (other.links.front == null) {
                         other.links.front = host;
+                        other.links.frontID = host.uniqueID;
+                    }
                 } else {
-                    if (other.links.back == null)
+                    if (other.links.back == null) {
                         other.links.back = host;
+                        other.links.backID = host.uniqueID;
+                    }
                 }
                 other.links.isAttaching = false;
                 isAttaching = false;
@@ -372,13 +379,13 @@ public class Links {
 
     public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
         nbttagcompound.setBoolean("isAttached", isAttached);
-        nbttagcompound.setDouble("Link1", frontID);
-        nbttagcompound.setDouble("Link2", backID);
+        nbttagcompound.setDouble("frontID", frontID);
+        nbttagcompound.setDouble("backID", backID);
     }
 
     public void readEntityFromNBT(NBTTagCompound nbttagcompound) {
         isAttached = nbttagcompound.getBoolean("isAttached");
-        frontID = nbttagcompound.getDouble("Link1");
-        backID = nbttagcompound.getDouble("Link2");
+        frontID = nbttagcompound.getDouble("frontID");
+        backID = nbttagcompound.getDouble("backID");
     }
 }
