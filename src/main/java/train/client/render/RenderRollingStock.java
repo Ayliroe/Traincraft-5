@@ -75,10 +75,8 @@ public class RenderRollingStock extends Render {
         int i = MathHelper.floor_double(cart.posX);
         int j = MathHelper.floor_double(cart.posY);
         int k = MathHelper.floor_double(cart.posZ);
-
-        if (cart.getWorld() != null && (CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockTCRail || CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockTCRailGag || CommonUtil.getBlockAt(cart.getWorld(),i,j,k) instanceof BlockRailBase)) {
-            GL11.glTranslatef(0f, 0.15f, 0f);
-        }
+        
+        GL11.glTranslatef(0f, 0.15f - cart.bogies.isDerailed() * 0.15f, 0f);
 
         GL11.glRotatef(180-cart.rotationYaw, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(cart.rotationPitch, 0.0F, 0.0F, 1.0F);

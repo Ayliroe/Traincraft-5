@@ -34,8 +34,8 @@ public class PacketHandler {
 
         Traincraft.keyChannel.registerMessage(PacketKeyPress.Handler.class, PacketKeyPress.class, 1,
                 Side.SERVER);
-        Traincraft.rotationChannel.registerMessage(PacketRollingStockRotation.Handler.class,
-                PacketRollingStockRotation.class, 2, Side.CLIENT);
+        Traincraft.rotationChannel.registerMessage(PacketSendBogieID.Handler.class,
+                PacketSendBogieID.class, 2, Side.CLIENT);
         Traincraft.modChannel.registerMessage(PacketSetJukeboxStreamingUrl.Handler.class,
                 PacketSetJukeboxStreamingUrl.class, 1, Side.SERVER);
         Traincraft.slotschannel.registerMessage(PacketSlotsFilled.Handler.class, PacketSlotsFilled.class,

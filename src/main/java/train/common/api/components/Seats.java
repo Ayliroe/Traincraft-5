@@ -67,6 +67,7 @@ public class Seats {
         for (int i = 0; i < seats.size(); i++) {
             Vec3f pos = new Vec3f(riderOffsets[i]).rotatePoint(host.rotationPitch, 180 + host.rotationYaw, 0f).addVector(host.posX, host.posY, host.posZ);
             seats.get(i).setPosition(pos.xCoord, pos.yCoord, pos.zCoord);
+            seats.get(i).updateRiderPosition(); // Import to prevent the rider from lagging behind at speed
         }
     }
 

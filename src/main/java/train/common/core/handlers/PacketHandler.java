@@ -7,7 +7,6 @@
 
 package train.common.core.handlers;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -64,8 +63,8 @@ public class PacketHandler {
 				6, Side.SERVER);
 		Traincraft.keyChannel.registerMessage(HANDLERS[1], PacketInteract.class,
 				7, Side.SERVER);
-		Traincraft.rotationChannel.registerMessage(PacketRollingStockRotation.Handler.class,
-				PacketRollingStockRotation.class, 2, Side.CLIENT);
+		Traincraft.rotationChannel.registerMessage(PacketSendBogieID.Handler.class,
+				PacketSendBogieID.class, 2, Side.CLIENT);
 		 Traincraft.modChannel.registerMessage(PacketSetJukeboxStreamingUrl.Handler.class,
 				PacketSetJukeboxStreamingUrl.class, 1, Side.SERVER);
 		Traincraft.slotschannel.registerMessage(PacketSlotsFilled.Handler.class, PacketSlotsFilled.class,

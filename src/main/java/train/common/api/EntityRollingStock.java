@@ -20,12 +20,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
-import net.minecraftforge.event.entity.minecart.MinecartUpdateEvent;
 import train.client.core.handlers.SoundUpdaterRollingStock;
 import train.common.Traincraft;
 import train.common.adminbook.ServerLogger;
@@ -35,13 +33,10 @@ import train.common.api.components.Seats;
 import train.common.core.handlers.ConfigHandler;
 import train.common.entity.TrustedPlayer;
 import train.common.items.ItemRollingStock;
-import train.common.library.BlockIDs;
 import train.common.library.TraincraftRegistry.TrainRegister;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static train.common.core.util.TraincraftUtil.isRailBlockAt;
 
 public abstract class EntityRollingStock extends AbstractTrains {
 
@@ -72,10 +67,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
         super(world);
         dataWatcher.addObject(14, 0);
         dataWatcher.addObject(21, 0);
-
-        preventEntitySpawning = true;
-        isImmuneToFire = true;
-        yOffset = 0;
 
         /* Railcraft's stuff */
         //maxSpeed = defaultMaxSpeedRail;
@@ -196,9 +187,9 @@ public abstract class EntityRollingStock extends AbstractTrains {
             soundUpdater();
         }
 
+        bogies.update(); // Should be before seats & hitbox else they don't line up every frame
         seats.update();
         hitbox.update();
-        bogies.update();
 
         if (getWorld().isRemote) {
             if(render_cache!=null && render_cache.bogies!=null){
@@ -209,8 +200,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
                     }
                 }
             }
-
-            return;
         }
 
         else {
@@ -218,17 +207,7 @@ public abstract class EntityRollingStock extends AbstractTrains {
 
             links.restoreLinks();
 
-            int floor_posX = MathHelper.floor_double(posX);
-            int floor_posY = MathHelper.floor_double(posY);
-            int floor_posZ = MathHelper.floor_double(posZ);
-
-            if (getWorld().isAirBlock(floor_posX, floor_posY, floor_posZ))
-                floor_posY--;
-            else if (isRailBlockAt(getWorld(), floor_posX, floor_posY + 1, floor_posZ) || getWorld().getBlock(floor_posX, floor_posY + 1, floor_posZ) == BlockIDs.tcRail.block || getWorld().getBlock(floor_posX, floor_posY + 1, floor_posZ) == BlockIDs.tcRailGag.block)
-                floor_posY++;
-
             func_145775_I();
-            MinecraftForge.EVENT_BUS.post(new MinecartUpdateEvent(this, floor_posX, floor_posY, floor_posZ));
 
             dataWatcher.updateObject(14, (int) (motionX * 100));
             dataWatcher.updateObject(21, (int) (motionZ * 100));
@@ -361,11 +340,6 @@ public abstract class EntityRollingStock extends AbstractTrains {
     /*
      * =========================================== PHYSICS ===========================================
      **/
-
-    @Override
-    public void setVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {
-        bogies.setVelocity(p_70024_1_, p_70024_3_, p_70024_5_);
-    }
 
     @Override
     public void addVelocity(double p_70024_1_, double p_70024_3_, double p_70024_5_) {

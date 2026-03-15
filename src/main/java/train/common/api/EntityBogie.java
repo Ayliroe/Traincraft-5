@@ -1,26 +1,33 @@
 package train.common.api;
 
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import ebf.tim.utility.CommonUtil;
 import fexcraft.tmt.slim.Vec3f;
+import io.netty.buffer.ByteBuf;
 import mods.railcraft.api.tracks.ITrackSwitch;
 import mods.railcraft.api.tracks.ITrackTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockRailBase;
-import net.minecraft.entity.boss.EntityDragonPart;
+import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import train.common.Traincraft;
 import train.common.blocks.BlockTCRail;
 import train.common.blocks.BlockTCRailGag;
+import train.common.core.network.PacketSendBogieID;
 import train.common.items.TCRailTypes;
 import train.common.tile.TileTCRail;
 import train.common.tile.TileTCRailGag;
 
-public class EntityBogie extends EntityDragonPart {
+public class EntityBogie extends EntityMinecart implements IEntityAdditionalSpawnData {
 
 	public EntityRollingStock host;
+	private boolean isFront;
 
 	public boolean isOnRail = false;
 	public int meta,oldBlockX,oldBlockZ;
@@ -47,27 +54,121 @@ public class EntityBogie extends EntityDragonPart {
 
 	public double[] velocity = new double[]{0,0};
 
-	public EntityBogie(EntityRollingStock host, double x, double y, double z) {
-		super(host, "bogie", 0.5f, 1.25f);
+	/*
+	 * =========================================== INIT ===========================================
+	 **/
+
+	// Serverside constructor
+	public EntityBogie(EntityRollingStock host, double x, double y, double z, boolean isFront) {
+		this(host.getWorld());
 		this.host = host;
+		this.isFront = isFront;
 		yOffset=0.425f; // TODO: this shouldn't be duplicated in ItemRollingStock
 		setPosition(x, y, z);
 	}
 
+	// Clientside constructor
+	public EntityBogie(World world) {
+		super(world);
+		setSize(0.5f, 1.25f);
+		noClip = true;
+		renderDistanceWeight = 5.0D;
+		isImmuneToFire = true;
+		preventEntitySpawning = false;
+	}
+
+	@Override
+	public void writeSpawnData(ByteBuf buffer) {
+		buffer.writeDouble(posY); // Has to be sent to the client bogie, else it spawns at the wrong offset
+		buffer.writeBoolean(isFront);
+		buffer.writeInt(host.getEntityId());
+	}
+
+	@Override
+	public void readSpawnData(ByteBuf additionalData) {
+		posY = additionalData.readDouble();
+		isFront = additionalData.readBoolean();
+		int hostID = additionalData.readInt();
+		Traincraft.rotationChannel.sendToAllAround(new PacketSendBogieID(hostID, this.getEntityId(), isFront),
+				new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300.0D));
+	}
+
+	/*
+	 * =========================================== CLIENTSIDE MOVEMENT ===========================================
+	 * This part is directly ported from the vanilla Minecart code.
+	 * It's used here to make sure that client bogie entities move with the same smooth motion as vanilla minecarts.
+	 * This requires this entity being registered using EntityRegistry.registerModEntity() so an engine-managed client bogie spawns.
+	 * It's technically possible to spawn our own client bogies manually and send movement updates through packets, but it isn't as smooth.
+	 * The clientside bogie doesn't know its own host, and should never be updated directly, only queried for its position.
+	 **/
+
+	private int turnProgress;
+	private double minecartX;
+	private double minecartY;
+	private double minecartZ;
+	private double minecartYaw;
+	private double minecartPitch;
+
+	/** This is what the client is provided to generate smooth local motion */
+	@SideOnly(Side.CLIENT)
+	public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_) {
+		this.minecartX = p_70056_1_;
+		this.minecartY = p_70056_3_;
+		this.minecartZ = p_70056_5_;
+		this.minecartYaw = (double)p_70056_7_;
+		this.minecartPitch = (double)p_70056_8_;
+		this.turnProgress = p_70056_9_ + 2;
+	}
+
+	/** Should be left empty, else the client architecture sometimes calls it causing weird false offsets */
+	@SideOnly(Side.CLIENT)
+	public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_) {}
+
+	@Override
+	public void onUpdate() {
+		if (this.worldObj.isRemote) {
+			if (this.turnProgress > 0) {
+				double d6 = this.posX + (this.minecartX - this.posX) / (double)this.turnProgress;
+				double d7 = this.posY + (this.minecartY - this.posY) / (double)this.turnProgress;
+				double d1 = this.posZ + (this.minecartZ - this.posZ) / (double)this.turnProgress;
+				double d3 = MathHelper.wrapAngleTo180_double(this.minecartYaw - (double)this.rotationYaw);
+				this.rotationYaw = (float)((double)this.rotationYaw + d3 / (double)this.turnProgress);
+				this.rotationPitch = (float)((double)this.rotationPitch + (this.minecartPitch - (double)this.rotationPitch) / (double)this.turnProgress);
+				--this.turnProgress;
+				this.setPosition(d6, d7, d1);
+				this.setRotation(this.rotationYaw, this.rotationPitch);
+			}
+			else {
+				this.setPosition(this.posX, this.posY, this.posZ);
+				this.setRotation(this.rotationYaw, this.rotationPitch);
+			}
+		}
+	}
+
+	@Override
+	public int getMinecartType() { return 0; }
+
+	/*
+	 * =========================================== SERVERSIDE MOVEMENT ===========================================
+	 **/
+
 	public void update() {
+		xFloor = CommonUtil.floorDouble(posX);
+		yFloor = CommonUtil.floorDouble(posY);
+		zFloor = CommonUtil.floorDouble(posZ);
+		Block oldL=l;
+		l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
+
+		// This part is done in both server & client, as it is used for both derailing physics and doing a visual y offset on the client
+		isOnRail = l instanceof BlockRailBase || l instanceof BlockTCRail || l instanceof BlockTCRailGag;
+
 		if(!getWorld().isRemote && (Math.abs(velocity[0]) + Math.abs(velocity[1])) != 0) {
-			xFloor = CommonUtil.floorDouble(posX);
-			yFloor = CommonUtil.floorDouble(posY);
-			zFloor = CommonUtil.floorDouble(posZ);
 
 			//update old position, add the gravity, and get the block below this,
 			prevPosX = posX;
 			prevPosY = posY;
 			prevPosZ = posZ;
 
-			Block oldL=l;
-
-			l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
 			//detect slopes
 			if(!(l instanceof BlockRailBase || l instanceof BlockTCRail || l instanceof BlockTCRailGag)){
 				prevPosY = posY;
@@ -94,7 +195,6 @@ public class EntityBogie extends EntityDragonPart {
 			}
 
 			//move on rails
-			isOnRail = true;
 			double speedMagnitude = Math.sqrt(Math.pow(velocity[0],2)+Math.pow(velocity[1],2));
 			limitSpeed(speedMagnitude);
 			if (l instanceof BlockRailBase) {
@@ -106,7 +206,6 @@ public class EntityBogie extends EntityDragonPart {
 				yFloor++;
 				posX += velocity[0] * 0.5;
 				posZ += velocity[1] * 0.5;
-				isOnRail = false;
 			}
 		}
 	}

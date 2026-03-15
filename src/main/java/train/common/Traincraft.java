@@ -26,6 +26,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import train.common.api.EntityBogie;
 import train.common.api.LiquidManager;
 import train.common.blocks.TCBlocks;
 import train.common.core.CommonProxy;
@@ -204,6 +205,7 @@ public class Traincraft {
         AchievementRecord.init();
 
         EntityRegistry.registerModEntity(EntityZeppelinTwoBalloons.class, "zeppelin", EntityIds.ZEPPELIN, Traincraft.instance, 512, 1, true);//zepplin
+        EntityRegistry.registerModEntity(EntityBogie.class, "Entity Bogie", EntityIds.LOCOMOTIVE_BOGIE, Traincraft.instance, 512, 1, true);//bogie
         EntityRegistry.registerModEntity(EntityZeppelinOneBalloon.class, "zeppelin big", EntityIds.ZEPPELIN_BIG, Traincraft.instance, 512, 1, true);//zepplin big
 
         /* Liquid FX */

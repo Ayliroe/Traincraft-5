@@ -91,7 +91,10 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         super(world);
 
         setSize(0.25f, 0.25f);
-        renderDistanceWeight = 2.0D;
+        noClip = true;
+        renderDistanceWeight = 5.0D;
+        isImmuneToFire = true;
+        yOffset = 0;
 
         // TODO: merge stuff into json
         dataWatcher.addObject(30, "");
