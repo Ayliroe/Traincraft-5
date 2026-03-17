@@ -1420,9 +1420,9 @@
     "shouldRiderSit": "TRUE",
     "riderOffsets": [
       [
-        2.3,
+        -2.3,
         0,
-        -0.15
+        0
       ]
     ],
     "spawnInStation": "FALSE"

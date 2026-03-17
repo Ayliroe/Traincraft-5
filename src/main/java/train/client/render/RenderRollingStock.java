@@ -75,8 +75,9 @@ public class RenderRollingStock extends Render {
         int i = MathHelper.floor_double(cart.posX);
         int j = MathHelper.floor_double(cart.posY);
         int k = MathHelper.floor_double(cart.posZ);
-        
-        GL11.glTranslatef(0f, 0.15f - cart.bogies.isDerailed() * 0.15f, 0f);
+
+        // Was before a dynamic offset depending on if the host is on rails, but this causes too many issues on client curves and TC slopes
+        GL11.glTranslatef(0f, 0.15f, 0f);
 
         GL11.glRotatef(180-cart.rotationYaw, 0.0F, 1.0F, 0.0F);
         GL11.glRotatef(cart.rotationPitch, 0.0F, 0.0F, 1.0F);

@@ -23,6 +23,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
 import train.client.core.handlers.SoundUpdaterRollingStock;
 import train.common.Traincraft;
@@ -130,6 +131,11 @@ public abstract class EntityRollingStock extends AbstractTrains {
         if (additionalData.readBoolean()) { // If accepts overlay textures...
             getOverlayTextureContainer().importFromConfigTag(ByteBufUtils.readTag(additionalData));
         }
+    }
+
+    @Override
+    public void entitySpawn() {
+        bogies.entitySpawn();
     }
 
     /*

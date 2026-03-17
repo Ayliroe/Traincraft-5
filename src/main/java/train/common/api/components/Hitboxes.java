@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.EntityDamageSource;
 import train.common.api.AbstractTrains;
+import train.common.api.EntityBogie;
 import train.common.api.EntityRollingStock;
 import train.common.api.Locomotive;
 import train.common.core.handlers.ConfigHandler;
@@ -76,7 +77,7 @@ public class Hitboxes {
             }
             // Collide with carts, but not our own stocks/bogies
             else if (obj instanceof EntityMinecart) {
-                if (obj instanceof AbstractTrains)
+                if (obj instanceof AbstractTrains || obj instanceof EntityBogie)
                     continue;
 
             }

@@ -12,6 +12,8 @@ import mods.railcraft.api.tracks.ITrackTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockRailBase;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
@@ -28,6 +30,7 @@ public class EntityBogie extends EntityMinecart implements IEntityAdditionalSpaw
 
 	public EntityRollingStock host;
 	private boolean isFront;
+	private int hostID;
 
 	public boolean isOnRail = false;
 	public int meta,oldBlockX,oldBlockZ;
@@ -75,6 +78,7 @@ public class EntityBogie extends EntityMinecart implements IEntityAdditionalSpaw
 		renderDistanceWeight = 5.0D;
 		isImmuneToFire = true;
 		preventEntitySpawning = false;
+		forceSpawn = true; // Extremely important to guarantee that bogies DO always spawn when the host does, this also helps them move in sync with the host somehow
 	}
 
 	@Override
@@ -88,9 +92,19 @@ public class EntityBogie extends EntityMinecart implements IEntityAdditionalSpaw
 	public void readSpawnData(ByteBuf additionalData) {
 		posY = additionalData.readDouble();
 		isFront = additionalData.readBoolean();
-		int hostID = additionalData.readInt();
-		Traincraft.rotationChannel.sendToAllAround(new PacketSendBogieID(hostID, this.getEntityId(), isFront),
-				new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300.0D));
+		hostID = additionalData.readInt();
+		tryFindHost();
+	}
+
+	/**
+	 * Unclear why we need a packet to send from the client to the client, but it does work better than searching for the host directly
+	 * We sadly also have to spam that on update until the clientside host is found, as clientside bogies have a chance to spawn before it
+	 */
+	private void tryFindHost() {
+		if (host == null) {
+			Traincraft.rotationChannel.sendToAllAround(new PacketSendBogieID(hostID, this.getEntityId(), isFront),
+					new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, posX, posY, posZ, 300.0D));
+		}
 	}
 
 	/*
@@ -127,6 +141,9 @@ public class EntityBogie extends EntityMinecart implements IEntityAdditionalSpaw
 	@Override
 	public void onUpdate() {
 		if (this.worldObj.isRemote) {
+			if (ticksExisted % 4 == 0)
+				tryFindHost();
+
 			if (this.turnProgress > 0) {
 				double d6 = this.posX + (this.minecartX - this.posX) / (double)this.turnProgress;
 				double d7 = this.posY + (this.minecartY - this.posY) / (double)this.turnProgress;
@@ -148,21 +165,22 @@ public class EntityBogie extends EntityMinecart implements IEntityAdditionalSpaw
 	@Override
 	public int getMinecartType() { return 0; }
 
+	/** Important to prevent the bogies from getting killed when on diagonals on a map reload */
+	@Override
+	public boolean isEntityInvulnerable() { return true; }
+
 	/*
 	 * =========================================== SERVERSIDE MOVEMENT ===========================================
 	 **/
 
 	public void update() {
-		xFloor = CommonUtil.floorDouble(posX);
-		yFloor = CommonUtil.floorDouble(posY);
-		zFloor = CommonUtil.floorDouble(posZ);
-		Block oldL=l;
-		l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
-
-		// This part is done in both server & client, as it is used for both derailing physics and doing a visual y offset on the client
-		isOnRail = l instanceof BlockRailBase || l instanceof BlockTCRail || l instanceof BlockTCRailGag;
-
 		if(!getWorld().isRemote && (Math.abs(velocity[0]) + Math.abs(velocity[1])) != 0) {
+
+			xFloor = CommonUtil.floorDouble(posX);
+			yFloor = CommonUtil.floorDouble(posY);
+			zFloor = CommonUtil.floorDouble(posZ);
+			Block oldL=l;
+			l = CommonUtil.getBlockAt(getWorld(), xFloor, yFloor, zFloor);
 
 			//update old position, add the gravity, and get the block below this,
 			prevPosX = posX;
@@ -207,6 +225,8 @@ public class EntityBogie extends EntityMinecart implements IEntityAdditionalSpaw
 				posX += velocity[0] * 0.5;
 				posZ += velocity[1] * 0.5;
 			}
+
+			isOnRail = l instanceof BlockRailBase || l instanceof BlockTCRail || l instanceof BlockTCRailGag;
 		}
 	}
 

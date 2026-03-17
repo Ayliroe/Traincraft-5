@@ -53,6 +53,9 @@ public class WorldEvents {
         if (event.entity instanceof EntityAnimal) {
             ((EntityAnimal) event.entity).tasks.addTask(0, new EntityAIFearHorn(((EntityAnimal) event.entity)));
         }
+        if (event.entity instanceof AbstractTrains) {
+            ((AbstractTrains) event.entity).entitySpawn();
+        }
     }
 
     @SubscribeEvent

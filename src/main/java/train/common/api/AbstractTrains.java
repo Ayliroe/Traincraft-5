@@ -28,6 +28,7 @@ import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
@@ -135,6 +136,9 @@ public abstract class AbstractTrains extends EntityMinecart implements IMinecart
         init(TraincraftRegistry.trains.get(ByteBufUtils.readUTF8String(additionalData)));
         setTrainLockedFromPacket(additionalData.readBoolean());
     }
+
+    // Called from WorldEvents when the entity is added to the chunk
+    public void entitySpawn() {}
 
     /*
      * =========================================== NBT ===========================================

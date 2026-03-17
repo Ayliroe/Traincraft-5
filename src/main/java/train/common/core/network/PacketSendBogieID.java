@@ -44,8 +44,8 @@ public class PacketSendBogieID implements IMessage {
                 Entity bogie = mc.theWorld.getEntityByID(message.bogieID);
                 if (entity instanceof EntityRollingStock && bogie instanceof EntityBogie) {
                     ((EntityRollingStock) entity).bogies.setBogieFromServer((EntityBogie)bogie, message.isFront);
+                    ((EntityBogie)bogie).host = ((EntityRollingStock) entity);
                 }
-                else bogie.setDead();
             }
             return null;
         }

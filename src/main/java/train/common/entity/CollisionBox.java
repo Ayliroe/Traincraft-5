@@ -10,6 +10,7 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -41,20 +42,6 @@ public class CollisionBox extends EntityDragonPart implements IInventory, IFluid
         return false;
     }
 
-    //check often to be sure the host actually exists and didnt somehow get deleted in such a way that would make it skip hitbox removal.
-    @Override
-    public void onUpdate() {
-        if(worldObj==null){
-            return;
-        }
-        if (ticksExisted % 100 == 0) {
-            if (host ==null || !(worldObj.getEntityByID(host.getEntityId()) instanceof EntityRollingStock)) {
-                this.setDead();
-                worldObj.removeEntity(this);
-            }
-        }
-    }
-
     /*
      * =========================================== MINECRAFT ENTITY, ENTITYDRAGONPART ===========================================
      **/
@@ -72,16 +59,14 @@ public class CollisionBox extends EntityDragonPart implements IInventory, IFluid
             Traincraft.keyChannel.sendToServer(new PacketRemove(host.getEntityId(), damageSource==null?-1:damageSource.getEntity().getEntityId()));
             return true;
         }
-        return host != null && host.attackEntityFromPart(this, damageSource, p_70097_2_);
+        return host.attackEntityFromPart(this, damageSource, p_70097_2_);
     }
 
+    // Returning false in both of these disables writing the entity to disk
     @Override
-    public void setPosition(double p_70107_1_, double p_70107_3_, double p_70107_5_) {
-        this.posX = p_70107_1_;
-        this.posY = p_70107_3_;
-        this.posZ = p_70107_5_;
-        this.boundingBox.setBounds(p_70107_1_ - (this.width*0.5), p_70107_3_ - (double) this.yOffset + (double) this.ySize, p_70107_5_ - (this.width*0.5), p_70107_1_ + (this.width*0.5), p_70107_3_ - (double) this.yOffset + (double) this.ySize + (double) this.height, p_70107_5_ + (this.width*0.5));
-    }
+    public boolean writeToNBTOptional(NBTTagCompound tagCompound) { return false; }
+    @Override
+    public boolean writeMountToNBT(NBTTagCompound tagCompound) { return false; }
 
     /*
      * =========================================== MINECRAFT IINVENTORY ===========================================
